@@ -14,12 +14,12 @@
         <TextBox x:Name="txtUser" HorizontalAlignment="Left" Height="36" Margin="186,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
 
         <Label Content="Contraseña" HorizontalAlignment="Left" Margin="63,305,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox x:Name="txtpassword" HorizontalAlignment="Left" Height="36" Margin="186,305,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
 
         <Button x:Name="btnAyuda" Margin="395,22,0,0" HorizontalAlignment="Left" Width="62" Height="97" VerticalAlignment="Top">
             <Image Source="imagenes/ayuda.png"></Image>
         </Button>
 
         <Button Content="Iniciar Sesion" x:Name="btnLogin" Margin="147,383,0,0" FontSize="18" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Width="158"/>
+        <PasswordBox x:Name="pwdPass" HorizontalAlignment="Left" Margin="186,306,0,0" VerticalAlignment="Top" Width="179" Height="36"/>
     </Grid>
 </Window>
