@@ -1,0 +1,15 @@
+C:\Users\ryu66\Source\Repos\SAFEplus\SAFEplus\SAFE.Presentacion\bin\Debug\SAFE.Presentacion.exe.config
+C:\Users\ryu66\Source\Repos\SAFEplus\SAFEplus\SAFE.Presentacion\bin\Debug\SAFE.Presentacion.exe
+C:\Users\ryu66\Source\Repos\SAFEplus\SAFEplus\SAFE.Presentacion\bin\Debug\SAFE.Presentacion.pdb
+C:\Users\ryu66\Source\Repos\SAFEplus\SAFEplus\SAFE.Presentacion\obj\Debug\SAFE.Presentacion.csprojAssemblyReference.cache
+C:\Users\ryu66\Source\Repos\SAFEplus\SAFEplus\SAFE.Presentacion\obj\Debug\MainWindow.g.cs
+C:\Users\ryu66\Source\Repos\SAFEplus\SAFEplus\SAFE.Presentacion\obj\Debug\App.g.cs
+C:\Users\ryu66\Source\Repos\SAFEplus\SAFEplus\SAFE.Presentacion\obj\Debug\SAFE.Presentacion_MarkupCompile.cache
+C:\Users\ryu66\Source\Repos\SAFEplus\SAFEplus\SAFE.Presentacion\obj\Debug\SAFE.Presentacion_MarkupCompile.lref
+C:\Users\ryu66\Source\Repos\SAFEplus\SAFEplus\SAFE.Presentacion\obj\Debug\MainWindow.baml
+C:\Users\ryu66\Source\Repos\SAFEplus\SAFEplus\SAFE.Presentacion\obj\Debug\SAFE.Presentacion.g.resources
+C:\Users\ryu66\Source\Repos\SAFEplus\SAFEplus\SAFE.Presentacion\obj\Debug\SAFE.Presentacion.Properties.Resources.resources
+C:\Users\ryu66\Source\Repos\SAFEplus\SAFEplus\SAFE.Presentacion\obj\Debug\SAFE.Presentacion.csproj.GenerateResource.cache
+C:\Users\ryu66\Source\Repos\SAFEplus\SAFEplus\SAFE.Presentacion\obj\Debug\SAFE.Presentacion.csproj.CoreCompileInputs.cache
+C:\Users\ryu66\Source\Repos\SAFEplus\SAFEplus\SAFE.Presentacion\obj\Debug\SAFE.Presentacion.exe
+C:\Users\ryu66\Source\Repos\SAFEplus\SAFEplus\SAFE.Presentacion\obj\Debug\SAFE.Presentacion.pdb
