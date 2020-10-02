@@ -19,7 +19,7 @@
             <Image Source="imagenes/ayuda.png"></Image>
         </Button>
 
-        <Button Content="Iniciar Sesion" x:Name="btnLogin" Margin="147,383,0,0" FontSize="18" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Width="158"/>
+        <Button Content="Iniciar Sesion" x:Name="btnLogin" Margin="147,383,0,0" FontSize="18" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Width="158" Click="btnLogin_Click"/>
         <PasswordBox x:Name="pwdPass" HorizontalAlignment="Left" Margin="186,306,0,0" VerticalAlignment="Top" Width="179" Height="36"/>
     </Grid>
 </Window>

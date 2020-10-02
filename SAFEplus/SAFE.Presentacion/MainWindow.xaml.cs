@@ -24,5 +24,13 @@ namespace SAFE.Presentacion
         {
             InitializeComponent();
         }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+
+            mantenedorBase mantenedorBase = new mantenedorBase();
+            mantenedorBase.Show();
+            this.Close();
+        }
     }
 }

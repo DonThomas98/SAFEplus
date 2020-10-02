@@ -1,0 +1,26 @@
+﻿<Window x:Class="SAFE.Presentacion.crearClientes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SAFE.Presentacion"
+        mc:Ignorable="d"
+        Title="crearClientes" Height="450" Width="800">
+    <Grid>
+        <Label Content="Nombre Compañia" HorizontalAlignment="Left" Margin="200,116,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="Representante legal" HorizontalAlignment="Left" Margin="194,163,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.132,0.423" FontSize="20"/>
+        <Label Content="Rut" HorizontalAlignment="Left" Margin="338,79,0,0" VerticalAlignment="Top" FontSize="20" RenderTransformOrigin="1.25,1"/>
+        <Label Content="Direccion Legal" HorizontalAlignment="Left" Margin="233,215,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="Formulario de Clientes Nuevos&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="239,10,0,0" FontSize="24"/>
+        <TextBox x:Name="txtRut" HorizontalAlignment="Left" Height="23" Margin="442,89,0,0" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtCompania" HorizontalAlignment="Left" Height="23" Margin="442,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtRepresentante" HorizontalAlignment="Left" Height="23" Margin="442,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="23" Margin="442,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+        <Button x:Name="btnRegistrarCliente" Content="Registar Cliente&#xD;&#xA;" HorizontalAlignment="Left" Margin="344,332,0,0" VerticalAlignment="Top" Width="229" FontSize="24" Click="btnRegistrarCliente_Click"/>
+        <Button x:Name="btnvolver" Margin="10,10,697,357" Click="btnvolver_Click">
+            <Image Source="imagenes/volver.png" Height="46" Width="126" />
+        </Button>
+
+    </Grid>
+</Window>

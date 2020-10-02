@@ -8,5 +8,6 @@ namespace SAFE.Datos
 {
     public class Class1
     {
+
     }
 }
