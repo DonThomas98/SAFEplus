@@ -77,3 +77,20 @@ CREATE TABLE material_solicitado(
     FOREIGN KEY (id_capacitacion ) REFERENCES capacitaciones(id_capacitacion),
     FOREIGN KEY (id_material )     REFERENCES material_capacitaciones(id_material)
 );
+
+
+CREATE TABLE tipo_contrato(
+    tipo_contrato  NUMERIC PRIMARY KEY NOT NULL,##Codigo del tipo de contrato
+    descripcion    VARCHAR2            NOT NULL,
+
+);
+
+CREATE TABLE contrato(
+    id_contrato   NUMERIC PRIMARY KEY NOT NULL ,
+    tipo_contrato        NUMERIC      NOT NULL ,##FK
+    fecha_contratacion   DATE         NOT NULL ,##fecha en la que se firma el contrato
+    id_empresa    NUMERIC primary KEY NOT NULL ,##FK ,vincula el contrato con la empresa
+    FOREIGN KEY (id_empresa ) REFERENCES empresa(id_empresa),
+    FOREIGN KEY (tipo_contrato ) REFERENCES tipo_contrato(tipo_contrato),
+);
+
