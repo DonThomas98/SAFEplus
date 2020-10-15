@@ -7,13 +7,13 @@ CREATE TABLE empresa (
 
 
 CREATE TABLE cargo (
-    id_cargo   NUMBER   primary KEY NOT NULL,
+    id_cargo   NUMBER   primary KEY NOT NULL,,##Numero identificador del caargo del trabajador de prevencion .
     cargo      VARCHAR2 NOT NULL,
 );
 
 
 
-CREATE TABLE cliente (
+CREATE TABLE cliente (##Representante de la empresa con la que se realiza contrato 
     rut         NUMBER   primary KEY NOT NULL,
     dv_rut      NUMBER   NOT NULL,
     p_nombre    VARCHAR2 NOT NULL,
@@ -111,38 +111,49 @@ CREATE TABLE contrato(
 );
 
 
-
+##Esta tabla es para identificar el tipo de accidente 
 CREATE TABLE tipo_accidente (
-    id_tipo_accidente NUMERIC PRIMARY KEY NOT NULL ,
-    descripcion       VARCHAR2            NOT NULL ,##Aca se describe con una letra el tipo de accidente ,1 Laboral ,2 Revision , 3 Capacitacion , 4 Visita.
+    id_tipo_accidente NUMERIC PRIMARY KEY NOT NULL ,##1 Laboral ,2 Revision , 3 Capacitacion , 4 Visita.
+    descripcion       VARCHAR2            NOT NULL ,##Aca se describe con una letra el tipo de accidente 
 );
 
 
 CREATE TABLE accidente(
     id_accidente      NUMERIC PRIMARY KEY NOT NULL ,
-    fecha_accidente   DATE             NOT NULL ,
-    id_tipo_accidente NUMERIC          NOT NULL ,##FK
+    fecha_accidente   DATE                NOT NULL  ,
+    id_tipo_accidente NUMERIC             NOT NULL  ,##FK
     FOREIGN KEY (id_tipo_accidente ) REFERENCES tipo_accidente(id_tipo_accidente),
 
 );
 
 
+##Esta tabla es para identificar si el accidentado es un trabajador de prevencion o un cliente.
+CREATE TABLE tipo_accidentados(
+    id_tipo_accidentado NUMERIC PRIMARY KEY NOT NULL ,##1 para cliente y 2 para trabajador de prevencion de riesgo.
+    descripcion         VARCHAR2            NOT NULL ,cliente / trabajador
 
-##Esta tabla registra los afectados en un accidente 
-CREATE TABLE accidentados ( 
-    id_accidentados NUMERIC PRIMARY KEY NOT NULL ,##Numero identificador de accidentado , se auto incrementa
-    id_accidente    NUMERIC             NOT NULL ,##FK
-    rut NUMERIC             NOT NULL ,##FK , puede ser tanto un cliente como trabajador , debera existir un buscador por rut para llenar rapidamente el formulario 
-                                                  ##debera aparecer la nomina de empleados de la empresa y el trabajador asignado a esta.
-    p_nombre        VARCHAR2            NOT NULL,
-    s_nombre        VARCHAR2            NOT NULL,
-    p_apellido      VARCHAR2            NOT NULL,
-    s_apellido      VARCHAR2            NOT NULL,
-    direccion       VARCHAR2            NOT NULL,
-    telefono        NUMBER                      ,
-    celular         NUMBER              NOT NULL,
-                                                
 );
+
+##Esta tabla registra los afectados en un accidente , se guardan los datos sin asociarlos a las tablas de trabajador cliente.
+CREATE TABLE accidentados ( 
+    id_accidentados     NUMERIC PRIMARY KEY NOT NULL ,##Numero identificador de accidentado , se auto incrementa
+    id_accidente        NUMERIC             NOT NULL ,##FK
+    rut                 NUMERIC             NOT NULL ,##puede ser tanto un cliente como trabajador , debera existir un buscador por rut para llenar rapidamente el formulario 
+                                                      ##debera aparecer la nomina de empleados de la empresa y el trabajador asignado a esta.
+    p_nombre            VARCHAR2            NOT NULL,
+    s_nombre            VARCHAR2            NOT NULL,
+    p_apellido          VARCHAR2            NOT NULL,
+    s_apellido          VARCHAR2            NOT NULL,
+    direccion           VARCHAR2            NOT NULL,
+    telefono            NUMBER                      ,
+    celular             NUMBER              NOT NULL,
+    id_tipo_accidentado NUMERIC             NOT NULL,##FK para vincular el rut para el tipo de trabajador , el que sufrio un accidente puede ser de la aseguradora o empleado de la empresa que contrato servicios.
+    FOREIGN KEY (id_accidente )        REFERENCES accidente(id_accidente),
+    FOREIGN KEY (id_tipo_accidentado ) REFERENCES tipo_accidentados(id_tipo_accidentado),
+
+                                                    
+);
+
 
 
 CREATE TABLE visita_terreno(
@@ -150,7 +161,9 @@ CREATE TABLE visita_terreno(
     fecha_visita    DATE                NOT NULL ,
     rut             NUMERIC             NOT NULL , ##FK , rut del trabajador que realizara la visita a terreno
     id_empresa      NUMERIC             NOT NULL , ##Fk , conecta la visita con la empresa a realizar la visita.
-    FOREIGN KEY (rut ) REFERENCES trabajador(rut),
+    FOREIGN KEY (rut) REFERENCES trabajador(rut),
+    FOREIGN KEY (id_empresa) REFERENCES empresa(id_empresa),
+
 
 );
 
