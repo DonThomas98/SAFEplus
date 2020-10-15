@@ -1,13 +1,17 @@
 CREATE TABLE empresa (
-    id_empresa      NUMERIC primary KEY NOT NULL,
+    id_empresa      NUMERIC primary KEY NOT NULL,##Numero identificador de la empresa , se auto incrementa
     nombre_empresa  VARCHAR2 NOT NULL,
     fecha_registro  DATE NOT NULL   ##Este campo es para ver cuando se registro la empresa y calcular cobros
 );
+
+
 
 CREATE TABLE cargo (
     id_cargo   NUMBER   primary KEY NOT NULL,
     cargo      VARCHAR2 NOT NULL,
 );
+
+
 
 CREATE TABLE cliente (
     rut         NUMBER   primary KEY NOT NULL,
@@ -23,6 +27,8 @@ CREATE TABLE cliente (
     FOREIGN KEY (id_empresa) REFERENCES empresa(id_empresa)
 );
 
+
+
 CREATE TABLE trabajador (
     rut         NUMBER   primary KEY NOT NULL,
     dv_rut      NUMBER   NOT NULL,
@@ -34,10 +40,11 @@ CREATE TABLE trabajador (
     direccion   VARCHAR2 NOT NULL,
     telefono    NUMBER           ,##Telefono como opcional , se ocupa de manera obligatoria el celular
     celular     NUMBER   NOT NULL,
-    id_cargo   NUMBER   NOT NULL ,
+    id_cargo    NUMBER   NOT NULL,
     FOREIGN KEY (id_cargo ) REFERENCES empresa(id_cargo )##Relaciona al trabajador con una empresa
 
 );
+
 
 
 CREATE TABLE registro_pagos (
@@ -47,6 +54,8 @@ CREATE TABLE registro_pagos (
 
 );
 
+
+
 ##Guarda el registro de las capacitaciones y material usado
 
 CREATE TABLE material_capacitaciones(
@@ -55,17 +64,20 @@ CREATE TABLE material_capacitaciones(
 );
 
 
+
+
 CREATE TABLE capacitaciones(
     id_capacitacion NUMERIC PRIMARY KEY NOT NULL ,
     fecha_solicitud DATE NOT NULL                ,##Fecha en que se solicita la capacitacion
     fecha_capacitacion DATE NOT NULL             ,##Fecha en la que se concreta la capacitacion
     ##CONEXIONES FORANEAS
-    rut            NUMERIC primary KEY NOT NULL ,##Vincula al rut del empleado
-    id_empresa     NUMERIC primary KEY NOT NULL ,
-    FOREIGN KEY (rut) REFERENCES trabajador(rut),
+    rut            NUMERIC primary KEY NOT NULL  , ##Vincula al rut del empleado
+    id_empresa     NUMERIC primary KEY NOT NULL  ,
+    FOREIGN KEY (rut) REFERENCES trabajador(rut) ,
     FOREIGN KEY (id_empresa ) REFERENCES empresa(id_empresa )
     
 );
+
 
 
 
@@ -74,9 +86,11 @@ CREATE TABLE material_solicitado(
     id_material     NUMERIC NOT NULL             ,##FK
     cantidad        NUMERIC NOT NULL             ,
     id_capacitacion NUMERIC NOT NULL             ,##FK
+
     FOREIGN KEY (id_capacitacion ) REFERENCES capacitaciones(id_capacitacion),
     FOREIGN KEY (id_material )     REFERENCES material_capacitaciones(id_material)
 );
+
 
 
 CREATE TABLE tipo_contrato(
@@ -84,6 +98,8 @@ CREATE TABLE tipo_contrato(
     descripcion    VARCHAR2            NOT NULL,
 
 );
+
+
 
 CREATE TABLE contrato(
     id_contrato   NUMERIC PRIMARY KEY NOT NULL ,
@@ -93,4 +109,57 @@ CREATE TABLE contrato(
     FOREIGN KEY (id_empresa ) REFERENCES empresa(id_empresa),
     FOREIGN KEY (tipo_contrato ) REFERENCES tipo_contrato(tipo_contrato),
 );
+
+
+
+CREATE TABLE tipo_accidente (
+    id_tipo_accidente NUMERIC PRIMARY KEY NOT NULL ,
+    descripcion       VARCHAR2            NOT NULL ,##Aca se describe con una letra el tipo de accidente ,1 Laboral ,2 Revision , 3 Capacitacion , 4 Visita.
+);
+
+
+CREATE TABLE accidente(
+    id_accidente      NUMERIC PRIMARY KEY NOT NULL ,
+    fecha_accidente   DATE             NOT NULL ,
+    id_tipo_accidente NUMERIC          NOT NULL ,##FK
+    FOREIGN KEY (id_tipo_accidente ) REFERENCES tipo_accidente(id_tipo_accidente),
+
+);
+
+
+
+##Esta tabla registra los afectados en un accidente 
+CREATE TABLE accidentados ( 
+    id_accidentados NUMERIC PRIMARY KEY NOT NULL ,##Numero identificador de accidentado , se auto incrementa
+    id_accidente    NUMERIC             NOT NULL ,##FK
+    rut NUMERIC             NOT NULL ,##FK , puede ser tanto un cliente como trabajador , debera existir un buscador por rut para llenar rapidamente el formulario 
+                                                  ##debera aparecer la nomina de empleados de la empresa y el trabajador asignado a esta.
+    p_nombre        VARCHAR2            NOT NULL,
+    s_nombre        VARCHAR2            NOT NULL,
+    p_apellido      VARCHAR2            NOT NULL,
+    s_apellido      VARCHAR2            NOT NULL,
+    direccion       VARCHAR2            NOT NULL,
+    telefono        NUMBER                      ,
+    celular         NUMBER              NOT NULL,
+                                                
+);
+
+
+CREATE TABLE visita_terreno(
+    id_visita       NUMERIC PRIMARY KEY NOT NULL ,
+    fecha_visita    DATE                NOT NULL ,
+    rut             NUMERIC             NOT NULL , ##FK , rut del trabajador que realizara la visita a terreno
+    id_empresa      NUMERIC             NOT NULL , ##Fk , conecta la visita con la empresa a realizar la visita.
+    FOREIGN KEY (rut ) REFERENCES trabajador(rut),
+
+);
+
+
+
+
+
+
+
+
+
 
