@@ -5,21 +5,23 @@ CREATE TABLE empresa (
 );
 
 
-
+##Cargo de los trabajadores de prevencion de riesgo , tabla que podria quedar fuera 
 CREATE TABLE cargo (
     id_cargo   NUMBER   primary KEY NOT NULL,,##Numero identificador del caargo del trabajador de prevencion .
     cargo      VARCHAR2 NOT NULL,
 );
 
 
-
-CREATE TABLE cliente (##Representante de la empresa con la que se realiza contrato 
+##Representante de la empresa con la que se realiza contrato , podria modificarse la logica para asociar varios clientes a una empresa.
+CREATE TABLE cliente (
     rut         NUMBER   primary KEY NOT NULL,
     dv_rut      NUMBER   NOT NULL,
     p_nombre    VARCHAR2 NOT NULL,
     s_nombre    VARCHAR2 NOT NULL,
     p_apellido  VARCHAR2 NOT NULL,
     s_apellido  VARCHAR2 NOT NULL,
+    correo      VARCHAR2 NOT NULL,
+    edad        NUMBER   NOT NULL,
     direccion   VARCHAR2 NOT NULL,
     telefono    NUMBER           ,
     celular     NUMBER   NOT NULL,
@@ -36,17 +38,19 @@ CREATE TABLE trabajador (
     s_nombre    VARCHAR2 NOT NULL,
     p_apellido  VARCHAR2 NOT NULL,
     s_apellido  VARCHAR2 NOT NULL,
+    correo      VARCHAR2 NOT NULL,
     edad        NUMBER   NOT NULL,
     direccion   VARCHAR2 NOT NULL,
     telefono    NUMBER           ,##Telefono como opcional , se ocupa de manera obligatoria el celular
     celular     NUMBER   NOT NULL,
+    habilitado  Boolean  NOT NULL,##Si el trabajador esta trabajando actualmente 
     id_cargo    NUMBER   NOT NULL,
     FOREIGN KEY (id_cargo ) REFERENCES empresa(id_cargo )##Relaciona al trabajador con una empresa
 
 );
 
 
-
+##Tabla que guarda el registro de pagos 
 CREATE TABLE registro_pagos (
     id_pago numeric primary key ,
     monto_pago numeric NOT NULL ,  
@@ -56,8 +60,8 @@ CREATE TABLE registro_pagos (
 
 
 
-##Guarda el registro de las capacitaciones y material usado
 
+##Tabla que contiene los distintos materiales a usar en capacitaciones
 CREATE TABLE material_capacitaciones(
     id_material NUMERIC PRIMARY KEY NOT NULL ,
     material    VARCHAR2 NOT NULL            ,
@@ -65,13 +69,13 @@ CREATE TABLE material_capacitaciones(
 
 
 
-
+##Guarda el registro de las capacitaciones
 CREATE TABLE capacitaciones(
     id_capacitacion NUMERIC PRIMARY KEY NOT NULL ,
     fecha_solicitud DATE NOT NULL                ,##Fecha en que se solicita la capacitacion
     fecha_capacitacion DATE NOT NULL             ,##Fecha en la que se concreta la capacitacion
     ##CONEXIONES FORANEAS
-    rut            NUMERIC primary KEY NOT NULL  , ##Vincula al rut del empleado
+    rut            NUMERIC primary KEY NOT NULL  , ##Vincula al rut del prevencionista que realizara la capacitacion
     id_empresa     NUMERIC primary KEY NOT NULL  ,
     FOREIGN KEY (rut) REFERENCES trabajador(rut) ,
     FOREIGN KEY (id_empresa ) REFERENCES empresa(id_empresa )
@@ -80,7 +84,7 @@ CREATE TABLE capacitaciones(
 
 
 
-
+##Registro del material utilizado en cada capacitacion
 CREATE TABLE material_solicitado(
     id_registro     NUMERIC PRIMARY KEY NOT NULL ,
     id_material     NUMERIC NOT NULL             ,##FK
@@ -139,7 +143,7 @@ CREATE TABLE accidentados (
     id_accidentados     NUMERIC PRIMARY KEY NOT NULL ,##Numero identificador de accidentado , se auto incrementa
     id_accidente        NUMERIC             NOT NULL ,##FK
     rut                 NUMERIC             NOT NULL ,##puede ser tanto un cliente como trabajador , debera existir un buscador por rut para llenar rapidamente el formulario 
-                                                      ##debera aparecer la nomina de empleados de la empresa y el trabajador asignado a esta.
+                                                      ##debera aparecer la nomina de empleados de la empresa y el trabajador asignado a esta , en proceso.
     p_nombre            VARCHAR2            NOT NULL,
     s_nombre            VARCHAR2            NOT NULL,
     p_apellido          VARCHAR2            NOT NULL,
@@ -155,7 +159,7 @@ CREATE TABLE accidentados (
 );
 
 
-
+##Tabla que guarda los registros de la visita a a terreno , 2 por mes sin costo adicional
 CREATE TABLE visita_terreno(
     id_visita       NUMERIC PRIMARY KEY NOT NULL ,
     fecha_visita    DATE                NOT NULL ,
