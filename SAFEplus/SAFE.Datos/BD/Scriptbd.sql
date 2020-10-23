@@ -28,8 +28,8 @@ CREATE TABLE cliente (
     direccion   VARCHAR2 NOT NULL,
     telefono    NUMBER           ,
     celular     NUMBER   NOT NULL,
-    id_empresa  NUMBER   NOT NULL,
-    FOREIGN KEY (id_empresa) REFERENCES empresa(id_empresa)
+    
+    
 );
 
 
@@ -48,7 +48,7 @@ CREATE TABLE trabajador (
     celular     NUMBER   NOT NULL,
     habilitado  Boolean  NOT NULL,--Si el trabajador esta trabajando actualmente 
     id_cargo    NUMBER   NOT NULL,
-    FOREIGN KEY (id_cargo ) REFERENCES empresa(id_cargo )--Relaciona al trabajador con una empresa
+    FOREIGN KEY (id_cargo ) REFERENCES cargo(id_cargo )--Relaciona al trabajador con una empresa
 
 );
 
@@ -78,10 +78,10 @@ CREATE TABLE capacitaciones(
     fecha_solicitud DATE NOT NULL                ,--Fecha en que se solicita la capacitacion
     fecha_capacitacion DATE NOT NULL             ,--Fecha en la que se concreta la capacitacion
     --CONEXIONES FORANEAS
-    rut            NUMERIC primary KEY NOT NULL  , --Vincula al rut del prevencionista que realizara la capacitacion
-    id_empresa     NUMERIC primary KEY NOT NULL  ,
-    FOREIGN KEY (rut) REFERENCES trabajador(rut) ,
-    FOREIGN KEY (id_empresa ) REFERENCES empresa(id_empresa )
+    rut             NUMERIC  NOT NULL  , --Vincula al rut del prevencionista que realizara la capacitacion
+    rut_cliente     NUMERIC  NOT NULL ,
+    FOREIGN KEY (rut) REFERENCES trabajador(rut) ,--Vincula el rut al cual se le realizara la capacitacion
+    FOREIGN KEY (rut_cliente ) REFERENCES cliente(rut )
     
 );
 
@@ -93,9 +93,8 @@ CREATE TABLE material_solicitado(
     id_material     NUMERIC NOT NULL             ,--FK
     cantidad        NUMERIC NOT NULL             ,
     id_capacitacion NUMERIC NOT NULL             ,--FK
-
-    FOREIGN KEY (id_capacitacion ) REFERENCES capacitaciones(id_capacitacion),
-    FOREIGN KEY (id_material )     REFERENCES material_capacitaciones(id_material)
+    FOREIGN KEY (id_capacitacion )     REFERENCES capacitaciones(id_capacitacion),
+    FOREIGN KEY (id_material )     REFERENCES material_capacitaciones(id_material),
 );
 
 
@@ -112,8 +111,8 @@ CREATE TABLE contrato(
     id_contrato   NUMERIC PRIMARY KEY NOT NULL ,
     tipo_contrato        NUMERIC      NOT NULL ,--FK
     fecha_contratacion   DATE         NOT NULL ,--fecha en la que se firma el contrato
-    id_empresa    NUMERIC primary KEY NOT NULL ,--FK ,vincula el contrato con la empresa
-    FOREIGN KEY (id_empresa ) REFERENCES empresa(id_empresa),
+    rut           NUMERIC primary KEY NOT NULL ,--FK ,vincula el contrato con el cliente
+    FOREIGN KEY (rut ) REFERENCES cliente(rut),
     FOREIGN KEY (tipo_contrato ) REFERENCES tipo_contrato(tipo_contrato),
 );
 
@@ -160,9 +159,9 @@ CREATE TABLE visita_terreno(
     id_visita       NUMERIC PRIMARY KEY NOT NULL ,
     fecha_visita    DATE                NOT NULL ,
     rut             NUMERIC             NOT NULL , --FK , rut del trabajador que realizara la visita a terreno
-    id_empresa      NUMERIC             NOT NULL , --Fk , conecta la visita con la empresa a realizar la visita.
+    rut_cliente     NUMERIC             NOT NULL , --Fk , conecta la visita con la empresa a realizar la visita.
     FOREIGN KEY (rut) REFERENCES trabajador(rut),
-    FOREIGN KEY (id_empresa) REFERENCES empresa(id_empresa),
+    FOREIGN KEY (rut_cliente) REFERENCES cliente(rut),
 );
 
 
