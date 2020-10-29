@@ -10,24 +10,24 @@ CREATE TABLE empresa (
 --Cargo de los trabajadores de prevencion de riesgo , tabla que podria quedar fuera 
 
 CREATE TABLE cargo (
-    id_cargo   NUMBER   primary KEY NOT NULL,--Numero identificador del caargo del trabajador de prevencion .
+    id_cargo   NUMERIC   primary KEY NOT NULL,--Numero identificador del caargo del trabajador de prevencion .
     cargo      VARCHAR2 NOT NULL,
 );
 
 
 --Representante de la empresa con la que se realiza contrato , podria modificarse la logica para asociar varios clientes a una empresa.
 CREATE TABLE cliente (
-    rut         NUMBER   primary KEY NOT NULL,
-    dv_rut      NUMBER   NOT NULL,
+    rut         NUMERIC   primary KEY NOT NULL,
+    dv_rut      NUMERIC   NOT NULL,
     p_nombre    VARCHAR2 NOT NULL,
     s_nombre    VARCHAR2 NOT NULL,
     p_apellido  VARCHAR2 NOT NULL,
     s_apellido  VARCHAR2 NOT NULL,
     correo      VARCHAR2 NOT NULL,
-    edad        NUMBER   NOT NULL,
+    edad        NUMERIC   NOT NULL,
     direccion   VARCHAR2 NOT NULL,
-    telefono    NUMBER           ,
-    celular     NUMBER   NOT NULL,
+    telefono    NUMERIC           ,
+    celular     NUMERIC   NOT NULL,
     
     
 );
@@ -35,31 +35,24 @@ CREATE TABLE cliente (
 
 --Prevencionistas de riesgo
 CREATE TABLE trabajador (
-    rut         NUMBER   primary KEY NOT NULL,
-    dv_rut      NUMBER   NOT NULL,
+    rut         NUMERIC   primary KEY NOT NULL,
+    dv_rut      NUMERIC   NOT NULL,
     p_nombre    VARCHAR2 NOT NULL,
     s_nombre    VARCHAR2 NOT NULL,
     p_apellido  VARCHAR2 NOT NULL,
     s_apellido  VARCHAR2 NOT NULL,
     correo      VARCHAR2 NOT NULL,
-    edad        NUMBER   NOT NULL,
+    edad        NUMERIC   NOT NULL,
     direccion   VARCHAR2 NOT NULL,
-    telefono    NUMBER           ,--Telefono como opcional , se ocupa de manera obligatoria el celular
-    celular     NUMBER   NOT NULL,
+    telefono    NUMERIC           ,--Telefono como opcional , se ocupa de manera obligatoria el celular
+    celular     NUMERIC   NOT NULL,
     habilitado  Boolean  NOT NULL,--Si el trabajador esta trabajando actualmente 
-    id_cargo    NUMBER   NOT NULL,
+    id_cargo    NUMERIC   NOT NULL,
     FOREIGN KEY (id_cargo ) REFERENCES cargo(id_cargo )--Relaciona al trabajador con una empresa
 
 );
 
 
---Tabla que guarda el registro de pagos 
-CREATE TABLE registro_pagos (
-    id_pago numeric primary key ,
-    monto_pago numeric NOT NULL ,  
-
-
-);
 
 
 
@@ -102,6 +95,7 @@ CREATE TABLE material_solicitado(
 CREATE TABLE tipo_contrato(
     tipo_contrato  NUMERIC PRIMARY KEY NOT NULL,--Codigo del tipo de contrato
     descripcion    VARCHAR2            NOT NULL,
+    costo          NUMERIC             NOT NULL,
 
 );
 
@@ -114,6 +108,18 @@ CREATE TABLE contrato(
     rut           NUMERIC primary KEY NOT NULL ,--FK ,vincula el contrato con el cliente
     FOREIGN KEY (rut ) REFERENCES cliente(rut),
     FOREIGN KEY (tipo_contrato ) REFERENCES tipo_contrato(tipo_contrato),
+);
+
+
+--Tabla que guarda el registro de pagos 
+CREATE TABLE registro_pagos (
+    id_pago numeric primary key ,
+    monto_pago numeric NOT NULL ,  
+    fecha_pago numeric NOT NULL ,
+    id_contrato numeric not null,--FK
+    FOREIGN KEY (rut ) REFERENCES cliente(rut),
+
+
 );
 
 
@@ -165,7 +171,29 @@ CREATE TABLE visita_terreno(
 );
 
 
+CREATE TABLE informe_visita(
+    id_informe            NUMERIC PRIMARY KEY NOT NULL,
+    introduccion          VARCHAR2            NOT NULL,
+    resultados_evaluacion VARCHAR2            NOT NULL,
+    autoevaluacion        BOOLEAN             NOT NULL,--el cliente se autoevalua de manera que dice rapidamente si cumple las normas , pregunta cerrada.
+    doc_actualizados      BOOLEAN             NOT NULL,--el cliente tiene sus documentos al dia
+    doc_seremi_trabajo    BOOLEAN             NOT NULL,--el cliente tiene sus docs timbrados por seremi/direccion de trabajo, pregunta cerrada.
+    copia_documentos      BOOLEAN             NOT NULL,--el cliente posee un reglamento interno
+    reg_interno           BOOLEAN             NOT NULL,--el cliente entrega copias a los trabajadores , reglamento
+    reg_interno           BOOLEAN             NOT NULL,--el cliente posee un reglamento interno
+    reg_interno           BOOLEAN             NOT NULL,--el cliente posee un reglamento interno
+    reg_interno           BOOLEAN             NOT NULL,--el cliente posee un reglamento interno
+    reg_interno           BOOLEAN             NOT NULL,--el cliente posee un reglamento interno
 
+
+
+
+
+
+
+
+
+);
 
 
 
