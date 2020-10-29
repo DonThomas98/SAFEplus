@@ -209,7 +209,7 @@ CREATE TABLE asesoria(
     FOREIGN KEY (rut_trabajador) REFERENCES trabajador(rut),
 
 );
-);
+
 
 
 
