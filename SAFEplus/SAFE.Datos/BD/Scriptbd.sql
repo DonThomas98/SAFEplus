@@ -37,16 +37,17 @@ CREATE TABLE cliente (
 CREATE TABLE trabajador (
     rut         NUMERIC   primary KEY NOT NULL,
     dv_rut      NUMERIC   NOT NULL,
-    p_nombre    VARCHAR2 NOT NULL,
-    s_nombre    VARCHAR2 NOT NULL,
-    p_apellido  VARCHAR2 NOT NULL,
-    s_apellido  VARCHAR2 NOT NULL,
-    correo      VARCHAR2 NOT NULL,
+    p_nombre    VARCHAR2  NOT NULL,
+    s_nombre    VARCHAR2  NOT NULL,
+    p_apellido  VARCHAR2  NOT NULL,
+    s_apellido  VARCHAR2  NOT NULL,
+    correo      VARCHAR2  NOT NULL,
     edad        NUMERIC   NOT NULL,
-    direccion   VARCHAR2 NOT NULL,
+    direccion   VARCHAR2  NOT NULL,
     telefono    NUMERIC           ,--Telefono como opcional , se ocupa de manera obligatoria el celular
     celular     NUMERIC   NOT NULL,
-    habilitado  Boolean  NOT NULL,--Si el trabajador esta trabajando actualmente 
+    habilitado  Boolean   NOT NULL,--Si el trabajador esta trabajando actualmente 
+    sueldo      NUMERIC   NOT NULL, 
     id_cargo    NUMERIC   NOT NULL,
     FOREIGN KEY (id_cargo ) REFERENCES cargo(id_cargo )--Relaciona al trabajador con una empresa
 
@@ -106,7 +107,7 @@ CREATE TABLE contrato(
     tipo_contrato        NUMERIC      NOT NULL ,--FK
     fecha_contratacion   DATE         NOT NULL ,--fecha en la que se firma el contrato
     rut           NUMERIC primary KEY NOT NULL ,--FK ,vincula el contrato con el cliente
-    FOREIGN KEY (rut ) REFERENCES cliente(rut),
+    FOREIGN KEY (rut ) REFERENCES cliente(rut) ,
     FOREIGN KEY (tipo_contrato ) REFERENCES tipo_contrato(tipo_contrato),
 );
 
@@ -191,6 +192,9 @@ CREATE TABLE multa(
     id_multa          NUMERIC PRIMARY KEY NOT NULL,
     monto_multa       NUMERIC             NOT NULL,
     descripcion       VARCHAR2            NOT NULL,--se pone el campo de la tabla informe visita que este en falso .
+    rut_cliente       NUMERIC             NOT NULL,--FK a cliente.
+    FOREIGN KEY (rut_cliente) REFERENCES cliente(rut),
+
 
 );
 
