@@ -201,8 +201,13 @@ CREATE TABLE multa(
 CREATE TABLE asesoria(
     id_asesoria          NUMERIC PRIMARY KEY NOT NULL,
     evento               VARCHAR2            NOT NULL,--Visita fiscalizadores , juicio 
-    solucion_propuesta   VARCHAR2            NOT NULL,--asesoria 
+    propuesta_mejora     VARCHAR2            NOT NULL,--asesoria 
+    rut_cliente          NUMERIC             NOT NULL,--FK a cliente.
+    rut_trabajador       NUMERIC             NOT NULL,--FK Trabajador
+    FOREIGN KEY (rut_cliente) REFERENCES cliente(rut),
+    FOREIGN KEY (rut_trabajador) REFERENCES trabajador(rut),
 
+);
 );
 
 
