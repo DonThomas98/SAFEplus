@@ -200,9 +200,9 @@ CREATE TABLE multa(
 
 CREATE TABLE asesoria(
     id_asesoria          NUMERIC PRIMARY KEY NOT NULL,
-    evento                                   NOT NULL,--Visita fiscalizadores , juicio 
+    evento               VARCHAR2            NOT NULL,--Visita fiscalizadores , juicio 
     solucion_propuesta   VARCHAR2            NOT NULL,--asesoria 
-    
+
 );
 
 
