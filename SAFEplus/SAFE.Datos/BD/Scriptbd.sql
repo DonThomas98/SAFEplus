@@ -14,7 +14,7 @@ CREATE TABLE empresa (
 
 CREATE TABLE cargo (
     id_cargo    NUMERIC PRIMARY KEY NOT NULL, --Numero identificador del cargo del trabajador de prevencion.
-    cargo       NVARCHAR(50)        NOT NULL, --Descripción del cargo
+    cargo       NVARCHAR(50)        NOT NULL, --DescripciÃ³n del cargo
 );
 
 --Representante de la empresa con la que se realiza contrato, podria modificarse la logica para asociar varios clientes a una empresa.
@@ -167,7 +167,7 @@ CREATE TABLE informe_visita(
     doc_actualizados      BIT                 NOT NULL,--el cliente tiene sus documentos al dia
     doc_seremi_trabajo    BIT                 NOT NULL,--el cliente tiene sus docs timbrados por seremi/direccion de trabajo, pregunta cerrada.
     copia_documentos      BIT                 NOT NULL,--el cliente entrega copias a los trabajadores, reglamento
-    reg_informa           BIT                 NOT NULL,--el cliente posee un reglamento interno
+    reg_interno           BIT                 NOT NULL,--el cliente posee un reglamento interno
     reg_interno           BIT                 NOT NULL,--el cliente posee un reglamento interno
     reg_interno           BIT                 NOT NULL,--el cliente posee un reglamento interno
     reg_interno           BIT                 NOT NULL,--el cliente posee un reglamento interno
