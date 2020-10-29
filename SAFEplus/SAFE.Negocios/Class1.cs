@@ -8,5 +8,6 @@ namespace SAFE.Negocios
 {
     public class Class1
     {
+
     }
 }

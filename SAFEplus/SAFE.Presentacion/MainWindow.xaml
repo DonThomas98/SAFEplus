@@ -5,21 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SAFE.Presentacion"
         mc:Ignorable="d"
-        Title="SAFE" Height="500" Width="500">
+        Title="SAFE" Height="500" Width="500" Icon="Imagenes/Icon3.ico" ResizeMode="CanMinimize">
     <Grid>
-        <Button Margin="95,49,0,0" Grid.RowSpan="1" Height="121" VerticalAlignment="Top" HorizontalAlignment="Left" Width="270" >
-            <Image Source="imagenes/logo_safe.png"></Image>
-        </Button>
-        <Label Content="Usuario&#xD;&#xA;" HorizontalAlignment="Left" Margin="83,237,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox x:Name="txtUser" HorizontalAlignment="Left" Height="36" Margin="186,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <Label Content="Correo" HorizontalAlignment="Left" Margin="99,209,0,0" VerticalAlignment="Top" FontSize="20" Height="36" Width="110"/>
+        <TextBox x:Name="txtUser" HorizontalAlignment="Left" Height="36" Margin="214,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" FontSize="22" TabIndex="0"/>
 
-        <Label Content="Contraseña" HorizontalAlignment="Left" Margin="63,305,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="Contraseña" HorizontalAlignment="Left" Margin="99,278,0,0" VerticalAlignment="Top" FontSize="20" Height="36"/>
 
-        <Button x:Name="btnAyuda" Margin="395,22,0,0" HorizontalAlignment="Left" Width="62" Height="97" VerticalAlignment="Top">
-            <Image Source="imagenes/ayuda.png"></Image>
+        <Button x:Name="btnAyuda" Margin="0,25,25,0" HorizontalAlignment="Right" Width="62" Height="60" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" TabIndex="3">
+            <Image Source="imagenes/ayuda.png"/>
         </Button>
 
-        <Button Content="Iniciar Sesion" x:Name="btnLogin" Margin="147,383,0,0" FontSize="18" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Width="158"/>
-        <PasswordBox x:Name="pwdPass" HorizontalAlignment="Left" Margin="186,306,0,0" VerticalAlignment="Top" Width="179" Height="36"/>
+        <Button Content="Iniciar Sesion" x:Name="btnLogin" Margin="174,370,0,0" FontSize="18" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Width="158" TabIndex="2" Click="btnLogin_Click"/>
+        <PasswordBox x:Name="pwdPass" HorizontalAlignment="Left" Margin="214,278,0,0" VerticalAlignment="Top" Width="179" Height="36" FontSize="22" TabIndex="1"/>
+        <Image Source="imagenes/logo_safe.png" Margin="114,52,114,325"/>
     </Grid>
 </Window>
