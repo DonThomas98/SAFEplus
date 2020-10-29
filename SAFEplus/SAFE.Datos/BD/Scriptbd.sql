@@ -198,6 +198,7 @@ CREATE TABLE multa(
     FOREIGN KEY (rut_cliente) REFERENCES cliente(rut),
 );
 
+
 CREATE TABLE asesoria(
     id_asesoria          NUMERIC PRIMARY KEY NOT NULL,
     evento               VARCHAR2            NOT NULL,--Visita fiscalizadores , juicio 
