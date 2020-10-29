@@ -185,16 +185,14 @@ CREATE TABLE informe_visita(
     reg_interno           BOOLEAN             NOT NULL,--el cliente posee un reglamento interno
     reg_interno           BOOLEAN             NOT NULL,--el cliente posee un reglamento interno
 
-
-
-
-
-
-
-
-
 );
 
+CREATE TABLE multa(
+    id_multa          NUMERIC PRIMARY KEY NOT NULL,
+    monto_multa       NUMERIC             NOT NULL,
+    descripcion       VARCHAR2            NOT NULL,--se pone el campo de la tabla informe visita que este en falso .
+
+);
 
 
 
