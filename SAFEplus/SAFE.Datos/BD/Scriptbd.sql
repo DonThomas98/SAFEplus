@@ -49,7 +49,9 @@ CREATE TABLE trabajador (
     habilitado  Boolean   NOT NULL,--Si el trabajador esta trabajando actualmente 
     sueldo      NUMERIC   NOT NULL, 
     id_cargo    NUMERIC   NOT NULL,
+    contrasena  VARCHAR2  NOT NULL,
     FOREIGN KEY (id_cargo ) REFERENCES cargo(id_cargo )--Relaciona al trabajador con una empresa
+
 
 );
 
@@ -114,9 +116,9 @@ CREATE TABLE contrato(
 
 --Tabla que guarda el registro de pagos 
 CREATE TABLE registro_pagos (
-    id_pago numeric primary key ,
-    monto_pago numeric NOT NULL ,  
-    fecha_pago numeric NOT NULL ,
+    id_pago     numeric primary key ,
+    monto_pago  numeric NOT NULL ,  
+    fecha_pago  numeric NOT NULL ,
     id_contrato numeric not null,--FK
     FOREIGN KEY (rut ) REFERENCES cliente(rut),
 
@@ -180,7 +182,7 @@ CREATE TABLE informe_visita(
     doc_actualizados      BOOLEAN             NOT NULL,--el cliente tiene sus documentos al dia
     doc_seremi_trabajo    BOOLEAN             NOT NULL,--el cliente tiene sus docs timbrados por seremi/direccion de trabajo, pregunta cerrada.
     copia_documentos      BOOLEAN             NOT NULL,--el cliente posee un reglamento interno
-    reg_interno           BOOLEAN             NOT NULL,--el cliente entrega copias a los trabajadores , reglamento
+    reg_informa           BOOLEAN             NOT NULL,--el cliente entrega copias a los trabajadores , reglamento
     reg_interno           BOOLEAN             NOT NULL,--el cliente posee un reglamento interno
     reg_interno           BOOLEAN             NOT NULL,--el cliente posee un reglamento interno
     reg_interno           BOOLEAN             NOT NULL,--el cliente posee un reglamento interno
@@ -194,11 +196,14 @@ CREATE TABLE multa(
     descripcion       VARCHAR2            NOT NULL,--se pone el campo de la tabla informe visita que este en falso .
     rut_cliente       NUMERIC             NOT NULL,--FK a cliente.
     FOREIGN KEY (rut_cliente) REFERENCES cliente(rut),
-
-
 );
 
-
+CREATE TABLE asesoria(
+    id_asesoria          NUMERIC PRIMARY KEY NOT NULL,
+    evento                                   NOT NULL,--Visita fiscalizadores , juicio 
+    solucion_propuesta   VARCHAR2            NOT NULL,--asesoria 
+    
+);
 
 
 
