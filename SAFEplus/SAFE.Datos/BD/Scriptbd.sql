@@ -5,7 +5,7 @@ USE "SafePlus";
 /* Empresa queda como tabla obsoleta, debido a requerimientos, desde ahora solo existira el cliente .
 CREATE TABLE empresa (
     id_empresa      NUMERIC PRIMARY KEY NOT NULL,--Numero identificador de la empresa, se auto incrementa
-    nombre_empresa  NVARCHAR NOT NULL,
+    nombre_empresa  VARCHAR2 NOT NULL,
     fecha_registro  DATE NOT NULL   --Este campo es para ver cuando se registro la empresa y calcular cobros
 );
 
@@ -14,20 +14,20 @@ CREATE TABLE empresa (
 
 CREATE TABLE cargo (
     id_cargo    NUMERIC PRIMARY KEY NOT NULL, --Numero identificador del cargo del trabajador de prevencion.
-    cargo       NVARCHAR(50)        NOT NULL, --Descripción del cargo
+    cargo       VARCHAR2(50)        NOT NULL, --Descripción del cargo
 );
 
 --Representante de la empresa con la que se realiza contrato, podria modificarse la logica para asociar varios clientes a una empresa.
 CREATE TABLE cliente (
     rut         NUMERIC(10) PRIMARY KEY NOT NULL,
     dv_rut      CHAR                    NOT NULL,
-    p_nombre    NVARCHAR(50)            NOT NULL,
-    s_nombre    NVARCHAR(50)            NOT NULL,
-    p_apellido  NVARCHAR(50)            NOT NULL,
-    s_apellido  NVARCHAR(50)            NOT NULL,
-    correo      NVARCHAR(100)           NOT NULL,
+    p_nombre    VARCHAR2(50)            NOT NULL,
+    s_nombre    VARCHAR2(50)            NOT NULL,
+    p_apellido  VARCHAR2(50)            NOT NULL,
+    s_apellido  VARCHAR2(50)            NOT NULL,
+    correo      VARCHAR2(100)           NOT NULL,
     edad        NUMERIC(3)              NOT NULL,
-    direccion   NVARCHAR(100)           NOT NULL,
+    direccion   VARCHAR2(100)           NOT NULL,
     telefono    NUMERIC, --Telefono como opcional, se ocupa de manera obligatoria el celular
     celular     NUMERIC                 NOT NULL,
 );
@@ -37,20 +37,20 @@ CREATE TABLE cliente (
 CREATE TABLE trabajador (
     rut                    NUMERIC(10) PRIMARY KEY NOT NULL,
     dv_rut                 CHAR                    NOT NULL,
-    p_nombre               NVARCHAR(50)            NOT NULL,
-    s_nombre               NVARCHAR(50)            NOT NULL,
-    p_apellido             NVARCHAR(50)            NOT NULL,
-    s_apellido             NVARCHAR(50)            NOT NULL,
-    correo                 NVARCHAR(100)           NOT NULL,
+    p_nombre               VARCHAR2(50)            NOT NULL,
+    s_nombre               VARCHAR2(50)            NOT NULL,
+    p_apellido             VARCHAR2(50)            NOT NULL,
+    s_apellido             VARCHAR2(50)            NOT NULL,
+    correo                 VARCHAR2(100)           NOT NULL,
     edad                   NUMERIC(3)              NOT NULL,
-    direccion              NVARCHAR(100)           NOT NULL,
+    direccion              VARCHAR2(100)           NOT NULL,
     telefono               NUMERIC, --Telefono como opcional, se ocupa de manera obligatoria el celular
     celular                NUMERIC                 NOT NULL,
-    habilitado             BIT                     NOT NULL,--Si el trabajador esta trabajando actualmente 
+    habilitado             CHAR                     NOT NULL,--Si el trabajador esta trabajando actualmente 
     sueldo                 NUMERIC                 NOT NULL, 
     id_cargo               NUMERIC                 NOT NULL,
-    contrasena             NVARCHAR(100)           NOT NULL,
-    superuser              BIT                     NOT NULL,--Si el trabajador tiene permisos de administrador
+    contrasena             VARCHAR2(100)           NOT NULL,
+    superuser              CHAR                     NOT NULL,--Si el trabajador tiene permisos de administrador
     FOREIGN KEY (id_cargo) REFERENCES cargo(id_cargo)--Relaciona al trabajador con una empresa
 );
 
@@ -58,7 +58,7 @@ CREATE TABLE trabajador (
 --Tabla que contiene los distintos materiales a usar en capacitaciones
 CREATE TABLE material_capacitaciones(
     id_material NUMERIC PRIMARY KEY NOT NULL,
-    material    NVARCHAR(50)        NOT NULL,
+    material    VARCHAR2(50)        NOT NULL,
 );
 
 
@@ -89,7 +89,7 @@ CREATE TABLE material_solicitado(
 
 CREATE TABLE tipo_contrato(
     tipo_contrato  NUMERIC PRIMARY KEY NOT NULL,--Codigo del tipo de contrato
-    descripcion    NVARCHAR(30)        NOT NULL,
+    descripcion    VARCHAR2(30)        NOT NULL,
     costo          NUMERIC             NOT NULL,
 );
 
@@ -117,7 +117,7 @@ CREATE TABLE registro_pagos (
 --Esta tabla es para identificar el tipo de accidente 
 CREATE TABLE tipo_accidente (
     id_tipo_accidente NUMERIC PRIMARY KEY NOT NULL,--1 Laboral, 2 Revision, 3 Capacitacion, 4 Visita.
-    descripcion       NVARCHAR(15)        NOT NULL,--Aca se describe el tipo de accidente
+    descripcion       VARCHAR2(15)        NOT NULL,--Aca se describe el tipo de accidente
 );
 
 
@@ -132,7 +132,7 @@ CREATE TABLE accidente(
 --Esta tabla es para identificar si el accidentado es un trabajador de prevencion o un cliente.
 CREATE TABLE tipo_accidentado(
     id_tipo_accidentado NUMERIC(2) PRIMARY KEY NOT NULL,--1 para cliente y 2 para trabajador de prevencion de riesgo.
-    descripcion         NVARCHAR(10)           NOT NULL,--cliente  trabajador
+    descripcion         VARCHAR2(10)           NOT NULL,--cliente  trabajador
 );
 
 
@@ -159,24 +159,28 @@ CREATE TABLE visita_terreno(
 );
 
 
---Los estados del informe pueden ser 0 o 1 , si es opcional su relleno , seran para los informes customizados.
+--Los estados del informe pueden nulo , en caso de no aplicar el campo , falso si no cumple el requisito y verdadero en caso de cumplirlo, seran para los informes customizados.
+--N = NULO o no aplica
+--V = verdadero o al dia
+--F = Falso o no al dia
+
 CREATE TABLE informe_visita(
     id_informe            NUMERIC PRIMARY KEY NOT NULL,
-    introduccion          NVARCHAR(250)       NOT NULL,--longitud provisional, sujeto a cambios
-    resultados_evaluacion NVARCHAR(500)       NOT NULL,--longitud provisional, sujeto a cambios
-    autoevaluacion        BIT                 NOT NULL,--el cliente se autoevalua de manera que dice rapidamente si cumple las normas, pregunta cerrada.
-    doc_actualizados      BIT                 NOT NULL,--el cliente tiene sus documentos al dia
-    reg_interno           BIT                 NOT NULL,--el cliente posee un reglamento interno
-    doc_seremi_trabajo    BIT                 NOT NULL,--el cliente tiene sus docs timbrados por seremi/direccion de trabajo, pregunta cerrada.
-    copia_documentos      BIT                 NOT NULL,--el cliente entrega copias a los trabajadores, reglamento interno
-    informa_riesgos       BIT                 NOT NULL,--el cliente informa de los riesgos a sus trabajadores
-    informa_medidas       BIT                 NOT NULL,--el cliente informa de medidas de prevencion de riesgos a sus trabajadores
-    programa_orden        BIT                 NOT NULL,--el cliente posee programa de limpieza y orden
-    reg_interno           BIT                 NOT NULL,--el cliente posee un reglamento interno
-    extintores            BIT                         ,--el cliente posee extintores al dia.
-    capacitacion_extintor BIT                         ,--el cliente capacita a sus empleados en como usar el extintor
-    epp_inventario        BIT                         ,--el cliente posee elementos de proteccion personal actualmente.
-    epp_certificados      BIT                         ,--el cliente posee elementos de proteccion personal certificados
+    introduccion          VARCHAR2(250)       NOT NULL,--longitud provisional, sujeto a cambios
+    resultados_evaluacion VARCHAR2(500)       NOT NULL,--longitud provisional, sujeto a cambios
+    autoevaluacion        CHAR                 NOT NULL,--el cliente se autoevalua de manera que dice rapidamente si cumple las normas, pregunta cerrada.
+    doc_actualizados      CHAR                 NOT NULL,--el cliente tiene sus documentos al dia
+    reg_interno           CHAR                 NOT NULL,--el cliente posee un reglamento interno
+    doc_seremi_trabajo    CHAR                 NOT NULL,--el cliente tiene sus docs timbrados por seremi/direccion de trabajo, pregunta cerrada.
+    copia_documentos      CHAR                 NOT NULL,--el cliente entrega copias a los trabajadores, reglamento interno
+    informa_riesgos       CHAR                 NOT NULL,--el cliente informa de los riesgos a sus trabajadores
+    informa_medidas       CHAR                 NOT NULL,--el cliente informa de medidas de prevencion de riesgos a sus trabajadores
+    programa_orden        CHAR                 NOT NULL,--el cliente posee programa de limpieza y orden
+    reg_interno           CHAR                 NOT NULL,--el cliente posee un reglamento interno
+    extintores            CHAR                         ,--el cliente posee extintores al dia.
+    capacitacion_extintor CHAR                         ,--el cliente capacita a sus empleados en como usar el extintor
+    epp_inventario        CHAR                         ,--el cliente posee elementos de proteccion personal actualmente.
+    epp_certificados      CHAR                         ,--el cliente posee elementos de proteccion personal certificados
 
 );
 
@@ -184,7 +188,7 @@ CREATE TABLE informe_visita(
 CREATE TABLE multa(
     id_multa                  NUMERIC PRIMARY KEY NOT NULL,
     monto_multa               NUMERIC             NOT NULL,
-    descripcion               NVARCHAR(50)        NOT NULL,--se pone el campo de la tabla informe visita que este en falso.
+    descripcion               VARCHAR2(50)        NOT NULL,--se pone el campo de la tabla informe visita que este en falso.
     rut_cliente               NUMERIC(10)         NOT NULL,--FK a cliente.
     FOREIGN KEY (rut_cliente) REFERENCES cliente(rut),
 );
@@ -192,8 +196,8 @@ CREATE TABLE multa(
 
 CREATE TABLE asesoria(
     id_asesoria                  NUMERIC PRIMARY KEY NOT NULL,
-    evento                       NVARCHAR(25)        NOT NULL,--Visita fiscalizadores, juicio 
-    propuesta_mejora             NVARCHAR(500)       NOT NULL,--asesoria 
+    evento                       VARCHAR2(25)        NOT NULL,--Visita fiscalizadores, juicio 
+    propuesta_mejora             VARCHAR2(500)       NOT NULL,--asesoria 
     rut_cliente                  NUMERIC(10)         NOT NULL,--FK a cliente.
     rut_trabajador               NUMERIC(10)         NOT NULL,--FK Trabajador
     FOREIGN KEY (rut_cliente)    REFERENCES cliente(rut),
