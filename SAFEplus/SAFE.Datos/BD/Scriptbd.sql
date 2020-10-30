@@ -159,19 +159,24 @@ CREATE TABLE visita_terreno(
 );
 
 
+--Los estados del informe pueden ser 0 o 1 , si es opcional su relleno , seran para los informes customizados.
 CREATE TABLE informe_visita(
     id_informe            NUMERIC PRIMARY KEY NOT NULL,
     introduccion          NVARCHAR(250)       NOT NULL,--longitud provisional, sujeto a cambios
     resultados_evaluacion NVARCHAR(500)       NOT NULL,--longitud provisional, sujeto a cambios
     autoevaluacion        BIT                 NOT NULL,--el cliente se autoevalua de manera que dice rapidamente si cumple las normas, pregunta cerrada.
     doc_actualizados      BIT                 NOT NULL,--el cliente tiene sus documentos al dia
+    reg_interno           BIT                 NOT NULL,--el cliente posee un reglamento interno
     doc_seremi_trabajo    BIT                 NOT NULL,--el cliente tiene sus docs timbrados por seremi/direccion de trabajo, pregunta cerrada.
-    copia_documentos      BIT                 NOT NULL,--el cliente entrega copias a los trabajadores, reglamento
+    copia_documentos      BIT                 NOT NULL,--el cliente entrega copias a los trabajadores, reglamento interno
+    informa_riesgos       BIT                 NOT NULL,--el cliente informa de los riesgos a sus trabajadores
+    informa_medidas       BIT                 NOT NULL,--el cliente informa de medidas de prevencion de riesgos a sus trabajadores
+    programa_orden        BIT                 NOT NULL,--el cliente posee programa de limpieza y orden
     reg_interno           BIT                 NOT NULL,--el cliente posee un reglamento interno
-    reg_interno           BIT                 NOT NULL,--el cliente posee un reglamento interno
-    reg_interno           BIT                 NOT NULL,--el cliente posee un reglamento interno
-    reg_interno           BIT                 NOT NULL,--el cliente posee un reglamento interno
-    reg_interno           BIT                 NOT NULL,--el cliente posee un reglamento interno
+    extintores            BIT                         ,--el cliente posee extintores al dia.
+    capacitacion_extintor BIT                         ,--el cliente capacita a sus empleados en como usar el extintor
+    epp_inventario        BIT                         ,--el cliente posee elementos de proteccion personal actualmente.
+    epp_certificados      BIT                         ,--el cliente posee elementos de proteccion personal certificados
 
 );
 
