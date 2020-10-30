@@ -48,19 +48,19 @@ namespace SAFE.Negocios
 
         #region Constructor
 
-        public Trabajador(string cliRut, char cliDv, string cliPNombre, string cliSNombre, string cliPApellido, string cliSApellido, string cliCorreo, int cliEdad, string cliDireccion, long cliTelefono, long cliCelular, bool traHabilitado, long traSueldo, string traContraseña, bool traSuperuser, int traIdCargo)
+        public Trabajador(string traRut, char traDv, string traPNombre, string traSNombre, string traPApellido, string traSApellido, string traCorreo, int traEdad, string traDireccion, long traTelefono, long traCelular, bool traHabilitado, long traSueldo, string traContraseña, bool traSuperuser, int traIdCargo)
         {
-            _traRut = cliRut;
-            _traDv = cliDv;
-            _traPNombre = cliPNombre;
-            _traSNombre = cliSNombre;
-            _traPApellido = cliPApellido;
-            _traSApellido = cliSApellido;
-            _traCorreo = cliCorreo;
-            _traEdad = cliEdad;
-            _traDireccion = cliDireccion;
-            _traTelefono = cliTelefono;
-            _traCelular = cliCelular;
+            _traRut = traRut;
+            _traDv = traDv;
+            _traPNombre = traPNombre;
+            _traSNombre = traSNombre;
+            _traPApellido = traPApellido;
+            _traSApellido = traSApellido;
+            _traCorreo = traCorreo;
+            _traEdad = traEdad;
+            _traDireccion = traDireccion;
+            _traTelefono = traTelefono;
+            _traCelular = traCelular;
             _traHabilitado = traHabilitado;
             _traSueldo = traSueldo;
             _traContraseña = traContraseña;
