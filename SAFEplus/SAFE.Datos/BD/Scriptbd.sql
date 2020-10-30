@@ -167,7 +167,6 @@ CREATE TABLE visita_terreno(
 CREATE TABLE informe_visita(
     id_informe            NUMERIC PRIMARY KEY NOT NULL,
     id_visita             NUMERIC             NOT NULL,--Fk para vinularlo a la visita de terreno
-    fecha_visita          DATE                NOT NULL,
     introduccion          VARCHAR2(250)       NOT NULL,--longitud provisional, sujeto a cambios
     resultados_evaluacion VARCHAR2(500)       NOT NULL,--longitud provisional, sujeto a cambios
     autoevaluacion        CHAR                NOT NULL,--el cliente se autoevalua de manera que dice rapidamente si cumple las normas, pregunta cerrada.
