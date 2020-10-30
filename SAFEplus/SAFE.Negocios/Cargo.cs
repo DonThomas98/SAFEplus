@@ -24,6 +24,14 @@ namespace SAFE.Negocios
             _carId = carId;
             _carCargo = carCargo;
         }
+
+        public Cargo()
+        {
+            _carId = 0;
+            _carCargo = string.Empty;
+        }
+
+
         #endregion
 
         #region Metodos

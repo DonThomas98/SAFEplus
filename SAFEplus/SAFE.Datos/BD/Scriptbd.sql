@@ -46,11 +46,11 @@ CREATE TABLE trabajador (
     direccion              VARCHAR2(100)           NOT NULL,
     telefono               NUMERIC, --Telefono como opcional, se ocupa de manera obligatoria el celular
     celular                NUMERIC                 NOT NULL,
-    habilitado             CHAR                     NOT NULL,--Si el trabajador esta trabajando actualmente 
+    habilitado             CHAR                    NOT NULL,--Si el trabajador esta trabajando actualmente 
     sueldo                 NUMERIC                 NOT NULL, 
     id_cargo               NUMERIC                 NOT NULL,
     contrasena             VARCHAR2(100)           NOT NULL,
-    superuser              CHAR                     NOT NULL,--Si el trabajador tiene permisos de administrador
+    superuser              CHAR                    NOT NULL,--Si el trabajador tiene permisos de administrador
     FOREIGN KEY (id_cargo) REFERENCES cargo(id_cargo)--Relaciona al trabajador con una empresa
 );
 
@@ -166,17 +166,17 @@ CREATE TABLE visita_terreno(
 
 CREATE TABLE informe_visita(
     id_informe            NUMERIC PRIMARY KEY NOT NULL,
+    fecha_visita          DATE                NOT NULL,
     introduccion          VARCHAR2(250)       NOT NULL,--longitud provisional, sujeto a cambios
     resultados_evaluacion VARCHAR2(500)       NOT NULL,--longitud provisional, sujeto a cambios
-    autoevaluacion        CHAR                 NOT NULL,--el cliente se autoevalua de manera que dice rapidamente si cumple las normas, pregunta cerrada.
-    doc_actualizados      CHAR                 NOT NULL,--el cliente tiene sus documentos al dia
-    reg_interno           CHAR                 NOT NULL,--el cliente posee un reglamento interno
-    doc_seremi_trabajo    CHAR                 NOT NULL,--el cliente tiene sus docs timbrados por seremi/direccion de trabajo, pregunta cerrada.
-    copia_documentos      CHAR                 NOT NULL,--el cliente entrega copias a los trabajadores, reglamento interno
-    informa_riesgos       CHAR                 NOT NULL,--el cliente informa de los riesgos a sus trabajadores
-    informa_medidas       CHAR                 NOT NULL,--el cliente informa de medidas de prevencion de riesgos a sus trabajadores
-    programa_orden        CHAR                 NOT NULL,--el cliente posee programa de limpieza y orden
-    reg_interno           CHAR                 NOT NULL,--el cliente posee un reglamento interno
+    autoevaluacion        CHAR                NOT NULL,--el cliente se autoevalua de manera que dice rapidamente si cumple las normas, pregunta cerrada.
+    doc_actualizados      CHAR                NOT NULL,--el cliente tiene sus documentos al dia
+    reg_interno           CHAR                NOT NULL,--el cliente posee un reglamento interno
+    doc_seremi_trabajo    CHAR                NOT NULL,--el cliente tiene sus docs timbrados por seremi/direccion de trabajo, pregunta cerrada.
+    copia_documentos      CHAR                NOT NULL,--el cliente entrega copias a los trabajadores, reglamento interno
+    informa_riesgos       CHAR                NOT NULL,--el cliente informa de los riesgos a sus trabajadores
+    informa_medidas       CHAR                NOT NULL,--el cliente informa de medidas de prevencion de riesgos a sus trabajadores
+    programa_orden        CHAR                NOT NULL,--el cliente posee programa de limpieza y orden
     extintores            CHAR                         ,--el cliente posee extintores al dia.
     capacitacion_extintor CHAR                         ,--el cliente capacita a sus empleados en como usar el extintor
     epp_inventario        CHAR                         ,--el cliente posee elementos de proteccion personal actualmente.
