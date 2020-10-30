@@ -96,7 +96,7 @@ CREATE TABLE tipo_contrato(
 
 CREATE TABLE contrato(
     id_contrato                 NUMERIC PRIMARY KEY NOT NULL,
-    rut                         NUMERIC PRIMARY KEY NOT NULL,--FK,vincula el contrato con el cliente
+    rut                         NUMERIC             NOT NULL,--FK,vincula el contrato con el cliente
     tipo_contrato               NUMERIC             NOT NULL,--FK
     fecha_contratacion          DATE                NOT NULL,--fecha en la que se firma el contrato
     FOREIGN KEY (rut)           REFERENCES cliente(rut),
@@ -128,12 +128,13 @@ CREATE TABLE accidente(
     FOREIGN KEY (id_tipo_accidente) REFERENCES tipo_accidente(id_tipo_accidente)
 );
 
-
+/*
 --Esta tabla es para identificar si el accidentado es un trabajador de prevencion o un cliente.
 CREATE TABLE tipo_accidentado(
     id_tipo_accidentado NUMERIC(2) PRIMARY KEY NOT NULL,--1 para cliente y 2 para trabajador de prevencion de riesgo.
     descripcion         VARCHAR2(10)           NOT NULL,--cliente  trabajador
 );
+*/
 
 
 --Esta tabla registra los afectados en un accidente, se guardan los datos sin asociarlos a las tablas de trabajador cliente.
@@ -177,10 +178,13 @@ CREATE TABLE informe_visita(
     informa_riesgos       CHAR                NOT NULL,--el cliente informa de los riesgos a sus trabajadores
     informa_medidas       CHAR                NOT NULL,--el cliente informa de medidas de prevencion de riesgos a sus trabajadores
     programa_orden        CHAR                NOT NULL,--el cliente posee programa de limpieza y orden
-    extintores            CHAR                         ,--el cliente posee extintores al dia.
-    capacitacion_extintor CHAR                         ,--el cliente capacita a sus empleados en como usar el extintor
-    epp_inventario        CHAR                         ,--el cliente posee elementos de proteccion personal actualmente.
-    epp_certificados      CHAR                         ,--el cliente posee elementos de proteccion personal certificados
+    extintores            CHAR                        ,--el cliente posee extintores al dia.
+    capacitacion_extintor CHAR                        ,--el cliente capacita a sus empleados en como usar el extintor
+    epp_inventario        CHAR                        ,--el cliente posee elementos de proteccion personal actualmente.
+    epp_certificados      CHAR                        ,--el cliente posee elementos de proteccion personal certificados
+    id_visita             NUMERIC             NOT NULL,--Fk para vinularlo a la visita de terreno
+    FOREIGN KEY (id_visita) REFERENCES visita_terreno(id_visita),
+
 
 );
 
