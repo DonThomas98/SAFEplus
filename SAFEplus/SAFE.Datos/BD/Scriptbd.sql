@@ -28,7 +28,7 @@ CREATE TABLE cliente (
     correo      VARCHAR2(100)           NOT NULL,
     edad        NUMERIC(3)              NOT NULL,
     direccion   VARCHAR2(100)           NOT NULL,
-    telefono    NUMERIC, --Telefono como opcional, se ocupa de manera obligatoria el celular
+    telefono    NUMERIC                         , --Telefono como opcional, se ocupa de manera obligatoria el celular
     celular     NUMERIC                 NOT NULL,
 );
 
@@ -44,7 +44,7 @@ CREATE TABLE trabajador (
     correo                 VARCHAR2(100)           NOT NULL,
     edad                   NUMERIC(3)              NOT NULL,
     direccion              VARCHAR2(100)           NOT NULL,
-    telefono               NUMERIC, --Telefono como opcional, se ocupa de manera obligatoria el celular
+    telefono               NUMERIC                         , --Telefono como opcional, se ocupa de manera obligatoria el celular
     celular                NUMERIC                 NOT NULL,
     habilitado             CHAR                    NOT NULL,--Si el trabajador esta trabajando actualmente 
     sueldo                 NUMERIC                 NOT NULL, 
@@ -67,11 +67,10 @@ CREATE TABLE capacitacion(
     id_capacitacion              NUMERIC PRIMARY KEY NOT NULL,
     fecha_solicitud              DATE                NOT NULL,--Fecha en que se solicita la capacitacion
     fecha_capacitacion           DATE                NOT NULL,--Fecha en la que se concreta la capacitacion
-    --CONEXIONES FORANEAS
     rut_trabajador               NUMERIC(10)         NOT NULL,--Vincula al rut del prevencionista que realizara la capacitacion
     rut_cliente                  NUMERIC(10)         NOT NULL,
     FOREIGN KEY (rut_trabajador) REFERENCES trabajador(rut),--Vincula el rut al cual se le realizara la capacitacion
-    FOREIGN KEY (rut_cliente)    REFERENCES cliente(rut )
+    FOREIGN KEY (rut_cliente)    REFERENCES cliente(rut)
     
 );
 
@@ -96,10 +95,10 @@ CREATE TABLE tipo_contrato(
 
 CREATE TABLE contrato(
     id_contrato                 NUMERIC PRIMARY KEY NOT NULL,
-    rut                         NUMERIC             NOT NULL,--FK,vincula el contrato con el cliente
+    rut_cliente                 NUMERIC             NOT NULL,--FK,vincula el contrato con el cliente
     tipo_contrato               NUMERIC             NOT NULL,--FK
     fecha_contratacion          DATE                NOT NULL,--fecha en la que se firma el contrato
-    FOREIGN KEY (rut)           REFERENCES cliente(rut),
+    FOREIGN KEY (rut_cliente)   REFERENCES cliente(rut),
     FOREIGN KEY (tipo_contrato) REFERENCES tipo_contrato(tipo_contrato),
 );
 
@@ -151,12 +150,12 @@ CREATE TABLE accidentados (
 
 --Tabla que guarda los registros de la visita a a terreno, 2 por mes sin costo adicional
 CREATE TABLE visita_terreno(
-    id_visita                 NUMERIC PRIMARY KEY NOT NULL,
-    fecha_visita              DATE                NOT NULL,
-    rut                       NUMERIC(10)         NOT NULL, --FK, rut del trabajador que realizara la visita a terreno
-    rut_cliente               NUMERIC(10)         NOT NULL, --Fk, conecta la visita con la empresa a realizar la visita.
-    FOREIGN KEY (rut)         REFERENCES trabajador(rut),
-    FOREIGN KEY (rut_cliente) REFERENCES cliente(rut),
+    id_visita                    NUMERIC PRIMARY KEY NOT NULL,
+    fecha_visita                 DATE                NOT NULL,
+    rut_trabajador               NUMERIC(10)         NOT NULL, --FK, rut del trabajador que realizara la visita a terreno
+    rut_cliente                  NUMERIC(10)         NOT NULL, --Fk, conecta la visita con la empresa a realizar la visita.
+    FOREIGN KEY (rut_trabajador) REFERENCES trabajador(rut),
+    FOREIGN KEY (rut_cliente)    REFERENCES cliente(rut),
 );
 
 
@@ -207,8 +206,3 @@ CREATE TABLE asesoria(
     FOREIGN KEY (rut_cliente)    REFERENCES cliente(rut),
     FOREIGN KEY (rut_trabajador) REFERENCES trabajador(rut),
 );
-
-
-
-
-
