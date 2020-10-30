@@ -200,8 +200,19 @@ CREATE TABLE multa(
 
 CREATE TABLE asesoria(
     id_asesoria                  NUMERIC PRIMARY KEY NOT NULL,
-    evento                       VARCHAR2(25)        NOT NULL,--Visita fiscalizadores, juicio 
-    propuesta_mejora             VARCHAR2(500)       NOT NULL,--asesoria
+    evento                       VARCHAR2(25)        NOT NULL,--Visita fiscalizadores, juicio ,etc.
+    propuesta                    VARCHAR2(500)       NOT NULL,--asesoria
     id_visita                    NUMERIC             NOT NULL,--se vincula la asesoría con la visita, se puede acceder a rut cliente y trabajador desde ahi
-    FOREIGN KEY (id_visita)    REFERENCES visita_terreno(id_visita),
+    FOREIGN KEY (id_visita)      REFERENCES visita_terreno(id_visita),
+);
+
+create TABLE antecedentes_asesoria(
+    id_antecedente               NUMERIC PRIMARY KEY NOT NULL,
+    id_asesoria                  NUMERIC             NOT NULL,
+    descripcion_documento        VARCHAR2(50)        NOT NULL,
+    documento                    BFILE                       ,--en este campo se cargan los documentos que sean relevantes a la asesoria especial. 
+
+    FOREIGN KEY (id_asesoria)      REFERENCES asesoria(id_asesoria),
+
+
 );
