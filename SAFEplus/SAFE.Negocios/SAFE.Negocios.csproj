@@ -122,18 +122,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Accidente.cs" />
+    <Compile Include="Asesoria.cs" />
     <Compile Include="Capacitacion.cs" />
     <Compile Include="Cargo.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Contrato.cs" />
+    <Compile Include="Informe_Visita.cs" />
     <Compile Include="Material_Capacitaciones.cs" />
     <Compile Include="Material_Solicitado.cs" />
+    <Compile Include="Multa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registro_Accidentados.cs" />
     <Compile Include="Registro_Pagos.cs" />
     <Compile Include="Tipo_Accidente.cs" />
     <Compile Include="Tipo_Contacto.cs" />
     <Compile Include="Trabajador.cs" />
+    <Compile Include="Visita_Terreno.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

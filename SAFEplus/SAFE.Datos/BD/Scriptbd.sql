@@ -192,6 +192,7 @@ CREATE TABLE multa(
     id_multa                  NUMERIC PRIMARY KEY NOT NULL,
     monto_multa               NUMERIC             NOT NULL,
     descripcion               VARCHAR2(50)        NOT NULL,--se pone el campo de la tabla informe visita que este en falso.
+    fecha_multa               DATE                NOT NULL,--fecha en la que se emite la multa
     rut_cliente               NUMERIC(10)         NOT NULL,--FK a cliente.
     FOREIGN KEY (rut_cliente) REFERENCES cliente(rut),
 );
@@ -200,9 +201,7 @@ CREATE TABLE multa(
 CREATE TABLE asesoria(
     id_asesoria                  NUMERIC PRIMARY KEY NOT NULL,
     evento                       VARCHAR2(25)        NOT NULL,--Visita fiscalizadores, juicio 
-    propuesta_mejora             VARCHAR2(500)       NOT NULL,--asesoria 
-    rut_cliente                  NUMERIC(10)         NOT NULL,--FK a cliente.
-    rut_trabajador               NUMERIC(10)         NOT NULL,--FK Trabajador
-    FOREIGN KEY (rut_cliente)    REFERENCES cliente(rut),
-    FOREIGN KEY (rut_trabajador) REFERENCES trabajador(rut),
+    propuesta_mejora             VARCHAR2(500)       NOT NULL,--asesoria
+    id_visita                    NUMERIC             NOT NULL,--se vincula la asesoría con la visita, se puede acceder a rut cliente y trabajador desde ahi
+    FOREIGN KEY (id_visita)    REFERENCES visita_terreno(id_visita),
 );
