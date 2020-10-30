@@ -121,6 +121,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accidente.cs" />
     <Compile Include="Capacitacion.cs" />
     <Compile Include="Cargo.cs" />
     <Compile Include="Cliente.cs" />
@@ -128,6 +129,9 @@
     <Compile Include="Material_Capacitaciones.cs" />
     <Compile Include="Material_Solicitado.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registro_Accidentados.cs" />
+    <Compile Include="Registro_Pagos.cs" />
+    <Compile Include="Tipo_Accidente.cs" />
     <Compile Include="Tipo_Contacto.cs" />
     <Compile Include="Trabajador.cs" />
   </ItemGroup>

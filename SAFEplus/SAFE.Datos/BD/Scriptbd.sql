@@ -137,35 +137,36 @@ CREATE TABLE tipo_accidentado(
 
 
 --Esta tabla registra los afectados en un accidente, se guardan los datos sin asociarlos a las tablas de trabajador cliente.
-CREATE TABLE accidentados ( 
+CREATE TABLE registro_accidentados( 
     id_accidentados                   NUMERIC PRIMARY KEY NOT NULL,--Numero identificador de accidentado, se auto incrementa
     id_accidente                      NUMERIC             NOT NULL,--FK
-    rut                               NUMERIC(10)         NOT NULL,--FK, vincula al accidentado con un trabajador
-    id_tipo_accidentado               NUMERIC(2)          NOT NULL,--FK para vincular el rut para el tipo de trabajador, el que sufrio un accidente puede ser de la aseguradora o empleado de la empresa que contrato servicios.
+    rut_trabajador                    NUMERIC(10)         NOT NULL,--FK, vincula al accidentado con un trabajador
+  --id_tipo_accidentado               NUMERIC(2)          NOT NULL,--FK para vincular el rut para el tipo de trabajador, el que sufrio un accidente puede ser de la aseguradora o empleado de la empresa que contrato servicios.
     FOREIGN KEY (id_accidente)        REFERENCES accidente(id_accidente),
-    FOREIGN KEY (id_tipo_accidentado) REFERENCES tipo_accidentados(id_tipo_accidentado),
-    FOREIGN KEY (rut)                 REFERENCES cliente(rut),                                                
+    FOREIGN KEY (rut_trabajador)      REFERENCES cliente(rut),                                                
+  --FOREIGN KEY (id_tipo_accidentado) REFERENCES tipo_accidentados(id_tipo_accidentado),
 );
 
 
 --Tabla que guarda los registros de la visita a a terreno, 2 por mes sin costo adicional
 CREATE TABLE visita_terreno(
     id_visita                    NUMERIC PRIMARY KEY NOT NULL,
-    fecha_visita                 DATE                NOT NULL,
     rut_trabajador               NUMERIC(10)         NOT NULL, --FK, rut del trabajador que realizara la visita a terreno
     rut_cliente                  NUMERIC(10)         NOT NULL, --Fk, conecta la visita con la empresa a realizar la visita.
+    fecha_visita                 DATE                NOT NULL,
     FOREIGN KEY (rut_trabajador) REFERENCES trabajador(rut),
     FOREIGN KEY (rut_cliente)    REFERENCES cliente(rut),
 );
 
 
---Los estados del informe pueden nulo , en caso de no aplicar el campo , falso si no cumple el requisito y verdadero en caso de cumplirlo, seran para los informes customizados.
+--Los estados del informe pueden nulo, en caso de no aplicar el campo, falso si no cumple el requisito y verdadero en caso de cumplirlo, seran para los informes customizados.
 --N = NULO o no aplica
 --V = verdadero o al dia
 --F = Falso o no al dia
 
 CREATE TABLE informe_visita(
     id_informe            NUMERIC PRIMARY KEY NOT NULL,
+    id_visita             NUMERIC             NOT NULL,--Fk para vinularlo a la visita de terreno
     fecha_visita          DATE                NOT NULL,
     introduccion          VARCHAR2(250)       NOT NULL,--longitud provisional, sujeto a cambios
     resultados_evaluacion VARCHAR2(500)       NOT NULL,--longitud provisional, sujeto a cambios
@@ -181,7 +182,6 @@ CREATE TABLE informe_visita(
     capacitacion_extintor CHAR                        ,--el cliente capacita a sus empleados en como usar el extintor
     epp_inventario        CHAR                        ,--el cliente posee elementos de proteccion personal actualmente.
     epp_certificados      CHAR                        ,--el cliente posee elementos de proteccion personal certificados
-    id_visita             NUMERIC             NOT NULL,--Fk para vinularlo a la visita de terreno
     FOREIGN KEY (id_visita) REFERENCES visita_terreno(id_visita),
 
 
