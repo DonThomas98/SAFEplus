@@ -28,17 +28,17 @@ namespace SAFE.Negocios
         #endregion
 
         #region Propiedades
-        public string CliRut { get => _traRut; set => _traRut = value; }
-        public char CliDv { get => _traDv; set => _traDv = value; }
-        public string CliPNombre { get => _traPNombre; set => _traPNombre = value; }
-        public string CliSNombre { get => _traSNombre; set => _traSNombre = value; }
-        public string CliPApellido { get => _traPApellido; set => _traPApellido = value; }
-        public string CliSApellido { get => _traSApellido; set => _traSApellido = value; }
-        public string CliCorreo { get => _traCorreo; set => _traCorreo = value; }
-        public int CliEdad { get => _traEdad; set => _traEdad = value; }
-        public string CliDireccion { get => _traDireccion; set => _traDireccion = value; }
-        public long CliTelefono { get => _traTelefono; set => _traTelefono = value; }
-        public long CliCelular { get => _traCelular; set => _traCelular = value; }
+        public string TraRut { get => _traRut; set => _traRut = value; }
+        public char TraDv { get => _traDv; set => _traDv = value; }
+        public string TraPNombre { get => _traPNombre; set => _traPNombre = value; }
+        public string TraSNombre { get => _traSNombre; set => _traSNombre = value; }
+        public string TraPApellido { get => _traPApellido; set => _traPApellido = value; }
+        public string TraSApellido { get => _traSApellido; set => _traSApellido = value; }
+        public string TraCorreo { get => _traCorreo; set => _traCorreo = value; }
+        public int TraEdad { get => _traEdad; set => _traEdad = value; }
+        public string TraDireccion { get => _traDireccion; set => _traDireccion = value; }
+        public long TraTelefono { get => _traTelefono; set => _traTelefono = value; }
+        public long TraCelular { get => _traCelular; set => _traCelular = value; }
         public bool TraHabilitado { get => _traHabilitado; set => _traHabilitado = value; }
         public long TraSueldo { get => _traSueldo; set => _traSueldo = value; }
         public string TraContraseña { get => _traContraseña; set => _traContraseña = value; }
