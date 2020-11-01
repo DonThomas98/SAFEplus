@@ -122,12 +122,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Accidente.cs" />
+    <Compile Include="Antecedentes_Asesoria.cs" />
     <Compile Include="Asesoria.cs" />
     <Compile Include="Capacitacion.cs" />
     <Compile Include="Cargo.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Contrato.cs" />
     <Compile Include="Informe_Visita.cs" />
+    <Compile Include="Manejadora.cs" />
     <Compile Include="Material_Capacitaciones.cs" />
     <Compile Include="Material_Solicitado.cs" />
     <Compile Include="Multa.cs" />

@@ -11,7 +11,6 @@ namespace SAFE.Negocios
         #region Campos
         private int _infId;
         private int _infVisita;
-        private DateTime _infFecha;
         private String _infIntro;
         private String _infEvaluacion;
         private Char _infAutoevaluacion;
@@ -31,7 +30,6 @@ namespace SAFE.Negocios
         #region Propiedades
         public int InfId { get => _infId; set => _infId = value; }
         public int InfVisita { get => _infVisita; set => _infVisita = value; }
-        public DateTime InfFecha { get => _infFecha; set => _infFecha = value; }
         public string InfIntro { get => _infIntro; set => _infIntro = value; }
         public string InfEvaluacion { get => _infEvaluacion; set => _infEvaluacion = value; }
         public char InfAutoevaluacion { get => _infAutoevaluacion; set => _infAutoevaluacion = value; }
@@ -51,7 +49,6 @@ namespace SAFE.Negocios
         #region Constructor
         public Informe_Visita(int infId, 
                               int infVisita, 
-                              DateTime infFecha, 
                               string infIntro,  
                               string infEvaluacion, 
                               char infAutoevaluacion, 
@@ -69,7 +66,6 @@ namespace SAFE.Negocios
         {
             _infId = infId;
             _infVisita = infVisita;
-            _infFecha = infFecha;
             _infIntro = infIntro;
             _infEvaluacion = infEvaluacion;
             _infAutoevaluacion = infAutoevaluacion;
@@ -89,7 +85,6 @@ namespace SAFE.Negocios
         {
             _infId = 0;
             _infVisita = 0;
-            _infFecha = DateTime.MinValue;
             _infIntro = string.Empty;
             _infEvaluacion = string.Empty;
             _infAutoevaluacion = 'F';

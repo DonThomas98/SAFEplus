@@ -165,25 +165,23 @@ CREATE TABLE visita_terreno(
 --F = Falso o no al dia
 
 CREATE TABLE informe_visita(
-    id_informe            NUMERIC PRIMARY KEY NOT NULL,
-    id_visita             NUMERIC             NOT NULL,--Fk para vinularlo a la visita de terreno
-    introduccion          VARCHAR2(250)       NOT NULL,--longitud provisional, sujeto a cambios
-    resultados_evaluacion VARCHAR2(500)       NOT NULL,--longitud provisional, sujeto a cambios
-    autoevaluacion        CHAR                NOT NULL,--el cliente se autoevalua de manera que dice rapidamente si cumple las normas, pregunta cerrada.
-    doc_actualizados      CHAR                NOT NULL,--el cliente tiene sus documentos al dia
-    reg_interno           CHAR                NOT NULL,--el cliente posee un reglamento interno
-    doc_seremi_trabajo    CHAR                NOT NULL,--el cliente tiene sus docs timbrados por seremi/direccion de trabajo, pregunta cerrada.
-    copia_documentos      CHAR                NOT NULL,--el cliente entrega copias a los trabajadores, reglamento interno
-    informa_riesgos       CHAR                NOT NULL,--el cliente informa de los riesgos a sus trabajadores
-    informa_medidas       CHAR                NOT NULL,--el cliente informa de medidas de prevencion de riesgos a sus trabajadores
-    programa_orden        CHAR                NOT NULL,--el cliente posee programa de limpieza y orden
-    extintores            CHAR                        ,--el cliente posee extintores al dia.
-    capacitacion_extintor CHAR                        ,--el cliente capacita a sus empleados en como usar el extintor
-    epp_inventario        CHAR                        ,--el cliente posee elementos de proteccion personal actualmente.
-    epp_certificados      CHAR                        ,--el cliente posee elementos de proteccion personal certificados
+    id_informe              NUMERIC PRIMARY KEY NOT NULL,
+    id_visita               NUMERIC             NOT NULL,--Fk para vinularlo a la visita de terreno
+    introduccion            VARCHAR2(250)       NOT NULL,--longitud provisional, sujeto a cambios
+    resultados_evaluacion   VARCHAR2(500)       NOT NULL,--longitud provisional, sujeto a cambios
+    autoevaluacion          CHAR                NOT NULL,--el cliente se autoevalua de manera que dice rapidamente si cumple las normas, pregunta cerrada.
+    doc_actualizados        CHAR                NOT NULL,--el cliente tiene sus documentos al dia
+    reg_interno             CHAR                NOT NULL,--el cliente posee un reglamento interno
+    doc_seremi_trabajo      CHAR                NOT NULL,--el cliente tiene sus docs timbrados por seremi/direccion de trabajo, pregunta cerrada.
+    copia_documentos        CHAR                NOT NULL,--el cliente entrega copias a los trabajadores, reglamento interno
+    informa_riesgos         CHAR                NOT NULL,--el cliente informa de los riesgos a sus trabajadores
+    informa_medidas         CHAR                NOT NULL,--el cliente informa de medidas de prevencion de riesgos a sus trabajadores
+    programa_orden          CHAR                NOT NULL,--el cliente posee programa de limpieza y orden
+    extintores              CHAR                        ,--el cliente posee extintores al dia.
+    capacitacion_extintor   CHAR                        ,--el cliente capacita a sus empleados en como usar el extintor
+    epp_inventario          CHAR                        ,--el cliente posee elementos de proteccion personal actualmente.
+    epp_certificados        CHAR                        ,--el cliente posee elementos de proteccion personal certificados
     FOREIGN KEY (id_visita) REFERENCES visita_terreno(id_visita),
-
-
 );
 
 
@@ -210,8 +208,5 @@ create TABLE antecedentes_asesoria(
     id_asesoria                  NUMERIC             NOT NULL,
     descripcion_documento        VARCHAR2(50)        NOT NULL,
     documento                    BFILE                       ,--en este campo se cargan los documentos que sean relevantes a la asesoria especial. 
-
-    FOREIGN KEY (id_asesoria)      REFERENCES asesoria(id_asesoria),
-
-
+    FOREIGN KEY (id_asesoria)    REFERENCES asesoria(id_asesoria),
 );
