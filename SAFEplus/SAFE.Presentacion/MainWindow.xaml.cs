@@ -27,7 +27,9 @@ namespace SAFE.Presentacion
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-
+            Menu menu = new Menu();
+            menu.Show();
+            this.Close();
         }
     }
 }
