@@ -30,5 +30,19 @@ namespace SAFE.Presentacion
             menu.Show();
             this.Close();
         }
+
+        private void btnRegistrar_Click(object sender, RoutedEventArgs e)
+        {
+            //Separar los nombres y apellidos
+            String pNombre, sNombre, pApellido, sApellido;
+            string[] nombres = txtNombres.Text.Split(' ');
+            string[] apellidos = txtApellidos.Text.Split(' ');
+            pNombre = nombres[0];
+            sNombre = nombres[1];
+            pApellido = apellidos[0];
+            sApellido = apellidos[1];
+
+
+        }
     }
 }

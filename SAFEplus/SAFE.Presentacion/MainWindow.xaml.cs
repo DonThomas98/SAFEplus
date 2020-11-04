@@ -31,5 +31,11 @@ namespace SAFE.Presentacion
             menu.Show();
             this.Close();
         }
+
+        private void btnAyuda_Click(object sender, RoutedEventArgs e)
+        {
+            Ayuda ayuda = new Ayuda();
+            ayuda.Show();
+        }
     }
 }

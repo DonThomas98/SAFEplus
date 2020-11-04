@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SAFE.Presentacion"
         mc:Ignorable="d"
-        Title="Inicio de Sesión - Safe+" Height="500" Width="500" Icon="Imagenes/Icon3.ico" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+        Title="Inicio de Sesión - Safe+" Height="450" Width="450" Icon="Imagenes/Icon3.ico" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style x:Key="MyButton" TargetType="Button">
             <Setter Property="OverridesDefaultStyle" Value="True" />
@@ -27,19 +27,20 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <Label Content="Correo" HorizontalAlignment="Left" Margin="101,209,0,0" VerticalAlignment="Top" FontSize="20" Height="36" Width="110"/>
-        <TextBox x:Name="txtUser" HorizontalAlignment="Left" Height="36" Margin="216,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" FontSize="22" TabIndex="0"/>
+        <Rectangle Height="175" Margin="48,152,46,0" Stroke="Black" VerticalAlignment="Top" RadiusY="20.458" RadiusX="20.458"/>
+        <Label Content="Correo:" HorizontalAlignment="Left" Margin="75,164,0,0" VerticalAlignment="Top" FontSize="16" Height="31"/>
+        <TextBox x:Name="txtUser" Height="25" Margin="75,200,75,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" TabIndex="0" BorderBrush="Black"/>
 
-        <Label Content="Contraseña" HorizontalAlignment="Left" Margin="101,278,0,0" VerticalAlignment="Top" FontSize="20" Height="36"/>
+        <Label Content="Contraseña:" HorizontalAlignment="Left" Margin="75,239,0,0" VerticalAlignment="Top" FontSize="16" Height="31" Width="95"/>
 
-        <Button x:Name="btnAyuda" Margin="0,25,25,0" HorizontalAlignment="Right" Width="50" Height="50" VerticalAlignment="Top" BorderBrush="{x:Null}" TabIndex="3" Foreground="{x:Null}" Style="{DynamicResource MyButton}" AutomationProperties.HelpText="Ayuda">
+        <Button x:Name="btnAyuda" Margin="0,25,25,0" Height="30" VerticalAlignment="Top" BorderBrush="{x:Null}" TabIndex="3" Foreground="{x:Null}" Style="{DynamicResource MyButton}" AutomationProperties.HelpText="Ayuda" HorizontalAlignment="Right" Width="30" Click="btnAyuda_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Imagenes/pregunta.png" Stretch="UniformToFill"/>
             </Button.Background>
         </Button>
 
-        <Button Content="Iniciar Sesion" x:Name="btnLogin" Margin="172,370,172,0" FontSize="18" Height="35" VerticalAlignment="Top" TabIndex="2" Click="btnLogin_Click" Background="White" Foreground="Black" FontWeight="Bold" BorderBrush="Black"/>
-        <PasswordBox x:Name="pwdPass" HorizontalAlignment="Left" Margin="216,278,0,0" VerticalAlignment="Top" Width="179" Height="36" FontSize="22" TabIndex="1"/>
-        <Image Source="Imagenes/Icon2.png" Margin="117,50,117,311"/>
+        <Button Content="Iniciar Sesion" x:Name="btnLogin" Margin="160,350,0,0" FontSize="16" VerticalAlignment="Top" TabIndex="2" Click="btnLogin_Click" Background="White" Foreground="Black" BorderBrush="Black" Height="30" HorizontalAlignment="Left" Width="125" Cursor="Hand"/>
+        <PasswordBox x:Name="pwdPass" Margin="75,275,75,0" VerticalAlignment="Top" Height="25" FontSize="16" TabIndex="1" BorderBrush="Black"/>
+        <Image Source="Imagenes/Icon2.png" Margin="97,40,97,0" Height="90" VerticalAlignment="Top"/>
     </Grid>
 </Window>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SAFE.Presentacion"
         mc:Ignorable="d"
-        Title="Registro de Clientes - Safe+" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        Title="Registro de Clientes - Safe+" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Icon="Imagenes/Icon3.ico">
     <Window.Resources>
         <Style x:Key="MyButton" TargetType="{x:Type Button}">
             <Setter Property="OverridesDefaultStyle" Value="True" />
@@ -27,10 +27,32 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <Button x:Name="btnVolver" Content="" HorizontalAlignment="Left" Margin="25,25,0,0" VerticalAlignment="Top" Width="33" Height="30" BorderBrush="{x:Null}" AutomationProperties.HelpText="Volver" Click="btnVolver_Click" Foreground="{x:Null}" RenderTransformOrigin="0.5,0.5" Cursor="Hand" Style="{DynamicResource MyButton}">
+        <Image HorizontalAlignment="Right" Height="45" Margin="0,25,25,0" VerticalAlignment="Top" Width="100" Source="Imagenes/Icon2.png" OpacityMask="Black"/>
+        <Rectangle HorizontalAlignment="Left" Margin="70,90,0,90" RadiusY="20.458" RadiusX="20.458" Stroke="Black" Width="654"/>
+        <Button x:Name="btnVolver" Content="" HorizontalAlignment="Left" Margin="25,25,0,0" VerticalAlignment="Top" Width="33" Height="30" BorderBrush="{x:Null}" AutomationProperties.HelpText="Volver" Click="btnVolver_Click" Foreground="{x:Null}" RenderTransformOrigin="0.5,0.5" Cursor="Hand" Style="{DynamicResource MyButton}" TabIndex="10">
             <Button.Background>
                 <ImageBrush ImageSource="Imagenes/flecha-izquierda.png" Stretch="UniformToFill"/>
             </Button.Background>
         </Button>
+        <TextBox x:Name="txtRut" HorizontalAlignment="Left" Height="23" Margin="173,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" FontSize="16" MaxLength="8" MaxLines="1" BorderBrush="Black" TabIndex="0"/>
+        <TextBox x:Name="txtNombres" HorizontalAlignment="Left" Height="23" Margin="173,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="215" FontSize="16" BorderBrush="Black" TabIndex="3"/>
+        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="23" Margin="173,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="215" FontSize="16" BorderBrush="Black" TabIndex="5"/>
+        <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="23" Margin="492,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="215" FontSize="16" BorderBrush="Black" TabIndex="6"/>
+        <TextBox x:Name="txtTelefono" HorizontalAlignment="Left" Height="23" Margin="173,283,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" BorderBrush="Black" TabIndex="7"/>
+        <TextBox x:Name="txtCelular" HorizontalAlignment="Left" Height="23" Margin="495,283,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" BorderBrush="Black" TabIndex="8"/>
+        <TextBox x:Name="txtEdad" HorizontalAlignment="Left" Height="23" Margin="495,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" FontSize="16" MaxLength="3" MaxLines="1" BorderBrush="Black" TabIndex="2" TextAlignment="Center"/>
+        <TextBox x:Name="txtDv" HorizontalAlignment="Left" Height="23" Margin="281,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" FontSize="16" TextAlignment="Center" MaxLength="1" MaxLines="1" BorderBrush="Black" TabIndex="1"/>
+        <TextBox x:Name="txtApellidos" HorizontalAlignment="Left" Height="23" Margin="492,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="215" FontSize="16" BorderBrush="Black" TabIndex="4"/>
+        <Label Content="RUT:" HorizontalAlignment="Left" Margin="87,110,0,0" VerticalAlignment="Top" FontSize="16" Width="81"/>
+        <Label Content="Nombres:" HorizontalAlignment="Left" Margin="87,168,0,0" VerticalAlignment="Top" FontSize="16" Height="31" Width="81"/>
+        <Label Content="Correo:" HorizontalAlignment="Left" Margin="87,225,0,0" VerticalAlignment="Top" FontSize="16" Width="81"/>
+        <Label Content="Dirección:" HorizontalAlignment="Left" Margin="410,225,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Edad:" HorizontalAlignment="Left" Margin="410,110,0,0" VerticalAlignment="Top" FontSize="16" Width="80"/>
+        <Label Content="Telefono:" HorizontalAlignment="Left" Margin="87,279,0,0" VerticalAlignment="Top" FontSize="16" Width="81"/>
+        <Label Content="Celular:" HorizontalAlignment="Left" Margin="410,279,0,0" VerticalAlignment="Top" FontSize="16" Width="80"/>
+        <Label Content="-" HorizontalAlignment="Left" Margin="258,110,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Apellidos:" HorizontalAlignment="Left" Margin="410,168,0,0" VerticalAlignment="Top" FontSize="16" Width="80"/>
+        <Label Content="Registro de Clientes" Margin="287,25,0,0" VerticalAlignment="Top" Height="40" FontSize="22" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Width="220"/>
+        <Button x:Name="btnRegistrar" Content="Registrar" Margin="347,0,0,25" Width="100" BorderBrush="Black" Background="White" HorizontalAlignment="Left" FontSize="16" Height="30" VerticalAlignment="Bottom" TabIndex="9" Click="btnRegistrar_Click" Cursor="Hand"/>
     </Grid>
 </Window>
