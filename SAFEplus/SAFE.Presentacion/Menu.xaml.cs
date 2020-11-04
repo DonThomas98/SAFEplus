@@ -22,6 +22,9 @@ namespace SAFE.Presentacion
         public Menu()
         {
             InitializeComponent();
+            string usuario = "Admin"; //Placeholder, hay que hacer una query para sacar el primer nombre del usuario.
+
+            lbBienvenido.Content = (lbBienvenido.Content.ToString() + usuario);
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)
@@ -33,9 +36,16 @@ namespace SAFE.Presentacion
 
         private void btnRegCliente_Click(object sender, RoutedEventArgs e)
         {
-            RegistroClientes regCli = new RegistroClientes();
+            RegistroClientes regCli = new RegistroClientes(this);
             regCli.Show();
-            this.Close();
+            this.Hide();
+        }
+
+        private void btnVistaCliente_Click(object sender, RoutedEventArgs e)
+        {
+            VistaCliente vistaCliente = new VistaCliente(this);
+            vistaCliente.Show();
+            this.Hide();
         }
     }
 }

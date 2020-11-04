@@ -15,13 +15,13 @@ using System.Windows.Shapes;
 namespace SAFE.Presentacion
 {
     /// <summary>
-    /// Lógica de interacción para RegistroClientes.xaml
+    /// Lógica de interacción para VistaCliente.xaml
     /// </summary>
-    public partial class RegistroClientes : Window
+    public partial class VistaCliente : Window
     {
         private Menu _menu;
-
-        public RegistroClientes(Menu menu)
+        
+        public VistaCliente(Menu menu)
         {
             InitializeComponent();
             _menu = menu; //Hereda la ventana menú para que no crear ventanas nuevas y queden ventanas ocultas abiertas en memoria
@@ -31,20 +31,6 @@ namespace SAFE.Presentacion
         {
             _menu.Show();
             this.Close();
-        }
-
-        private void btnRegistrar_Click(object sender, RoutedEventArgs e)
-        {
-            //Separar los nombres y apellidos
-            String pNombre, sNombre, pApellido, sApellido;
-            string[] nombres = txtNombres.Text.Split(' ');
-            string[] apellidos = txtApellidos.Text.Split(' ');
-            pNombre = nombres[0];
-            sNombre = nombres[1];
-            pApellido = apellidos[0];
-            sApellido = apellidos[1];
-
-
         }
     }
 }

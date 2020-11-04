@@ -84,3 +84,5 @@ C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\obj\Debug\Menu.b
 C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\obj\Debug\RegistroClientes.baml
 C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\obj\Debug\Ayuda.g.cs
 C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\obj\Debug\Ayuda.baml
+C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\obj\Debug\VistaCliente.g.cs
+C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\obj\Debug\VistaCliente.baml
