@@ -47,5 +47,19 @@ namespace SAFE.Presentacion
             vistaCliente.Show();
             this.Hide();
         }
+
+        private void btnContratos_Click(object sender, RoutedEventArgs e)
+        {
+            Contratos contratos = new Contratos(this);
+            contratos.Show();
+            this.Hide();
+        }
+
+        private void btnRegTrabajador_Click(object sender, RoutedEventArgs e)
+        {
+            RegistroTrabajador regTra = new RegistroTrabajador(this);
+            regTra.Show();
+            this.Hide();
+        }
     }
 }

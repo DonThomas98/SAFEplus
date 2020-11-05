@@ -15,13 +15,13 @@ using System.Windows.Shapes;
 namespace SAFE.Presentacion
 {
     /// <summary>
-    /// Lógica de interacción para RegistroClientes.xaml
+    /// Lógica de interacción para RegistroTrabajador.xaml
     /// </summary>
-    public partial class RegistroClientes : Window
+    public partial class RegistroTrabajador : Window
     {
         private Menu _menu;
 
-        public RegistroClientes(Menu menu)
+        public RegistroTrabajador(Menu menu)
         {
             InitializeComponent();
             _menu = menu; //Hereda la ventana menú para que no crear ventanas nuevas y queden ventanas ocultas abiertas en memoria
@@ -56,8 +56,14 @@ namespace SAFE.Presentacion
                 MessageBox.Show("Ingrese los apellidos del trabajador");
                 txtApellidos.Focus();
             }
+            
 
-
+            //Comparar contraseñas
+            if (pwdPassword.Password != pwdConfirmar.Password)
+            {
+                MessageBox.Show("Las contraseñas no coinciden");
+                pwdPassword.Focus();
+            }
         }
     }
 }

@@ -25,6 +25,13 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style TargetType="Button" x:Key="Round">
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10" />
+                </Style>
+            </Style.Resources>
+        </Style>
     </Window.Resources>
     <Grid>
         <Image Height="45" Margin="0,25,25,0" VerticalAlignment="Top" Source="Imagenes/Icon2.png" OpacityMask="Black" HorizontalAlignment="Right" Width="98"/>
@@ -33,8 +40,27 @@
                 <ImageBrush ImageSource="Imagenes/flecha-izquierda.png" Stretch="UniformToFill"/>
             </Button.Background>
         </Button>
-        <Label Content="Vista de Clientes" Margin="287,25,287,0" VerticalAlignment="Top" Height="40" FontSize="22" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-        <DataGrid Margin="50,100,50,51" Background="White" BorderBrush="Black"/>
+        <Label Content="Vista de Clientes" Margin="287,50,287,0" VerticalAlignment="Top" Height="40" FontSize="22" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+        <TabControl Margin="50,100,50,25">
+            <TabItem Header="Lista de Clientes">
+                <Grid>
+                    <DataGrid x:Name="dtgListaClientes" Background="White" BorderBrush="Black"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Pagos por Cliente">
+                <Grid Background="#3FFF4D00">
+                    <Label Content="RUT Cliente:" HorizontalAlignment="Right" Margin="0,5,175,0" VerticalAlignment="Top" FontSize="16" Height="30"/>
+                    <ComboBox x:Name="cboRutCliente" Margin="0,10,50,0" VerticalAlignment="Top" BorderBrush="Black" HorizontalAlignment="Right" Width="120"/>
+                    <DataGrid x:Name="dtgPagosCliente" Margin="0,42,0,0" Background="White"/>
+                    <Button x:Name="btnBuscar" Content="" HorizontalAlignment="Right" Margin="0,10,15,0" VerticalAlignment="Top" Width="25" Height="25" BorderBrush="{x:Null}" Style="{DynamicResource MyButton}">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Imagenes/lupa.png" Stretch="Uniform"/>
+                        </Button.Background>
+                    </Button>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Separator Height="5" Margin="50,90,50,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

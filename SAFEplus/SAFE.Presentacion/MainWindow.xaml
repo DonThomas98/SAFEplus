@@ -34,7 +34,7 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <Rectangle Height="175" Margin="48,152,46,0" Stroke="#FF707070" VerticalAlignment="Top" RadiusY="25" RadiusX="25"/>
+        <Rectangle Height="175" Margin="48,152,46,0" Stroke="#FF707070" VerticalAlignment="Top" RadiusY="25" RadiusX="25" Fill="#3FFF4D00"/>
         <Label Content="Correo:" HorizontalAlignment="Left" Margin="75,164,0,0" VerticalAlignment="Top" FontSize="16" Height="31"/>
         <TextBox x:Name="txtUser" Height="25" Margin="75,200,75,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" TabIndex="0" BorderBrush="Black"/>
 

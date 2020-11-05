@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SAFE.Presentacion"
         mc:Ignorable="d"
-        Title="Menú Principal - Safe+" Height="500" Width="800" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Icon="Imagenes/Icon3.ico">
+        Title="Menú Principal - Safe+" Height="500" Width="800" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Icon="Imagenes/Icon3.ico" Background="{x:Null}">
     <Window.Resources>
         <Style x:Key="MyButton" TargetType="Button">
             <Setter Property="OverridesDefaultStyle" Value="True" />
@@ -33,7 +33,7 @@
             </Style.Resources>
         </Style>
     </Window.Resources>
-    <Grid>
+    <Grid Background="White">
         <Button x:Name="btnVolver" Content="" HorizontalAlignment="Left" Margin="25,25,0,0" VerticalAlignment="Top" Width="33" Height="33" BorderBrush="{x:Null}" AutomationProperties.HelpText="Volver" Click="btnVolver_Click" Foreground="{x:Null}" RenderTransformOrigin="0.5,0.5" Cursor="Hand" Style="{DynamicResource MyButton}" ToolTip="Cerrar Sesión">
             <Button.Background>
                 <ImageBrush ImageSource="Imagenes/cerrar-sesion.png" Stretch="UniformToFill"></ImageBrush>
@@ -41,16 +41,16 @@
         </Button>
         <Button x:Name="btnRegCliente" Content="Registrar&#xD;&#xA;Cliente" HorizontalAlignment="Left" Margin="75,125,0,0" VerticalAlignment="Top" Width="125" Click="btnRegCliente_Click" Height="125" Style="{DynamicResource Round}" FontSize="18" FontWeight="Bold" Foreground="Black" BorderBrush="Black" Background="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextOptions.TextHintingMode="Animated" Cursor="Hand"/>
         <Button x:Name="btnVistaCliente" Content="Vista de&#xD;&#xA;Clientes" HorizontalAlignment="Left" Margin="250,125,0,0" VerticalAlignment="Top" Width="125" Background="White" BorderBrush="Black" Height="125" FontSize="18" FontWeight="Bold" Cursor="Hand" Style="{DynamicResource Round}" Click="btnVistaCliente_Click"/>
-        <Button Content="Contratos" HorizontalAlignment="Left" Margin="425,125,0,0" VerticalAlignment="Top" Width="125" Background="White" BorderBrush="Black" Height="125" FontSize="18" FontWeight="Bold" Cursor="Hand" Style="{DynamicResource Round}"/>
-        <Button Content="Monitorear&#xD;&#xA;Actividades" HorizontalAlignment="Left" Margin="600,125,0,0" VerticalAlignment="Top" Width="125" Background="White" BorderBrush="Black" Height="125" FontSize="18" FontWeight="Bold" Cursor="Hand" Style="{DynamicResource Round}"/>
-        <Button Content="Registrar&#xD;&#xA;Trabajador" HorizontalAlignment="Left" Margin="75,300,0,0" VerticalAlignment="Top" Width="125" Background="White" BorderBrush="Black" Height="125" FontSize="18" FontWeight="Bold" Cursor="Hand" Style="{DynamicResource Round}"/>
-        <Button Content="Vista de&#xD;&#xA;Trabajadores" HorizontalAlignment="Left" Margin="250,300,0,0" VerticalAlignment="Top" Width="125" Background="White" BorderBrush="Black" Height="125" FontSize="18" FontWeight="Bold" Cursor="Hand" Style="{DynamicResource Round}"/>
-        <Button Content="Carga&#xD;&#xA;Laboral" HorizontalAlignment="Left" Margin="425,300,0,0" VerticalAlignment="Top" Width="125" Background="White" BorderBrush="Black" Height="125" FontSize="18" FontWeight="Bold" Cursor="Hand" Style="{DynamicResource Round}"/>
+        <Button x:Name="btnContratos" Content="Contratos" HorizontalAlignment="Left" Margin="425,125,0,0" VerticalAlignment="Top" Width="125" Background="White" BorderBrush="Black" Height="125" FontSize="18" FontWeight="Bold" Cursor="Hand" Style="{DynamicResource Round}" Click="btnContratos_Click"/>
+        <Button x:Name="btnActividades" Content="Monitorear&#xD;&#xA;Actividades" HorizontalAlignment="Left" Margin="600,125,0,0" VerticalAlignment="Top" Width="125" Background="White" BorderBrush="Black" Height="125" FontSize="18" FontWeight="Bold" Cursor="Hand" Style="{DynamicResource Round}"/>
+        <Button x:Name="btnRegTrabajador" Content="Registrar&#xD;&#xA;Trabajador" HorizontalAlignment="Left" Margin="75,300,0,0" VerticalAlignment="Top" Width="125" Background="White" BorderBrush="Black" Height="125" FontSize="18" FontWeight="Bold" Cursor="Hand" Style="{DynamicResource Round}" Click="btnRegTrabajador_Click"/>
+        <Button x:Name="btnVistaTrabajador" Content="Vista de&#xD;&#xA;Trabajadores" HorizontalAlignment="Left" Margin="250,300,0,0" VerticalAlignment="Top" Width="125" Background="White" BorderBrush="Black" Height="125" FontSize="18" FontWeight="Bold" Cursor="Hand" Style="{DynamicResource Round}"/>
         <Button Content="Próximamente" HorizontalAlignment="Left" Margin="600,300,0,0" VerticalAlignment="Top" Width="125" Background="White" BorderBrush="Black" Height="125" FontSize="16" FontWeight="Bold" Cursor="Hand" Style="{DynamicResource Round}" IsEnabled="False"/>
         <Image HorizontalAlignment="Right" Height="45" Margin="0,25,25,0" VerticalAlignment="Top" Width="100" Source="Imagenes/Icon2.png" OpacityMask="Black"/>
         <Label x:Name="lbBienvenido" Content="Bienvenido/a: " Margin="75,50,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Width="589"/>
         <Separator HorizontalAlignment="Left" Height="15" Margin="75,97,0,0" VerticalAlignment="Top" Width="650"/>
         <Separator HorizontalAlignment="Left" Height="15" Margin="75,266,0,0" VerticalAlignment="Top" Width="650"/>
+        <Button Content="Próximamente" HorizontalAlignment="Left" Margin="425,300,0,0" VerticalAlignment="Top" Width="125" Background="White" BorderBrush="Black" Height="125" FontSize="16" FontWeight="Bold" Cursor="Hand" Style="{DynamicResource Round}" IsEnabled="False"/>
 
     </Grid>
 </Window>

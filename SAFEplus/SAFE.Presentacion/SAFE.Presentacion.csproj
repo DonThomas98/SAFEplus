@@ -138,16 +138,29 @@
     <Compile Include="Ayuda.xaml.cs">
       <DependentUpon>Ayuda.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Contratos.xaml.cs">
+      <DependentUpon>Contratos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
     </Compile>
     <Compile Include="RegistroClientes.xaml.cs">
       <DependentUpon>RegistroClientes.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RegistroTrabajador.xaml.cs">
+      <DependentUpon>RegistroTrabajador.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VistaCliente.xaml.cs">
       <DependentUpon>VistaCliente.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VistaTrabajador.xaml.cs">
+      <DependentUpon>VistaTrabajador.xaml</DependentUpon>
+    </Compile>
     <Page Include="Ayuda.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Contratos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -171,7 +184,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="RegistroTrabajador.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="VistaCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VistaTrabajador.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -226,6 +247,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\cerrar-sesion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\lupa.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

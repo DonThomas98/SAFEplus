@@ -86,3 +86,9 @@ C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\obj\Debug\Ayuda.
 C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\obj\Debug\Ayuda.baml
 C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\obj\Debug\VistaCliente.g.cs
 C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\obj\Debug\VistaCliente.baml
+C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\obj\Debug\Contratos.g.cs
+C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\obj\Debug\Contratos.baml
+C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\obj\Debug\RegistroTrabajador.g.cs
+C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\obj\Debug\VistaTrabajador.g.cs
+C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\obj\Debug\RegistroTrabajador.baml
+C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\obj\Debug\VistaTrabajador.baml
