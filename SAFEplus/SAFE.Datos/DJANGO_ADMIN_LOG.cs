@@ -12,13 +12,18 @@ namespace SAFE.Datos
     using System;
     using System.Collections.Generic;
     
-    public partial class ANTECEDENTES_ASESORIA
+    public partial class DJANGO_ADMIN_LOG
     {
         public long ID { get; set; }
-        public string DESCRIPCION_DOCUMENTO { get; set; }
-        public string DOCUMENTO { get; set; }
-        public long ID_ASESORIA_ID { get; set; }
+        public System.DateTime ACTION_TIME { get; set; }
+        public string OBJECT_ID { get; set; }
+        public string OBJECT_REPR { get; set; }
+        public long ACTION_FLAG { get; set; }
+        public string CHANGE_MESSAGE { get; set; }
+        public Nullable<long> CONTENT_TYPE_ID { get; set; }
+        public long USER_ID { get; set; }
     
-        public virtual ASESORIA ASESORIA { get; set; }
+        public virtual AUTH_USER AUTH_USER { get; set; }
+        public virtual DJANGO_CONTENT_TYPE DJANGO_CONTENT_TYPE { get; set; }
     }
 }

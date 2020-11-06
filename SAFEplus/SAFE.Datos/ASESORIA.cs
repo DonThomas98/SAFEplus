@@ -20,9 +20,10 @@ namespace SAFE.Datos
             this.ANTECEDENTES_ASESORIA = new HashSet<ANTECEDENTES_ASESORIA>();
         }
     
-        public decimal ID_ASESORIA { get; set; }
+        public long ID { get; set; }
         public string EVENTO { get; set; }
         public string PROPUESTA { get; set; }
+        public long VISITA_ASESORIA_ID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ANTECEDENTES_ASESORIA> ANTECEDENTES_ASESORIA { get; set; }

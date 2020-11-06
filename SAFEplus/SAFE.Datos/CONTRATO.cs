@@ -20,10 +20,12 @@ namespace SAFE.Datos
             this.REGISTRO_PAGOS = new HashSet<REGISTRO_PAGOS>();
         }
     
-        public decimal ID_CONTRATO { get; set; }
+        public long ID { get; set; }
         public System.DateTime FECHA_CONTRATACION { get; set; }
+        public long RUT_CLIENTE_ID { get; set; }
+        public long TIPO_CONTRATO_ID { get; set; }
     
-        public virtual CLIENTE CLIENTE { get; set; }
+        public virtual AUTH_USER AUTH_USER { get; set; }
         public virtual TIPO_CONTRATO TIPO_CONTRATO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<REGISTRO_PAGOS> REGISTRO_PAGOS { get; set; }

@@ -14,11 +14,12 @@ namespace SAFE.Datos
     
     public partial class MULTA
     {
-        public decimal ID_MULTA { get; set; }
-        public decimal MONTO_MULTA { get; set; }
+        public long ID { get; set; }
+        public long MONTO_MULTA { get; set; }
         public string DESCRIPCION { get; set; }
         public System.DateTime FECHA_MULTA { get; set; }
+        public long USER_ID { get; set; }
     
-        public virtual CLIENTE CLIENTE { get; set; }
+        public virtual ACCOUNT_USERPROFILE ACCOUNT_USERPROFILE { get; set; }
     }
 }

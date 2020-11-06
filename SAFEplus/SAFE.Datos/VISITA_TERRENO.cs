@@ -21,14 +21,16 @@ namespace SAFE.Datos
             this.INFORME_VISITA = new HashSet<INFORME_VISITA>();
         }
     
-        public decimal ID_VISITA { get; set; }
+        public long ID { get; set; }
         public System.DateTime FECHA_VISITA { get; set; }
+        public long RUT_CLIENTE_ID { get; set; }
+        public long RUT_TRABAJADOR_ID { get; set; }
     
+        public virtual ACCOUNT_USERPROFILE ACCOUNT_USERPROFILE { get; set; }
+        public virtual ACCOUNT_USERPROFILE ACCOUNT_USERPROFILE1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ASESORIA> ASESORIA { get; set; }
-        public virtual CLIENTE CLIENTE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<INFORME_VISITA> INFORME_VISITA { get; set; }
-        public virtual TRABAJADOR TRABAJADOR { get; set; }
     }
 }

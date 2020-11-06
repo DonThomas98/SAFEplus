@@ -14,9 +14,11 @@ namespace SAFE.Datos
     
     public partial class REGISTRO_ACCIDENTADOS
     {
-        public decimal ID_ACCIDENTADOS { get; set; }
+        public long ID { get; set; }
+        public long ID_ACCIDENTE_ID { get; set; }
+        public long RUT_TRABAJADOR_ID { get; set; }
     
         public virtual ACCIDENTE ACCIDENTE { get; set; }
-        public virtual CLIENTE CLIENTE { get; set; }
+        public virtual ACCOUNT_USERPROFILE ACCOUNT_USERPROFILE { get; set; }
     }
 }

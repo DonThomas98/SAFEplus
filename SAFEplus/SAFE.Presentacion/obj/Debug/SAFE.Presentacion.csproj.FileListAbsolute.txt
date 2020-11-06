@@ -105,3 +105,5 @@ C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\bin\Debug\Oracle
 C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\bin\Debug\Oracle.ManagedDataAccess.EntityFramework.dll
 C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\bin\Debug\Microsoft.EntityFrameworkCore.Design.xml
 C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\bin\Debug\Microsoft.EntityFrameworkCore.Relational.xml
+C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\obj\Debug\MonitoreoActividades.g.cs
+C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\obj\Debug\MonitoreoActividades.baml

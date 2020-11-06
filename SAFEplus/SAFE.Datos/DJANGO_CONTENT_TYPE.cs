@@ -12,20 +12,22 @@ namespace SAFE.Datos
     using System;
     using System.Collections.Generic;
     
-    public partial class MATERIAL_SOLICITADO
+    public partial class DJANGO_CONTENT_TYPE
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public MATERIAL_SOLICITADO()
+        public DJANGO_CONTENT_TYPE()
         {
-            this.MATERIAL_SOLICITADO_ID_MAT9F2C = new HashSet<MATERIAL_SOLICITADO_ID_MAT9F2C>();
+            this.AUTH_PERMISSION = new HashSet<AUTH_PERMISSION>();
+            this.DJANGO_ADMIN_LOG = new HashSet<DJANGO_ADMIN_LOG>();
         }
     
         public long ID { get; set; }
-        public long CANTIDAD { get; set; }
-        public long ID_CAPACITACION_ID { get; set; }
+        public string APP_LABEL { get; set; }
+        public string MODEL { get; set; }
     
-        public virtual CAPACITACION CAPACITACION { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MATERIAL_SOLICITADO_ID_MAT9F2C> MATERIAL_SOLICITADO_ID_MAT9F2C { get; set; }
+        public virtual ICollection<AUTH_PERMISSION> AUTH_PERMISSION { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DJANGO_ADMIN_LOG> DJANGO_ADMIN_LOG { get; set; }
     }
 }

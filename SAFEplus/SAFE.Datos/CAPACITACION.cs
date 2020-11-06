@@ -20,12 +20,14 @@ namespace SAFE.Datos
             this.MATERIAL_SOLICITADO = new HashSet<MATERIAL_SOLICITADO>();
         }
     
-        public decimal ID_CAPACITACION { get; set; }
+        public long ID { get; set; }
         public System.DateTime FECHA_SOLICITUD { get; set; }
         public System.DateTime FECHA_CAPACITACION { get; set; }
+        public long RUT_CLIENTE_ID { get; set; }
+        public long RUT_TRABAJADOR_ID { get; set; }
     
-        public virtual TRABAJADOR TRABAJADOR { get; set; }
-        public virtual CLIENTE CLIENTE { get; set; }
+        public virtual ACCOUNT_USERPROFILE ACCOUNT_USERPROFILE { get; set; }
+        public virtual ACCOUNT_USERPROFILE ACCOUNT_USERPROFILE1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MATERIAL_SOLICITADO> MATERIAL_SOLICITADO { get; set; }
     }

@@ -12,20 +12,24 @@ namespace SAFE.Datos
     using System;
     using System.Collections.Generic;
     
-    public partial class MATERIAL_SOLICITADO
+    public partial class AUTH_PERMISSION
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public MATERIAL_SOLICITADO()
+        public AUTH_PERMISSION()
         {
-            this.MATERIAL_SOLICITADO_ID_MAT9F2C = new HashSet<MATERIAL_SOLICITADO_ID_MAT9F2C>();
+            this.AUTH_GROUP_PERMISSIONS = new HashSet<AUTH_GROUP_PERMISSIONS>();
+            this.AUTH_USER_USER_PERMISSIONS = new HashSet<AUTH_USER_USER_PERMISSIONS>();
         }
     
         public long ID { get; set; }
-        public long CANTIDAD { get; set; }
-        public long ID_CAPACITACION_ID { get; set; }
+        public string NAME { get; set; }
+        public long CONTENT_TYPE_ID { get; set; }
+        public string CODENAME { get; set; }
     
-        public virtual CAPACITACION CAPACITACION { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MATERIAL_SOLICITADO_ID_MAT9F2C> MATERIAL_SOLICITADO_ID_MAT9F2C { get; set; }
+        public virtual ICollection<AUTH_GROUP_PERMISSIONS> AUTH_GROUP_PERMISSIONS { get; set; }
+        public virtual DJANGO_CONTENT_TYPE DJANGO_CONTENT_TYPE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AUTH_USER_USER_PERMISSIONS> AUTH_USER_USER_PERMISSIONS { get; set; }
     }
 }

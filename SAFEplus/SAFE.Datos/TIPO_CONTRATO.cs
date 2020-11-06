@@ -20,9 +20,9 @@ namespace SAFE.Datos
             this.CONTRATO = new HashSet<CONTRATO>();
         }
     
-        public decimal TIPO_CONTRATO1 { get; set; }
+        public long ID { get; set; }
         public string DESCRIPCION { get; set; }
-        public decimal COSTO { get; set; }
+        public long COSTO { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CONTRATO> CONTRATO { get; set; }

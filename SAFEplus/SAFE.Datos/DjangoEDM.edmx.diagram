@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1acc28864de34820a71c16b6adf2ff6a" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.ACCIDENTE" Width="1.5" PointX="3" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ACCOUNT_USERPROFILE" Width="1.5" PointX="3" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ANTECEDENTES_ASESORIA" Width="1.5" PointX="9.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ASESORIA" Width="1.5" PointX="7.5" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AUTH_GROUP" Width="1.5" PointX="0.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AUTH_GROUP_PERMISSIONS" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AUTH_PERMISSION" Width="1.5" PointX="0.75" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AUTH_USER" Width="1.5" PointX="0.75" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AUTH_USER_GROUPS" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AUTH_USER_USER_PERMISSIONS" Width="1.5" PointX="3" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CAPACITACION" Width="1.5" PointX="5.25" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CONTRATO" Width="1.5" PointX="8" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DJANGO_ADMIN_LOG" Width="1.5" PointX="10" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DJANGO_CONTENT_TYPE" Width="1.5" PointX="1.5" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DJANGO_MIGRATIONS" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DJANGO_SESSION" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.INFORME_VISITA" Width="1.5" PointX="7.5" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MATERIAL_CAPACITACIONES" Width="1.5" PointX="7.5" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MATERIAL_SOLICITADO" Width="1.5" PointX="7.5" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MATERIAL_SOLICITADO_ID_MAT9F2C" Width="1.5" PointX="9.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MULTA" Width="1.5" PointX="5.25" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.REGISTRO_ACCIDENTADOS" Width="1.5" PointX="5.25" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.REGISTRO_PAGOS" Width="1.5" PointX="10.25" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TIPO_ACCIDENTE" Width="1.5" PointX="0.75" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TIPO_CONTRATO" Width="1.5" PointX="5.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.VISITA_TERRENO" Width="1.5" PointX="5.25" PointY="21" IsExpanded="true" />
+        <AssociationConnector Association="Model.ACCIDENTE_ID_TIPO_A_D128714A_F" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.REGISTRO__ID_ACCIDE_553C08A6_F" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.ACCOUNT_U_USER_ID_5AFA3C7A_F" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.CAPACITAC_RUT_CLIEN_077B4635_F" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.CAPACITAC_RUT_TRABA_8ADD113D_F" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.MULTA_USER_ID_5C70A42F_F" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.REGISTRO__RUT_TRABA_47420763_F" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.VISITA_TE_RUT_CLIEN_E5A1CA96_F" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.VISITA_TE_RUT_TRABA_4B242B5F_F" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.ANTECEDEN_ID_ASESOR_5BC4BFAA_F" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.ASESORIA_VISITA_AS_7B3900F9_F" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.AUTH_GROU_GROUP_ID_B120CBF9_F" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.AUTH_USER_GROUP_ID_97559544_F" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.AUTH_GROU_PERMISSIO_84C5C92E_F" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.AUTH_PERM_CONTENT_T_2F476E4B_F" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.AUTH_USER_PERMISSIO_1FBB5F2C_F" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.AUTH_USER_USER_ID_6A12ED8B_F" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.AUTH_USER_USER_ID_A95EAD1B_F" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.CONTRATO_RUT_CLIEN_A68DF4C9_F" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.DJANGO_AD_USER_ID_C564EBA6_F" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.MATERIAL__ID_CAPACI_0919FE5D_F" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.CONTRATO_TIPO_CONT_D8C99156_F" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.REGISTRO__ID_CONTRA_711DAA8A_F" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.DJANGO_AD_CONTENT_T_C4BCE8EB_F" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.INFORME_V_ID_VISITA_D117EA99_F" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.MATERIAL__MATERIALC_7FDD8DEA_F" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.MATERIAL__MATERIALS_ADD82D5D_F" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

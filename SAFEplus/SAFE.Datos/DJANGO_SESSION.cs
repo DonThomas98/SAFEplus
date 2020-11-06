@@ -12,13 +12,10 @@ namespace SAFE.Datos
     using System;
     using System.Collections.Generic;
     
-    public partial class ANTECEDENTES_ASESORIA
+    public partial class DJANGO_SESSION
     {
-        public long ID { get; set; }
-        public string DESCRIPCION_DOCUMENTO { get; set; }
-        public string DOCUMENTO { get; set; }
-        public long ID_ASESORIA_ID { get; set; }
-    
-        public virtual ASESORIA ASESORIA { get; set; }
+        public string SESSION_KEY { get; set; }
+        public string SESSION_DATA { get; set; }
+        public System.DateTime EXPIRE_DATE { get; set; }
     }
 }

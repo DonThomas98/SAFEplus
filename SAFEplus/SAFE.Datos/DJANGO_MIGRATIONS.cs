@@ -12,13 +12,11 @@ namespace SAFE.Datos
     using System;
     using System.Collections.Generic;
     
-    public partial class ANTECEDENTES_ASESORIA
+    public partial class DJANGO_MIGRATIONS
     {
         public long ID { get; set; }
-        public string DESCRIPCION_DOCUMENTO { get; set; }
-        public string DOCUMENTO { get; set; }
-        public long ID_ASESORIA_ID { get; set; }
-    
-        public virtual ASESORIA ASESORIA { get; set; }
+        public string APP { get; set; }
+        public string NAME { get; set; }
+        public System.DateTime APPLIED { get; set; }
     }
 }
