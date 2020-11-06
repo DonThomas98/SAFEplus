@@ -19,11 +19,10 @@ namespace SAFE.Presentacion
     /// </summary>
     public partial class Menu : Window
     {
-        public Menu()
+        public Menu(string nombre)
         {
             InitializeComponent();
-            string usuario = "Admin"; //Placeholder, hay que hacer una query para sacar el primer nombre del usuario.
-
+            string usuario = nombre;
             lbBienvenido.Content = (lbBienvenido.Content.ToString() + usuario);
         }
 
@@ -36,30 +35,38 @@ namespace SAFE.Presentacion
 
         private void btnRegCliente_Click(object sender, RoutedEventArgs e)
         {
-            RegistroClientes regCli = new RegistroClientes(this);
+            RegistroClientes regCli = new RegistroClientes();
             regCli.Show();
-            this.Hide();
         }
 
         private void btnVistaCliente_Click(object sender, RoutedEventArgs e)
         {
-            VistaCliente vistaCliente = new VistaCliente(this);
+            VistaCliente vistaCliente = new VistaCliente();
             vistaCliente.Show();
-            this.Hide();
         }
 
         private void btnContratos_Click(object sender, RoutedEventArgs e)
         {
-            Contratos contratos = new Contratos(this);
+            Contratos contratos = new Contratos();
             contratos.Show();
-            this.Hide();
         }
 
         private void btnRegTrabajador_Click(object sender, RoutedEventArgs e)
         {
-            RegistroTrabajador regTra = new RegistroTrabajador(this);
+            RegistroTrabajador regTra = new RegistroTrabajador();
             regTra.Show();
-            this.Hide();
+        }
+
+        private void btnVistaTrabajador_Click(object sender, RoutedEventArgs e)
+        {
+            VistaTrabajador vistaTrabajador = new VistaTrabajador();
+            vistaTrabajador.Show();
+        }
+
+        private void btnActividades_Click(object sender, RoutedEventArgs e)
+        {
+            MonitoreoActividades actividades = new MonitoreoActividades();
+            actividades.Show();
         }
     }
 }

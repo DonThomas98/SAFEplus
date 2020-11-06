@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using SAFE.Negocios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +22,7 @@ namespace SAFE.Presentacion
     /// </summary>
     public partial class MainWindow : Window
     {
+        Manejadora _mane = new Manejadora();
         public MainWindow()
         {
             InitializeComponent();
@@ -27,9 +30,18 @@ namespace SAFE.Presentacion
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            Menu menu = new Menu();
-            menu.Show();
-            this.Close();
+            if (_mane.Login(txtUser.Text, pwdPass.Password) == true)
+            {
+                string nombre = _mane.GetNombre(txtUser.Text);
+                Menu menu = new Menu(nombre);
+                menu.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Correo o contraseña incorrectos. Intente de nuevo.");
+                txtUser.Focus();
+            }
         }
 
         private void btnAyuda_Click(object sender, RoutedEventArgs e)

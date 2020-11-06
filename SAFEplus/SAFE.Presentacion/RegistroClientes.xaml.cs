@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using SAFE.Negocios;
+using Oracle.ManagedDataAccess.Client;
 
 namespace SAFE.Presentacion
 {
@@ -19,17 +21,16 @@ namespace SAFE.Presentacion
     /// </summary>
     public partial class RegistroClientes : Window
     {
-        private Menu _menu;
+        Manejadora _mane = new Manejadora();
 
-        public RegistroClientes(Menu menu)
+        public RegistroClientes()
         {
             InitializeComponent();
-            _menu = menu; //Hereda la ventana menú para que no crear ventanas nuevas y queden ventanas ocultas abiertas en memoria
+            OracleConnection conn = _mane.ConexionDB();
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)
         {
-            _menu.Show();
             this.Close();
         }
 

@@ -19,17 +19,13 @@ namespace SAFE.Presentacion
     /// </summary>
     public partial class RegistroTrabajador : Window
     {
-        private Menu _menu;
-
-        public RegistroTrabajador(Menu menu)
+        public RegistroTrabajador()
         {
             InitializeComponent();
-            _menu = menu; //Hereda la ventana menú para que no crear ventanas nuevas y queden ventanas ocultas abiertas en memoria
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)
         {
-            _menu.Show();
             this.Close();
         }
 

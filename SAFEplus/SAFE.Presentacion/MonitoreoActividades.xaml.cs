@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace SAFE.Presentacion
 {
     /// <summary>
-    /// Lógica de interacción para Contratos.xaml
+    /// Lógica de interacción para MonitoreoActividades.xaml
     /// </summary>
-    public partial class Contratos : Window
+    public partial class MonitoreoActividades : Window
     {
-        public Contratos()
+        public MonitoreoActividades()
         {
             InitializeComponent();
         }

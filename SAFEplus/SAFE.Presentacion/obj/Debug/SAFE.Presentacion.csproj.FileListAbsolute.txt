@@ -92,3 +92,16 @@ C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\obj\Debug\Regist
 C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\obj\Debug\VistaTrabajador.g.cs
 C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\obj\Debug\RegistroTrabajador.baml
 C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\obj\Debug\VistaTrabajador.baml
+C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\bin\Debug\SAFE.Datos.dll
+C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\bin\Debug\SAFE.Negocios.dll
+C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\bin\Debug\SAFE.Datos.pdb
+C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\bin\Debug\SAFE.Datos.dll.config
+C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\bin\Debug\SAFE.Negocios.pdb
+C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\bin\Debug\SAFE.Negocios.dll.config
+C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\bin\Debug\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\bin\Debug\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\bin\Debug\Oracle.EntityFrameworkCore.dll
+C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\bin\Debug\Oracle.ManagedDataAccess.EntityFramework.dll
+C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\bin\Debug\Microsoft.EntityFrameworkCore.Design.xml
+C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\bin\Debug\Microsoft.EntityFrameworkCore.Relational.xml
