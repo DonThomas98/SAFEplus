@@ -217,7 +217,7 @@
     <Compile Include="MATERIAL_SOLICITADO.cs">
       <DependentUpon>DjangoEDM.tt</DependentUpon>
     </Compile>
-    <Compile Include="MATERIAL_SOLICITADO_ID_MAT9F2C.cs">
+    <Compile Include="MATERIAL_SOLICITADO_ID.cs">
       <DependentUpon>DjangoEDM.tt</DependentUpon>
     </Compile>
     <Compile Include="MULTA.cs">

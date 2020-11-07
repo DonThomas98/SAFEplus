@@ -23,6 +23,10 @@ namespace SAFE.Datos
             this.REGISTRO_ACCIDENTADOS = new HashSet<REGISTRO_ACCIDENTADOS>();
             this.VISITA_TERRENO = new HashSet<VISITA_TERRENO>();
             this.VISITA_TERRENO1 = new HashSet<VISITA_TERRENO>();
+            this.CAPACITACION11 = new HashSet<CAPACITACION>();
+            this.MULTA1 = new HashSet<MULTA>();
+            this.REGISTRO_ACCIDENTADOS1 = new HashSet<REGISTRO_ACCIDENTADOS>();
+            this.VISITA_TERRENO11 = new HashSet<VISITA_TERRENO>();
         }
     
         public long ID { get; set; }
@@ -30,6 +34,9 @@ namespace SAFE.Datos
         public long SUELDO { get; set; }
         public long EDAD { get; set; }
         public long USER_ID { get; set; }
+        public long AUTH_USER_ID { get; set; }
+        public Nullable<long> TELEFONO { get; set; }
+        public Nullable<long> CELULAR { get; set; }
     
         public virtual AUTH_USER AUTH_USER { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -44,5 +51,14 @@ namespace SAFE.Datos
         public virtual ICollection<VISITA_TERRENO> VISITA_TERRENO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VISITA_TERRENO> VISITA_TERRENO1 { get; set; }
+        public virtual AUTH_USER AUTH_USER1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CAPACITACION> CAPACITACION11 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MULTA> MULTA1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<REGISTRO_ACCIDENTADOS> REGISTRO_ACCIDENTADOS1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VISITA_TERRENO> VISITA_TERRENO11 { get; set; }
     }
 }

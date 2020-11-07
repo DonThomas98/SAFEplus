@@ -4,14 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="18.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="18.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ACCIDENTE">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FECHA_ACCIDENTE" Type="date" Nullable="false" />
-          <Property Name="ID_TIPO_ACCIDENTE_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="TIPO_ACCIDENTE_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="ACCOUNT_USERPROFILE">
           <Key>
@@ -19,27 +19,29 @@
           </Key>
           <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="RUT" Type="number" Precision="11" Scale="0" Nullable="false" />
-          <Property Name="SUELDO" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="SUELDO" Type="number" Precision="11" Scale="0" />
           <Property Name="EDAD" Type="number" Precision="11" Scale="0" Nullable="false" />
-          <Property Name="USER_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="AUTH_USER_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="TELEFONO" Type="number" Precision="11" Scale="0" />
+          <Property Name="CELULAR" Type="number" Precision="11" Scale="0" />
         </EntityType>
         <EntityType Name="ANTECEDENTES_ASESORIA">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DESCRIPCION_DOCUMENTO" Type="nvarchar2" MaxLength="50" />
-          <Property Name="DOCUMENTO" Type="nclob" />
-          <Property Name="ID_ASESORIA_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION_DOCUMENTO" Type="nvarchar2" MaxLength="50" Nullable="false" />
+          <Property Name="DOCUMENTO" Type="nclob" Nullable="false" />
+          <Property Name="ASESORIA_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="ASESORIA">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="EVENTO" Type="nvarchar2" MaxLength="25" />
-          <Property Name="PROPUESTA" Type="nvarchar2" MaxLength="500" />
-          <Property Name="VISITA_ASESORIA_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="EVENTO" Type="nvarchar2" MaxLength="25" Nullable="false" />
+          <Property Name="PROPUESTA" Type="nvarchar2" MaxLength="500" Nullable="false" />
+          <Property Name="VISITA_TERRENO_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="AUTH_GROUP">
           <Key>
@@ -70,13 +72,13 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PASSWORD" Type="nvarchar2" MaxLength="128" />
+          <Property Name="PASSWORD" Type="nvarchar2" MaxLength="128" Nullable="false" />
           <Property Name="LAST_LOGIN" Type="timestamp" Precision="6" />
           <Property Name="IS_SUPERUSER" Type="number" Precision="1" Scale="0" Nullable="false" />
           <Property Name="USERNAME" Type="nvarchar2" MaxLength="150" />
           <Property Name="FIRST_NAME" Type="nvarchar2" MaxLength="150" />
           <Property Name="LAST_NAME" Type="nvarchar2" MaxLength="150" />
-          <Property Name="EMAIL" Type="nvarchar2" MaxLength="254" />
+          <Property Name="EMAIL" Type="nvarchar2" MaxLength="254" Nullable="false" />
           <Property Name="IS_STAFF" Type="number" Precision="1" Scale="0" Nullable="false" />
           <Property Name="IS_ACTIVE" Type="number" Precision="1" Scale="0" Nullable="false" />
           <Property Name="DATE_JOINED" Type="timestamp" Precision="6" Nullable="false" />
@@ -105,7 +107,7 @@
           <Property Name="FECHA_SOLICITUD" Type="date" Nullable="false" />
           <Property Name="FECHA_CAPACITACION" Type="date" Nullable="false" />
           <Property Name="RUT_CLIENTE_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
-          <Property Name="RUT_TRABAJADOR_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="ACCOUNT_USERPROFILE_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="CONTRATO">
           <Key>
@@ -113,7 +115,7 @@
           </Key>
           <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FECHA_CONTRATACION" Type="date" Nullable="false" />
-          <Property Name="RUT_CLIENTE_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="AUTH_USER_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
           <Property Name="TIPO_CONTRATO_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="DJANGO_ADMIN_LOG">
@@ -159,28 +161,28 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="INTRODUCCION" Type="nvarchar2" MaxLength="250" />
-          <Property Name="RESULTADOS_EVALUACION" Type="nvarchar2" MaxLength="500" />
-          <Property Name="AUTOEVALUACION" Type="nvarchar2" MaxLength="1" />
-          <Property Name="DOC_ACTUALIZADOS" Type="nvarchar2" MaxLength="1" />
-          <Property Name="REG_INTERNO" Type="nvarchar2" MaxLength="1" />
-          <Property Name="DOC_SEREMI_TRABAJO" Type="nvarchar2" MaxLength="1" />
-          <Property Name="COPIA_DOCUMENTOS" Type="nvarchar2" MaxLength="1" />
-          <Property Name="INFORMA_RIESGOS" Type="nvarchar2" MaxLength="1" />
-          <Property Name="INFORMA_MEDIDAS" Type="nvarchar2" MaxLength="1" />
-          <Property Name="PROGRAMA_ORDEN" Type="nvarchar2" MaxLength="1" />
+          <Property Name="INTRODUCCION" Type="nvarchar2" MaxLength="250" Nullable="false" />
+          <Property Name="RESULTADOS_EVALUACION" Type="nvarchar2" MaxLength="500" Nullable="false" />
+          <Property Name="AUTOEVALUACION" Type="nvarchar2" MaxLength="1" Nullable="false" />
+          <Property Name="DOC_ACTUALIZADOS" Type="nvarchar2" MaxLength="1" Nullable="false" />
+          <Property Name="REG_INTERNO" Type="nvarchar2" MaxLength="1" Nullable="false" />
+          <Property Name="DOC_SEREMI_TRABAJO" Type="nvarchar2" MaxLength="1" Nullable="false" />
+          <Property Name="COPIA_DOCUMENTOS" Type="nvarchar2" MaxLength="1" Nullable="false" />
+          <Property Name="INFORMA_RIESGOS" Type="nvarchar2" MaxLength="1" Nullable="false" />
+          <Property Name="INFORMA_MEDIDAS" Type="nvarchar2" MaxLength="1" Nullable="false" />
+          <Property Name="PROGRAMA_ORDEN" Type="nvarchar2" MaxLength="1" Nullable="false" />
           <Property Name="EXTINTORES" Type="nvarchar2" MaxLength="1" />
           <Property Name="CAPACITACION_EXTINTOR" Type="nvarchar2" MaxLength="1" />
           <Property Name="EPP_INVENTARIO" Type="nvarchar2" MaxLength="1" />
           <Property Name="EPP_CERTIFICADOS" Type="nvarchar2" MaxLength="1" />
-          <Property Name="ID_VISITA_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="VISITA_TERRENO_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="MATERIAL_CAPACITACIONES">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MATERIAL" Type="nvarchar2" MaxLength="50" />
+          <Property Name="MATERIAL" Type="nvarchar2" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="MATERIAL_SOLICITADO">
           <Key>
@@ -188,15 +190,8 @@
           </Key>
           <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CANTIDAD" Type="number" Precision="19" Scale="0" Nullable="false" />
-          <Property Name="ID_CAPACITACION_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
-        </EntityType>
-        <EntityType Name="MATERIAL_SOLICITADO_ID_MAT9F2C">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MATERIALSOLICITADO_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
-          <Property Name="MATERIALCAPACITACIONES_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="CAPACITACION_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="MATERIAL_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="MULTA">
           <Key>
@@ -204,17 +199,17 @@
           </Key>
           <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MONTO_MULTA" Type="number" Precision="19" Scale="0" Nullable="false" />
-          <Property Name="DESCRIPCION" Type="nvarchar2" MaxLength="50" />
+          <Property Name="DESCRIPCION" Type="nvarchar2" MaxLength="50" Nullable="false" />
           <Property Name="FECHA_MULTA" Type="date" Nullable="false" />
-          <Property Name="USER_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="ACCOUNT_USERPROFILE_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="REGISTRO_ACCIDENTADOS">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ID_ACCIDENTE_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
-          <Property Name="RUT_TRABAJADOR_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="ACCIDENTE_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="ACCOUNT_USERPROFILE_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="REGISTRO_PAGOS">
           <Key>
@@ -223,21 +218,21 @@
           <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MONTO_PAGO" Type="number" Precision="19" Scale="0" Nullable="false" />
           <Property Name="FECHA_PAGO" Type="date" Nullable="false" />
-          <Property Name="ID_CONTRATO_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="CONTRATO_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="TIPO_ACCIDENTE">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DESCRIPCION" Type="nvarchar2" MaxLength="15" />
+          <Property Name="DESCRIPCION" Type="nvarchar2" MaxLength="15" Nullable="false" />
         </EntityType>
         <EntityType Name="TIPO_CONTRATO">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DESCRIPCION" Type="nvarchar2" MaxLength="30" />
+          <Property Name="DESCRIPCION" Type="nvarchar2" MaxLength="30" Nullable="false" />
           <Property Name="COSTO" Type="number" Precision="19" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="VISITA_TERRENO">
@@ -246,10 +241,10 @@
           </Key>
           <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FECHA_VISITA" Type="date" Nullable="false" />
-          <Property Name="RUT_CLIENTE_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="USERPROFILE_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
           <Property Name="RUT_TRABAJADOR_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
         </EntityType>
-        <Association Name="ACCIDENTE_ID_TIPO_A_D128714A_F">
+        <Association Name="ACCIDENTE_TIPO_FK">
           <End Role="TIPO_ACCIDENTE" Type="Self.TIPO_ACCIDENTE" Multiplicity="1" />
           <End Role="ACCIDENTE" Type="Self.ACCIDENTE" Multiplicity="*" />
           <ReferentialConstraint>
@@ -257,11 +252,11 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="ACCIDENTE">
-              <PropertyRef Name="ID_TIPO_ACCIDENTE_ID" />
+              <PropertyRef Name="TIPO_ACCIDENTE_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="ACCOUNT_U_USER_ID_5AFA3C7A_F">
+        <Association Name="ACCOUNT_USERPROFILE_AUTH_USER_FK">
           <End Role="AUTH_USER" Type="Self.AUTH_USER" Multiplicity="1" />
           <End Role="ACCOUNT_USERPROFILE" Type="Self.ACCOUNT_USERPROFILE" Multiplicity="*" />
           <ReferentialConstraint>
@@ -269,11 +264,11 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="ACCOUNT_USERPROFILE">
-              <PropertyRef Name="USER_ID" />
+              <PropertyRef Name="AUTH_USER_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="ANTECEDEN_ID_ASESOR_5BC4BFAA_F">
+        <Association Name="ANTECEDENTES_ASESORIA_FK">
           <End Role="ASESORIA" Type="Self.ASESORIA" Multiplicity="1" />
           <End Role="ANTECEDENTES_ASESORIA" Type="Self.ANTECEDENTES_ASESORIA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -281,11 +276,11 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="ANTECEDENTES_ASESORIA">
-              <PropertyRef Name="ID_ASESORIA_ID" />
+              <PropertyRef Name="ASESORIA_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="ASESORIA_VISITA_AS_7B3900F9_F">
+        <Association Name="ASESORIA_VISITA_FK">
           <End Role="VISITA_TERRENO" Type="Self.VISITA_TERRENO" Multiplicity="1" />
           <End Role="ASESORIA" Type="Self.ASESORIA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -293,7 +288,7 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="ASESORIA">
-              <PropertyRef Name="VISITA_ASESORIA_ID" />
+              <PropertyRef Name="VISITA_TERRENO_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -381,7 +376,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="CAPACITAC_RUT_CLIEN_077B4635_F">
+        <Association Name="CAPACITACION_RUT_CLI_FK">
           <End Role="ACCOUNT_USERPROFILE" Type="Self.ACCOUNT_USERPROFILE" Multiplicity="1" />
           <End Role="CAPACITACION" Type="Self.CAPACITACION" Multiplicity="*" />
           <ReferentialConstraint>
@@ -393,7 +388,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="CAPACITAC_RUT_TRABA_8ADD113D_F">
+        <Association Name="CAPACITACION_USERPROFILE_FK">
           <End Role="ACCOUNT_USERPROFILE" Type="Self.ACCOUNT_USERPROFILE" Multiplicity="1" />
           <End Role="CAPACITACION" Type="Self.CAPACITACION" Multiplicity="*" />
           <ReferentialConstraint>
@@ -401,11 +396,11 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="CAPACITACION">
-              <PropertyRef Name="RUT_TRABAJADOR_ID" />
+              <PropertyRef Name="ACCOUNT_USERPROFILE_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="CONTRATO_RUT_CLIEN_A68DF4C9_F">
+        <Association Name="CONTRATO_AUTH_FK">
           <End Role="AUTH_USER" Type="Self.AUTH_USER" Multiplicity="1" />
           <End Role="CONTRATO" Type="Self.CONTRATO" Multiplicity="*" />
           <ReferentialConstraint>
@@ -413,11 +408,11 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="CONTRATO">
-              <PropertyRef Name="RUT_CLIENTE_ID" />
+              <PropertyRef Name="AUTH_USER_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="CONTRATO_TIPO_CONT_D8C99156_F">
+        <Association Name="CONTRATO_TIPO_FK">
           <End Role="TIPO_CONTRATO" Type="Self.TIPO_CONTRATO" Multiplicity="1" />
           <End Role="CONTRATO" Type="Self.CONTRATO" Multiplicity="*" />
           <ReferentialConstraint>
@@ -453,7 +448,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="INFORME_V_ID_VISITA_D117EA99_F">
+        <Association Name="INFORME_VISITA_FK">
           <End Role="VISITA_TERRENO" Type="Self.VISITA_TERRENO" Multiplicity="1" />
           <End Role="INFORME_VISITA" Type="Self.INFORME_VISITA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -461,47 +456,23 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="INFORME_VISITA">
-              <PropertyRef Name="ID_VISITA_ID" />
+              <PropertyRef Name="VISITA_TERRENO_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="MATERIAL__ID_CAPACI_0919FE5D_F">
-          <End Role="CAPACITACION" Type="Self.CAPACITACION" Multiplicity="1" />
-          <End Role="MATERIAL_SOLICITADO" Type="Self.MATERIAL_SOLICITADO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CAPACITACION">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="MATERIAL_SOLICITADO">
-              <PropertyRef Name="ID_CAPACITACION_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="MATERIAL__MATERIALC_7FDD8DEA_F">
+        <Association Name="MATERIAL_SOLICITADO_FK">
           <End Role="MATERIAL_CAPACITACIONES" Type="Self.MATERIAL_CAPACITACIONES" Multiplicity="1" />
-          <End Role="MATERIAL_SOLICITADO_ID_MAT9F2C" Type="Self.MATERIAL_SOLICITADO_ID_MAT9F2C" Multiplicity="*" />
+          <End Role="MATERIAL_SOLICITADO" Type="Self.MATERIAL_SOLICITADO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MATERIAL_CAPACITACIONES">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="MATERIAL_SOLICITADO_ID_MAT9F2C">
-              <PropertyRef Name="MATERIALCAPACITACIONES_ID" />
+            <Dependent Role="MATERIAL_SOLICITADO">
+              <PropertyRef Name="MATERIAL_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="MATERIAL__MATERIALS_ADD82D5D_F">
-          <End Role="MATERIAL_SOLICITADO" Type="Self.MATERIAL_SOLICITADO" Multiplicity="1" />
-          <End Role="MATERIAL_SOLICITADO_ID_MAT9F2C" Type="Self.MATERIAL_SOLICITADO_ID_MAT9F2C" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MATERIAL_SOLICITADO">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="MATERIAL_SOLICITADO_ID_MAT9F2C">
-              <PropertyRef Name="MATERIALSOLICITADO_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="MULTA_USER_ID_5C70A42F_F">
+        <Association Name="MULTA_USERPROFILE_FK">
           <End Role="ACCOUNT_USERPROFILE" Type="Self.ACCOUNT_USERPROFILE" Multiplicity="1" />
           <End Role="MULTA" Type="Self.MULTA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -509,23 +480,11 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="MULTA">
-              <PropertyRef Name="USER_ID" />
+              <PropertyRef Name="ACCOUNT_USERPROFILE_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="REGISTRO__ID_ACCIDE_553C08A6_F">
-          <End Role="ACCIDENTE" Type="Self.ACCIDENTE" Multiplicity="1" />
-          <End Role="REGISTRO_ACCIDENTADOS" Type="Self.REGISTRO_ACCIDENTADOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ACCIDENTE">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="REGISTRO_ACCIDENTADOS">
-              <PropertyRef Name="ID_ACCIDENTE_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="REGISTRO__ID_CONTRA_711DAA8A_F">
+        <Association Name="PAGOS_CONTRATO_FK">
           <End Role="CONTRATO" Type="Self.CONTRATO" Multiplicity="1" />
           <End Role="REGISTRO_PAGOS" Type="Self.REGISTRO_PAGOS" Multiplicity="*" />
           <ReferentialConstraint>
@@ -533,11 +492,23 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="REGISTRO_PAGOS">
-              <PropertyRef Name="ID_CONTRATO_ID" />
+              <PropertyRef Name="CONTRATO_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="REGISTRO__RUT_TRABA_47420763_F">
+        <Association Name="REGISTRO_ACCIDENTE_FK">
+          <End Role="ACCIDENTE" Type="Self.ACCIDENTE" Multiplicity="1" />
+          <End Role="REGISTRO_ACCIDENTADOS" Type="Self.REGISTRO_ACCIDENTADOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCIDENTE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="REGISTRO_ACCIDENTADOS">
+              <PropertyRef Name="ACCIDENTE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="REGISTRO_USERPROFILE_FK">
           <End Role="ACCOUNT_USERPROFILE" Type="Self.ACCOUNT_USERPROFILE" Multiplicity="1" />
           <End Role="REGISTRO_ACCIDENTADOS" Type="Self.REGISTRO_ACCIDENTADOS" Multiplicity="*" />
           <ReferentialConstraint>
@@ -545,11 +516,23 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="REGISTRO_ACCIDENTADOS">
-              <PropertyRef Name="RUT_TRABAJADOR_ID" />
+              <PropertyRef Name="ACCOUNT_USERPROFILE_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="VISITA_TE_RUT_CLIEN_E5A1CA96_F">
+        <Association Name="SOLICITADO_CAPACITACION_FK">
+          <End Role="CAPACITACION" Type="Self.CAPACITACION" Multiplicity="1" />
+          <End Role="MATERIAL_SOLICITADO" Type="Self.MATERIAL_SOLICITADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAPACITACION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MATERIAL_SOLICITADO">
+              <PropertyRef Name="CAPACITACION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VISITA_RUT_TRA_FK">
           <End Role="ACCOUNT_USERPROFILE" Type="Self.ACCOUNT_USERPROFILE" Multiplicity="1" />
           <End Role="VISITA_TERRENO" Type="Self.VISITA_TERRENO" Multiplicity="*" />
           <ReferentialConstraint>
@@ -557,11 +540,11 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="VISITA_TERRENO">
-              <PropertyRef Name="RUT_CLIENTE_ID" />
+              <PropertyRef Name="RUT_TRABAJADOR_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="VISITA_TE_RUT_TRABA_4B242B5F_F">
+        <Association Name="VISITA_USERPROFILE_FK">
           <End Role="ACCOUNT_USERPROFILE" Type="Self.ACCOUNT_USERPROFILE" Multiplicity="1" />
           <End Role="VISITA_TERRENO" Type="Self.VISITA_TERRENO" Multiplicity="*" />
           <ReferentialConstraint>
@@ -569,7 +552,7 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="VISITA_TERRENO">
-              <PropertyRef Name="RUT_TRABAJADOR_ID" />
+              <PropertyRef Name="USERPROFILE_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -595,26 +578,25 @@
           <EntitySet Name="INFORME_VISITA" EntityType="Self.INFORME_VISITA" Schema="DJANGO21" store:Type="Tables" />
           <EntitySet Name="MATERIAL_CAPACITACIONES" EntityType="Self.MATERIAL_CAPACITACIONES" Schema="DJANGO21" store:Type="Tables" />
           <EntitySet Name="MATERIAL_SOLICITADO" EntityType="Self.MATERIAL_SOLICITADO" Schema="DJANGO21" store:Type="Tables" />
-          <EntitySet Name="MATERIAL_SOLICITADO_ID_MAT9F2C" EntityType="Self.MATERIAL_SOLICITADO_ID_MAT9F2C" Schema="DJANGO21" store:Type="Tables" />
           <EntitySet Name="MULTA" EntityType="Self.MULTA" Schema="DJANGO21" store:Type="Tables" />
           <EntitySet Name="REGISTRO_ACCIDENTADOS" EntityType="Self.REGISTRO_ACCIDENTADOS" Schema="DJANGO21" store:Type="Tables" />
           <EntitySet Name="REGISTRO_PAGOS" EntityType="Self.REGISTRO_PAGOS" Schema="DJANGO21" store:Type="Tables" />
           <EntitySet Name="TIPO_ACCIDENTE" EntityType="Self.TIPO_ACCIDENTE" Schema="DJANGO21" store:Type="Tables" />
           <EntitySet Name="TIPO_CONTRATO" EntityType="Self.TIPO_CONTRATO" Schema="DJANGO21" store:Type="Tables" />
           <EntitySet Name="VISITA_TERRENO" EntityType="Self.VISITA_TERRENO" Schema="DJANGO21" store:Type="Tables" />
-          <AssociationSet Name="ACCIDENTE_ID_TIPO_A_D128714A_F" Association="Self.ACCIDENTE_ID_TIPO_A_D128714A_F">
+          <AssociationSet Name="ACCIDENTE_TIPO_FK" Association="Self.ACCIDENTE_TIPO_FK">
             <End Role="TIPO_ACCIDENTE" EntitySet="TIPO_ACCIDENTE" />
             <End Role="ACCIDENTE" EntitySet="ACCIDENTE" />
           </AssociationSet>
-          <AssociationSet Name="ACCOUNT_U_USER_ID_5AFA3C7A_F" Association="Self.ACCOUNT_U_USER_ID_5AFA3C7A_F">
+          <AssociationSet Name="ACCOUNT_USERPROFILE_AUTH_USER_FK" Association="Self.ACCOUNT_USERPROFILE_AUTH_USER_FK">
             <End Role="AUTH_USER" EntitySet="AUTH_USER" />
             <End Role="ACCOUNT_USERPROFILE" EntitySet="ACCOUNT_USERPROFILE" />
           </AssociationSet>
-          <AssociationSet Name="ANTECEDEN_ID_ASESOR_5BC4BFAA_F" Association="Self.ANTECEDEN_ID_ASESOR_5BC4BFAA_F">
+          <AssociationSet Name="ANTECEDENTES_ASESORIA_FK" Association="Self.ANTECEDENTES_ASESORIA_FK">
             <End Role="ASESORIA" EntitySet="ASESORIA" />
             <End Role="ANTECEDENTES_ASESORIA" EntitySet="ANTECEDENTES_ASESORIA" />
           </AssociationSet>
-          <AssociationSet Name="ASESORIA_VISITA_AS_7B3900F9_F" Association="Self.ASESORIA_VISITA_AS_7B3900F9_F">
+          <AssociationSet Name="ASESORIA_VISITA_FK" Association="Self.ASESORIA_VISITA_FK">
             <End Role="VISITA_TERRENO" EntitySet="VISITA_TERRENO" />
             <End Role="ASESORIA" EntitySet="ASESORIA" />
           </AssociationSet>
@@ -646,19 +628,19 @@
             <End Role="AUTH_USER" EntitySet="AUTH_USER" />
             <End Role="AUTH_USER_USER_PERMISSIONS" EntitySet="AUTH_USER_USER_PERMISSIONS" />
           </AssociationSet>
-          <AssociationSet Name="CAPACITAC_RUT_CLIEN_077B4635_F" Association="Self.CAPACITAC_RUT_CLIEN_077B4635_F">
+          <AssociationSet Name="CAPACITACION_RUT_CLI_FK" Association="Self.CAPACITACION_RUT_CLI_FK">
             <End Role="ACCOUNT_USERPROFILE" EntitySet="ACCOUNT_USERPROFILE" />
             <End Role="CAPACITACION" EntitySet="CAPACITACION" />
           </AssociationSet>
-          <AssociationSet Name="CAPACITAC_RUT_TRABA_8ADD113D_F" Association="Self.CAPACITAC_RUT_TRABA_8ADD113D_F">
+          <AssociationSet Name="CAPACITACION_USERPROFILE_FK" Association="Self.CAPACITACION_USERPROFILE_FK">
             <End Role="ACCOUNT_USERPROFILE" EntitySet="ACCOUNT_USERPROFILE" />
             <End Role="CAPACITACION" EntitySet="CAPACITACION" />
           </AssociationSet>
-          <AssociationSet Name="CONTRATO_RUT_CLIEN_A68DF4C9_F" Association="Self.CONTRATO_RUT_CLIEN_A68DF4C9_F">
+          <AssociationSet Name="CONTRATO_AUTH_FK" Association="Self.CONTRATO_AUTH_FK">
             <End Role="AUTH_USER" EntitySet="AUTH_USER" />
             <End Role="CONTRATO" EntitySet="CONTRATO" />
           </AssociationSet>
-          <AssociationSet Name="CONTRATO_TIPO_CONT_D8C99156_F" Association="Self.CONTRATO_TIPO_CONT_D8C99156_F">
+          <AssociationSet Name="CONTRATO_TIPO_FK" Association="Self.CONTRATO_TIPO_FK">
             <End Role="TIPO_CONTRATO" EntitySet="TIPO_CONTRATO" />
             <End Role="CONTRATO" EntitySet="CONTRATO" />
           </AssociationSet>
@@ -670,49 +652,44 @@
             <End Role="AUTH_USER" EntitySet="AUTH_USER" />
             <End Role="DJANGO_ADMIN_LOG" EntitySet="DJANGO_ADMIN_LOG" />
           </AssociationSet>
-          <AssociationSet Name="INFORME_V_ID_VISITA_D117EA99_F" Association="Self.INFORME_V_ID_VISITA_D117EA99_F">
+          <AssociationSet Name="INFORME_VISITA_FK" Association="Self.INFORME_VISITA_FK">
             <End Role="VISITA_TERRENO" EntitySet="VISITA_TERRENO" />
             <End Role="INFORME_VISITA" EntitySet="INFORME_VISITA" />
           </AssociationSet>
-          <AssociationSet Name="MATERIAL__ID_CAPACI_0919FE5D_F" Association="Self.MATERIAL__ID_CAPACI_0919FE5D_F">
-            <End Role="CAPACITACION" EntitySet="CAPACITACION" />
-            <End Role="MATERIAL_SOLICITADO" EntitySet="MATERIAL_SOLICITADO" />
-          </AssociationSet>
-          <AssociationSet Name="MATERIAL__MATERIALC_7FDD8DEA_F" Association="Self.MATERIAL__MATERIALC_7FDD8DEA_F">
+          <AssociationSet Name="MATERIAL_SOLICITADO_FK" Association="Self.MATERIAL_SOLICITADO_FK">
             <End Role="MATERIAL_CAPACITACIONES" EntitySet="MATERIAL_CAPACITACIONES" />
-            <End Role="MATERIAL_SOLICITADO_ID_MAT9F2C" EntitySet="MATERIAL_SOLICITADO_ID_MAT9F2C" />
-          </AssociationSet>
-          <AssociationSet Name="MATERIAL__MATERIALS_ADD82D5D_F" Association="Self.MATERIAL__MATERIALS_ADD82D5D_F">
             <End Role="MATERIAL_SOLICITADO" EntitySet="MATERIAL_SOLICITADO" />
-            <End Role="MATERIAL_SOLICITADO_ID_MAT9F2C" EntitySet="MATERIAL_SOLICITADO_ID_MAT9F2C" />
           </AssociationSet>
-          <AssociationSet Name="MULTA_USER_ID_5C70A42F_F" Association="Self.MULTA_USER_ID_5C70A42F_F">
+          <AssociationSet Name="MULTA_USERPROFILE_FK" Association="Self.MULTA_USERPROFILE_FK">
             <End Role="ACCOUNT_USERPROFILE" EntitySet="ACCOUNT_USERPROFILE" />
             <End Role="MULTA" EntitySet="MULTA" />
           </AssociationSet>
-          <AssociationSet Name="REGISTRO__ID_ACCIDE_553C08A6_F" Association="Self.REGISTRO__ID_ACCIDE_553C08A6_F">
-            <End Role="ACCIDENTE" EntitySet="ACCIDENTE" />
-            <End Role="REGISTRO_ACCIDENTADOS" EntitySet="REGISTRO_ACCIDENTADOS" />
-          </AssociationSet>
-          <AssociationSet Name="REGISTRO__ID_CONTRA_711DAA8A_F" Association="Self.REGISTRO__ID_CONTRA_711DAA8A_F">
+          <AssociationSet Name="PAGOS_CONTRATO_FK" Association="Self.PAGOS_CONTRATO_FK">
             <End Role="CONTRATO" EntitySet="CONTRATO" />
             <End Role="REGISTRO_PAGOS" EntitySet="REGISTRO_PAGOS" />
           </AssociationSet>
-          <AssociationSet Name="REGISTRO__RUT_TRABA_47420763_F" Association="Self.REGISTRO__RUT_TRABA_47420763_F">
+          <AssociationSet Name="REGISTRO_ACCIDENTE_FK" Association="Self.REGISTRO_ACCIDENTE_FK">
+            <End Role="ACCIDENTE" EntitySet="ACCIDENTE" />
+            <End Role="REGISTRO_ACCIDENTADOS" EntitySet="REGISTRO_ACCIDENTADOS" />
+          </AssociationSet>
+          <AssociationSet Name="REGISTRO_USERPROFILE_FK" Association="Self.REGISTRO_USERPROFILE_FK">
             <End Role="ACCOUNT_USERPROFILE" EntitySet="ACCOUNT_USERPROFILE" />
             <End Role="REGISTRO_ACCIDENTADOS" EntitySet="REGISTRO_ACCIDENTADOS" />
           </AssociationSet>
-          <AssociationSet Name="VISITA_TE_RUT_CLIEN_E5A1CA96_F" Association="Self.VISITA_TE_RUT_CLIEN_E5A1CA96_F">
+          <AssociationSet Name="SOLICITADO_CAPACITACION_FK" Association="Self.SOLICITADO_CAPACITACION_FK">
+            <End Role="CAPACITACION" EntitySet="CAPACITACION" />
+            <End Role="MATERIAL_SOLICITADO" EntitySet="MATERIAL_SOLICITADO" />
+          </AssociationSet>
+          <AssociationSet Name="VISITA_RUT_TRA_FK" Association="Self.VISITA_RUT_TRA_FK">
             <End Role="ACCOUNT_USERPROFILE" EntitySet="ACCOUNT_USERPROFILE" />
             <End Role="VISITA_TERRENO" EntitySet="VISITA_TERRENO" />
           </AssociationSet>
-          <AssociationSet Name="VISITA_TE_RUT_TRABA_4B242B5F_F" Association="Self.VISITA_TE_RUT_TRABA_4B242B5F_F">
+          <AssociationSet Name="VISITA_USERPROFILE_FK" Association="Self.VISITA_USERPROFILE_FK">
             <End Role="ACCOUNT_USERPROFILE" EntitySet="ACCOUNT_USERPROFILE" />
             <End Role="VISITA_TERRENO" EntitySet="VISITA_TERRENO" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -725,6 +702,9 @@
           <Property Name="ID_TIPO_ACCIDENTE_ID" Type="Int64" Nullable="false" />
           <NavigationProperty Name="TIPO_ACCIDENTE" Relationship="Self.ACCIDENTE_ID_TIPO_A_D128714A_F" FromRole="ACCIDENTE" ToRole="TIPO_ACCIDENTE" />
           <NavigationProperty Name="REGISTRO_ACCIDENTADOS" Relationship="Self.REGISTRO__ID_ACCIDE_553C08A6_F" FromRole="ACCIDENTE" ToRole="REGISTRO_ACCIDENTADOS" />
+          <Property Name="TIPO_ACCIDENTE_ID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="TIPO_ACCIDENTE1" Relationship="Model.ACCIDENTE_TIPO_FK" FromRole="ACCIDENTE" ToRole="TIPO_ACCIDENTE" />
+          <NavigationProperty Name="REGISTRO_ACCIDENTADOS1" Relationship="Model.REGISTRO_ACCIDENTE_FK" FromRole="ACCIDENTE" ToRole="REGISTRO_ACCIDENTADOS" />
         </EntityType>
         <EntityType Name="ACCOUNT_USERPROFILE">
           <Key>
@@ -742,6 +722,14 @@
           <NavigationProperty Name="REGISTRO_ACCIDENTADOS" Relationship="Self.REGISTRO__RUT_TRABA_47420763_F" FromRole="ACCOUNT_USERPROFILE" ToRole="REGISTRO_ACCIDENTADOS" />
           <NavigationProperty Name="VISITA_TERRENO" Relationship="Self.VISITA_TE_RUT_CLIEN_E5A1CA96_F" FromRole="ACCOUNT_USERPROFILE" ToRole="VISITA_TERRENO" />
           <NavigationProperty Name="VISITA_TERRENO1" Relationship="Self.VISITA_TE_RUT_TRABA_4B242B5F_F" FromRole="ACCOUNT_USERPROFILE" ToRole="VISITA_TERRENO" />
+          <Property Name="AUTH_USER_ID" Type="Int64" Nullable="false" />
+          <Property Name="TELEFONO" Type="Int64" />
+          <Property Name="CELULAR" Type="Int64" />
+          <NavigationProperty Name="AUTH_USER1" Relationship="Model.ACCOUNT_USERPROFILE_AUTH_USER_FK" FromRole="ACCOUNT_USERPROFILE" ToRole="AUTH_USER" />
+          <NavigationProperty Name="CAPACITACION11" Relationship="Model.CAPACITACION_USERPROFILE_FK" FromRole="ACCOUNT_USERPROFILE" ToRole="CAPACITACION" />
+          <NavigationProperty Name="MULTA1" Relationship="Model.MULTA_USERPROFILE_FK" FromRole="ACCOUNT_USERPROFILE" ToRole="MULTA" />
+          <NavigationProperty Name="REGISTRO_ACCIDENTADOS1" Relationship="Model.REGISTRO_USERPROFILE_FK" FromRole="ACCOUNT_USERPROFILE" ToRole="REGISTRO_ACCIDENTADOS" />
+          <NavigationProperty Name="VISITA_TERRENO11" Relationship="Model.VISITA_USERPROFILE_FK" FromRole="ACCOUNT_USERPROFILE" ToRole="VISITA_TERRENO" />
         </EntityType>
         <EntityType Name="ANTECEDENTES_ASESORIA">
           <Key>
@@ -752,6 +740,8 @@
           <Property Name="DOCUMENTO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ID_ASESORIA_ID" Type="Int64" Nullable="false" />
           <NavigationProperty Name="ASESORIA" Relationship="Self.ANTECEDEN_ID_ASESOR_5BC4BFAA_F" FromRole="ANTECEDENTES_ASESORIA" ToRole="ASESORIA" />
+          <Property Name="ASESORIA_ID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="ASESORIA1" Relationship="Model.ANTECEDENTES_ASESORIA_FK" FromRole="ANTECEDENTES_ASESORIA" ToRole="ASESORIA" />
         </EntityType>
         <EntityType Name="ASESORIA">
           <Key>
@@ -763,6 +753,9 @@
           <Property Name="VISITA_ASESORIA_ID" Type="Int64" Nullable="false" />
           <NavigationProperty Name="ANTECEDENTES_ASESORIA" Relationship="Self.ANTECEDEN_ID_ASESOR_5BC4BFAA_F" FromRole="ASESORIA" ToRole="ANTECEDENTES_ASESORIA" />
           <NavigationProperty Name="VISITA_TERRENO" Relationship="Self.ASESORIA_VISITA_AS_7B3900F9_F" FromRole="ASESORIA" ToRole="VISITA_TERRENO" />
+          <Property Name="VISITA_TERRENO_ID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="ANTECEDENTES_ASESORIA1" Relationship="Model.ANTECEDENTES_ASESORIA_FK" FromRole="ASESORIA" ToRole="ANTECEDENTES_ASESORIA" />
+          <NavigationProperty Name="VISITA_TERRENO1" Relationship="Model.ASESORIA_VISITA_FK" FromRole="ASESORIA" ToRole="VISITA_TERRENO" />
         </EntityType>
         <EntityType Name="AUTH_GROUP">
           <Key>
@@ -815,6 +808,8 @@
           <NavigationProperty Name="AUTH_USER_USER_PERMISSIONS" Relationship="Self.AUTH_USER_USER_ID_A95EAD1B_F" FromRole="AUTH_USER" ToRole="AUTH_USER_USER_PERMISSIONS" />
           <NavigationProperty Name="CONTRATO" Relationship="Self.CONTRATO_RUT_CLIEN_A68DF4C9_F" FromRole="AUTH_USER" ToRole="CONTRATO" />
           <NavigationProperty Name="DJANGO_ADMIN_LOG" Relationship="Self.DJANGO_AD_USER_ID_C564EBA6_F" FromRole="AUTH_USER" ToRole="DJANGO_ADMIN_LOG" />
+          <NavigationProperty Name="ACCOUNT_USERPROFILE1" Relationship="Model.ACCOUNT_USERPROFILE_AUTH_USER_FK" FromRole="AUTH_USER" ToRole="ACCOUNT_USERPROFILE" />
+          <NavigationProperty Name="CONTRATO1" Relationship="Model.CONTRATO_AUTH_FK" FromRole="AUTH_USER" ToRole="CONTRATO" />
         </EntityType>
         <EntityType Name="AUTH_USER_GROUPS">
           <Key>
@@ -848,6 +843,9 @@
           <NavigationProperty Name="ACCOUNT_USERPROFILE" Relationship="Self.CAPACITAC_RUT_CLIEN_077B4635_F" FromRole="CAPACITACION" ToRole="ACCOUNT_USERPROFILE" />
           <NavigationProperty Name="ACCOUNT_USERPROFILE1" Relationship="Self.CAPACITAC_RUT_TRABA_8ADD113D_F" FromRole="CAPACITACION" ToRole="ACCOUNT_USERPROFILE" />
           <NavigationProperty Name="MATERIAL_SOLICITADO" Relationship="Self.MATERIAL__ID_CAPACI_0919FE5D_F" FromRole="CAPACITACION" ToRole="MATERIAL_SOLICITADO" />
+          <Property Name="ACCOUNT_USERPROFILE_ID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="ACCOUNT_USERPROFILE11" Relationship="Model.CAPACITACION_USERPROFILE_FK" FromRole="CAPACITACION" ToRole="ACCOUNT_USERPROFILE" />
+          <NavigationProperty Name="MATERIAL_SOLICITADO1" Relationship="Model.SOLICITADO_CAPACITACION_FK" FromRole="CAPACITACION" ToRole="MATERIAL_SOLICITADO" />
         </EntityType>
         <EntityType Name="CONTRATO">
           <Key>
@@ -860,6 +858,9 @@
           <NavigationProperty Name="AUTH_USER" Relationship="Self.CONTRATO_RUT_CLIEN_A68DF4C9_F" FromRole="CONTRATO" ToRole="AUTH_USER" />
           <NavigationProperty Name="TIPO_CONTRATO" Relationship="Self.CONTRATO_TIPO_CONT_D8C99156_F" FromRole="CONTRATO" ToRole="TIPO_CONTRATO" />
           <NavigationProperty Name="REGISTRO_PAGOS" Relationship="Self.REGISTRO__ID_CONTRA_711DAA8A_F" FromRole="CONTRATO" ToRole="REGISTRO_PAGOS" />
+          <Property Name="AUTH_USER_ID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="AUTH_USER1" Relationship="Model.CONTRATO_AUTH_FK" FromRole="CONTRATO" ToRole="AUTH_USER" />
+          <NavigationProperty Name="REGISTRO_PAGOS1" Relationship="Model.PAGOS_CONTRATO_FK" FromRole="CONTRATO" ToRole="REGISTRO_PAGOS" />
         </EntityType>
         <EntityType Name="DJANGO_ADMIN_LOG">
           <Key>
@@ -924,6 +925,8 @@
           <Property Name="EPP_CERTIFICADOS" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
           <Property Name="ID_VISITA_ID" Type="Int64" Nullable="false" />
           <NavigationProperty Name="VISITA_TERRENO" Relationship="Self.INFORME_V_ID_VISITA_D117EA99_F" FromRole="INFORME_VISITA" ToRole="VISITA_TERRENO" />
+          <Property Name="VISITA_TERRENO_ID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="VISITA_TERRENO1" Relationship="Model.INFORME_VISITA_FK" FromRole="INFORME_VISITA" ToRole="VISITA_TERRENO" />
         </EntityType>
         <EntityType Name="MATERIAL_CAPACITACIONES">
           <Key>
@@ -932,6 +935,7 @@
           <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MATERIAL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="MATERIAL_SOLICITADO_ID_MAT9F2C" Relationship="Self.MATERIAL__MATERIALC_7FDD8DEA_F" FromRole="MATERIAL_CAPACITACIONES" ToRole="MATERIAL_SOLICITADO_ID_MAT9F2C" />
+          <NavigationProperty Name="MATERIAL_SOLICITADO" Relationship="Model.MATERIAL_SOLICITADO_FK" FromRole="MATERIAL_CAPACITACIONES" ToRole="MATERIAL_SOLICITADO" />
         </EntityType>
         <EntityType Name="MATERIAL_SOLICITADO">
           <Key>
@@ -942,8 +946,12 @@
           <Property Name="ID_CAPACITACION_ID" Type="Int64" Nullable="false" />
           <NavigationProperty Name="CAPACITACION" Relationship="Self.MATERIAL__ID_CAPACI_0919FE5D_F" FromRole="MATERIAL_SOLICITADO" ToRole="CAPACITACION" />
           <NavigationProperty Name="MATERIAL_SOLICITADO_ID_MAT9F2C" Relationship="Self.MATERIAL__MATERIALS_ADD82D5D_F" FromRole="MATERIAL_SOLICITADO" ToRole="MATERIAL_SOLICITADO_ID_MAT9F2C" />
+          <Property Name="CAPACITACION_ID" Type="Int64" Nullable="false" />
+          <Property Name="MATERIAL_ID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="CAPACITACION1" Relationship="Model.SOLICITADO_CAPACITACION_FK" FromRole="MATERIAL_SOLICITADO" ToRole="CAPACITACION" />
+          <NavigationProperty Name="MATERIAL_CAPACITACIONES" Relationship="Model.MATERIAL_SOLICITADO_FK" FromRole="MATERIAL_SOLICITADO" ToRole="MATERIAL_CAPACITACIONES" />
         </EntityType>
-        <EntityType Name="MATERIAL_SOLICITADO_ID_MAT9F2C">
+        <EntityType Name="MATERIAL_SOLICITADO_ID">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -963,6 +971,8 @@
           <Property Name="FECHA_MULTA" Type="DateTime" Nullable="false" />
           <Property Name="USER_ID" Type="Int64" Nullable="false" />
           <NavigationProperty Name="ACCOUNT_USERPROFILE" Relationship="Self.MULTA_USER_ID_5C70A42F_F" FromRole="MULTA" ToRole="ACCOUNT_USERPROFILE" />
+          <Property Name="ACCOUNT_USERPROFILE_ID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="ACCOUNT_USERPROFILE1" Relationship="Model.MULTA_USERPROFILE_FK" FromRole="MULTA" ToRole="ACCOUNT_USERPROFILE" />
         </EntityType>
         <EntityType Name="REGISTRO_ACCIDENTADOS">
           <Key>
@@ -973,6 +983,10 @@
           <Property Name="RUT_TRABAJADOR_ID" Type="Int64" Nullable="false" />
           <NavigationProperty Name="ACCIDENTE" Relationship="Self.REGISTRO__ID_ACCIDE_553C08A6_F" FromRole="REGISTRO_ACCIDENTADOS" ToRole="ACCIDENTE" />
           <NavigationProperty Name="ACCOUNT_USERPROFILE" Relationship="Self.REGISTRO__RUT_TRABA_47420763_F" FromRole="REGISTRO_ACCIDENTADOS" ToRole="ACCOUNT_USERPROFILE" />
+          <Property Name="ACCIDENTE_ID" Type="Int64" Nullable="false" />
+          <Property Name="ACCOUNT_USERPROFILE_ID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="ACCIDENTE1" Relationship="Model.REGISTRO_ACCIDENTE_FK" FromRole="REGISTRO_ACCIDENTADOS" ToRole="ACCIDENTE" />
+          <NavigationProperty Name="ACCOUNT_USERPROFILE1" Relationship="Model.REGISTRO_USERPROFILE_FK" FromRole="REGISTRO_ACCIDENTADOS" ToRole="ACCOUNT_USERPROFILE" />
         </EntityType>
         <EntityType Name="REGISTRO_PAGOS">
           <Key>
@@ -983,6 +997,8 @@
           <Property Name="FECHA_PAGO" Type="DateTime" Nullable="false" />
           <Property Name="ID_CONTRATO_ID" Type="Int64" Nullable="false" />
           <NavigationProperty Name="CONTRATO" Relationship="Self.REGISTRO__ID_CONTRA_711DAA8A_F" FromRole="REGISTRO_PAGOS" ToRole="CONTRATO" />
+          <Property Name="CONTRATO_ID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="CONTRATO1" Relationship="Model.PAGOS_CONTRATO_FK" FromRole="REGISTRO_PAGOS" ToRole="CONTRATO" />
         </EntityType>
         <EntityType Name="TIPO_ACCIDENTE">
           <Key>
@@ -991,6 +1007,7 @@
           <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DESCRIPCION" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ACCIDENTE" Relationship="Self.ACCIDENTE_ID_TIPO_A_D128714A_F" FromRole="TIPO_ACCIDENTE" ToRole="ACCIDENTE" />
+          <NavigationProperty Name="ACCIDENTE1" Relationship="Model.ACCIDENTE_TIPO_FK" FromRole="TIPO_ACCIDENTE" ToRole="ACCIDENTE" />
         </EntityType>
         <EntityType Name="TIPO_CONTRATO">
           <Key>
@@ -1013,6 +1030,10 @@
           <NavigationProperty Name="ACCOUNT_USERPROFILE1" Relationship="Self.VISITA_TE_RUT_TRABA_4B242B5F_F" FromRole="VISITA_TERRENO" ToRole="ACCOUNT_USERPROFILE" />
           <NavigationProperty Name="ASESORIA" Relationship="Self.ASESORIA_VISITA_AS_7B3900F9_F" FromRole="VISITA_TERRENO" ToRole="ASESORIA" />
           <NavigationProperty Name="INFORME_VISITA" Relationship="Self.INFORME_V_ID_VISITA_D117EA99_F" FromRole="VISITA_TERRENO" ToRole="INFORME_VISITA" />
+          <Property Name="USERPROFILE_ID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="ACCOUNT_USERPROFILE11" Relationship="Model.VISITA_USERPROFILE_FK" FromRole="VISITA_TERRENO" ToRole="ACCOUNT_USERPROFILE" />
+          <NavigationProperty Name="ASESORIA1" Relationship="Model.ASESORIA_VISITA_FK" FromRole="VISITA_TERRENO" ToRole="ASESORIA" />
+          <NavigationProperty Name="INFORME_VISITA1" Relationship="Model.INFORME_VISITA_FK" FromRole="VISITA_TERRENO" ToRole="INFORME_VISITA" />
         </EntityType>
         <Association Name="ACCIDENTE_ID_TIPO_A_D128714A_F">
           <End Role="TIPO_ACCIDENTE" Type="Self.TIPO_ACCIDENTE" Multiplicity="1" />
@@ -1316,7 +1337,7 @@
         </Association>
         <Association Name="MATERIAL__MATERIALC_7FDD8DEA_F">
           <End Role="MATERIAL_CAPACITACIONES" Type="Self.MATERIAL_CAPACITACIONES" Multiplicity="1" />
-          <End Role="MATERIAL_SOLICITADO_ID_MAT9F2C" Type="Self.MATERIAL_SOLICITADO_ID_MAT9F2C" Multiplicity="*" />
+          <End Role="MATERIAL_SOLICITADO_ID_MAT9F2C" Type="Model.MATERIAL_SOLICITADO_ID" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MATERIAL_CAPACITACIONES">
               <PropertyRef Name="ID" />
@@ -1328,7 +1349,7 @@
         </Association>
         <Association Name="MATERIAL__MATERIALS_ADD82D5D_F">
           <End Role="MATERIAL_SOLICITADO" Type="Self.MATERIAL_SOLICITADO" Multiplicity="1" />
-          <End Role="MATERIAL_SOLICITADO_ID_MAT9F2C" Type="Self.MATERIAL_SOLICITADO_ID_MAT9F2C" Multiplicity="*" />
+          <End Role="MATERIAL_SOLICITADO_ID_MAT9F2C" Type="Model.MATERIAL_SOLICITADO_ID" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MATERIAL_SOLICITADO">
               <PropertyRef Name="ID" />
@@ -1358,7 +1379,7 @@
           <EntitySet Name="INFORME_VISITA" EntityType="Self.INFORME_VISITA" />
           <EntitySet Name="MATERIAL_CAPACITACIONES" EntityType="Self.MATERIAL_CAPACITACIONES" />
           <EntitySet Name="MATERIAL_SOLICITADO" EntityType="Self.MATERIAL_SOLICITADO" />
-          <EntitySet Name="MATERIAL_SOLICITADO_ID_MAT9F2C" EntityType="Self.MATERIAL_SOLICITADO_ID_MAT9F2C" />
+          <EntitySet Name="MATERIAL_SOLICITADO_ID_MAT9F2C" EntityType="Model.MATERIAL_SOLICITADO_ID" />
           <EntitySet Name="MULTA" EntityType="Self.MULTA" />
           <EntitySet Name="REGISTRO_ACCIDENTADOS" EntityType="Self.REGISTRO_ACCIDENTADOS" />
           <EntitySet Name="REGISTRO_PAGOS" EntityType="Self.REGISTRO_PAGOS" />
@@ -1475,7 +1496,231 @@
           </AssociationSet>
           <FunctionImport Name="PRC_LISTAR_CLIENTE" />
           <FunctionImport Name="PRC_LISTAR_TRABAJADORES" />
+          <AssociationSet Name="ACCIDENTE_TIPO_FK" Association="Model.ACCIDENTE_TIPO_FK">
+            <End Role="TIPO_ACCIDENTE" EntitySet="TIPO_ACCIDENTE" />
+            <End Role="ACCIDENTE" EntitySet="ACCIDENTE" />
+          </AssociationSet>
+          <AssociationSet Name="REGISTRO_ACCIDENTE_FK" Association="Model.REGISTRO_ACCIDENTE_FK">
+            <End Role="ACCIDENTE" EntitySet="ACCIDENTE" />
+            <End Role="REGISTRO_ACCIDENTADOS" EntitySet="REGISTRO_ACCIDENTADOS" />
+          </AssociationSet>
+          <AssociationSet Name="ACCOUNT_USERPROFILE_AUTH_USER_FK" Association="Model.ACCOUNT_USERPROFILE_AUTH_USER_FK">
+            <End Role="AUTH_USER" EntitySet="AUTH_USER" />
+            <End Role="ACCOUNT_USERPROFILE" EntitySet="ACCOUNT_USERPROFILE" />
+          </AssociationSet>
+          <AssociationSet Name="CAPACITACION_USERPROFILE_FK" Association="Model.CAPACITACION_USERPROFILE_FK">
+            <End Role="ACCOUNT_USERPROFILE" EntitySet="ACCOUNT_USERPROFILE" />
+            <End Role="CAPACITACION" EntitySet="CAPACITACION" />
+          </AssociationSet>
+          <AssociationSet Name="MULTA_USERPROFILE_FK" Association="Model.MULTA_USERPROFILE_FK">
+            <End Role="ACCOUNT_USERPROFILE" EntitySet="ACCOUNT_USERPROFILE" />
+            <End Role="MULTA" EntitySet="MULTA" />
+          </AssociationSet>
+          <AssociationSet Name="REGISTRO_USERPROFILE_FK" Association="Model.REGISTRO_USERPROFILE_FK">
+            <End Role="ACCOUNT_USERPROFILE" EntitySet="ACCOUNT_USERPROFILE" />
+            <End Role="REGISTRO_ACCIDENTADOS" EntitySet="REGISTRO_ACCIDENTADOS" />
+          </AssociationSet>
+          <AssociationSet Name="VISITA_USERPROFILE_FK" Association="Model.VISITA_USERPROFILE_FK">
+            <End Role="ACCOUNT_USERPROFILE" EntitySet="ACCOUNT_USERPROFILE" />
+            <End Role="VISITA_TERRENO" EntitySet="VISITA_TERRENO" />
+          </AssociationSet>
+          <AssociationSet Name="ANTECEDENTES_ASESORIA_FK" Association="Model.ANTECEDENTES_ASESORIA_FK">
+            <End Role="ASESORIA" EntitySet="ASESORIA" />
+            <End Role="ANTECEDENTES_ASESORIA" EntitySet="ANTECEDENTES_ASESORIA" />
+          </AssociationSet>
+          <AssociationSet Name="ASESORIA_VISITA_FK" Association="Model.ASESORIA_VISITA_FK">
+            <End Role="VISITA_TERRENO" EntitySet="VISITA_TERRENO" />
+            <End Role="ASESORIA" EntitySet="ASESORIA" />
+          </AssociationSet>
+          <AssociationSet Name="CONTRATO_AUTH_FK" Association="Model.CONTRATO_AUTH_FK">
+            <End Role="AUTH_USER" EntitySet="AUTH_USER" />
+            <End Role="CONTRATO" EntitySet="CONTRATO" />
+          </AssociationSet>
+          <AssociationSet Name="SOLICITADO_CAPACITACION_FK" Association="Model.SOLICITADO_CAPACITACION_FK">
+            <End Role="CAPACITACION" EntitySet="CAPACITACION" />
+            <End Role="MATERIAL_SOLICITADO" EntitySet="MATERIAL_SOLICITADO" />
+          </AssociationSet>
+          <AssociationSet Name="PAGOS_CONTRATO_FK" Association="Model.PAGOS_CONTRATO_FK">
+            <End Role="CONTRATO" EntitySet="CONTRATO" />
+            <End Role="REGISTRO_PAGOS" EntitySet="REGISTRO_PAGOS" />
+          </AssociationSet>
+          <AssociationSet Name="INFORME_VISITA_FK" Association="Model.INFORME_VISITA_FK">
+            <End Role="VISITA_TERRENO" EntitySet="VISITA_TERRENO" />
+            <End Role="INFORME_VISITA" EntitySet="INFORME_VISITA" />
+          </AssociationSet>
+          <AssociationSet Name="MATERIAL_SOLICITADO_FK" Association="Model.MATERIAL_SOLICITADO_FK">
+            <End Role="MATERIAL_CAPACITACIONES" EntitySet="MATERIAL_CAPACITACIONES" />
+            <End Role="MATERIAL_SOLICITADO" EntitySet="MATERIAL_SOLICITADO" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="ACCIDENTE_TIPO_FK">
+          <End Type="Model.TIPO_ACCIDENTE" Role="TIPO_ACCIDENTE" Multiplicity="1" />
+          <End Type="Model.ACCIDENTE" Role="ACCIDENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_ACCIDENTE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ACCIDENTE">
+              <PropertyRef Name="TIPO_ACCIDENTE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="REGISTRO_ACCIDENTE_FK">
+          <End Type="Model.ACCIDENTE" Role="ACCIDENTE" Multiplicity="1" />
+          <End Type="Model.REGISTRO_ACCIDENTADOS" Role="REGISTRO_ACCIDENTADOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCIDENTE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="REGISTRO_ACCIDENTADOS">
+              <PropertyRef Name="ACCIDENTE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ACCOUNT_USERPROFILE_AUTH_USER_FK">
+          <End Type="Model.AUTH_USER" Role="AUTH_USER" Multiplicity="1" />
+          <End Type="Model.ACCOUNT_USERPROFILE" Role="ACCOUNT_USERPROFILE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ACCOUNT_USERPROFILE">
+              <PropertyRef Name="AUTH_USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CAPACITACION_USERPROFILE_FK">
+          <End Type="Model.ACCOUNT_USERPROFILE" Role="ACCOUNT_USERPROFILE" Multiplicity="1" />
+          <End Type="Model.CAPACITACION" Role="CAPACITACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCOUNT_USERPROFILE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CAPACITACION">
+              <PropertyRef Name="ACCOUNT_USERPROFILE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MULTA_USERPROFILE_FK">
+          <End Type="Model.ACCOUNT_USERPROFILE" Role="ACCOUNT_USERPROFILE" Multiplicity="1" />
+          <End Type="Model.MULTA" Role="MULTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCOUNT_USERPROFILE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MULTA">
+              <PropertyRef Name="ACCOUNT_USERPROFILE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="REGISTRO_USERPROFILE_FK">
+          <End Type="Model.ACCOUNT_USERPROFILE" Role="ACCOUNT_USERPROFILE" Multiplicity="1" />
+          <End Type="Model.REGISTRO_ACCIDENTADOS" Role="REGISTRO_ACCIDENTADOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCOUNT_USERPROFILE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="REGISTRO_ACCIDENTADOS">
+              <PropertyRef Name="ACCOUNT_USERPROFILE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VISITA_USERPROFILE_FK">
+          <End Type="Model.ACCOUNT_USERPROFILE" Role="ACCOUNT_USERPROFILE" Multiplicity="1" />
+          <End Type="Model.VISITA_TERRENO" Role="VISITA_TERRENO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCOUNT_USERPROFILE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VISITA_TERRENO">
+              <PropertyRef Name="USERPROFILE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ANTECEDENTES_ASESORIA_FK">
+          <End Type="Model.ASESORIA" Role="ASESORIA" Multiplicity="1" />
+          <End Type="Model.ANTECEDENTES_ASESORIA" Role="ANTECEDENTES_ASESORIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ASESORIA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ANTECEDENTES_ASESORIA">
+              <PropertyRef Name="ASESORIA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ASESORIA_VISITA_FK">
+          <End Type="Model.VISITA_TERRENO" Role="VISITA_TERRENO" Multiplicity="1" />
+          <End Type="Model.ASESORIA" Role="ASESORIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VISITA_TERRENO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ASESORIA">
+              <PropertyRef Name="VISITA_TERRENO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CONTRATO_AUTH_FK">
+          <End Type="Model.AUTH_USER" Role="AUTH_USER" Multiplicity="1" />
+          <End Type="Model.CONTRATO" Role="CONTRATO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CONTRATO">
+              <PropertyRef Name="AUTH_USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SOLICITADO_CAPACITACION_FK">
+          <End Type="Model.CAPACITACION" Role="CAPACITACION" Multiplicity="1" />
+          <End Type="Model.MATERIAL_SOLICITADO" Role="MATERIAL_SOLICITADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAPACITACION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MATERIAL_SOLICITADO">
+              <PropertyRef Name="CAPACITACION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PAGOS_CONTRATO_FK">
+          <End Type="Model.CONTRATO" Role="CONTRATO" Multiplicity="1" />
+          <End Type="Model.REGISTRO_PAGOS" Role="REGISTRO_PAGOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CONTRATO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="REGISTRO_PAGOS">
+              <PropertyRef Name="CONTRATO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INFORME_VISITA_FK">
+          <End Type="Model.VISITA_TERRENO" Role="VISITA_TERRENO" Multiplicity="1" />
+          <End Type="Model.INFORME_VISITA" Role="INFORME_VISITA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VISITA_TERRENO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INFORME_VISITA">
+              <PropertyRef Name="VISITA_TERRENO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MATERIAL_SOLICITADO_FK">
+          <End Type="Model.MATERIAL_CAPACITACIONES" Role="MATERIAL_CAPACITACIONES" Multiplicity="1" />
+          <End Type="Model.MATERIAL_SOLICITADO" Role="MATERIAL_SOLICITADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MATERIAL_CAPACITACIONES">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MATERIAL_SOLICITADO">
+              <PropertyRef Name="MATERIAL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1485,40 +1730,42 @@
           <EntitySetMapping Name="ACCIDENTE">
             <EntityTypeMapping TypeName="Model.ACCIDENTE">
               <MappingFragment StoreEntitySet="ACCIDENTE">
+                <ScalarProperty Name="TIPO_ACCIDENTE_ID" ColumnName="TIPO_ACCIDENTE_ID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="FECHA_ACCIDENTE" ColumnName="FECHA_ACCIDENTE" />
-                <ScalarProperty Name="ID_TIPO_ACCIDENTE_ID" ColumnName="ID_TIPO_ACCIDENTE_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ACCOUNT_USERPROFILE">
             <EntityTypeMapping TypeName="Model.ACCOUNT_USERPROFILE">
               <MappingFragment StoreEntitySet="ACCOUNT_USERPROFILE">
+                <ScalarProperty Name="CELULAR" ColumnName="CELULAR" />
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+                <ScalarProperty Name="AUTH_USER_ID" ColumnName="AUTH_USER_ID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="RUT" ColumnName="RUT" />
                 <ScalarProperty Name="SUELDO" ColumnName="SUELDO" />
                 <ScalarProperty Name="EDAD" ColumnName="EDAD" />
-                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ANTECEDENTES_ASESORIA">
             <EntityTypeMapping TypeName="Model.ANTECEDENTES_ASESORIA">
               <MappingFragment StoreEntitySet="ANTECEDENTES_ASESORIA">
+                <ScalarProperty Name="ASESORIA_ID" ColumnName="ASESORIA_ID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="DESCRIPCION_DOCUMENTO" ColumnName="DESCRIPCION_DOCUMENTO" />
                 <ScalarProperty Name="DOCUMENTO" ColumnName="DOCUMENTO" />
-                <ScalarProperty Name="ID_ASESORIA_ID" ColumnName="ID_ASESORIA_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ASESORIA">
             <EntityTypeMapping TypeName="Model.ASESORIA">
               <MappingFragment StoreEntitySet="ASESORIA">
+                <ScalarProperty Name="VISITA_TERRENO_ID" ColumnName="VISITA_TERRENO_ID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="EVENTO" ColumnName="EVENTO" />
                 <ScalarProperty Name="PROPUESTA" ColumnName="PROPUESTA" />
-                <ScalarProperty Name="VISITA_ASESORIA_ID" ColumnName="VISITA_ASESORIA_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1587,20 +1834,20 @@
           <EntitySetMapping Name="CAPACITACION">
             <EntityTypeMapping TypeName="Model.CAPACITACION">
               <MappingFragment StoreEntitySet="CAPACITACION">
+                <ScalarProperty Name="ACCOUNT_USERPROFILE_ID" ColumnName="ACCOUNT_USERPROFILE_ID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="FECHA_SOLICITUD" ColumnName="FECHA_SOLICITUD" />
                 <ScalarProperty Name="FECHA_CAPACITACION" ColumnName="FECHA_CAPACITACION" />
                 <ScalarProperty Name="RUT_CLIENTE_ID" ColumnName="RUT_CLIENTE_ID" />
-                <ScalarProperty Name="RUT_TRABAJADOR_ID" ColumnName="RUT_TRABAJADOR_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CONTRATO">
             <EntityTypeMapping TypeName="Model.CONTRATO">
               <MappingFragment StoreEntitySet="CONTRATO">
+                <ScalarProperty Name="AUTH_USER_ID" ColumnName="AUTH_USER_ID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="FECHA_CONTRATACION" ColumnName="FECHA_CONTRATACION" />
-                <ScalarProperty Name="RUT_CLIENTE_ID" ColumnName="RUT_CLIENTE_ID" />
                 <ScalarProperty Name="TIPO_CONTRATO_ID" ColumnName="TIPO_CONTRATO_ID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1650,6 +1897,7 @@
           <EntitySetMapping Name="INFORME_VISITA">
             <EntityTypeMapping TypeName="Model.INFORME_VISITA">
               <MappingFragment StoreEntitySet="INFORME_VISITA">
+                <ScalarProperty Name="VISITA_TERRENO_ID" ColumnName="VISITA_TERRENO_ID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="INTRODUCCION" ColumnName="INTRODUCCION" />
                 <ScalarProperty Name="RESULTADOS_EVALUACION" ColumnName="RESULTADOS_EVALUACION" />
@@ -1665,7 +1913,6 @@
                 <ScalarProperty Name="CAPACITACION_EXTINTOR" ColumnName="CAPACITACION_EXTINTOR" />
                 <ScalarProperty Name="EPP_INVENTARIO" ColumnName="EPP_INVENTARIO" />
                 <ScalarProperty Name="EPP_CERTIFICADOS" ColumnName="EPP_CERTIFICADOS" />
-                <ScalarProperty Name="ID_VISITA_ID" ColumnName="ID_VISITA_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1680,48 +1927,40 @@
           <EntitySetMapping Name="MATERIAL_SOLICITADO">
             <EntityTypeMapping TypeName="Model.MATERIAL_SOLICITADO">
               <MappingFragment StoreEntitySet="MATERIAL_SOLICITADO">
+                <ScalarProperty Name="MATERIAL_ID" ColumnName="MATERIAL_ID" />
+                <ScalarProperty Name="CAPACITACION_ID" ColumnName="CAPACITACION_ID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
-                <ScalarProperty Name="ID_CAPACITACION_ID" ColumnName="ID_CAPACITACION_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="MATERIAL_SOLICITADO_ID_MAT9F2C">
-            <EntityTypeMapping TypeName="Model.MATERIAL_SOLICITADO_ID_MAT9F2C">
-              <MappingFragment StoreEntitySet="MATERIAL_SOLICITADO_ID_MAT9F2C">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="MATERIALSOLICITADO_ID" ColumnName="MATERIALSOLICITADO_ID" />
-                <ScalarProperty Name="MATERIALCAPACITACIONES_ID" ColumnName="MATERIALCAPACITACIONES_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MULTA">
             <EntityTypeMapping TypeName="Model.MULTA">
               <MappingFragment StoreEntitySet="MULTA">
+                <ScalarProperty Name="ACCOUNT_USERPROFILE_ID" ColumnName="ACCOUNT_USERPROFILE_ID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="MONTO_MULTA" ColumnName="MONTO_MULTA" />
                 <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
                 <ScalarProperty Name="FECHA_MULTA" ColumnName="FECHA_MULTA" />
-                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="REGISTRO_ACCIDENTADOS">
             <EntityTypeMapping TypeName="Model.REGISTRO_ACCIDENTADOS">
               <MappingFragment StoreEntitySet="REGISTRO_ACCIDENTADOS">
+                <ScalarProperty Name="ACCOUNT_USERPROFILE_ID" ColumnName="ACCOUNT_USERPROFILE_ID" />
+                <ScalarProperty Name="ACCIDENTE_ID" ColumnName="ACCIDENTE_ID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="ID_ACCIDENTE_ID" ColumnName="ID_ACCIDENTE_ID" />
-                <ScalarProperty Name="RUT_TRABAJADOR_ID" ColumnName="RUT_TRABAJADOR_ID" />
-              </MappingFragment>
+                </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="REGISTRO_PAGOS">
             <EntityTypeMapping TypeName="Model.REGISTRO_PAGOS">
               <MappingFragment StoreEntitySet="REGISTRO_PAGOS">
+                <ScalarProperty Name="CONTRATO_ID" ColumnName="CONTRATO_ID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="MONTO_PAGO" ColumnName="MONTO_PAGO" />
                 <ScalarProperty Name="FECHA_PAGO" ColumnName="FECHA_PAGO" />
-                <ScalarProperty Name="ID_CONTRATO_ID" ColumnName="ID_CONTRATO_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1745,9 +1984,9 @@
           <EntitySetMapping Name="VISITA_TERRENO">
             <EntityTypeMapping TypeName="Model.VISITA_TERRENO">
               <MappingFragment StoreEntitySet="VISITA_TERRENO">
+                <ScalarProperty Name="USERPROFILE_ID" ColumnName="USERPROFILE_ID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="FECHA_VISITA" ColumnName="FECHA_VISITA" />
-                <ScalarProperty Name="RUT_CLIENTE_ID" ColumnName="RUT_CLIENTE_ID" />
                 <ScalarProperty Name="RUT_TRABAJADOR_ID" ColumnName="RUT_TRABAJADOR_ID" />
               </MappingFragment>
             </EntityTypeMapping>

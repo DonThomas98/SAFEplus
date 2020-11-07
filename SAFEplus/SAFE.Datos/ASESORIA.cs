@@ -18,15 +18,20 @@ namespace SAFE.Datos
         public ASESORIA()
         {
             this.ANTECEDENTES_ASESORIA = new HashSet<ANTECEDENTES_ASESORIA>();
+            this.ANTECEDENTES_ASESORIA1 = new HashSet<ANTECEDENTES_ASESORIA>();
         }
     
         public long ID { get; set; }
         public string EVENTO { get; set; }
         public string PROPUESTA { get; set; }
         public long VISITA_ASESORIA_ID { get; set; }
+        public long VISITA_TERRENO_ID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ANTECEDENTES_ASESORIA> ANTECEDENTES_ASESORIA { get; set; }
         public virtual VISITA_TERRENO VISITA_TERRENO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ANTECEDENTES_ASESORIA> ANTECEDENTES_ASESORIA1 { get; set; }
+        public virtual VISITA_TERRENO VISITA_TERRENO1 { get; set; }
     }
 }

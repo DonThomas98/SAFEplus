@@ -18,6 +18,7 @@ namespace SAFE.Datos
         public TIPO_ACCIDENTE()
         {
             this.ACCIDENTE = new HashSet<ACCIDENTE>();
+            this.ACCIDENTE1 = new HashSet<ACCIDENTE>();
         }
     
         public long ID { get; set; }
@@ -25,5 +26,7 @@ namespace SAFE.Datos
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ACCIDENTE> ACCIDENTE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ACCIDENTE> ACCIDENTE1 { get; set; }
     }
 }

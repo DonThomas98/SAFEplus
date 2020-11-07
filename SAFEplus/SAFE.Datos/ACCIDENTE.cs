@@ -18,14 +18,19 @@ namespace SAFE.Datos
         public ACCIDENTE()
         {
             this.REGISTRO_ACCIDENTADOS = new HashSet<REGISTRO_ACCIDENTADOS>();
+            this.REGISTRO_ACCIDENTADOS1 = new HashSet<REGISTRO_ACCIDENTADOS>();
         }
     
         public long ID { get; set; }
         public System.DateTime FECHA_ACCIDENTE { get; set; }
         public long ID_TIPO_ACCIDENTE_ID { get; set; }
+        public long TIPO_ACCIDENTE_ID { get; set; }
     
         public virtual TIPO_ACCIDENTE TIPO_ACCIDENTE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<REGISTRO_ACCIDENTADOS> REGISTRO_ACCIDENTADOS { get; set; }
+        public virtual TIPO_ACCIDENTE TIPO_ACCIDENTE1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<REGISTRO_ACCIDENTADOS> REGISTRO_ACCIDENTADOS1 { get; set; }
     }
 }

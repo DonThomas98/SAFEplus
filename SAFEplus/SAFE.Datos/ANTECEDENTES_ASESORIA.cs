@@ -18,7 +18,9 @@ namespace SAFE.Datos
         public string DESCRIPCION_DOCUMENTO { get; set; }
         public string DOCUMENTO { get; set; }
         public long ID_ASESORIA_ID { get; set; }
+        public long ASESORIA_ID { get; set; }
     
         public virtual ASESORIA ASESORIA { get; set; }
+        public virtual ASESORIA ASESORIA1 { get; set; }
     }
 }

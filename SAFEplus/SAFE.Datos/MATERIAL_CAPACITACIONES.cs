@@ -17,13 +17,16 @@ namespace SAFE.Datos
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MATERIAL_CAPACITACIONES()
         {
-            this.MATERIAL_SOLICITADO_ID_MAT9F2C = new HashSet<MATERIAL_SOLICITADO_ID_MAT9F2C>();
+            this.MATERIAL_SOLICITADO_ID_MAT9F2C = new HashSet<MATERIAL_SOLICITADO_ID>();
+            this.MATERIAL_SOLICITADO = new HashSet<MATERIAL_SOLICITADO>();
         }
     
         public long ID { get; set; }
         public string MATERIAL { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MATERIAL_SOLICITADO_ID_MAT9F2C> MATERIAL_SOLICITADO_ID_MAT9F2C { get; set; }
+        public virtual ICollection<MATERIAL_SOLICITADO_ID> MATERIAL_SOLICITADO_ID_MAT9F2C { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MATERIAL_SOLICITADO> MATERIAL_SOLICITADO { get; set; }
     }
 }

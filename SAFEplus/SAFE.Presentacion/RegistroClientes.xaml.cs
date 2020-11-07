@@ -36,28 +36,58 @@ namespace SAFE.Presentacion
 
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)
         {
-            //Separar los nombres y apellidos
-            String pNombre, sNombre, pApellido, sApellido;
-            if (txtNombres.Text != String.Empty && txtApellidos.Text != String.Empty)
+            if (txtRut.Text == String.Empty)
             {
-                string[] nombres = txtNombres.Text.Split(' ');
-                string[] apellidos = txtApellidos.Text.Split(' ');
-                pNombre = nombres[0];
-                sNombre = nombres[1];
-                pApellido = apellidos[0];
-                sApellido = apellidos[1];
+                MessageBox.Show("Ingrese el Rut del cliente");
+                txtRut.Focus();
             }
-            else if (txtNombres.Text == String.Empty && txtApellidos.Text != String.Empty)
+            else if (txtDv.Text == String.Empty)
             {
-                MessageBox.Show("Ingrese los nombres del trabajador");
+                MessageBox.Show("Ingrese el dígito verificador del cliente");
+                txtDv.Focus();
+            }
+            else if (txtEdad.Text == String.Empty)
+            {
+                MessageBox.Show("Ingrese el edad del cliente");
+                txtEdad.Focus();
+            }
+            else if (txtNombres.Text == String.Empty)
+            {
+                MessageBox.Show("Ingrese el nombre del cliente");
                 txtNombres.Focus();
             }
-            else
+            else if (txtApellidos.Text == String.Empty)
             {
-                MessageBox.Show("Ingrese los apellidos del trabajador");
+                MessageBox.Show("Ingrese el apellido del cliente");
                 txtApellidos.Focus();
             }
-
+            else if (txtCorreo.Text == String.Empty)
+            {
+                MessageBox.Show("Ingrese el correo del cliente");
+                txtCorreo.Focus();
+            }
+            else if (txtDireccion.Text == String.Empty)
+            {
+                MessageBox.Show("Ingrese el direccion del cliente");
+                txtDireccion.Focus();
+            }
+            else if (pwdPassword.Password == String.Empty)
+            {
+                MessageBox.Show("Ingrese la contraseña del cliente");
+                pwdPassword.Focus();
+            }
+            else if (pwdConfirmar.Password == String.Empty)
+            {
+                MessageBox.Show("Confirme la contraseña del cliente");
+                pwdConfirmar.Focus();
+            }
+            else if (pwdConfirmar.Password != pwdPassword.Password)
+            {
+                MessageBox.Show("Las contraseñas no son las mismas, inténtelo otra vez.");
+                pwdConfirmar.Focus();
+            }
+            
+            _mane.SetCliente(txtRut.Text, txtDv.Text, txtEdad.Text, txtNombres.Text, txtApellidos.Text, txtCorreo.Text, txtDireccion.Text, txtTelefono.Text, txtCelular.Text, pwdPassword.Password);
 
         }
     }

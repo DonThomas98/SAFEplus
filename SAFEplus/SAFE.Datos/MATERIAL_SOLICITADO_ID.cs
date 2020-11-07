@@ -12,7 +12,7 @@ namespace SAFE.Datos
     using System;
     using System.Collections.Generic;
     
-    public partial class MATERIAL_SOLICITADO_ID_MAT9F2C
+    public partial class MATERIAL_SOLICITADO_ID
     {
         public long ID { get; set; }
         public long MATERIALSOLICITADO_ID { get; set; }

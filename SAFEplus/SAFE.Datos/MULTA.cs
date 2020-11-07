@@ -19,7 +19,9 @@ namespace SAFE.Datos
         public string DESCRIPCION { get; set; }
         public System.DateTime FECHA_MULTA { get; set; }
         public long USER_ID { get; set; }
+        public long ACCOUNT_USERPROFILE_ID { get; set; }
     
         public virtual ACCOUNT_USERPROFILE ACCOUNT_USERPROFILE { get; set; }
+        public virtual ACCOUNT_USERPROFILE ACCOUNT_USERPROFILE1 { get; set; }
     }
 }

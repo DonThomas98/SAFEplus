@@ -46,7 +46,7 @@ namespace SAFE.Datos
         public virtual DbSet<INFORME_VISITA> INFORME_VISITA { get; set; }
         public virtual DbSet<MATERIAL_CAPACITACIONES> MATERIAL_CAPACITACIONES { get; set; }
         public virtual DbSet<MATERIAL_SOLICITADO> MATERIAL_SOLICITADO { get; set; }
-        public virtual DbSet<MATERIAL_SOLICITADO_ID_MAT9F2C> MATERIAL_SOLICITADO_ID_MAT9F2C { get; set; }
+        public virtual DbSet<MATERIAL_SOLICITADO_ID> MATERIAL_SOLICITADO_ID_MAT9F2C { get; set; }
         public virtual DbSet<MULTA> MULTA { get; set; }
         public virtual DbSet<REGISTRO_ACCIDENTADOS> REGISTRO_ACCIDENTADOS { get; set; }
         public virtual DbSet<REGISTRO_PAGOS> REGISTRO_PAGOS { get; set; }

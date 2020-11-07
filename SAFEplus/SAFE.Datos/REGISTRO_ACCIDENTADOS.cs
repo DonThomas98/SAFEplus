@@ -17,8 +17,12 @@ namespace SAFE.Datos
         public long ID { get; set; }
         public long ID_ACCIDENTE_ID { get; set; }
         public long RUT_TRABAJADOR_ID { get; set; }
+        public long ACCIDENTE_ID { get; set; }
+        public long ACCOUNT_USERPROFILE_ID { get; set; }
     
         public virtual ACCIDENTE ACCIDENTE { get; set; }
         public virtual ACCOUNT_USERPROFILE ACCOUNT_USERPROFILE { get; set; }
+        public virtual ACCIDENTE ACCIDENTE1 { get; set; }
+        public virtual ACCOUNT_USERPROFILE ACCOUNT_USERPROFILE1 { get; set; }
     }
 }

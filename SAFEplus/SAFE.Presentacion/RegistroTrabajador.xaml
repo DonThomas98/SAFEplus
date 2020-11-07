@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SAFE.Presentacion"
         mc:Ignorable="d"
-        Title="Registro de Trabajadores - Safe+" Height="575" Width="800" Icon="Imagenes/Icon3.ico" ResizeMode="CanMinimize">
+        Title="Registro de Trabajadores - Safe+" Height="575" Width="800" Icon="Imagenes/Icon3.ico" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style x:Key="MyButton" TargetType="{x:Type Button}">
             <Setter Property="OverridesDefaultStyle" Value="True" />
@@ -72,7 +72,7 @@
         </StackPanel>
         <Label Content="¿Permisos de Admin?:" HorizontalAlignment="Left" Margin="410,325,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="Contraseña:" HorizontalAlignment="Left" Margin="87,325,0,0" VerticalAlignment="Top" FontSize="16" Width="99"/>
-        <PasswordBox x:Name="pwdPassword" HorizontalAlignment="Left" Margin="191,333,0,0" VerticalAlignment="Top" Width="175" Height="23" BorderBrush="Black" FontSize="16" TabIndex="9"/>
+        <PasswordBox x:Name="pwdPassword" HorizontalAlignment="Left" Margin="191,329,0,0" VerticalAlignment="Top" Width="175" Height="23" BorderBrush="Black" FontSize="16" TabIndex="9"/>
         <Label Content="Confirmar:" HorizontalAlignment="Left" Margin="87,375,0,0" VerticalAlignment="Top" FontSize="16"/>
         <PasswordBox x:Name="pwdConfirmar" HorizontalAlignment="Left" Margin="191,379,0,0" VerticalAlignment="Top" Width="175" Height="23" BorderBrush="Black" FontSize="16" TabIndex="10"/>
         <Label Content="Sueldo Base:" HorizontalAlignment="Left" Margin="410,375,0,0" VerticalAlignment="Top" FontSize="16"/>
