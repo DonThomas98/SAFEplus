@@ -12,24 +12,22 @@ namespace SAFE.Datos
     using System;
     using System.Collections.Generic;
     
-    public partial class CAPACITACION
+    public partial class DJANGO_CONTENT_TYPE
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CAPACITACION()
+        public DJANGO_CONTENT_TYPE()
         {
-            this.MATERIAL_SOLICITADO = new HashSet<MATERIAL_SOLICITADO>();
+            this.AUTH_PERMISSION = new HashSet<AUTH_PERMISSION>();
+            this.DJANGO_ADMIN_LOG = new HashSet<DJANGO_ADMIN_LOG>();
         }
     
         public long ID { get; set; }
-        public System.DateTime FECHA_SOLICITUD { get; set; }
-        public System.DateTime FECHA_CAPACITACION { get; set; }
-        public string HORA_CAPACITACION { get; set; }
-        public long RUT_CLIENTE_ID { get; set; }
-        public long RUT_TRABAJADOR_ID { get; set; }
+        public string APP_LABEL { get; set; }
+        public string MODEL { get; set; }
     
-        public virtual AUTH_USER AUTH_USER { get; set; }
-        public virtual AUTH_USER AUTH_USER1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MATERIAL_SOLICITADO> MATERIAL_SOLICITADO { get; set; }
+        public virtual ICollection<AUTH_PERMISSION> AUTH_PERMISSION { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DJANGO_ADMIN_LOG> DJANGO_ADMIN_LOG { get; set; }
     }
 }

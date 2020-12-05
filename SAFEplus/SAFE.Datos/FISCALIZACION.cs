@@ -12,18 +12,22 @@ namespace SAFE.Datos
     using System;
     using System.Collections.Generic;
     
-    public partial class TIPO_ACCIDENTE
+    public partial class FISCALIZACION
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TIPO_ACCIDENTE()
+        public FISCALIZACION()
         {
-            this.ACCIDENTE = new HashSet<ACCIDENTE>();
+            this.ASESORIA = new HashSet<ASESORIA>();
         }
     
-        public decimal ID_TIPO_ACCIDENTE { get; set; }
-        public string DESCRIPCION { get; set; }
+        public long ID { get; set; }
+        public string DOC_REVISADOS { get; set; }
+        public string DESCRIPCION_DOCUMENTO { get; set; }
+        public string DOCUMENTO { get; set; }
+        public long RUT_CLIENTE_ID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ACCIDENTE> ACCIDENTE { get; set; }
+        public virtual ICollection<ASESORIA> ASESORIA { get; set; }
+        public virtual AUTH_USER AUTH_USER { get; set; }
     }
 }

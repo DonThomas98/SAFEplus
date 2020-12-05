@@ -68,5 +68,11 @@ namespace SAFE.Presentacion
             MonitoreoActividades actividades = new MonitoreoActividades();
             actividades.Show();
         }
+
+        private void btnVisitas_Click(object sender, RoutedEventArgs e)
+        {
+            Visitas visitas = new Visitas();
+            visitas.Show();
+        }
     }
 }

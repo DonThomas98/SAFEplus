@@ -12,19 +12,21 @@ namespace SAFE.Datos
     using System;
     using System.Collections.Generic;
     
-    public partial class TIPO_CONTRATO
+    public partial class AUTH_GROUP
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TIPO_CONTRATO()
+        public AUTH_GROUP()
         {
-            this.CONTRATO = new HashSet<CONTRATO>();
+            this.AUTH_GROUP_PERMISSIONS = new HashSet<AUTH_GROUP_PERMISSIONS>();
+            this.AUTH_USER_GROUPS = new HashSet<AUTH_USER_GROUPS>();
         }
     
-        public decimal TIPO_CONTRATO1 { get; set; }
-        public string DESCRIPCION { get; set; }
-        public decimal COSTO { get; set; }
+        public long ID { get; set; }
+        public string NAME { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CONTRATO> CONTRATO { get; set; }
+        public virtual ICollection<AUTH_GROUP_PERMISSIONS> AUTH_GROUP_PERMISSIONS { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AUTH_USER_GROUPS> AUTH_USER_GROUPS { get; set; }
     }
 }

@@ -33,9 +33,9 @@
                 <ImageBrush ImageSource="Imagenes/flecha-izquierda.png" Stretch="UniformToFill"/>
             </Button.Background>
         </Button>
-        <Label Content="Monitoreo de Actividades" Margin="257,50,258,0" VerticalAlignment="Top" Height="40" FontSize="22" FontWeight="Bold" HorizontalContentAlignment="Center" Width="278"/>
+        <Label Content="Monitoreo de Actividades" Margin="251,50,251,0" VerticalAlignment="Top" Height="40" FontSize="22" FontWeight="Bold" HorizontalContentAlignment="Center"/>
         <Separator Height="10" Margin="50,90,50,0" VerticalAlignment="Top"/>
         <DataGrid x:Name="dtgActividades" Margin="50,125,50,25" Background="White" BorderBrush="Black"/>
-        
+
     </Grid>
 </Window>

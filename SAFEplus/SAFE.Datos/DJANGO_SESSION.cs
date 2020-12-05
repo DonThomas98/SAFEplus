@@ -12,11 +12,10 @@ namespace SAFE.Datos
     using System;
     using System.Collections.Generic;
     
-    public partial class REGISTRO_ACCIDENTADOS
+    public partial class DJANGO_SESSION
     {
-        public decimal ID_ACCIDENTADOS { get; set; }
-    
-        public virtual ACCIDENTE ACCIDENTE { get; set; }
-        public virtual CLIENTE CLIENTE { get; set; }
+        public string SESSION_KEY { get; set; }
+        public string SESSION_DATA { get; set; }
+        public System.DateTime EXPIRE_DATE { get; set; }
     }
 }

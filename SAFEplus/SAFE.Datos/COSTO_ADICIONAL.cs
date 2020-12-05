@@ -12,18 +12,13 @@ namespace SAFE.Datos
     using System;
     using System.Collections.Generic;
     
-    public partial class CARGO
+    public partial class COSTO_ADICIONAL
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CARGO()
-        {
-            this.TRABAJADOR = new HashSet<TRABAJADOR>();
-        }
+        public long ID { get; set; }
+        public long MONTO_ADICIONAL { get; set; }
+        public System.DateTime FECHA_COSTOADICIONAL { get; set; }
+        public long ID_CONTRATO_ID { get; set; }
     
-        public decimal ID_CARGO { get; set; }
-        public string CARGO1 { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TRABAJADOR> TRABAJADOR { get; set; }
+        public virtual CONTRATO CONTRATO { get; set; }
     }
 }

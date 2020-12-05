@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="79e0c1cbe87b403cb16c1413c1911ccf" Name="Diagram1">
+        <EntityTypeShape EntityType="SafeDjangoModel.ACCIDENTE" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SafeDjangoModel.ACCOUNT_USERPROFILE" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SafeDjangoModel.ASESORIA" Width="1.5" PointX="5.25" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SafeDjangoModel.AUTH_GROUP" Width="1.5" PointX="0.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="SafeDjangoModel.AUTH_GROUP_PERMISSIONS" Width="1.5" PointX="6" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SafeDjangoModel.AUTH_PERMISSION" Width="1.5" PointX="3.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SafeDjangoModel.AUTH_USER" Width="1.5" PointX="0.75" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SafeDjangoModel.AUTH_USER_GROUPS" Width="1.5" PointX="3" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SafeDjangoModel.AUTH_USER_USER_PERMISSIONS" Width="1.5" PointX="6" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SafeDjangoModel.CAPACITACION" Width="1.5" PointX="3" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SafeDjangoModel.CONTRATO" Width="1.5" PointX="3" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SafeDjangoModel.COSTO_ADICIONAL" Width="1.5" PointX="5.25" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SafeDjangoModel.DJANGO_ADMIN_LOG" Width="1.5" PointX="8" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SafeDjangoModel.DJANGO_CONTENT_TYPE" Width="1.5" PointX="1.5" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SafeDjangoModel.DJANGO_MIGRATIONS" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SafeDjangoModel.DJANGO_SESSION" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SafeDjangoModel.FISCALIZACION" Width="1.5" PointX="3" PointY="31.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SafeDjangoModel.INFORME_VISITA" Width="1.5" PointX="5.25" PointY="37.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SafeDjangoModel.MATERIAL_CAPACITACIONES" Width="1.5" PointX="6" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SafeDjangoModel.MATERIAL_SOLICITADO" Width="1.5" PointX="8.25" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SafeDjangoModel.MULTA" Width="1.5" PointX="3" PointY="34.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SafeDjangoModel.REGISTRO_PAGOS" Width="1.5" PointX="5.25" PointY="25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SafeDjangoModel.VISITA_TERRENO" Width="1.5" PointX="3" PointY="38.375" IsExpanded="true" />
+        <AssociationConnector Association="SafeDjangoModel.ACCIDENTE_RUT_CLIEN_7C93C411_F" ManuallyRouted="false" />
+        <AssociationConnector Association="SafeDjangoModel.ASESORIA_ID_ACCIDE_4DBFDD37_F" ManuallyRouted="false" />
+        <AssociationConnector Association="SafeDjangoModel.ACCOUNT_U_USER_ID_5AFA3C7A_F" ManuallyRouted="false" />
+        <AssociationConnector Association="SafeDjangoModel.ASESORIA_ID_FISCAL_C75043FF_F" ManuallyRouted="false" />
+        <AssociationConnector Association="SafeDjangoModel.AUTH_GROU_GROUP_ID_B120CBF9_F" ManuallyRouted="false" />
+        <AssociationConnector Association="SafeDjangoModel.AUTH_USER_GROUP_ID_97559544_F" ManuallyRouted="false" />
+        <AssociationConnector Association="SafeDjangoModel.AUTH_GROU_PERMISSIO_84C5C92E_F" ManuallyRouted="false" />
+        <AssociationConnector Association="SafeDjangoModel.AUTH_PERM_CONTENT_T_2F476E4B_F" ManuallyRouted="false" />
+        <AssociationConnector Association="SafeDjangoModel.AUTH_USER_PERMISSIO_1FBB5F2C_F" ManuallyRouted="false" />
+        <AssociationConnector Association="SafeDjangoModel.AUTH_USER_USER_ID_6A12ED8B_F" ManuallyRouted="false" />
+        <AssociationConnector Association="SafeDjangoModel.AUTH_USER_USER_ID_A95EAD1B_F" ManuallyRouted="false" />
+        <AssociationConnector Association="SafeDjangoModel.CAPACITAC_RUT_CLIEN_077B4635_F" ManuallyRouted="false" />
+        <AssociationConnector Association="SafeDjangoModel.CAPACITAC_RUT_TRABA_8ADD113D_F" ManuallyRouted="false" />
+        <AssociationConnector Association="SafeDjangoModel.CONTRATO_RUT_CLIEN_A68DF4C9_F" ManuallyRouted="false" />
+        <AssociationConnector Association="SafeDjangoModel.DJANGO_AD_USER_ID_C564EBA6_F" ManuallyRouted="false" />
+        <AssociationConnector Association="SafeDjangoModel.FISCALIZA_RUT_CLIEN_5363619B_F" ManuallyRouted="false" />
+        <AssociationConnector Association="SafeDjangoModel.MULTA_MULTA_CLI_D19BE6F3_F" ManuallyRouted="false" />
+        <AssociationConnector Association="SafeDjangoModel.VISITA_TE_RUT_CLIEN_E5A1CA96_F" ManuallyRouted="false" />
+        <AssociationConnector Association="SafeDjangoModel.VISITA_TE_RUT_TRABA_4B242B5F_F" ManuallyRouted="false" />
+        <AssociationConnector Association="SafeDjangoModel.MATERIAL__MATERIAL__BF7DEACC_F" ManuallyRouted="false" />
+        <AssociationConnector Association="SafeDjangoModel.COSTO_ADI_ID_CONTRA_6B73F08B_F" ManuallyRouted="false" />
+        <AssociationConnector Association="SafeDjangoModel.REGISTRO__ID_CONTRA_711DAA8A_F" ManuallyRouted="false" />
+        <AssociationConnector Association="SafeDjangoModel.DJANGO_AD_CONTENT_T_C4BCE8EB_F" ManuallyRouted="false" />
+        <AssociationConnector Association="SafeDjangoModel.INFORME_V_ID_VISITA_D117EA99_F" ManuallyRouted="false" />
+        <AssociationConnector Association="SafeDjangoModel.MATERIAL__ID_MATERI_514CCEC5_F" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

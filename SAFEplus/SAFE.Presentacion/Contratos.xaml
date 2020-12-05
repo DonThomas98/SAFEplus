@@ -33,9 +33,11 @@
                 <ImageBrush ImageSource="Imagenes/flecha-izquierda.png" Stretch="UniformToFill"/>
             </Button.Background>
         </Button>
-        <Label Content="Contratos" Margin="287,25,0,0" VerticalAlignment="Top" Height="40" FontSize="22" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Width="220"/>
-        <Label Content="RUT Cliente:" HorizontalAlignment="Left" Margin="287,80,0,0" VerticalAlignment="Top" FontSize="16" Height="30"/>
-        <ComboBox x:Name="cboRutCliente" HorizontalAlignment="Left" Margin="387,85,0,0" VerticalAlignment="Top" Width="120" BorderBrush="Black"></ComboBox>
+        <Label Content="RUT Cliente:" HorizontalAlignment="Left" Margin="287,100,0,0" VerticalAlignment="Top" FontSize="16" Height="30"/>
+        <ComboBox x:Name="cboRutCliente" HorizontalAlignment="Left" Margin="387,105,0,0" VerticalAlignment="Top" Width="120" BorderBrush="Black" SelectionChanged="cboRutCliente_SelectionChanged"></ComboBox>
+        <Label Content="Contratos" Margin="341,50,341,0" VerticalAlignment="Top" Height="40" FontSize="22" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+        <Separator Height="5" Margin="51,90,51,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="dtgListaContratos" Background="White" BorderBrush="Black" Margin="51,135,51,20"/>
 
     </Grid>
 </Window>

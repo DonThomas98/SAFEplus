@@ -20,7 +20,7 @@ namespace SAFE.Datos
             this.MATERIAL_SOLICITADO = new HashSet<MATERIAL_SOLICITADO>();
         }
     
-        public decimal ID_MATERIAL { get; set; }
+        public long ID { get; set; }
         public string MATERIAL { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

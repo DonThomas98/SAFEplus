@@ -12,24 +12,24 @@ namespace SAFE.Datos
     using System;
     using System.Collections.Generic;
     
-    public partial class CAPACITACION
+    public partial class AUTH_PERMISSION
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CAPACITACION()
+        public AUTH_PERMISSION()
         {
-            this.MATERIAL_SOLICITADO = new HashSet<MATERIAL_SOLICITADO>();
+            this.AUTH_GROUP_PERMISSIONS = new HashSet<AUTH_GROUP_PERMISSIONS>();
+            this.AUTH_USER_USER_PERMISSIONS = new HashSet<AUTH_USER_USER_PERMISSIONS>();
         }
     
         public long ID { get; set; }
-        public System.DateTime FECHA_SOLICITUD { get; set; }
-        public System.DateTime FECHA_CAPACITACION { get; set; }
-        public string HORA_CAPACITACION { get; set; }
-        public long RUT_CLIENTE_ID { get; set; }
-        public long RUT_TRABAJADOR_ID { get; set; }
+        public string NAME { get; set; }
+        public long CONTENT_TYPE_ID { get; set; }
+        public string CODENAME { get; set; }
     
-        public virtual AUTH_USER AUTH_USER { get; set; }
-        public virtual AUTH_USER AUTH_USER1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MATERIAL_SOLICITADO> MATERIAL_SOLICITADO { get; set; }
+        public virtual ICollection<AUTH_GROUP_PERMISSIONS> AUTH_GROUP_PERMISSIONS { get; set; }
+        public virtual DJANGO_CONTENT_TYPE DJANGO_CONTENT_TYPE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AUTH_USER_USER_PERMISSIONS> AUTH_USER_USER_PERMISSIONS { get; set; }
     }
 }

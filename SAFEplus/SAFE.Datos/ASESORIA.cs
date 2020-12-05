@@ -14,18 +14,14 @@ namespace SAFE.Datos
     
     public partial class ASESORIA
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ASESORIA()
-        {
-            this.ANTECEDENTES_ASESORIA = new HashSet<ANTECEDENTES_ASESORIA>();
-        }
-    
-        public decimal ID_ASESORIA { get; set; }
+        public long ID { get; set; }
         public string EVENTO { get; set; }
         public string PROPUESTA { get; set; }
+        public string ASESORIA_ESPECIAL { get; set; }
+        public Nullable<long> ID_ACCIDENTE_ID { get; set; }
+        public Nullable<long> ID_FISCALIZACION_ID { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ANTECEDENTES_ASESORIA> ANTECEDENTES_ASESORIA { get; set; }
-        public virtual VISITA_TERRENO VISITA_TERRENO { get; set; }
+        public virtual ACCIDENTE ACCIDENTE { get; set; }
+        public virtual FISCALIZACION FISCALIZACION { get; set; }
     }
 }

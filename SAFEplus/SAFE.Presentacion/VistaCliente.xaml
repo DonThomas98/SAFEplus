@@ -1,9 +1,10 @@
-﻿<Window x:Class="SAFE.Presentacion.VistaCliente"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SAFE.Presentacion"
+        xmlns:Datos="clr-namespace:SAFE.Datos;assembly=SAFE.Datos" x:Class="SAFE.Presentacion.VistaCliente"
         mc:Ignorable="d"
         Title="Vista de Clientes - Safe+" Height="450" Width="800" Icon="Imagenes/Icon3.ico" WindowStartupLocation="CenterScreen" SizeToContent="Width">
     <Window.Resources>
@@ -25,9 +26,9 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <Style TargetType="Button" x:Key="Round">
+        <Style TargetType="{x:Type Button}" x:Key="Round">
             <Style.Resources>
-                <Style TargetType="Border">
+                <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10" />
                 </Style>
             </Style.Resources>
@@ -44,19 +45,16 @@
         <TabControl Margin="50,100,50,25">
             <TabItem Header="Lista de Clientes">
                 <Grid>
-                    <DataGrid x:Name="dtgListaClientes" Background="White" BorderBrush="Black"/>
+                    <DataGrid x:Name="dtgListaClientes" Background="White" BorderBrush="Black">
+
+                    </DataGrid>
                 </Grid>
             </TabItem>
             <TabItem Header="Pagos por Cliente">
                 <Grid Background="#3FFF4D00">
-                    <Label Content="RUT Cliente:" HorizontalAlignment="Right" Margin="0,5,175,0" VerticalAlignment="Top" FontSize="16" Height="30"/>
-                    <ComboBox x:Name="cboRutCliente" Margin="0,10,50,0" VerticalAlignment="Top" BorderBrush="Black" HorizontalAlignment="Right" Width="120"/>
-                    <DataGrid x:Name="dtgPagosCliente" Margin="0,42,0,0" Background="White"/>
-                    <Button x:Name="btnBuscar" Content="" HorizontalAlignment="Right" Margin="0,10,15,0" VerticalAlignment="Top" Width="25" Height="25" BorderBrush="{x:Null}" Style="{DynamicResource MyButton}">
-                        <Button.Background>
-                            <ImageBrush ImageSource="Imagenes/lupa.png" Stretch="Uniform"/>
-                        </Button.Background>
-                    </Button>
+                    <Label Content="RUT Cliente:" Margin="10,5,0,0" VerticalAlignment="Top" FontSize="16" Height="30" HorizontalAlignment="Left" Width="100"/>
+                    <ComboBox x:Name="cboRutCliente" Margin="110,10,0,0" VerticalAlignment="Top" BorderBrush="Black" SelectionChanged="cboRutCliente_SelectionChanged" HorizontalAlignment="Left" Width="120"/>
+                    <DataGrid x:Name="dtgPagosCliente" Margin="10,42,10,10" Background="White"/>
                 </Grid>
             </TabItem>
         </TabControl>
