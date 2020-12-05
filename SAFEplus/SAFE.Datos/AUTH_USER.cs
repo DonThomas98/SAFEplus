@@ -17,13 +17,18 @@ namespace SAFE.Datos
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public AUTH_USER()
         {
+            this.ACCIDENTE = new HashSet<ACCIDENTE>();
             this.ACCOUNT_USERPROFILE = new HashSet<ACCOUNT_USERPROFILE>();
             this.AUTH_USER_GROUPS = new HashSet<AUTH_USER_GROUPS>();
             this.AUTH_USER_USER_PERMISSIONS = new HashSet<AUTH_USER_USER_PERMISSIONS>();
+            this.CAPACITACION = new HashSet<CAPACITACION>();
+            this.CAPACITACION1 = new HashSet<CAPACITACION>();
             this.CONTRATO = new HashSet<CONTRATO>();
             this.DJANGO_ADMIN_LOG = new HashSet<DJANGO_ADMIN_LOG>();
-            this.ACCOUNT_USERPROFILE1 = new HashSet<ACCOUNT_USERPROFILE>();
-            this.CONTRATO1 = new HashSet<CONTRATO>();
+            this.FISCALIZACION = new HashSet<FISCALIZACION>();
+            this.MULTA = new HashSet<MULTA>();
+            this.VISITA_TERRENO = new HashSet<VISITA_TERRENO>();
+            this.VISITA_TERRENO1 = new HashSet<VISITA_TERRENO>();
         }
     
         public long ID { get; set; }
@@ -39,18 +44,28 @@ namespace SAFE.Datos
         public System.DateTime DATE_JOINED { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ACCIDENTE> ACCIDENTE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ACCOUNT_USERPROFILE> ACCOUNT_USERPROFILE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AUTH_USER_GROUPS> AUTH_USER_GROUPS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AUTH_USER_USER_PERMISSIONS> AUTH_USER_USER_PERMISSIONS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CAPACITACION> CAPACITACION { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CAPACITACION> CAPACITACION1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CONTRATO> CONTRATO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DJANGO_ADMIN_LOG> DJANGO_ADMIN_LOG { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ACCOUNT_USERPROFILE> ACCOUNT_USERPROFILE1 { get; set; }
+        public virtual ICollection<FISCALIZACION> FISCALIZACION { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CONTRATO> CONTRATO1 { get; set; }
+        public virtual ICollection<MULTA> MULTA { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VISITA_TERRENO> VISITA_TERRENO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VISITA_TERRENO> VISITA_TERRENO1 { get; set; }
     }
 }

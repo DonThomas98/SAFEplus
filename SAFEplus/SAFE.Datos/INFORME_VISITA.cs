@@ -30,9 +30,7 @@ namespace SAFE.Datos
         public string EPP_INVENTARIO { get; set; }
         public string EPP_CERTIFICADOS { get; set; }
         public long ID_VISITA_ID { get; set; }
-        public long VISITA_TERRENO_ID { get; set; }
     
         public virtual VISITA_TERRENO VISITA_TERRENO { get; set; }
-        public virtual VISITA_TERRENO VISITA_TERRENO1 { get; set; }
     }
 }

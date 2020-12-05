@@ -17,20 +17,18 @@ namespace SAFE.Datos
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ACCIDENTE()
         {
-            this.REGISTRO_ACCIDENTADOS = new HashSet<REGISTRO_ACCIDENTADOS>();
-            this.REGISTRO_ACCIDENTADOS1 = new HashSet<REGISTRO_ACCIDENTADOS>();
+            this.ASESORIA = new HashSet<ASESORIA>();
         }
     
         public long ID { get; set; }
+        public string NATURALEZA { get; set; }
+        public string PARTES_ACCIDENTADAS { get; set; }
+        public string FUENTE_ACCIDENTE { get; set; }
         public System.DateTime FECHA_ACCIDENTE { get; set; }
-        public long ID_TIPO_ACCIDENTE_ID { get; set; }
-        public long TIPO_ACCIDENTE_ID { get; set; }
+        public long RUT_CLIENTE_ID { get; set; }
     
-        public virtual TIPO_ACCIDENTE TIPO_ACCIDENTE { get; set; }
+        public virtual AUTH_USER AUTH_USER { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<REGISTRO_ACCIDENTADOS> REGISTRO_ACCIDENTADOS { get; set; }
-        public virtual TIPO_ACCIDENTE TIPO_ACCIDENTE1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<REGISTRO_ACCIDENTADOS> REGISTRO_ACCIDENTADOS1 { get; set; }
+        public virtual ICollection<ASESORIA> ASESORIA { get; set; }
     }
 }

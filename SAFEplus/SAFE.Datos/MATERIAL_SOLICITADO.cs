@@ -14,22 +14,12 @@ namespace SAFE.Datos
     
     public partial class MATERIAL_SOLICITADO
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public MATERIAL_SOLICITADO()
-        {
-            this.MATERIAL_SOLICITADO_ID_MAT9F2C = new HashSet<MATERIAL_SOLICITADO_ID>();
-        }
-    
         public long ID { get; set; }
         public long CANTIDAD { get; set; }
-        public long ID_CAPACITACION_ID { get; set; }
-        public long CAPACITACION_ID { get; set; }
-        public long MATERIAL_ID { get; set; }
+        public long ID_MATERIAL_ID { get; set; }
+        public long MATERIAL_CAPACITACION_ID { get; set; }
     
         public virtual CAPACITACION CAPACITACION { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MATERIAL_SOLICITADO_ID> MATERIAL_SOLICITADO_ID_MAT9F2C { get; set; }
-        public virtual CAPACITACION CAPACITACION1 { get; set; }
         public virtual MATERIAL_CAPACITACIONES MATERIAL_CAPACITACIONES { get; set; }
     }
 }

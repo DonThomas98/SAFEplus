@@ -18,9 +18,7 @@ namespace SAFE.Datos
         public long MONTO_PAGO { get; set; }
         public System.DateTime FECHA_PAGO { get; set; }
         public long ID_CONTRATO_ID { get; set; }
-        public long CONTRATO_ID { get; set; }
     
         public virtual CONTRATO CONTRATO { get; set; }
-        public virtual CONTRATO CONTRATO1 { get; set; }
     }
 }

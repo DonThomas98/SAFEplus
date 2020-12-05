@@ -12,15 +12,22 @@ namespace SAFE.Datos
     using System;
     using System.Collections.Generic;
     
-    public partial class ANTECEDENTES_ASESORIA
+    public partial class FISCALIZACION
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public FISCALIZACION()
+        {
+            this.ASESORIA = new HashSet<ASESORIA>();
+        }
+    
         public long ID { get; set; }
+        public string DOC_REVISADOS { get; set; }
         public string DESCRIPCION_DOCUMENTO { get; set; }
         public string DOCUMENTO { get; set; }
-        public long ID_ASESORIA_ID { get; set; }
-        public long ASESORIA_ID { get; set; }
+        public long RUT_CLIENTE_ID { get; set; }
     
-        public virtual ASESORIA ASESORIA { get; set; }
-        public virtual ASESORIA ASESORIA1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ASESORIA> ASESORIA { get; set; }
+        public virtual AUTH_USER AUTH_USER { get; set; }
     }
 }

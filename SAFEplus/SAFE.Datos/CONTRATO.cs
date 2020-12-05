@@ -17,22 +17,20 @@ namespace SAFE.Datos
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CONTRATO()
         {
+            this.COSTO_ADICIONAL = new HashSet<COSTO_ADICIONAL>();
             this.REGISTRO_PAGOS = new HashSet<REGISTRO_PAGOS>();
-            this.REGISTRO_PAGOS1 = new HashSet<REGISTRO_PAGOS>();
         }
     
         public long ID { get; set; }
+        public string DESCRIPCION { get; set; }
+        public long COSTO { get; set; }
         public System.DateTime FECHA_CONTRATACION { get; set; }
         public long RUT_CLIENTE_ID { get; set; }
-        public long TIPO_CONTRATO_ID { get; set; }
-        public long AUTH_USER_ID { get; set; }
     
         public virtual AUTH_USER AUTH_USER { get; set; }
-        public virtual TIPO_CONTRATO TIPO_CONTRATO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<COSTO_ADICIONAL> COSTO_ADICIONAL { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<REGISTRO_PAGOS> REGISTRO_PAGOS { get; set; }
-        public virtual AUTH_USER AUTH_USER1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<REGISTRO_PAGOS> REGISTRO_PAGOS1 { get; set; }
     }
 }

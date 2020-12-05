@@ -33,8 +33,8 @@
                 <ImageBrush ImageSource="Imagenes/flecha-izquierda.png" Stretch="UniformToFill"/>
             </Button.Background>
         </Button>
-        <Label Content="Vista de Trabajadores" Margin="280,50,280,0" VerticalAlignment="Top" Height="40" FontSize="22" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-        <TabControl Margin="50,100,50,25">
+        <Label Content="Vista de Trabajadores" Margin="271,50,271,0" VerticalAlignment="Top" Height="40" FontSize="22" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+        <TabControl Margin="50,105,50,25">
             <TabItem Header="Lista de Trabajadores">
                 <Grid>
                     <DataGrid x:Name="dtgListaTrabajadores" Background="White" BorderBrush="Black"/>
@@ -42,10 +42,14 @@
             </TabItem>
             <TabItem Header="Carga Laboral por Trabajador">
                 <Grid Background="#3FFF4D00">
-                    <Label Content="RUT Trabajador:" HorizontalAlignment="Right" Margin="0,5,175,0" VerticalAlignment="Top" FontSize="16" Height="30"/>
-                    <ComboBox x:Name="cboRutTrabajador" Margin="0,10,50,0" VerticalAlignment="Top" BorderBrush="Black" HorizontalAlignment="Right" Width="120"/>
-                    <DataGrid x:Name="dtgPagosCliente" Margin="0,42,0,0" Background="White"/>
-                    <Button x:Name="btnBuscar" Content="" HorizontalAlignment="Right" Margin="0,10,15,0" VerticalAlignment="Top" Width="25" Height="25" BorderBrush="{x:Null}" Style="{DynamicResource MyButton}">
+                    <Label Content="RUT Trabajador:" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" FontSize="16" Height="30" Width="125"/>
+                    <ComboBox x:Name="cboRutTrabajador" Margin="135,10,0,0" VerticalAlignment="Top" BorderBrush="Black" HorizontalAlignment="Left" Width="120"/>
+                    <DataGrid x:Name="dtgCargaLabTrabajador" Margin="10,42,10,10" Background="White"/>
+                    <Label Content="Mes:" HorizontalAlignment="Left" Margin="260,5,0,0" VerticalAlignment="Top" FontSize="16" Height="30" Width="50"/>
+                    <Label Content="Año:" HorizontalAlignment="Left" Margin="365,5,0,0" VerticalAlignment="Top" FontSize="16" Height="30" Width="50"/>
+                    <ComboBox x:Name="cboMes" HorizontalAlignment="Left" Margin="310,10,0,0" VerticalAlignment="Top" Width="50"></ComboBox>
+                    <ComboBox x:Name="cboAño" HorizontalAlignment="Left" Margin="415,10,0,0" VerticalAlignment="Top" Width="75"></ComboBox>
+                    <Button x:Name="btnBuscar" Content="" HorizontalAlignment="Right" Margin="0,5,10,0" VerticalAlignment="Top" Width="30" Height="30" BorderBrush="{x:Null}" Foreground="{x:Null}" Cursor="Hand" Style="{DynamicResource MyButton}" ToolTip="Buscar" Click="btnBuscar_Click">
                         <Button.Background>
                             <ImageBrush ImageSource="Imagenes/lupa.png" Stretch="Uniform"/>
                         </Button.Background>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SAFE.Negocios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,7 @@ namespace SAFE.Presentacion
     /// </summary>
     public partial class RegistroTrabajador : Window
     {
+        Manejadora _mane = new Manejadora();
         public RegistroTrabajador()
         {
             InitializeComponent();
@@ -31,34 +33,69 @@ namespace SAFE.Presentacion
 
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)
         {
-            //Separar los nombres y apellidos
-            String pNombre, sNombre, pApellido, sApellido;
-            if (txtNombres.Text != String.Empty && txtApellidos.Text != String.Empty)
+            if (txtRut.Text == String.Empty)
             {
-                string[] nombres = txtNombres.Text.Split(' ');
-                string[] apellidos = txtApellidos.Text.Split(' ');
-                pNombre = nombres[0];
-                sNombre = nombres[1];
-                pApellido = apellidos[0];
-                sApellido = apellidos[1];
+                MessageBox.Show("Ingrese el Rut del trabajador");
+                txtRut.Focus();
             }
-            else if (txtNombres.Text == String.Empty && txtApellidos.Text != String.Empty)
+            else if (txtDv.Text == String.Empty)
             {
-                MessageBox.Show("Ingrese los nombres del trabajador");
+                MessageBox.Show("Ingrese el dígito verificador del trabajador");
+                txtDv.Focus();
+            }
+            else if (txtEdad.Text == String.Empty)
+            {
+                MessageBox.Show("Ingrese el edad del trabajador");
+                txtEdad.Focus();
+            }
+            else if (txtNombres.Text == String.Empty)
+            {
+                MessageBox.Show("Ingrese el nombre del trabajador");
                 txtNombres.Focus();
+            }
+            else if (txtApellidos.Text == String.Empty)
+            {
+                MessageBox.Show("Ingrese el apellido del trabajador");
+                txtApellidos.Focus();
+            }
+            else if (txtCorreo.Text == String.Empty)
+            {
+                MessageBox.Show("Ingrese el correo del trabajador");
+                txtCorreo.Focus();
+            }
+            else if (txtSueldo.Text == String.Empty)
+            {
+                MessageBox.Show("Ingrese el sueldo del trabajador");
+                txtDireccion.Focus();
+            }
+            else if (pwdPassword.Password == String.Empty)
+            {
+                MessageBox.Show("Ingrese la contraseña del trabajador");
+                pwdPassword.Focus();
+            }
+            else if (pwdConfirmar.Password == String.Empty)
+            {
+                MessageBox.Show("Confirme la contraseña del trabajador");
+                pwdConfirmar.Focus();
+            }
+            else if (pwdConfirmar.Password != pwdPassword.Password)
+            {
+                MessageBox.Show("Las contraseñas no son las mismas, inténtelo otra vez.");
+                pwdConfirmar.Focus();
             }
             else
             {
-                MessageBox.Show("Ingrese los apellidos del trabajador");
-                txtApellidos.Focus();
-            }
-            
+                int? admin = chkAdmin.IsChecked.Value ? 1 : 0;
+                bool resultado = _mane.SetTrabajador(txtCorreo.Text, pwdPassword.Password, txtNombres.Text, txtApellidos.Text, admin, int.Parse(txtRut.Text), int.Parse(txtSueldo.Text), int.Parse(txtEdad.Text));
 
-            //Comparar contraseñas
-            if (pwdPassword.Password != pwdConfirmar.Password)
-            {
-                MessageBox.Show("Las contraseñas no coinciden");
-                pwdPassword.Focus();
+                if (resultado)
+                {
+                    MessageBox.Show("Trabajador registrado con éxito");
+                }
+                else
+                {
+                    MessageBox.Show("Fallo");
+                }
             }
         }
     }

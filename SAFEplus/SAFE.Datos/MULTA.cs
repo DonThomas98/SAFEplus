@@ -18,10 +18,8 @@ namespace SAFE.Datos
         public long MONTO_MULTA { get; set; }
         public string DESCRIPCION { get; set; }
         public System.DateTime FECHA_MULTA { get; set; }
-        public long USER_ID { get; set; }
-        public long ACCOUNT_USERPROFILE_ID { get; set; }
+        public long MULTA_CLIENTE_ID { get; set; }
     
-        public virtual ACCOUNT_USERPROFILE ACCOUNT_USERPROFILE { get; set; }
-        public virtual ACCOUNT_USERPROFILE ACCOUNT_USERPROFILE1 { get; set; }
+        public virtual AUTH_USER AUTH_USER { get; set; }
     }
 }

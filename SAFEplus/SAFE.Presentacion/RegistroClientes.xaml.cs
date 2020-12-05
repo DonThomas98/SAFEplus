@@ -26,7 +26,7 @@ namespace SAFE.Presentacion
         public RegistroClientes()
         {
             InitializeComponent();
-            OracleConnection conn = _mane.ConexionDB();
+            //OracleConnection conn = _mane.ConexionDB();
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)
@@ -86,9 +86,19 @@ namespace SAFE.Presentacion
                 MessageBox.Show("Las contraseñas no son las mismas, inténtelo otra vez.");
                 pwdConfirmar.Focus();
             }
-            
-            _mane.SetCliente(txtRut.Text, txtDv.Text, txtEdad.Text, txtNombres.Text, txtApellidos.Text, txtCorreo.Text, txtDireccion.Text, txtTelefono.Text, txtCelular.Text, pwdPassword.Password);
+            else
+            {
+                bool resultado = _mane.SetCliente(txtCorreo.Text, pwdPassword.Password, txtNombres.Text, txtApellidos.Text, int.Parse(txtRut.Text), 0, int.Parse(txtEdad.Text));
 
+                if (resultado)
+                {
+                    MessageBox.Show("Cliente registrado con éxito");
+                }
+                else
+                {
+                    MessageBox.Show("Fallo");
+                }
+            }
         }
     }
 }

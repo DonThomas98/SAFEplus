@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SAFE.Negocios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,14 +20,21 @@ namespace SAFE.Presentacion
     /// </summary>
     public partial class Contratos : Window
     {
+        Manejadora _mane = new Manejadora();
         public Contratos()
         {
             InitializeComponent();
+            cboRutCliente.ItemsSource = _mane.GetRutCliente();
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void cboRutCliente_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            dtgListaContratos.ItemsSource = _mane.GetContratos(cboRutCliente.SelectedItem.ToString()).DefaultView;
         }
     }
 }

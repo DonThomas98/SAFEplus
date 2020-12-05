@@ -18,22 +18,18 @@ namespace SAFE.Datos
         public CAPACITACION()
         {
             this.MATERIAL_SOLICITADO = new HashSet<MATERIAL_SOLICITADO>();
-            this.MATERIAL_SOLICITADO1 = new HashSet<MATERIAL_SOLICITADO>();
         }
     
         public long ID { get; set; }
         public System.DateTime FECHA_SOLICITUD { get; set; }
         public System.DateTime FECHA_CAPACITACION { get; set; }
+        public string HORA_CAPACITACION { get; set; }
         public long RUT_CLIENTE_ID { get; set; }
         public long RUT_TRABAJADOR_ID { get; set; }
-        public long ACCOUNT_USERPROFILE_ID { get; set; }
     
-        public virtual ACCOUNT_USERPROFILE ACCOUNT_USERPROFILE { get; set; }
-        public virtual ACCOUNT_USERPROFILE ACCOUNT_USERPROFILE1 { get; set; }
+        public virtual AUTH_USER AUTH_USER { get; set; }
+        public virtual AUTH_USER AUTH_USER1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MATERIAL_SOLICITADO> MATERIAL_SOLICITADO { get; set; }
-        public virtual ACCOUNT_USERPROFILE ACCOUNT_USERPROFILE11 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MATERIAL_SOLICITADO> MATERIAL_SOLICITADO1 { get; set; }
     }
 }
