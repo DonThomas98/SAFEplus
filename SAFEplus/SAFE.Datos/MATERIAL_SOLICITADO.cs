@@ -14,8 +14,10 @@ namespace SAFE.Datos
     
     public partial class MATERIAL_SOLICITADO
     {
-        public decimal ID_REGISTRO { get; set; }
-        public decimal CANTIDAD { get; set; }
+        public long ID { get; set; }
+        public long CANTIDAD { get; set; }
+        public long ID_MATERIAL_ID { get; set; }
+        public long MATERIAL_CAPACITACION_ID { get; set; }
     
         public virtual CAPACITACION CAPACITACION { get; set; }
         public virtual MATERIAL_CAPACITACIONES MATERIAL_CAPACITACIONES { get; set; }

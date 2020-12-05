@@ -1,0 +1,1917 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SafeDjangoModel.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="18.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ACCIDENTE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NATURALEZA" Type="nvarchar2" MaxLength="50" />
+          <Property Name="PARTES_ACCIDENTADAS" Type="nvarchar2" MaxLength="50" />
+          <Property Name="FUENTE_ACCIDENTE" Type="nvarchar2" MaxLength="50" />
+          <Property Name="FECHA_ACCIDENTE" Type="date" Nullable="false" />
+          <Property Name="RUT_CLIENTE_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ACCOUNT_USERPROFILE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RUT" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="SUELDO" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="EDAD" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="USER_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ASESORIA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EVENTO" Type="nvarchar2" MaxLength="25" />
+          <Property Name="PROPUESTA" Type="nvarchar2" MaxLength="500" />
+          <Property Name="ASESORIA_ESPECIAL" Type="nvarchar2" MaxLength="2" />
+          <Property Name="ID_ACCIDENTE_ID" Type="number" Precision="11" Scale="0" />
+          <Property Name="ID_FISCALIZACION_ID" Type="number" Precision="11" Scale="0" />
+        </EntityType>
+        <EntityType Name="AUTH_GROUP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar2" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="AUTH_GROUP_PERMISSIONS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GROUP_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="PERMISSION_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AUTH_PERMISSION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar2" MaxLength="255" />
+          <Property Name="CONTENT_TYPE_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="CODENAME" Type="nvarchar2" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="AUTH_USER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PASSWORD" Type="nvarchar2" MaxLength="128" />
+          <Property Name="LAST_LOGIN" Type="timestamp" Precision="6" />
+          <Property Name="IS_SUPERUSER" Type="number" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="USERNAME" Type="nvarchar2" MaxLength="150" />
+          <Property Name="FIRST_NAME" Type="nvarchar2" MaxLength="150" />
+          <Property Name="LAST_NAME" Type="nvarchar2" MaxLength="150" />
+          <Property Name="EMAIL" Type="nvarchar2" MaxLength="254" />
+          <Property Name="IS_STAFF" Type="number" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="IS_ACTIVE" Type="number" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="DATE_JOINED" Type="timestamp" Precision="6" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AUTH_USER_GROUPS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USER_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="GROUP_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AUTH_USER_USER_PERMISSIONS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USER_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="PERMISSION_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CAPACITACION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FECHA_SOLICITUD" Type="date" Nullable="false" />
+          <Property Name="FECHA_CAPACITACION" Type="date" Nullable="false" />
+          <Property Name="HORA_CAPACITACION" Type="nvarchar2" MaxLength="50" />
+          <Property Name="RUT_CLIENTE_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="RUT_TRABAJADOR_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CONTRATO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="nvarchar2" MaxLength="30" />
+          <Property Name="COSTO" Type="number" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="FECHA_CONTRATACION" Type="date" Nullable="false" />
+          <Property Name="RUT_CLIENTE_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="COSTO_ADICIONAL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MONTO_ADICIONAL" Type="number" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="FECHA_COSTOADICIONAL" Type="date" Nullable="false" />
+          <Property Name="ID_CONTRATO_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DJANGO_ADMIN_LOG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ACTION_TIME" Type="timestamp" Precision="6" Nullable="false" />
+          <Property Name="OBJECT_ID" Type="nclob" />
+          <Property Name="OBJECT_REPR" Type="nvarchar2" MaxLength="200" />
+          <Property Name="ACTION_FLAG" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="CHANGE_MESSAGE" Type="nclob" />
+          <Property Name="CONTENT_TYPE_ID" Type="number" Precision="11" Scale="0" />
+          <Property Name="USER_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DJANGO_CONTENT_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="APP_LABEL" Type="nvarchar2" MaxLength="100" />
+          <Property Name="MODEL" Type="nvarchar2" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="DJANGO_MIGRATIONS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="APP" Type="nvarchar2" MaxLength="255" />
+          <Property Name="NAME" Type="nvarchar2" MaxLength="255" />
+          <Property Name="APPLIED" Type="timestamp" Precision="6" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DJANGO_SESSION">
+          <Key>
+            <PropertyRef Name="SESSION_KEY" />
+          </Key>
+          <Property Name="SESSION_KEY" Type="nvarchar2" MaxLength="40" Nullable="false" />
+          <Property Name="SESSION_DATA" Type="nclob" />
+          <Property Name="EXPIRE_DATE" Type="timestamp" Precision="6" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FISCALIZACION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DOC_REVISADOS" Type="nvarchar2" MaxLength="50" />
+          <Property Name="DESCRIPCION_DOCUMENTO" Type="nvarchar2" MaxLength="50" />
+          <Property Name="DOCUMENTO" Type="nclob" />
+          <Property Name="RUT_CLIENTE_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="INFORME_VISITA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="INTRODUCCION" Type="nvarchar2" MaxLength="250" />
+          <Property Name="RESULTADOS_EVALUACION" Type="nvarchar2" MaxLength="500" />
+          <Property Name="AUTOEVALUACION" Type="nvarchar2" MaxLength="1" />
+          <Property Name="DOC_ACTUALIZADOS" Type="nvarchar2" MaxLength="1" />
+          <Property Name="REG_INTERNO" Type="nvarchar2" MaxLength="1" />
+          <Property Name="DOC_SEREMI_TRABAJO" Type="nvarchar2" MaxLength="1" />
+          <Property Name="COPIA_DOCUMENTOS" Type="nvarchar2" MaxLength="1" />
+          <Property Name="INFORMA_RIESGOS" Type="nvarchar2" MaxLength="1" />
+          <Property Name="INFORMA_MEDIDAS" Type="nvarchar2" MaxLength="1" />
+          <Property Name="PROGRAMA_ORDEN" Type="nvarchar2" MaxLength="1" />
+          <Property Name="EXTINTORES" Type="nvarchar2" MaxLength="1" />
+          <Property Name="CAPACITACION_EXTINTOR" Type="nvarchar2" MaxLength="1" />
+          <Property Name="EPP_INVENTARIO" Type="nvarchar2" MaxLength="1" />
+          <Property Name="EPP_CERTIFICADOS" Type="nvarchar2" MaxLength="1" />
+          <Property Name="ID_VISITA_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MATERIAL_CAPACITACIONES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MATERIAL" Type="nvarchar2" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MATERIAL_SOLICITADO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CANTIDAD" Type="number" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="ID_MATERIAL_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="MATERIAL_CAPACITACION_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MULTA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MONTO_MULTA" Type="number" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="nvarchar2" MaxLength="50" />
+          <Property Name="FECHA_MULTA" Type="date" Nullable="false" />
+          <Property Name="MULTA_CLIENTE_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REGISTRO_PAGOS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MONTO_PAGO" Type="number" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="FECHA_PAGO" Type="date" Nullable="false" />
+          <Property Name="ID_CONTRATO_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VISITA_TERRENO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="11" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FECHA_VISITA" Type="date" Nullable="false" />
+          <Property Name="MOTIVO_VISITA" Type="nvarchar2" MaxLength="50" />
+          <Property Name="RUT_CLIENTE_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="RUT_TRABAJADOR_ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+        </EntityType>
+        <Association Name="ACCIDENTE_RUT_CLIEN_7C93C411_F">
+          <End Role="AUTH_USER" Type="Self.AUTH_USER" Multiplicity="1" />
+          <End Role="ACCIDENTE" Type="Self.ACCIDENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ACCIDENTE">
+              <PropertyRef Name="RUT_CLIENTE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ACCOUNT_U_USER_ID_5AFA3C7A_F">
+          <End Role="AUTH_USER" Type="Self.AUTH_USER" Multiplicity="1" />
+          <End Role="ACCOUNT_USERPROFILE" Type="Self.ACCOUNT_USERPROFILE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ACCOUNT_USERPROFILE">
+              <PropertyRef Name="USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ASESORIA_ID_ACCIDE_4DBFDD37_F">
+          <End Role="ACCIDENTE" Type="Self.ACCIDENTE" Multiplicity="0..1" />
+          <End Role="ASESORIA" Type="Self.ASESORIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCIDENTE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ASESORIA">
+              <PropertyRef Name="ID_ACCIDENTE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ASESORIA_ID_FISCAL_C75043FF_F">
+          <End Role="FISCALIZACION" Type="Self.FISCALIZACION" Multiplicity="0..1" />
+          <End Role="ASESORIA" Type="Self.ASESORIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FISCALIZACION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ASESORIA">
+              <PropertyRef Name="ID_FISCALIZACION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AUTH_GROU_GROUP_ID_B120CBF9_F">
+          <End Role="AUTH_GROUP" Type="Self.AUTH_GROUP" Multiplicity="1" />
+          <End Role="AUTH_GROUP_PERMISSIONS" Type="Self.AUTH_GROUP_PERMISSIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_GROUP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AUTH_GROUP_PERMISSIONS">
+              <PropertyRef Name="GROUP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AUTH_GROU_PERMISSIO_84C5C92E_F">
+          <End Role="AUTH_PERMISSION" Type="Self.AUTH_PERMISSION" Multiplicity="1" />
+          <End Role="AUTH_GROUP_PERMISSIONS" Type="Self.AUTH_GROUP_PERMISSIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_PERMISSION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AUTH_GROUP_PERMISSIONS">
+              <PropertyRef Name="PERMISSION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AUTH_PERM_CONTENT_T_2F476E4B_F">
+          <End Role="DJANGO_CONTENT_TYPE" Type="Self.DJANGO_CONTENT_TYPE" Multiplicity="1" />
+          <End Role="AUTH_PERMISSION" Type="Self.AUTH_PERMISSION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DJANGO_CONTENT_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AUTH_PERMISSION">
+              <PropertyRef Name="CONTENT_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AUTH_USER_GROUP_ID_97559544_F">
+          <End Role="AUTH_GROUP" Type="Self.AUTH_GROUP" Multiplicity="1" />
+          <End Role="AUTH_USER_GROUPS" Type="Self.AUTH_USER_GROUPS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_GROUP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AUTH_USER_GROUPS">
+              <PropertyRef Name="GROUP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AUTH_USER_PERMISSIO_1FBB5F2C_F">
+          <End Role="AUTH_PERMISSION" Type="Self.AUTH_PERMISSION" Multiplicity="1" />
+          <End Role="AUTH_USER_USER_PERMISSIONS" Type="Self.AUTH_USER_USER_PERMISSIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_PERMISSION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AUTH_USER_USER_PERMISSIONS">
+              <PropertyRef Name="PERMISSION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AUTH_USER_USER_ID_6A12ED8B_F">
+          <End Role="AUTH_USER" Type="Self.AUTH_USER" Multiplicity="1" />
+          <End Role="AUTH_USER_GROUPS" Type="Self.AUTH_USER_GROUPS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AUTH_USER_GROUPS">
+              <PropertyRef Name="USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AUTH_USER_USER_ID_A95EAD1B_F">
+          <End Role="AUTH_USER" Type="Self.AUTH_USER" Multiplicity="1" />
+          <End Role="AUTH_USER_USER_PERMISSIONS" Type="Self.AUTH_USER_USER_PERMISSIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AUTH_USER_USER_PERMISSIONS">
+              <PropertyRef Name="USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CAPACITAC_RUT_CLIEN_077B4635_F">
+          <End Role="AUTH_USER" Type="Self.AUTH_USER" Multiplicity="1" />
+          <End Role="CAPACITACION" Type="Self.CAPACITACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CAPACITACION">
+              <PropertyRef Name="RUT_CLIENTE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CAPACITAC_RUT_TRABA_8ADD113D_F">
+          <End Role="AUTH_USER" Type="Self.AUTH_USER" Multiplicity="1" />
+          <End Role="CAPACITACION" Type="Self.CAPACITACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CAPACITACION">
+              <PropertyRef Name="RUT_TRABAJADOR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CONTRATO_RUT_CLIEN_A68DF4C9_F">
+          <End Role="AUTH_USER" Type="Self.AUTH_USER" Multiplicity="1" />
+          <End Role="CONTRATO" Type="Self.CONTRATO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CONTRATO">
+              <PropertyRef Name="RUT_CLIENTE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="COSTO_ADI_ID_CONTRA_6B73F08B_F">
+          <End Role="CONTRATO" Type="Self.CONTRATO" Multiplicity="1" />
+          <End Role="COSTO_ADICIONAL" Type="Self.COSTO_ADICIONAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CONTRATO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="COSTO_ADICIONAL">
+              <PropertyRef Name="ID_CONTRATO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DJANGO_AD_CONTENT_T_C4BCE8EB_F">
+          <End Role="DJANGO_CONTENT_TYPE" Type="Self.DJANGO_CONTENT_TYPE" Multiplicity="0..1" />
+          <End Role="DJANGO_ADMIN_LOG" Type="Self.DJANGO_ADMIN_LOG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DJANGO_CONTENT_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DJANGO_ADMIN_LOG">
+              <PropertyRef Name="CONTENT_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DJANGO_AD_USER_ID_C564EBA6_F">
+          <End Role="AUTH_USER" Type="Self.AUTH_USER" Multiplicity="1" />
+          <End Role="DJANGO_ADMIN_LOG" Type="Self.DJANGO_ADMIN_LOG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DJANGO_ADMIN_LOG">
+              <PropertyRef Name="USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FISCALIZA_RUT_CLIEN_5363619B_F">
+          <End Role="AUTH_USER" Type="Self.AUTH_USER" Multiplicity="1" />
+          <End Role="FISCALIZACION" Type="Self.FISCALIZACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FISCALIZACION">
+              <PropertyRef Name="RUT_CLIENTE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INFORME_V_ID_VISITA_D117EA99_F">
+          <End Role="VISITA_TERRENO" Type="Self.VISITA_TERRENO" Multiplicity="1" />
+          <End Role="INFORME_VISITA" Type="Self.INFORME_VISITA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VISITA_TERRENO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INFORME_VISITA">
+              <PropertyRef Name="ID_VISITA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MATERIAL__ID_MATERI_514CCEC5_F">
+          <End Role="MATERIAL_CAPACITACIONES" Type="Self.MATERIAL_CAPACITACIONES" Multiplicity="1" />
+          <End Role="MATERIAL_SOLICITADO" Type="Self.MATERIAL_SOLICITADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MATERIAL_CAPACITACIONES">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MATERIAL_SOLICITADO">
+              <PropertyRef Name="ID_MATERIAL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MATERIAL__MATERIAL__BF7DEACC_F">
+          <End Role="CAPACITACION" Type="Self.CAPACITACION" Multiplicity="1" />
+          <End Role="MATERIAL_SOLICITADO" Type="Self.MATERIAL_SOLICITADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAPACITACION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MATERIAL_SOLICITADO">
+              <PropertyRef Name="MATERIAL_CAPACITACION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MULTA_MULTA_CLI_D19BE6F3_F">
+          <End Role="AUTH_USER" Type="Self.AUTH_USER" Multiplicity="1" />
+          <End Role="MULTA" Type="Self.MULTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MULTA">
+              <PropertyRef Name="MULTA_CLIENTE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="REGISTRO__ID_CONTRA_711DAA8A_F">
+          <End Role="CONTRATO" Type="Self.CONTRATO" Multiplicity="1" />
+          <End Role="REGISTRO_PAGOS" Type="Self.REGISTRO_PAGOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CONTRATO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="REGISTRO_PAGOS">
+              <PropertyRef Name="ID_CONTRATO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VISITA_TE_RUT_CLIEN_E5A1CA96_F">
+          <End Role="AUTH_USER" Type="Self.AUTH_USER" Multiplicity="1" />
+          <End Role="VISITA_TERRENO" Type="Self.VISITA_TERRENO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VISITA_TERRENO">
+              <PropertyRef Name="RUT_CLIENTE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VISITA_TE_RUT_TRABA_4B242B5F_F">
+          <End Role="AUTH_USER" Type="Self.AUTH_USER" Multiplicity="1" />
+          <End Role="VISITA_TERRENO" Type="Self.VISITA_TERRENO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VISITA_TERRENO">
+              <PropertyRef Name="RUT_TRABAJADOR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="PRC_INSERTAR_ASESORIA_ACCIDENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DJANGO21">
+          <Parameter Name="V_PROPUESTA" Type="varchar2" Mode="In" />
+          <Parameter Name="V_ID_ACCIDENTE" Type="number" Mode="In" />
+          <Parameter Name="V_SALIDA" Type="number" Mode="Out" />
+        </Function>
+        <Function Name="PRC_INSERTAR_ASESORIA_FISCALIZACION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DJANGO21">
+          <Parameter Name="V_PROPUESTA" Type="varchar2" Mode="In" />
+          <Parameter Name="V_ID_FISCALIZACION_ID" Type="number" Mode="In" />
+          <Parameter Name="V_SALIDA" Type="number" Mode="Out" />
+        </Function>
+        <Function Name="PRC_INSERTAR_CAPACITACION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DJANGO21">
+          <Parameter Name="V_HORA_CAPACITACION" Type="varchar2" Mode="In" />
+          <Parameter Name="V_RUT_CLIENTE" Type="number" Mode="In" />
+          <Parameter Name="V_RUT_TRABAJADOR" Type="number" Mode="In" />
+          <Parameter Name="V_SALIDA" Type="number" Mode="Out" />
+        </Function>
+        <Function Name="PRC_INSERTAR_CLIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DJANGO21">
+          <Parameter Name="V_USUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_PASS" Type="varchar2" Mode="In" />
+          <Parameter Name="V_NOMBRE" Type="varchar2" Mode="In" />
+          <Parameter Name="V_APELLIDO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_CORREO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_SALIDA" Type="number" Mode="Out" />
+        </Function>
+        <Function Name="PRC_INSERTAR_DATOS_CLIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DJANGO21">
+          <Parameter Name="V_RUT" Type="number" Mode="In" />
+          <Parameter Name="V_SUELDO" Type="number" Mode="In" />
+          <Parameter Name="V_EDAD" Type="number" Mode="In" />
+          <Parameter Name="V_USERID" Type="number" Mode="In" />
+          <Parameter Name="V_SALIDA" Type="number" Mode="Out" />
+        </Function>
+        <Function Name="PRC_INSERTAR_DATOS_TRABAJADOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DJANGO21">
+          <Parameter Name="V_RUT" Type="number" Mode="In" />
+          <Parameter Name="V_SUELDO" Type="number" Mode="In" />
+          <Parameter Name="V_EDAD" Type="number" Mode="In" />
+          <Parameter Name="V_USERID" Type="number" Mode="In" />
+          <Parameter Name="V_SALIDA" Type="number" Mode="Out" />
+        </Function>
+        <Function Name="PRC_INSERTAR_FISCALIZACION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DJANGO21">
+          <Parameter Name="V_DOC_REVISADOS" Type="varchar2" Mode="In" />
+          <Parameter Name="V_DESCRIPCION_DOCUMENTO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_DOCUMENTO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_RUT_CLIENTE_ID" Type="varchar2" Mode="In" />
+          <Parameter Name="V_SALIDA" Type="number" Mode="Out" />
+        </Function>
+        <Function Name="PRC_INSERTAR_INFORME_VISITA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DJANGO21">
+          <Parameter Name="V_INTRODUCCION" Type="varchar2" Mode="In" />
+          <Parameter Name="V_RESULTADOS_EVALUACION" Type="varchar2" Mode="In" />
+          <Parameter Name="V_AUTOEVALUACION" Type="varchar2" Mode="In" />
+          <Parameter Name="V_DOC_ACTUALIZADOS" Type="varchar2" Mode="In" />
+          <Parameter Name="V_REG_INTERNO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_DOC_SEREMI_TRABAJO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_COPIA_DOCUMENTOS" Type="varchar2" Mode="In" />
+          <Parameter Name="V_INFORMA_RIESGOS" Type="varchar2" Mode="In" />
+          <Parameter Name="V_INFORMA_MEDIDAS" Type="varchar2" Mode="In" />
+          <Parameter Name="V_PROGRAMA_ORDEN" Type="varchar2" Mode="In" />
+          <Parameter Name="V_EXTINTORES" Type="varchar2" Mode="In" />
+          <Parameter Name="V_CAPACITACION_EXTINTOR" Type="varchar2" Mode="In" />
+          <Parameter Name="V_EPP_INVENTARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_EPP_CERTIFICADOS" Type="varchar2" Mode="In" />
+          <Parameter Name="V_ID_VISITA_ID" Type="number" Mode="In" />
+          <Parameter Name="V_SALIDA" Type="number" Mode="Out" />
+        </Function>
+        <Function Name="PRC_INSERTAR_MATERIALES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DJANGO21">
+          <Parameter Name="V_MATERIAL" Type="varchar2" Mode="In" />
+          <Parameter Name="V_SALIDA" Type="number" Mode="Out" />
+        </Function>
+        <Function Name="PRC_INSERTAR_MATERIALES_SOLICITADOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DJANGO21">
+          <Parameter Name="V_ID_MATERIAL" Type="number" Mode="In" />
+          <Parameter Name="V_CANTIDAD" Type="number" Mode="In" />
+          <Parameter Name="V_CAPACITACION_ID" Type="number" Mode="In" />
+          <Parameter Name="V_SALIDA" Type="number" Mode="Out" />
+        </Function>
+        <Function Name="PRC_INSERTAR_TRABAJADORES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DJANGO21">
+          <Parameter Name="V_USUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_PASS" Type="varchar2" Mode="In" />
+          <Parameter Name="V_NOMBRE" Type="varchar2" Mode="In" />
+          <Parameter Name="V_APELLIDO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_CORREO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_SALIDA" Type="number" Mode="Out" />
+        </Function>
+        <Function Name="PRC_INSERTAR_VISITA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DJANGO21">
+          <Parameter Name="V_MOTIVO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_VISITA_FECHA" Type="date" Mode="In" />
+          <Parameter Name="V_RUT_CLIENTE" Type="number" Mode="In" />
+          <Parameter Name="V_RUT_TRABAJADOR" Type="number" Mode="In" />
+          <Parameter Name="V_SALIDA" Type="number" Mode="Out" />
+        </Function>
+        <Function Name="PRC_LISTAR_ACCIDENTES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DJANGO21" />
+        <Function Name="PRC_LISTAR_ACCIDENTES_POR_ID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DJANGO21">
+          <Parameter Name="V_RUT_CLIENTE_ID" Type="number" Mode="In" />
+        </Function>
+        <Function Name="PRC_LISTAR_ASESORIAS_POR_ID_ACCIDENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DJANGO21">
+          <Parameter Name="V_ID_ACCIDENTE" Type="number" Mode="In" />
+        </Function>
+        <Function Name="PRC_LISTAR_CAPACITACIONES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DJANGO21">
+          <Parameter Name="V_RUT_TRABAJADOR" Type="number" Mode="In" />
+        </Function>
+        <Function Name="PRC_LISTAR_CLIENTES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DJANGO21" />
+        <Function Name="PRC_LISTAR_CLIENTES_EXTENDIDOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DJANGO21" />
+        <Function Name="PRC_LISTAR_FISCALIZACIONES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DJANGO21" />
+        <Function Name="PRC_LISTAR_MATERIAL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DJANGO21" />
+        <Function Name="PRC_LISTAR_MATERIALES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DJANGO21" />
+        <Function Name="PRC_LISTAR_TRABAJADORES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DJANGO21" />
+        <Function Name="PRC_LISTAR_TRABAJADORES_EXTENDIDOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DJANGO21" />
+        <Function Name="PRC_LISTAR_VISITAS_SIN_EXTENDER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DJANGO21" />
+        <Function Name="PRC_MOSTRAR_DIA_CAPACITACION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DJANGO21" />
+        <Function Name="PRC_REPORTAR_ACCIDENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DJANGO21">
+          <Parameter Name="V_NATURALEZA" Type="varchar2" Mode="In" />
+          <Parameter Name="V_PARTES_ACCIDENTADAS" Type="varchar2" Mode="In" />
+          <Parameter Name="V_FUENTE_ACCIDENTE_ID" Type="varchar2" Mode="In" />
+          <Parameter Name="V_FECHA_ACCIDENTE" Type="date" Mode="In" />
+          <Parameter Name="V_RUT_CLIENTE_ID" Type="number" Mode="In" />
+          <Parameter Name="V_SALIDA" Type="number" Mode="Out" />
+        </Function>
+        <EntityContainer Name="SafeDjangoModelStoreContainer">
+          <EntitySet Name="ACCIDENTE" EntityType="Self.ACCIDENTE" Schema="DJANGO21" store:Type="Tables" />
+          <EntitySet Name="ACCOUNT_USERPROFILE" EntityType="Self.ACCOUNT_USERPROFILE" Schema="DJANGO21" store:Type="Tables" />
+          <EntitySet Name="ASESORIA" EntityType="Self.ASESORIA" Schema="DJANGO21" store:Type="Tables" />
+          <EntitySet Name="AUTH_GROUP" EntityType="Self.AUTH_GROUP" Schema="DJANGO21" store:Type="Tables" />
+          <EntitySet Name="AUTH_GROUP_PERMISSIONS" EntityType="Self.AUTH_GROUP_PERMISSIONS" Schema="DJANGO21" store:Type="Tables" />
+          <EntitySet Name="AUTH_PERMISSION" EntityType="Self.AUTH_PERMISSION" Schema="DJANGO21" store:Type="Tables" />
+          <EntitySet Name="AUTH_USER" EntityType="Self.AUTH_USER" Schema="DJANGO21" store:Type="Tables" />
+          <EntitySet Name="AUTH_USER_GROUPS" EntityType="Self.AUTH_USER_GROUPS" Schema="DJANGO21" store:Type="Tables" />
+          <EntitySet Name="AUTH_USER_USER_PERMISSIONS" EntityType="Self.AUTH_USER_USER_PERMISSIONS" Schema="DJANGO21" store:Type="Tables" />
+          <EntitySet Name="CAPACITACION" EntityType="Self.CAPACITACION" Schema="DJANGO21" store:Type="Tables" />
+          <EntitySet Name="CONTRATO" EntityType="Self.CONTRATO" Schema="DJANGO21" store:Type="Tables" />
+          <EntitySet Name="COSTO_ADICIONAL" EntityType="Self.COSTO_ADICIONAL" Schema="DJANGO21" store:Type="Tables" />
+          <EntitySet Name="DJANGO_ADMIN_LOG" EntityType="Self.DJANGO_ADMIN_LOG" Schema="DJANGO21" store:Type="Tables" />
+          <EntitySet Name="DJANGO_CONTENT_TYPE" EntityType="Self.DJANGO_CONTENT_TYPE" Schema="DJANGO21" store:Type="Tables" />
+          <EntitySet Name="DJANGO_MIGRATIONS" EntityType="Self.DJANGO_MIGRATIONS" Schema="DJANGO21" store:Type="Tables" />
+          <EntitySet Name="DJANGO_SESSION" EntityType="Self.DJANGO_SESSION" Schema="DJANGO21" store:Type="Tables" />
+          <EntitySet Name="FISCALIZACION" EntityType="Self.FISCALIZACION" Schema="DJANGO21" store:Type="Tables" />
+          <EntitySet Name="INFORME_VISITA" EntityType="Self.INFORME_VISITA" Schema="DJANGO21" store:Type="Tables" />
+          <EntitySet Name="MATERIAL_CAPACITACIONES" EntityType="Self.MATERIAL_CAPACITACIONES" Schema="DJANGO21" store:Type="Tables" />
+          <EntitySet Name="MATERIAL_SOLICITADO" EntityType="Self.MATERIAL_SOLICITADO" Schema="DJANGO21" store:Type="Tables" />
+          <EntitySet Name="MULTA" EntityType="Self.MULTA" Schema="DJANGO21" store:Type="Tables" />
+          <EntitySet Name="REGISTRO_PAGOS" EntityType="Self.REGISTRO_PAGOS" Schema="DJANGO21" store:Type="Tables" />
+          <EntitySet Name="VISITA_TERRENO" EntityType="Self.VISITA_TERRENO" Schema="DJANGO21" store:Type="Tables" />
+          <AssociationSet Name="ACCIDENTE_RUT_CLIEN_7C93C411_F" Association="Self.ACCIDENTE_RUT_CLIEN_7C93C411_F">
+            <End Role="AUTH_USER" EntitySet="AUTH_USER" />
+            <End Role="ACCIDENTE" EntitySet="ACCIDENTE" />
+          </AssociationSet>
+          <AssociationSet Name="ACCOUNT_U_USER_ID_5AFA3C7A_F" Association="Self.ACCOUNT_U_USER_ID_5AFA3C7A_F">
+            <End Role="AUTH_USER" EntitySet="AUTH_USER" />
+            <End Role="ACCOUNT_USERPROFILE" EntitySet="ACCOUNT_USERPROFILE" />
+          </AssociationSet>
+          <AssociationSet Name="ASESORIA_ID_ACCIDE_4DBFDD37_F" Association="Self.ASESORIA_ID_ACCIDE_4DBFDD37_F">
+            <End Role="ACCIDENTE" EntitySet="ACCIDENTE" />
+            <End Role="ASESORIA" EntitySet="ASESORIA" />
+          </AssociationSet>
+          <AssociationSet Name="ASESORIA_ID_FISCAL_C75043FF_F" Association="Self.ASESORIA_ID_FISCAL_C75043FF_F">
+            <End Role="FISCALIZACION" EntitySet="FISCALIZACION" />
+            <End Role="ASESORIA" EntitySet="ASESORIA" />
+          </AssociationSet>
+          <AssociationSet Name="AUTH_GROU_GROUP_ID_B120CBF9_F" Association="Self.AUTH_GROU_GROUP_ID_B120CBF9_F">
+            <End Role="AUTH_GROUP" EntitySet="AUTH_GROUP" />
+            <End Role="AUTH_GROUP_PERMISSIONS" EntitySet="AUTH_GROUP_PERMISSIONS" />
+          </AssociationSet>
+          <AssociationSet Name="AUTH_GROU_PERMISSIO_84C5C92E_F" Association="Self.AUTH_GROU_PERMISSIO_84C5C92E_F">
+            <End Role="AUTH_PERMISSION" EntitySet="AUTH_PERMISSION" />
+            <End Role="AUTH_GROUP_PERMISSIONS" EntitySet="AUTH_GROUP_PERMISSIONS" />
+          </AssociationSet>
+          <AssociationSet Name="AUTH_PERM_CONTENT_T_2F476E4B_F" Association="Self.AUTH_PERM_CONTENT_T_2F476E4B_F">
+            <End Role="DJANGO_CONTENT_TYPE" EntitySet="DJANGO_CONTENT_TYPE" />
+            <End Role="AUTH_PERMISSION" EntitySet="AUTH_PERMISSION" />
+          </AssociationSet>
+          <AssociationSet Name="AUTH_USER_GROUP_ID_97559544_F" Association="Self.AUTH_USER_GROUP_ID_97559544_F">
+            <End Role="AUTH_GROUP" EntitySet="AUTH_GROUP" />
+            <End Role="AUTH_USER_GROUPS" EntitySet="AUTH_USER_GROUPS" />
+          </AssociationSet>
+          <AssociationSet Name="AUTH_USER_PERMISSIO_1FBB5F2C_F" Association="Self.AUTH_USER_PERMISSIO_1FBB5F2C_F">
+            <End Role="AUTH_PERMISSION" EntitySet="AUTH_PERMISSION" />
+            <End Role="AUTH_USER_USER_PERMISSIONS" EntitySet="AUTH_USER_USER_PERMISSIONS" />
+          </AssociationSet>
+          <AssociationSet Name="AUTH_USER_USER_ID_6A12ED8B_F" Association="Self.AUTH_USER_USER_ID_6A12ED8B_F">
+            <End Role="AUTH_USER" EntitySet="AUTH_USER" />
+            <End Role="AUTH_USER_GROUPS" EntitySet="AUTH_USER_GROUPS" />
+          </AssociationSet>
+          <AssociationSet Name="AUTH_USER_USER_ID_A95EAD1B_F" Association="Self.AUTH_USER_USER_ID_A95EAD1B_F">
+            <End Role="AUTH_USER" EntitySet="AUTH_USER" />
+            <End Role="AUTH_USER_USER_PERMISSIONS" EntitySet="AUTH_USER_USER_PERMISSIONS" />
+          </AssociationSet>
+          <AssociationSet Name="CAPACITAC_RUT_CLIEN_077B4635_F" Association="Self.CAPACITAC_RUT_CLIEN_077B4635_F">
+            <End Role="AUTH_USER" EntitySet="AUTH_USER" />
+            <End Role="CAPACITACION" EntitySet="CAPACITACION" />
+          </AssociationSet>
+          <AssociationSet Name="CAPACITAC_RUT_TRABA_8ADD113D_F" Association="Self.CAPACITAC_RUT_TRABA_8ADD113D_F">
+            <End Role="AUTH_USER" EntitySet="AUTH_USER" />
+            <End Role="CAPACITACION" EntitySet="CAPACITACION" />
+          </AssociationSet>
+          <AssociationSet Name="CONTRATO_RUT_CLIEN_A68DF4C9_F" Association="Self.CONTRATO_RUT_CLIEN_A68DF4C9_F">
+            <End Role="AUTH_USER" EntitySet="AUTH_USER" />
+            <End Role="CONTRATO" EntitySet="CONTRATO" />
+          </AssociationSet>
+          <AssociationSet Name="COSTO_ADI_ID_CONTRA_6B73F08B_F" Association="Self.COSTO_ADI_ID_CONTRA_6B73F08B_F">
+            <End Role="CONTRATO" EntitySet="CONTRATO" />
+            <End Role="COSTO_ADICIONAL" EntitySet="COSTO_ADICIONAL" />
+          </AssociationSet>
+          <AssociationSet Name="DJANGO_AD_CONTENT_T_C4BCE8EB_F" Association="Self.DJANGO_AD_CONTENT_T_C4BCE8EB_F">
+            <End Role="DJANGO_CONTENT_TYPE" EntitySet="DJANGO_CONTENT_TYPE" />
+            <End Role="DJANGO_ADMIN_LOG" EntitySet="DJANGO_ADMIN_LOG" />
+          </AssociationSet>
+          <AssociationSet Name="DJANGO_AD_USER_ID_C564EBA6_F" Association="Self.DJANGO_AD_USER_ID_C564EBA6_F">
+            <End Role="AUTH_USER" EntitySet="AUTH_USER" />
+            <End Role="DJANGO_ADMIN_LOG" EntitySet="DJANGO_ADMIN_LOG" />
+          </AssociationSet>
+          <AssociationSet Name="FISCALIZA_RUT_CLIEN_5363619B_F" Association="Self.FISCALIZA_RUT_CLIEN_5363619B_F">
+            <End Role="AUTH_USER" EntitySet="AUTH_USER" />
+            <End Role="FISCALIZACION" EntitySet="FISCALIZACION" />
+          </AssociationSet>
+          <AssociationSet Name="INFORME_V_ID_VISITA_D117EA99_F" Association="Self.INFORME_V_ID_VISITA_D117EA99_F">
+            <End Role="VISITA_TERRENO" EntitySet="VISITA_TERRENO" />
+            <End Role="INFORME_VISITA" EntitySet="INFORME_VISITA" />
+          </AssociationSet>
+          <AssociationSet Name="MATERIAL__ID_MATERI_514CCEC5_F" Association="Self.MATERIAL__ID_MATERI_514CCEC5_F">
+            <End Role="MATERIAL_CAPACITACIONES" EntitySet="MATERIAL_CAPACITACIONES" />
+            <End Role="MATERIAL_SOLICITADO" EntitySet="MATERIAL_SOLICITADO" />
+          </AssociationSet>
+          <AssociationSet Name="MATERIAL__MATERIAL__BF7DEACC_F" Association="Self.MATERIAL__MATERIAL__BF7DEACC_F">
+            <End Role="CAPACITACION" EntitySet="CAPACITACION" />
+            <End Role="MATERIAL_SOLICITADO" EntitySet="MATERIAL_SOLICITADO" />
+          </AssociationSet>
+          <AssociationSet Name="MULTA_MULTA_CLI_D19BE6F3_F" Association="Self.MULTA_MULTA_CLI_D19BE6F3_F">
+            <End Role="AUTH_USER" EntitySet="AUTH_USER" />
+            <End Role="MULTA" EntitySet="MULTA" />
+          </AssociationSet>
+          <AssociationSet Name="REGISTRO__ID_CONTRA_711DAA8A_F" Association="Self.REGISTRO__ID_CONTRA_711DAA8A_F">
+            <End Role="CONTRATO" EntitySet="CONTRATO" />
+            <End Role="REGISTRO_PAGOS" EntitySet="REGISTRO_PAGOS" />
+          </AssociationSet>
+          <AssociationSet Name="VISITA_TE_RUT_CLIEN_E5A1CA96_F" Association="Self.VISITA_TE_RUT_CLIEN_E5A1CA96_F">
+            <End Role="AUTH_USER" EntitySet="AUTH_USER" />
+            <End Role="VISITA_TERRENO" EntitySet="VISITA_TERRENO" />
+          </AssociationSet>
+          <AssociationSet Name="VISITA_TE_RUT_TRABA_4B242B5F_F" Association="Self.VISITA_TE_RUT_TRABA_4B242B5F_F">
+            <End Role="AUTH_USER" EntitySet="AUTH_USER" />
+            <End Role="VISITA_TERRENO" EntitySet="VISITA_TERRENO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SafeDjangoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ACCIDENTE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NATURALEZA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PARTES_ACCIDENTADAS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FUENTE_ACCIDENTE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FECHA_ACCIDENTE" Type="DateTime" Nullable="false" />
+          <Property Name="RUT_CLIENTE_ID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="AUTH_USER" Relationship="Self.ACCIDENTE_RUT_CLIEN_7C93C411_F" FromRole="ACCIDENTE" ToRole="AUTH_USER" />
+          <NavigationProperty Name="ASESORIA" Relationship="Self.ASESORIA_ID_ACCIDE_4DBFDD37_F" FromRole="ACCIDENTE" ToRole="ASESORIA" />
+        </EntityType>
+        <EntityType Name="ACCOUNT_USERPROFILE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RUT" Type="Int64" Nullable="false" />
+          <Property Name="SUELDO" Type="Int64" Nullable="false" />
+          <Property Name="EDAD" Type="Int64" Nullable="false" />
+          <Property Name="USER_ID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="AUTH_USER" Relationship="Self.ACCOUNT_U_USER_ID_5AFA3C7A_F" FromRole="ACCOUNT_USERPROFILE" ToRole="AUTH_USER" />
+        </EntityType>
+        <EntityType Name="ASESORIA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EVENTO" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="PROPUESTA" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ASESORIA_ESPECIAL" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="ID_ACCIDENTE_ID" Type="Int64" />
+          <Property Name="ID_FISCALIZACION_ID" Type="Int64" />
+          <NavigationProperty Name="ACCIDENTE" Relationship="Self.ASESORIA_ID_ACCIDE_4DBFDD37_F" FromRole="ASESORIA" ToRole="ACCIDENTE" />
+          <NavigationProperty Name="FISCALIZACION" Relationship="Self.ASESORIA_ID_FISCAL_C75043FF_F" FromRole="ASESORIA" ToRole="FISCALIZACION" />
+        </EntityType>
+        <EntityType Name="AUTH_GROUP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AUTH_GROUP_PERMISSIONS" Relationship="Self.AUTH_GROU_GROUP_ID_B120CBF9_F" FromRole="AUTH_GROUP" ToRole="AUTH_GROUP_PERMISSIONS" />
+          <NavigationProperty Name="AUTH_USER_GROUPS" Relationship="Self.AUTH_USER_GROUP_ID_97559544_F" FromRole="AUTH_GROUP" ToRole="AUTH_USER_GROUPS" />
+        </EntityType>
+        <EntityType Name="AUTH_GROUP_PERMISSIONS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GROUP_ID" Type="Int64" Nullable="false" />
+          <Property Name="PERMISSION_ID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="AUTH_GROUP" Relationship="Self.AUTH_GROU_GROUP_ID_B120CBF9_F" FromRole="AUTH_GROUP_PERMISSIONS" ToRole="AUTH_GROUP" />
+          <NavigationProperty Name="AUTH_PERMISSION" Relationship="Self.AUTH_GROU_PERMISSIO_84C5C92E_F" FromRole="AUTH_GROUP_PERMISSIONS" ToRole="AUTH_PERMISSION" />
+        </EntityType>
+        <EntityType Name="AUTH_PERMISSION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CONTENT_TYPE_ID" Type="Int64" Nullable="false" />
+          <Property Name="CODENAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AUTH_GROUP_PERMISSIONS" Relationship="Self.AUTH_GROU_PERMISSIO_84C5C92E_F" FromRole="AUTH_PERMISSION" ToRole="AUTH_GROUP_PERMISSIONS" />
+          <NavigationProperty Name="DJANGO_CONTENT_TYPE" Relationship="Self.AUTH_PERM_CONTENT_T_2F476E4B_F" FromRole="AUTH_PERMISSION" ToRole="DJANGO_CONTENT_TYPE" />
+          <NavigationProperty Name="AUTH_USER_USER_PERMISSIONS" Relationship="Self.AUTH_USER_PERMISSIO_1FBB5F2C_F" FromRole="AUTH_PERMISSION" ToRole="AUTH_USER_USER_PERMISSIONS" />
+        </EntityType>
+        <EntityType Name="AUTH_USER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PASSWORD" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="LAST_LOGIN" Type="DateTime" Precision="6" />
+          <Property Name="IS_SUPERUSER" Type="Boolean" Nullable="false" />
+          <Property Name="USERNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="FIRST_NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="LAST_NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+          <Property Name="IS_STAFF" Type="Boolean" Nullable="false" />
+          <Property Name="IS_ACTIVE" Type="Boolean" Nullable="false" />
+          <Property Name="DATE_JOINED" Type="DateTime" Precision="6" Nullable="false" />
+          <NavigationProperty Name="ACCIDENTE" Relationship="Self.ACCIDENTE_RUT_CLIEN_7C93C411_F" FromRole="AUTH_USER" ToRole="ACCIDENTE" />
+          <NavigationProperty Name="ACCOUNT_USERPROFILE" Relationship="Self.ACCOUNT_U_USER_ID_5AFA3C7A_F" FromRole="AUTH_USER" ToRole="ACCOUNT_USERPROFILE" />
+          <NavigationProperty Name="AUTH_USER_GROUPS" Relationship="Self.AUTH_USER_USER_ID_6A12ED8B_F" FromRole="AUTH_USER" ToRole="AUTH_USER_GROUPS" />
+          <NavigationProperty Name="AUTH_USER_USER_PERMISSIONS" Relationship="Self.AUTH_USER_USER_ID_A95EAD1B_F" FromRole="AUTH_USER" ToRole="AUTH_USER_USER_PERMISSIONS" />
+          <NavigationProperty Name="CAPACITACION" Relationship="Self.CAPACITAC_RUT_CLIEN_077B4635_F" FromRole="AUTH_USER" ToRole="CAPACITACION" />
+          <NavigationProperty Name="CAPACITACION1" Relationship="Self.CAPACITAC_RUT_TRABA_8ADD113D_F" FromRole="AUTH_USER" ToRole="CAPACITACION" />
+          <NavigationProperty Name="CONTRATO" Relationship="Self.CONTRATO_RUT_CLIEN_A68DF4C9_F" FromRole="AUTH_USER" ToRole="CONTRATO" />
+          <NavigationProperty Name="DJANGO_ADMIN_LOG" Relationship="Self.DJANGO_AD_USER_ID_C564EBA6_F" FromRole="AUTH_USER" ToRole="DJANGO_ADMIN_LOG" />
+          <NavigationProperty Name="FISCALIZACION" Relationship="Self.FISCALIZA_RUT_CLIEN_5363619B_F" FromRole="AUTH_USER" ToRole="FISCALIZACION" />
+          <NavigationProperty Name="MULTA" Relationship="Self.MULTA_MULTA_CLI_D19BE6F3_F" FromRole="AUTH_USER" ToRole="MULTA" />
+          <NavigationProperty Name="VISITA_TERRENO" Relationship="Self.VISITA_TE_RUT_CLIEN_E5A1CA96_F" FromRole="AUTH_USER" ToRole="VISITA_TERRENO" />
+          <NavigationProperty Name="VISITA_TERRENO1" Relationship="Self.VISITA_TE_RUT_TRABA_4B242B5F_F" FromRole="AUTH_USER" ToRole="VISITA_TERRENO" />
+        </EntityType>
+        <EntityType Name="AUTH_USER_GROUPS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USER_ID" Type="Int64" Nullable="false" />
+          <Property Name="GROUP_ID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="AUTH_GROUP" Relationship="Self.AUTH_USER_GROUP_ID_97559544_F" FromRole="AUTH_USER_GROUPS" ToRole="AUTH_GROUP" />
+          <NavigationProperty Name="AUTH_USER" Relationship="Self.AUTH_USER_USER_ID_6A12ED8B_F" FromRole="AUTH_USER_GROUPS" ToRole="AUTH_USER" />
+        </EntityType>
+        <EntityType Name="AUTH_USER_USER_PERMISSIONS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USER_ID" Type="Int64" Nullable="false" />
+          <Property Name="PERMISSION_ID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="AUTH_PERMISSION" Relationship="Self.AUTH_USER_PERMISSIO_1FBB5F2C_F" FromRole="AUTH_USER_USER_PERMISSIONS" ToRole="AUTH_PERMISSION" />
+          <NavigationProperty Name="AUTH_USER" Relationship="Self.AUTH_USER_USER_ID_A95EAD1B_F" FromRole="AUTH_USER_USER_PERMISSIONS" ToRole="AUTH_USER" />
+        </EntityType>
+        <EntityType Name="CAPACITACION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FECHA_SOLICITUD" Type="DateTime" Nullable="false" />
+          <Property Name="FECHA_CAPACITACION" Type="DateTime" Nullable="false" />
+          <Property Name="HORA_CAPACITACION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RUT_CLIENTE_ID" Type="Int64" Nullable="false" />
+          <Property Name="RUT_TRABAJADOR_ID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="AUTH_USER" Relationship="Self.CAPACITAC_RUT_CLIEN_077B4635_F" FromRole="CAPACITACION" ToRole="AUTH_USER" />
+          <NavigationProperty Name="AUTH_USER1" Relationship="Self.CAPACITAC_RUT_TRABA_8ADD113D_F" FromRole="CAPACITACION" ToRole="AUTH_USER" />
+          <NavigationProperty Name="MATERIAL_SOLICITADO" Relationship="Self.MATERIAL__MATERIAL__BF7DEACC_F" FromRole="CAPACITACION" ToRole="MATERIAL_SOLICITADO" />
+        </EntityType>
+        <EntityType Name="CONTRATO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="COSTO" Type="Int64" Nullable="false" />
+          <Property Name="FECHA_CONTRATACION" Type="DateTime" Nullable="false" />
+          <Property Name="RUT_CLIENTE_ID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="AUTH_USER" Relationship="Self.CONTRATO_RUT_CLIEN_A68DF4C9_F" FromRole="CONTRATO" ToRole="AUTH_USER" />
+          <NavigationProperty Name="COSTO_ADICIONAL" Relationship="Self.COSTO_ADI_ID_CONTRA_6B73F08B_F" FromRole="CONTRATO" ToRole="COSTO_ADICIONAL" />
+          <NavigationProperty Name="REGISTRO_PAGOS" Relationship="Self.REGISTRO__ID_CONTRA_711DAA8A_F" FromRole="CONTRATO" ToRole="REGISTRO_PAGOS" />
+        </EntityType>
+        <EntityType Name="COSTO_ADICIONAL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MONTO_ADICIONAL" Type="Int64" Nullable="false" />
+          <Property Name="FECHA_COSTOADICIONAL" Type="DateTime" Nullable="false" />
+          <Property Name="ID_CONTRATO_ID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="CONTRATO" Relationship="Self.COSTO_ADI_ID_CONTRA_6B73F08B_F" FromRole="COSTO_ADICIONAL" ToRole="CONTRATO" />
+        </EntityType>
+        <EntityType Name="DJANGO_ADMIN_LOG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ACTION_TIME" Type="DateTime" Precision="6" Nullable="false" />
+          <Property Name="OBJECT_ID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OBJECT_REPR" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ACTION_FLAG" Type="Int64" Nullable="false" />
+          <Property Name="CHANGE_MESSAGE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CONTENT_TYPE_ID" Type="Int64" />
+          <Property Name="USER_ID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="AUTH_USER" Relationship="Self.DJANGO_AD_USER_ID_C564EBA6_F" FromRole="DJANGO_ADMIN_LOG" ToRole="AUTH_USER" />
+          <NavigationProperty Name="DJANGO_CONTENT_TYPE" Relationship="Self.DJANGO_AD_CONTENT_T_C4BCE8EB_F" FromRole="DJANGO_ADMIN_LOG" ToRole="DJANGO_CONTENT_TYPE" />
+        </EntityType>
+        <EntityType Name="DJANGO_CONTENT_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="APP_LABEL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MODEL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AUTH_PERMISSION" Relationship="Self.AUTH_PERM_CONTENT_T_2F476E4B_F" FromRole="DJANGO_CONTENT_TYPE" ToRole="AUTH_PERMISSION" />
+          <NavigationProperty Name="DJANGO_ADMIN_LOG" Relationship="Self.DJANGO_AD_CONTENT_T_C4BCE8EB_F" FromRole="DJANGO_CONTENT_TYPE" ToRole="DJANGO_ADMIN_LOG" />
+        </EntityType>
+        <EntityType Name="DJANGO_MIGRATIONS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="APP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="APPLIED" Type="DateTime" Precision="6" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DJANGO_SESSION">
+          <Key>
+            <PropertyRef Name="SESSION_KEY" />
+          </Key>
+          <Property Name="SESSION_KEY" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SESSION_DATA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EXPIRE_DATE" Type="DateTime" Precision="6" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FISCALIZACION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DOC_REVISADOS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIPCION_DOCUMENTO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DOCUMENTO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RUT_CLIENTE_ID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="ASESORIA" Relationship="Self.ASESORIA_ID_FISCAL_C75043FF_F" FromRole="FISCALIZACION" ToRole="ASESORIA" />
+          <NavigationProperty Name="AUTH_USER" Relationship="Self.FISCALIZA_RUT_CLIEN_5363619B_F" FromRole="FISCALIZACION" ToRole="AUTH_USER" />
+        </EntityType>
+        <EntityType Name="INFORME_VISITA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="INTRODUCCION" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="RESULTADOS_EVALUACION" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="AUTOEVALUACION" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="DOC_ACTUALIZADOS" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="REG_INTERNO" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="DOC_SEREMI_TRABAJO" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="COPIA_DOCUMENTOS" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="INFORMA_RIESGOS" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="INFORMA_MEDIDAS" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="PROGRAMA_ORDEN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="EXTINTORES" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="CAPACITACION_EXTINTOR" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="EPP_INVENTARIO" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="EPP_CERTIFICADOS" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="ID_VISITA_ID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="VISITA_TERRENO" Relationship="Self.INFORME_V_ID_VISITA_D117EA99_F" FromRole="INFORME_VISITA" ToRole="VISITA_TERRENO" />
+        </EntityType>
+        <EntityType Name="MATERIAL_CAPACITACIONES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MATERIAL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MATERIAL_SOLICITADO" Relationship="Self.MATERIAL__ID_MATERI_514CCEC5_F" FromRole="MATERIAL_CAPACITACIONES" ToRole="MATERIAL_SOLICITADO" />
+        </EntityType>
+        <EntityType Name="MATERIAL_SOLICITADO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CANTIDAD" Type="Int64" Nullable="false" />
+          <Property Name="ID_MATERIAL_ID" Type="Int64" Nullable="false" />
+          <Property Name="MATERIAL_CAPACITACION_ID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="CAPACITACION" Relationship="Self.MATERIAL__MATERIAL__BF7DEACC_F" FromRole="MATERIAL_SOLICITADO" ToRole="CAPACITACION" />
+          <NavigationProperty Name="MATERIAL_CAPACITACIONES" Relationship="Self.MATERIAL__ID_MATERI_514CCEC5_F" FromRole="MATERIAL_SOLICITADO" ToRole="MATERIAL_CAPACITACIONES" />
+        </EntityType>
+        <EntityType Name="MULTA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MONTO_MULTA" Type="Int64" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FECHA_MULTA" Type="DateTime" Nullable="false" />
+          <Property Name="MULTA_CLIENTE_ID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="AUTH_USER" Relationship="Self.MULTA_MULTA_CLI_D19BE6F3_F" FromRole="MULTA" ToRole="AUTH_USER" />
+        </EntityType>
+        <EntityType Name="REGISTRO_PAGOS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MONTO_PAGO" Type="Int64" Nullable="false" />
+          <Property Name="FECHA_PAGO" Type="DateTime" Nullable="false" />
+          <Property Name="ID_CONTRATO_ID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="CONTRATO" Relationship="Self.REGISTRO__ID_CONTRA_711DAA8A_F" FromRole="REGISTRO_PAGOS" ToRole="CONTRATO" />
+        </EntityType>
+        <EntityType Name="VISITA_TERRENO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FECHA_VISITA" Type="DateTime" Nullable="false" />
+          <Property Name="MOTIVO_VISITA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RUT_CLIENTE_ID" Type="Int64" Nullable="false" />
+          <Property Name="RUT_TRABAJADOR_ID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="AUTH_USER" Relationship="Self.VISITA_TE_RUT_CLIEN_E5A1CA96_F" FromRole="VISITA_TERRENO" ToRole="AUTH_USER" />
+          <NavigationProperty Name="AUTH_USER1" Relationship="Self.VISITA_TE_RUT_TRABA_4B242B5F_F" FromRole="VISITA_TERRENO" ToRole="AUTH_USER" />
+          <NavigationProperty Name="INFORME_VISITA" Relationship="Self.INFORME_V_ID_VISITA_D117EA99_F" FromRole="VISITA_TERRENO" ToRole="INFORME_VISITA" />
+        </EntityType>
+        <Association Name="ACCIDENTE_RUT_CLIEN_7C93C411_F">
+          <End Role="AUTH_USER" Type="Self.AUTH_USER" Multiplicity="1" />
+          <End Role="ACCIDENTE" Type="Self.ACCIDENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ACCIDENTE">
+              <PropertyRef Name="RUT_CLIENTE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ASESORIA_ID_ACCIDE_4DBFDD37_F">
+          <End Role="ACCIDENTE" Type="Self.ACCIDENTE" Multiplicity="0..1" />
+          <End Role="ASESORIA" Type="Self.ASESORIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCIDENTE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ASESORIA">
+              <PropertyRef Name="ID_ACCIDENTE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ACCOUNT_U_USER_ID_5AFA3C7A_F">
+          <End Role="AUTH_USER" Type="Self.AUTH_USER" Multiplicity="1" />
+          <End Role="ACCOUNT_USERPROFILE" Type="Self.ACCOUNT_USERPROFILE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ACCOUNT_USERPROFILE">
+              <PropertyRef Name="USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ASESORIA_ID_FISCAL_C75043FF_F">
+          <End Role="FISCALIZACION" Type="Self.FISCALIZACION" Multiplicity="0..1" />
+          <End Role="ASESORIA" Type="Self.ASESORIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FISCALIZACION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ASESORIA">
+              <PropertyRef Name="ID_FISCALIZACION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AUTH_GROU_GROUP_ID_B120CBF9_F">
+          <End Role="AUTH_GROUP" Type="Self.AUTH_GROUP" Multiplicity="1" />
+          <End Role="AUTH_GROUP_PERMISSIONS" Type="Self.AUTH_GROUP_PERMISSIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_GROUP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AUTH_GROUP_PERMISSIONS">
+              <PropertyRef Name="GROUP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AUTH_USER_GROUP_ID_97559544_F">
+          <End Role="AUTH_GROUP" Type="Self.AUTH_GROUP" Multiplicity="1" />
+          <End Role="AUTH_USER_GROUPS" Type="Self.AUTH_USER_GROUPS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_GROUP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AUTH_USER_GROUPS">
+              <PropertyRef Name="GROUP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AUTH_GROU_PERMISSIO_84C5C92E_F">
+          <End Role="AUTH_PERMISSION" Type="Self.AUTH_PERMISSION" Multiplicity="1" />
+          <End Role="AUTH_GROUP_PERMISSIONS" Type="Self.AUTH_GROUP_PERMISSIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_PERMISSION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AUTH_GROUP_PERMISSIONS">
+              <PropertyRef Name="PERMISSION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AUTH_PERM_CONTENT_T_2F476E4B_F">
+          <End Role="DJANGO_CONTENT_TYPE" Type="Self.DJANGO_CONTENT_TYPE" Multiplicity="1" />
+          <End Role="AUTH_PERMISSION" Type="Self.AUTH_PERMISSION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DJANGO_CONTENT_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AUTH_PERMISSION">
+              <PropertyRef Name="CONTENT_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AUTH_USER_PERMISSIO_1FBB5F2C_F">
+          <End Role="AUTH_PERMISSION" Type="Self.AUTH_PERMISSION" Multiplicity="1" />
+          <End Role="AUTH_USER_USER_PERMISSIONS" Type="Self.AUTH_USER_USER_PERMISSIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_PERMISSION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AUTH_USER_USER_PERMISSIONS">
+              <PropertyRef Name="PERMISSION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AUTH_USER_USER_ID_6A12ED8B_F">
+          <End Role="AUTH_USER" Type="Self.AUTH_USER" Multiplicity="1" />
+          <End Role="AUTH_USER_GROUPS" Type="Self.AUTH_USER_GROUPS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AUTH_USER_GROUPS">
+              <PropertyRef Name="USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AUTH_USER_USER_ID_A95EAD1B_F">
+          <End Role="AUTH_USER" Type="Self.AUTH_USER" Multiplicity="1" />
+          <End Role="AUTH_USER_USER_PERMISSIONS" Type="Self.AUTH_USER_USER_PERMISSIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AUTH_USER_USER_PERMISSIONS">
+              <PropertyRef Name="USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CAPACITAC_RUT_CLIEN_077B4635_F">
+          <End Role="AUTH_USER" Type="Self.AUTH_USER" Multiplicity="1" />
+          <End Role="CAPACITACION" Type="Self.CAPACITACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CAPACITACION">
+              <PropertyRef Name="RUT_CLIENTE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CAPACITAC_RUT_TRABA_8ADD113D_F">
+          <End Role="AUTH_USER" Type="Self.AUTH_USER" Multiplicity="1" />
+          <End Role="CAPACITACION" Type="Self.CAPACITACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CAPACITACION">
+              <PropertyRef Name="RUT_TRABAJADOR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CONTRATO_RUT_CLIEN_A68DF4C9_F">
+          <End Role="AUTH_USER" Type="Self.AUTH_USER" Multiplicity="1" />
+          <End Role="CONTRATO" Type="Self.CONTRATO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CONTRATO">
+              <PropertyRef Name="RUT_CLIENTE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DJANGO_AD_USER_ID_C564EBA6_F">
+          <End Role="AUTH_USER" Type="Self.AUTH_USER" Multiplicity="1" />
+          <End Role="DJANGO_ADMIN_LOG" Type="Self.DJANGO_ADMIN_LOG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DJANGO_ADMIN_LOG">
+              <PropertyRef Name="USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FISCALIZA_RUT_CLIEN_5363619B_F">
+          <End Role="AUTH_USER" Type="Self.AUTH_USER" Multiplicity="1" />
+          <End Role="FISCALIZACION" Type="Self.FISCALIZACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FISCALIZACION">
+              <PropertyRef Name="RUT_CLIENTE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MULTA_MULTA_CLI_D19BE6F3_F">
+          <End Role="AUTH_USER" Type="Self.AUTH_USER" Multiplicity="1" />
+          <End Role="MULTA" Type="Self.MULTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MULTA">
+              <PropertyRef Name="MULTA_CLIENTE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VISITA_TE_RUT_CLIEN_E5A1CA96_F">
+          <End Role="AUTH_USER" Type="Self.AUTH_USER" Multiplicity="1" />
+          <End Role="VISITA_TERRENO" Type="Self.VISITA_TERRENO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VISITA_TERRENO">
+              <PropertyRef Name="RUT_CLIENTE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VISITA_TE_RUT_TRABA_4B242B5F_F">
+          <End Role="AUTH_USER" Type="Self.AUTH_USER" Multiplicity="1" />
+          <End Role="VISITA_TERRENO" Type="Self.VISITA_TERRENO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTH_USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VISITA_TERRENO">
+              <PropertyRef Name="RUT_TRABAJADOR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MATERIAL__MATERIAL__BF7DEACC_F">
+          <End Role="CAPACITACION" Type="Self.CAPACITACION" Multiplicity="1" />
+          <End Role="MATERIAL_SOLICITADO" Type="Self.MATERIAL_SOLICITADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAPACITACION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MATERIAL_SOLICITADO">
+              <PropertyRef Name="MATERIAL_CAPACITACION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="COSTO_ADI_ID_CONTRA_6B73F08B_F">
+          <End Role="CONTRATO" Type="Self.CONTRATO" Multiplicity="1" />
+          <End Role="COSTO_ADICIONAL" Type="Self.COSTO_ADICIONAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CONTRATO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="COSTO_ADICIONAL">
+              <PropertyRef Name="ID_CONTRATO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="REGISTRO__ID_CONTRA_711DAA8A_F">
+          <End Role="CONTRATO" Type="Self.CONTRATO" Multiplicity="1" />
+          <End Role="REGISTRO_PAGOS" Type="Self.REGISTRO_PAGOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CONTRATO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="REGISTRO_PAGOS">
+              <PropertyRef Name="ID_CONTRATO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DJANGO_AD_CONTENT_T_C4BCE8EB_F">
+          <End Role="DJANGO_CONTENT_TYPE" Type="Self.DJANGO_CONTENT_TYPE" Multiplicity="0..1" />
+          <End Role="DJANGO_ADMIN_LOG" Type="Self.DJANGO_ADMIN_LOG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DJANGO_CONTENT_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DJANGO_ADMIN_LOG">
+              <PropertyRef Name="CONTENT_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INFORME_V_ID_VISITA_D117EA99_F">
+          <End Role="VISITA_TERRENO" Type="Self.VISITA_TERRENO" Multiplicity="1" />
+          <End Role="INFORME_VISITA" Type="Self.INFORME_VISITA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VISITA_TERRENO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INFORME_VISITA">
+              <PropertyRef Name="ID_VISITA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MATERIAL__ID_MATERI_514CCEC5_F">
+          <End Role="MATERIAL_CAPACITACIONES" Type="Self.MATERIAL_CAPACITACIONES" Multiplicity="1" />
+          <End Role="MATERIAL_SOLICITADO" Type="Self.MATERIAL_SOLICITADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MATERIAL_CAPACITACIONES">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MATERIAL_SOLICITADO">
+              <PropertyRef Name="ID_MATERIAL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SafeDjangoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ACCIDENTE" EntityType="Self.ACCIDENTE" />
+          <EntitySet Name="ACCOUNT_USERPROFILE" EntityType="Self.ACCOUNT_USERPROFILE" />
+          <EntitySet Name="ASESORIA" EntityType="Self.ASESORIA" />
+          <EntitySet Name="AUTH_GROUP" EntityType="Self.AUTH_GROUP" />
+          <EntitySet Name="AUTH_GROUP_PERMISSIONS" EntityType="Self.AUTH_GROUP_PERMISSIONS" />
+          <EntitySet Name="AUTH_PERMISSION" EntityType="Self.AUTH_PERMISSION" />
+          <EntitySet Name="AUTH_USER" EntityType="Self.AUTH_USER" />
+          <EntitySet Name="AUTH_USER_GROUPS" EntityType="Self.AUTH_USER_GROUPS" />
+          <EntitySet Name="AUTH_USER_USER_PERMISSIONS" EntityType="Self.AUTH_USER_USER_PERMISSIONS" />
+          <EntitySet Name="CAPACITACION" EntityType="Self.CAPACITACION" />
+          <EntitySet Name="CONTRATO" EntityType="Self.CONTRATO" />
+          <EntitySet Name="COSTO_ADICIONAL" EntityType="Self.COSTO_ADICIONAL" />
+          <EntitySet Name="DJANGO_ADMIN_LOG" EntityType="Self.DJANGO_ADMIN_LOG" />
+          <EntitySet Name="DJANGO_CONTENT_TYPE" EntityType="Self.DJANGO_CONTENT_TYPE" />
+          <EntitySet Name="DJANGO_MIGRATIONS" EntityType="Self.DJANGO_MIGRATIONS" />
+          <EntitySet Name="DJANGO_SESSION" EntityType="Self.DJANGO_SESSION" />
+          <EntitySet Name="FISCALIZACION" EntityType="Self.FISCALIZACION" />
+          <EntitySet Name="INFORME_VISITA" EntityType="Self.INFORME_VISITA" />
+          <EntitySet Name="MATERIAL_CAPACITACIONES" EntityType="Self.MATERIAL_CAPACITACIONES" />
+          <EntitySet Name="MATERIAL_SOLICITADO" EntityType="Self.MATERIAL_SOLICITADO" />
+          <EntitySet Name="MULTA" EntityType="Self.MULTA" />
+          <EntitySet Name="REGISTRO_PAGOS" EntityType="Self.REGISTRO_PAGOS" />
+          <EntitySet Name="VISITA_TERRENO" EntityType="Self.VISITA_TERRENO" />
+          <AssociationSet Name="ACCIDENTE_RUT_CLIEN_7C93C411_F" Association="Self.ACCIDENTE_RUT_CLIEN_7C93C411_F">
+            <End Role="AUTH_USER" EntitySet="AUTH_USER" />
+            <End Role="ACCIDENTE" EntitySet="ACCIDENTE" />
+          </AssociationSet>
+          <AssociationSet Name="ASESORIA_ID_ACCIDE_4DBFDD37_F" Association="Self.ASESORIA_ID_ACCIDE_4DBFDD37_F">
+            <End Role="ACCIDENTE" EntitySet="ACCIDENTE" />
+            <End Role="ASESORIA" EntitySet="ASESORIA" />
+          </AssociationSet>
+          <AssociationSet Name="ACCOUNT_U_USER_ID_5AFA3C7A_F" Association="Self.ACCOUNT_U_USER_ID_5AFA3C7A_F">
+            <End Role="AUTH_USER" EntitySet="AUTH_USER" />
+            <End Role="ACCOUNT_USERPROFILE" EntitySet="ACCOUNT_USERPROFILE" />
+          </AssociationSet>
+          <AssociationSet Name="ASESORIA_ID_FISCAL_C75043FF_F" Association="Self.ASESORIA_ID_FISCAL_C75043FF_F">
+            <End Role="FISCALIZACION" EntitySet="FISCALIZACION" />
+            <End Role="ASESORIA" EntitySet="ASESORIA" />
+          </AssociationSet>
+          <AssociationSet Name="AUTH_GROU_GROUP_ID_B120CBF9_F" Association="Self.AUTH_GROU_GROUP_ID_B120CBF9_F">
+            <End Role="AUTH_GROUP" EntitySet="AUTH_GROUP" />
+            <End Role="AUTH_GROUP_PERMISSIONS" EntitySet="AUTH_GROUP_PERMISSIONS" />
+          </AssociationSet>
+          <AssociationSet Name="AUTH_USER_GROUP_ID_97559544_F" Association="Self.AUTH_USER_GROUP_ID_97559544_F">
+            <End Role="AUTH_GROUP" EntitySet="AUTH_GROUP" />
+            <End Role="AUTH_USER_GROUPS" EntitySet="AUTH_USER_GROUPS" />
+          </AssociationSet>
+          <AssociationSet Name="AUTH_GROU_PERMISSIO_84C5C92E_F" Association="Self.AUTH_GROU_PERMISSIO_84C5C92E_F">
+            <End Role="AUTH_PERMISSION" EntitySet="AUTH_PERMISSION" />
+            <End Role="AUTH_GROUP_PERMISSIONS" EntitySet="AUTH_GROUP_PERMISSIONS" />
+          </AssociationSet>
+          <AssociationSet Name="AUTH_PERM_CONTENT_T_2F476E4B_F" Association="Self.AUTH_PERM_CONTENT_T_2F476E4B_F">
+            <End Role="DJANGO_CONTENT_TYPE" EntitySet="DJANGO_CONTENT_TYPE" />
+            <End Role="AUTH_PERMISSION" EntitySet="AUTH_PERMISSION" />
+          </AssociationSet>
+          <AssociationSet Name="AUTH_USER_PERMISSIO_1FBB5F2C_F" Association="Self.AUTH_USER_PERMISSIO_1FBB5F2C_F">
+            <End Role="AUTH_PERMISSION" EntitySet="AUTH_PERMISSION" />
+            <End Role="AUTH_USER_USER_PERMISSIONS" EntitySet="AUTH_USER_USER_PERMISSIONS" />
+          </AssociationSet>
+          <AssociationSet Name="AUTH_USER_USER_ID_6A12ED8B_F" Association="Self.AUTH_USER_USER_ID_6A12ED8B_F">
+            <End Role="AUTH_USER" EntitySet="AUTH_USER" />
+            <End Role="AUTH_USER_GROUPS" EntitySet="AUTH_USER_GROUPS" />
+          </AssociationSet>
+          <AssociationSet Name="AUTH_USER_USER_ID_A95EAD1B_F" Association="Self.AUTH_USER_USER_ID_A95EAD1B_F">
+            <End Role="AUTH_USER" EntitySet="AUTH_USER" />
+            <End Role="AUTH_USER_USER_PERMISSIONS" EntitySet="AUTH_USER_USER_PERMISSIONS" />
+          </AssociationSet>
+          <AssociationSet Name="CAPACITAC_RUT_CLIEN_077B4635_F" Association="Self.CAPACITAC_RUT_CLIEN_077B4635_F">
+            <End Role="AUTH_USER" EntitySet="AUTH_USER" />
+            <End Role="CAPACITACION" EntitySet="CAPACITACION" />
+          </AssociationSet>
+          <AssociationSet Name="CAPACITAC_RUT_TRABA_8ADD113D_F" Association="Self.CAPACITAC_RUT_TRABA_8ADD113D_F">
+            <End Role="AUTH_USER" EntitySet="AUTH_USER" />
+            <End Role="CAPACITACION" EntitySet="CAPACITACION" />
+          </AssociationSet>
+          <AssociationSet Name="CONTRATO_RUT_CLIEN_A68DF4C9_F" Association="Self.CONTRATO_RUT_CLIEN_A68DF4C9_F">
+            <End Role="AUTH_USER" EntitySet="AUTH_USER" />
+            <End Role="CONTRATO" EntitySet="CONTRATO" />
+          </AssociationSet>
+          <AssociationSet Name="DJANGO_AD_USER_ID_C564EBA6_F" Association="Self.DJANGO_AD_USER_ID_C564EBA6_F">
+            <End Role="AUTH_USER" EntitySet="AUTH_USER" />
+            <End Role="DJANGO_ADMIN_LOG" EntitySet="DJANGO_ADMIN_LOG" />
+          </AssociationSet>
+          <AssociationSet Name="FISCALIZA_RUT_CLIEN_5363619B_F" Association="Self.FISCALIZA_RUT_CLIEN_5363619B_F">
+            <End Role="AUTH_USER" EntitySet="AUTH_USER" />
+            <End Role="FISCALIZACION" EntitySet="FISCALIZACION" />
+          </AssociationSet>
+          <AssociationSet Name="MULTA_MULTA_CLI_D19BE6F3_F" Association="Self.MULTA_MULTA_CLI_D19BE6F3_F">
+            <End Role="AUTH_USER" EntitySet="AUTH_USER" />
+            <End Role="MULTA" EntitySet="MULTA" />
+          </AssociationSet>
+          <AssociationSet Name="VISITA_TE_RUT_CLIEN_E5A1CA96_F" Association="Self.VISITA_TE_RUT_CLIEN_E5A1CA96_F">
+            <End Role="AUTH_USER" EntitySet="AUTH_USER" />
+            <End Role="VISITA_TERRENO" EntitySet="VISITA_TERRENO" />
+          </AssociationSet>
+          <AssociationSet Name="VISITA_TE_RUT_TRABA_4B242B5F_F" Association="Self.VISITA_TE_RUT_TRABA_4B242B5F_F">
+            <End Role="AUTH_USER" EntitySet="AUTH_USER" />
+            <End Role="VISITA_TERRENO" EntitySet="VISITA_TERRENO" />
+          </AssociationSet>
+          <AssociationSet Name="MATERIAL__MATERIAL__BF7DEACC_F" Association="Self.MATERIAL__MATERIAL__BF7DEACC_F">
+            <End Role="CAPACITACION" EntitySet="CAPACITACION" />
+            <End Role="MATERIAL_SOLICITADO" EntitySet="MATERIAL_SOLICITADO" />
+          </AssociationSet>
+          <AssociationSet Name="COSTO_ADI_ID_CONTRA_6B73F08B_F" Association="Self.COSTO_ADI_ID_CONTRA_6B73F08B_F">
+            <End Role="CONTRATO" EntitySet="CONTRATO" />
+            <End Role="COSTO_ADICIONAL" EntitySet="COSTO_ADICIONAL" />
+          </AssociationSet>
+          <AssociationSet Name="REGISTRO__ID_CONTRA_711DAA8A_F" Association="Self.REGISTRO__ID_CONTRA_711DAA8A_F">
+            <End Role="CONTRATO" EntitySet="CONTRATO" />
+            <End Role="REGISTRO_PAGOS" EntitySet="REGISTRO_PAGOS" />
+          </AssociationSet>
+          <AssociationSet Name="DJANGO_AD_CONTENT_T_C4BCE8EB_F" Association="Self.DJANGO_AD_CONTENT_T_C4BCE8EB_F">
+            <End Role="DJANGO_CONTENT_TYPE" EntitySet="DJANGO_CONTENT_TYPE" />
+            <End Role="DJANGO_ADMIN_LOG" EntitySet="DJANGO_ADMIN_LOG" />
+          </AssociationSet>
+          <AssociationSet Name="INFORME_V_ID_VISITA_D117EA99_F" Association="Self.INFORME_V_ID_VISITA_D117EA99_F">
+            <End Role="VISITA_TERRENO" EntitySet="VISITA_TERRENO" />
+            <End Role="INFORME_VISITA" EntitySet="INFORME_VISITA" />
+          </AssociationSet>
+          <AssociationSet Name="MATERIAL__ID_MATERI_514CCEC5_F" Association="Self.MATERIAL__ID_MATERI_514CCEC5_F">
+            <End Role="MATERIAL_CAPACITACIONES" EntitySet="MATERIAL_CAPACITACIONES" />
+            <End Role="MATERIAL_SOLICITADO" EntitySet="MATERIAL_SOLICITADO" />
+          </AssociationSet>
+          <FunctionImport Name="PRC_INSERTAR_ASESORIA_ACCIDENTE">
+            <Parameter Name="V_PROPUESTA" Mode="In" Type="String" />
+            <Parameter Name="V_ID_ACCIDENTE" Mode="In" Type="Decimal" />
+            <Parameter Name="V_SALIDA" Mode="Out" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="PRC_INSERTAR_ASESORIA_FISCALIZACION">
+            <Parameter Name="V_PROPUESTA" Mode="In" Type="String" />
+            <Parameter Name="V_ID_FISCALIZACION_ID" Mode="In" Type="Decimal" />
+            <Parameter Name="V_SALIDA" Mode="Out" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="PRC_INSERTAR_CAPACITACION">
+            <Parameter Name="V_HORA_CAPACITACION" Mode="In" Type="String" />
+            <Parameter Name="V_RUT_CLIENTE" Mode="In" Type="Decimal" />
+            <Parameter Name="V_RUT_TRABAJADOR" Mode="In" Type="Decimal" />
+            <Parameter Name="V_SALIDA" Mode="Out" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="PRC_INSERTAR_CLIENTE">
+            <Parameter Name="V_USUARIO" Mode="In" Type="String" />
+            <Parameter Name="V_PASS" Mode="In" Type="String" />
+            <Parameter Name="V_NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="V_APELLIDO" Mode="In" Type="String" />
+            <Parameter Name="V_CORREO" Mode="In" Type="String" />
+            <Parameter Name="V_SALIDA" Mode="Out" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="PRC_INSERTAR_DATOS_CLIENTE">
+            <Parameter Name="V_RUT" Mode="In" Type="Decimal" />
+            <Parameter Name="V_SUELDO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_EDAD" Mode="In" Type="Decimal" />
+            <Parameter Name="V_USERID" Mode="In" Type="Decimal" />
+            <Parameter Name="V_SALIDA" Mode="Out" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="PRC_INSERTAR_DATOS_TRABAJADOR">
+            <Parameter Name="V_RUT" Mode="In" Type="Decimal" />
+            <Parameter Name="V_SUELDO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_EDAD" Mode="In" Type="Decimal" />
+            <Parameter Name="V_USERID" Mode="In" Type="Decimal" />
+            <Parameter Name="V_SALIDA" Mode="Out" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="PRC_INSERTAR_FISCALIZACION">
+            <Parameter Name="V_DOC_REVISADOS" Mode="In" Type="String" />
+            <Parameter Name="V_DESCRIPCION_DOCUMENTO" Mode="In" Type="String" />
+            <Parameter Name="V_DOCUMENTO" Mode="In" Type="String" />
+            <Parameter Name="V_RUT_CLIENTE_ID" Mode="In" Type="String" />
+            <Parameter Name="V_SALIDA" Mode="Out" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="PRC_INSERTAR_INFORME_VISITA">
+            <Parameter Name="V_INTRODUCCION" Mode="In" Type="String" />
+            <Parameter Name="V_RESULTADOS_EVALUACION" Mode="In" Type="String" />
+            <Parameter Name="V_AUTOEVALUACION" Mode="In" Type="String" />
+            <Parameter Name="V_DOC_ACTUALIZADOS" Mode="In" Type="String" />
+            <Parameter Name="V_REG_INTERNO" Mode="In" Type="String" />
+            <Parameter Name="V_DOC_SEREMI_TRABAJO" Mode="In" Type="String" />
+            <Parameter Name="V_COPIA_DOCUMENTOS" Mode="In" Type="String" />
+            <Parameter Name="V_INFORMA_RIESGOS" Mode="In" Type="String" />
+            <Parameter Name="V_INFORMA_MEDIDAS" Mode="In" Type="String" />
+            <Parameter Name="V_PROGRAMA_ORDEN" Mode="In" Type="String" />
+            <Parameter Name="V_EXTINTORES" Mode="In" Type="String" />
+            <Parameter Name="V_CAPACITACION_EXTINTOR" Mode="In" Type="String" />
+            <Parameter Name="V_EPP_INVENTARIO" Mode="In" Type="String" />
+            <Parameter Name="V_EPP_CERTIFICADOS" Mode="In" Type="String" />
+            <Parameter Name="V_ID_VISITA_ID" Mode="In" Type="Decimal" />
+            <Parameter Name="V_SALIDA" Mode="Out" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="PRC_INSERTAR_MATERIALES">
+            <Parameter Name="V_MATERIAL" Mode="In" Type="String" />
+            <Parameter Name="V_SALIDA" Mode="Out" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="PRC_INSERTAR_MATERIALES_SOLICITADOS">
+            <Parameter Name="V_ID_MATERIAL" Mode="In" Type="Decimal" />
+            <Parameter Name="V_CANTIDAD" Mode="In" Type="Decimal" />
+            <Parameter Name="V_CAPACITACION_ID" Mode="In" Type="Decimal" />
+            <Parameter Name="V_SALIDA" Mode="Out" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="PRC_INSERTAR_TRABAJADORES">
+            <Parameter Name="V_USUARIO" Mode="In" Type="String" />
+            <Parameter Name="V_PASS" Mode="In" Type="String" />
+            <Parameter Name="V_NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="V_APELLIDO" Mode="In" Type="String" />
+            <Parameter Name="V_CORREO" Mode="In" Type="String" />
+            <Parameter Name="V_SALIDA" Mode="Out" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="PRC_INSERTAR_VISITA">
+            <Parameter Name="V_MOTIVO" Mode="In" Type="String" />
+            <Parameter Name="V_VISITA_FECHA" Mode="In" Type="DateTime" />
+            <Parameter Name="V_RUT_CLIENTE" Mode="In" Type="Decimal" />
+            <Parameter Name="V_RUT_TRABAJADOR" Mode="In" Type="Decimal" />
+            <Parameter Name="V_SALIDA" Mode="Out" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="PRC_LISTAR_ACCIDENTES" />
+          <FunctionImport Name="PRC_LISTAR_ACCIDENTES_POR_ID">
+            <Parameter Name="V_RUT_CLIENTE_ID" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="PRC_LISTAR_ASESORIAS_POR_ID_ACCIDENTE">
+            <Parameter Name="V_ID_ACCIDENTE" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="PRC_LISTAR_CAPACITACIONES">
+            <Parameter Name="V_RUT_TRABAJADOR" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="PRC_LISTAR_CLIENTES" />
+          <FunctionImport Name="PRC_LISTAR_CLIENTES_EXTENDIDOS" />
+          <FunctionImport Name="PRC_LISTAR_FISCALIZACIONES" />
+          <FunctionImport Name="PRC_LISTAR_MATERIAL" />
+          <FunctionImport Name="PRC_LISTAR_MATERIALES" />
+          <FunctionImport Name="PRC_LISTAR_TRABAJADORES" />
+          <FunctionImport Name="PRC_LISTAR_TRABAJADORES_EXTENDIDOS" />
+          <FunctionImport Name="PRC_LISTAR_VISITAS_SIN_EXTENDER" />
+          <FunctionImport Name="PRC_MOSTRAR_DIA_CAPACITACION" />
+          <FunctionImport Name="PRC_REPORTAR_ACCIDENTE">
+            <Parameter Name="V_NATURALEZA" Mode="In" Type="String" />
+            <Parameter Name="V_PARTES_ACCIDENTADAS" Mode="In" Type="String" />
+            <Parameter Name="V_FUENTE_ACCIDENTE_ID" Mode="In" Type="String" />
+            <Parameter Name="V_FECHA_ACCIDENTE" Mode="In" Type="DateTime" />
+            <Parameter Name="V_RUT_CLIENTE_ID" Mode="In" Type="Decimal" />
+            <Parameter Name="V_SALIDA" Mode="Out" Type="Decimal" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SafeDjangoModelStoreContainer" CdmEntityContainer="SafeDjangoEntities">
+          <EntitySetMapping Name="ACCIDENTE">
+            <EntityTypeMapping TypeName="SafeDjangoModel.ACCIDENTE">
+              <MappingFragment StoreEntitySet="ACCIDENTE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NATURALEZA" ColumnName="NATURALEZA" />
+                <ScalarProperty Name="PARTES_ACCIDENTADAS" ColumnName="PARTES_ACCIDENTADAS" />
+                <ScalarProperty Name="FUENTE_ACCIDENTE" ColumnName="FUENTE_ACCIDENTE" />
+                <ScalarProperty Name="FECHA_ACCIDENTE" ColumnName="FECHA_ACCIDENTE" />
+                <ScalarProperty Name="RUT_CLIENTE_ID" ColumnName="RUT_CLIENTE_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ACCOUNT_USERPROFILE">
+            <EntityTypeMapping TypeName="SafeDjangoModel.ACCOUNT_USERPROFILE">
+              <MappingFragment StoreEntitySet="ACCOUNT_USERPROFILE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RUT" ColumnName="RUT" />
+                <ScalarProperty Name="SUELDO" ColumnName="SUELDO" />
+                <ScalarProperty Name="EDAD" ColumnName="EDAD" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ASESORIA">
+            <EntityTypeMapping TypeName="SafeDjangoModel.ASESORIA">
+              <MappingFragment StoreEntitySet="ASESORIA">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EVENTO" ColumnName="EVENTO" />
+                <ScalarProperty Name="PROPUESTA" ColumnName="PROPUESTA" />
+                <ScalarProperty Name="ASESORIA_ESPECIAL" ColumnName="ASESORIA_ESPECIAL" />
+                <ScalarProperty Name="ID_ACCIDENTE_ID" ColumnName="ID_ACCIDENTE_ID" />
+                <ScalarProperty Name="ID_FISCALIZACION_ID" ColumnName="ID_FISCALIZACION_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AUTH_GROUP">
+            <EntityTypeMapping TypeName="SafeDjangoModel.AUTH_GROUP">
+              <MappingFragment StoreEntitySet="AUTH_GROUP">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AUTH_GROUP_PERMISSIONS">
+            <EntityTypeMapping TypeName="SafeDjangoModel.AUTH_GROUP_PERMISSIONS">
+              <MappingFragment StoreEntitySet="AUTH_GROUP_PERMISSIONS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="GROUP_ID" ColumnName="GROUP_ID" />
+                <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AUTH_PERMISSION">
+            <EntityTypeMapping TypeName="SafeDjangoModel.AUTH_PERMISSION">
+              <MappingFragment StoreEntitySet="AUTH_PERMISSION">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="CONTENT_TYPE_ID" ColumnName="CONTENT_TYPE_ID" />
+                <ScalarProperty Name="CODENAME" ColumnName="CODENAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AUTH_USER">
+            <EntityTypeMapping TypeName="SafeDjangoModel.AUTH_USER">
+              <MappingFragment StoreEntitySet="AUTH_USER">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="LAST_LOGIN" ColumnName="LAST_LOGIN" />
+                <ScalarProperty Name="IS_SUPERUSER" ColumnName="IS_SUPERUSER" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="IS_STAFF" ColumnName="IS_STAFF" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+                <ScalarProperty Name="DATE_JOINED" ColumnName="DATE_JOINED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AUTH_USER_GROUPS">
+            <EntityTypeMapping TypeName="SafeDjangoModel.AUTH_USER_GROUPS">
+              <MappingFragment StoreEntitySet="AUTH_USER_GROUPS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="GROUP_ID" ColumnName="GROUP_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AUTH_USER_USER_PERMISSIONS">
+            <EntityTypeMapping TypeName="SafeDjangoModel.AUTH_USER_USER_PERMISSIONS">
+              <MappingFragment StoreEntitySet="AUTH_USER_USER_PERMISSIONS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CAPACITACION">
+            <EntityTypeMapping TypeName="SafeDjangoModel.CAPACITACION">
+              <MappingFragment StoreEntitySet="CAPACITACION">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FECHA_SOLICITUD" ColumnName="FECHA_SOLICITUD" />
+                <ScalarProperty Name="FECHA_CAPACITACION" ColumnName="FECHA_CAPACITACION" />
+                <ScalarProperty Name="HORA_CAPACITACION" ColumnName="HORA_CAPACITACION" />
+                <ScalarProperty Name="RUT_CLIENTE_ID" ColumnName="RUT_CLIENTE_ID" />
+                <ScalarProperty Name="RUT_TRABAJADOR_ID" ColumnName="RUT_TRABAJADOR_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CONTRATO">
+            <EntityTypeMapping TypeName="SafeDjangoModel.CONTRATO">
+              <MappingFragment StoreEntitySet="CONTRATO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="COSTO" ColumnName="COSTO" />
+                <ScalarProperty Name="FECHA_CONTRATACION" ColumnName="FECHA_CONTRATACION" />
+                <ScalarProperty Name="RUT_CLIENTE_ID" ColumnName="RUT_CLIENTE_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COSTO_ADICIONAL">
+            <EntityTypeMapping TypeName="SafeDjangoModel.COSTO_ADICIONAL">
+              <MappingFragment StoreEntitySet="COSTO_ADICIONAL">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MONTO_ADICIONAL" ColumnName="MONTO_ADICIONAL" />
+                <ScalarProperty Name="FECHA_COSTOADICIONAL" ColumnName="FECHA_COSTOADICIONAL" />
+                <ScalarProperty Name="ID_CONTRATO_ID" ColumnName="ID_CONTRATO_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DJANGO_ADMIN_LOG">
+            <EntityTypeMapping TypeName="SafeDjangoModel.DJANGO_ADMIN_LOG">
+              <MappingFragment StoreEntitySet="DJANGO_ADMIN_LOG">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ACTION_TIME" ColumnName="ACTION_TIME" />
+                <ScalarProperty Name="OBJECT_ID" ColumnName="OBJECT_ID" />
+                <ScalarProperty Name="OBJECT_REPR" ColumnName="OBJECT_REPR" />
+                <ScalarProperty Name="ACTION_FLAG" ColumnName="ACTION_FLAG" />
+                <ScalarProperty Name="CHANGE_MESSAGE" ColumnName="CHANGE_MESSAGE" />
+                <ScalarProperty Name="CONTENT_TYPE_ID" ColumnName="CONTENT_TYPE_ID" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DJANGO_CONTENT_TYPE">
+            <EntityTypeMapping TypeName="SafeDjangoModel.DJANGO_CONTENT_TYPE">
+              <MappingFragment StoreEntitySet="DJANGO_CONTENT_TYPE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="APP_LABEL" ColumnName="APP_LABEL" />
+                <ScalarProperty Name="MODEL" ColumnName="MODEL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DJANGO_MIGRATIONS">
+            <EntityTypeMapping TypeName="SafeDjangoModel.DJANGO_MIGRATIONS">
+              <MappingFragment StoreEntitySet="DJANGO_MIGRATIONS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="APP" ColumnName="APP" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="APPLIED" ColumnName="APPLIED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DJANGO_SESSION">
+            <EntityTypeMapping TypeName="SafeDjangoModel.DJANGO_SESSION">
+              <MappingFragment StoreEntitySet="DJANGO_SESSION">
+                <ScalarProperty Name="SESSION_KEY" ColumnName="SESSION_KEY" />
+                <ScalarProperty Name="SESSION_DATA" ColumnName="SESSION_DATA" />
+                <ScalarProperty Name="EXPIRE_DATE" ColumnName="EXPIRE_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FISCALIZACION">
+            <EntityTypeMapping TypeName="SafeDjangoModel.FISCALIZACION">
+              <MappingFragment StoreEntitySet="FISCALIZACION">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DOC_REVISADOS" ColumnName="DOC_REVISADOS" />
+                <ScalarProperty Name="DESCRIPCION_DOCUMENTO" ColumnName="DESCRIPCION_DOCUMENTO" />
+                <ScalarProperty Name="DOCUMENTO" ColumnName="DOCUMENTO" />
+                <ScalarProperty Name="RUT_CLIENTE_ID" ColumnName="RUT_CLIENTE_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INFORME_VISITA">
+            <EntityTypeMapping TypeName="SafeDjangoModel.INFORME_VISITA">
+              <MappingFragment StoreEntitySet="INFORME_VISITA">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="INTRODUCCION" ColumnName="INTRODUCCION" />
+                <ScalarProperty Name="RESULTADOS_EVALUACION" ColumnName="RESULTADOS_EVALUACION" />
+                <ScalarProperty Name="AUTOEVALUACION" ColumnName="AUTOEVALUACION" />
+                <ScalarProperty Name="DOC_ACTUALIZADOS" ColumnName="DOC_ACTUALIZADOS" />
+                <ScalarProperty Name="REG_INTERNO" ColumnName="REG_INTERNO" />
+                <ScalarProperty Name="DOC_SEREMI_TRABAJO" ColumnName="DOC_SEREMI_TRABAJO" />
+                <ScalarProperty Name="COPIA_DOCUMENTOS" ColumnName="COPIA_DOCUMENTOS" />
+                <ScalarProperty Name="INFORMA_RIESGOS" ColumnName="INFORMA_RIESGOS" />
+                <ScalarProperty Name="INFORMA_MEDIDAS" ColumnName="INFORMA_MEDIDAS" />
+                <ScalarProperty Name="PROGRAMA_ORDEN" ColumnName="PROGRAMA_ORDEN" />
+                <ScalarProperty Name="EXTINTORES" ColumnName="EXTINTORES" />
+                <ScalarProperty Name="CAPACITACION_EXTINTOR" ColumnName="CAPACITACION_EXTINTOR" />
+                <ScalarProperty Name="EPP_INVENTARIO" ColumnName="EPP_INVENTARIO" />
+                <ScalarProperty Name="EPP_CERTIFICADOS" ColumnName="EPP_CERTIFICADOS" />
+                <ScalarProperty Name="ID_VISITA_ID" ColumnName="ID_VISITA_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MATERIAL_CAPACITACIONES">
+            <EntityTypeMapping TypeName="SafeDjangoModel.MATERIAL_CAPACITACIONES">
+              <MappingFragment StoreEntitySet="MATERIAL_CAPACITACIONES">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MATERIAL" ColumnName="MATERIAL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MATERIAL_SOLICITADO">
+            <EntityTypeMapping TypeName="SafeDjangoModel.MATERIAL_SOLICITADO">
+              <MappingFragment StoreEntitySet="MATERIAL_SOLICITADO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="ID_MATERIAL_ID" ColumnName="ID_MATERIAL_ID" />
+                <ScalarProperty Name="MATERIAL_CAPACITACION_ID" ColumnName="MATERIAL_CAPACITACION_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MULTA">
+            <EntityTypeMapping TypeName="SafeDjangoModel.MULTA">
+              <MappingFragment StoreEntitySet="MULTA">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MONTO_MULTA" ColumnName="MONTO_MULTA" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="FECHA_MULTA" ColumnName="FECHA_MULTA" />
+                <ScalarProperty Name="MULTA_CLIENTE_ID" ColumnName="MULTA_CLIENTE_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REGISTRO_PAGOS">
+            <EntityTypeMapping TypeName="SafeDjangoModel.REGISTRO_PAGOS">
+              <MappingFragment StoreEntitySet="REGISTRO_PAGOS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MONTO_PAGO" ColumnName="MONTO_PAGO" />
+                <ScalarProperty Name="FECHA_PAGO" ColumnName="FECHA_PAGO" />
+                <ScalarProperty Name="ID_CONTRATO_ID" ColumnName="ID_CONTRATO_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VISITA_TERRENO">
+            <EntityTypeMapping TypeName="SafeDjangoModel.VISITA_TERRENO">
+              <MappingFragment StoreEntitySet="VISITA_TERRENO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FECHA_VISITA" ColumnName="FECHA_VISITA" />
+                <ScalarProperty Name="MOTIVO_VISITA" ColumnName="MOTIVO_VISITA" />
+                <ScalarProperty Name="RUT_CLIENTE_ID" ColumnName="RUT_CLIENTE_ID" />
+                <ScalarProperty Name="RUT_TRABAJADOR_ID" ColumnName="RUT_TRABAJADOR_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PRC_INSERTAR_ASESORIA_ACCIDENTE" FunctionName="SafeDjangoModel.Store.PRC_INSERTAR_ASESORIA_ACCIDENTE" />
+          <FunctionImportMapping FunctionImportName="PRC_INSERTAR_ASESORIA_FISCALIZACION" FunctionName="SafeDjangoModel.Store.PRC_INSERTAR_ASESORIA_FISCALIZACION" />
+          <FunctionImportMapping FunctionImportName="PRC_INSERTAR_CAPACITACION" FunctionName="SafeDjangoModel.Store.PRC_INSERTAR_CAPACITACION" />
+          <FunctionImportMapping FunctionImportName="PRC_INSERTAR_CLIENTE" FunctionName="SafeDjangoModel.Store.PRC_INSERTAR_CLIENTE" />
+          <FunctionImportMapping FunctionImportName="PRC_INSERTAR_DATOS_CLIENTE" FunctionName="SafeDjangoModel.Store.PRC_INSERTAR_DATOS_CLIENTE" />
+          <FunctionImportMapping FunctionImportName="PRC_INSERTAR_DATOS_TRABAJADOR" FunctionName="SafeDjangoModel.Store.PRC_INSERTAR_DATOS_TRABAJADOR" />
+          <FunctionImportMapping FunctionImportName="PRC_INSERTAR_FISCALIZACION" FunctionName="SafeDjangoModel.Store.PRC_INSERTAR_FISCALIZACION" />
+          <FunctionImportMapping FunctionImportName="PRC_INSERTAR_INFORME_VISITA" FunctionName="SafeDjangoModel.Store.PRC_INSERTAR_INFORME_VISITA" />
+          <FunctionImportMapping FunctionImportName="PRC_INSERTAR_MATERIALES" FunctionName="SafeDjangoModel.Store.PRC_INSERTAR_MATERIALES" />
+          <FunctionImportMapping FunctionImportName="PRC_INSERTAR_MATERIALES_SOLICITADOS" FunctionName="SafeDjangoModel.Store.PRC_INSERTAR_MATERIALES_SOLICITADOS" />
+          <FunctionImportMapping FunctionImportName="PRC_INSERTAR_TRABAJADORES" FunctionName="SafeDjangoModel.Store.PRC_INSERTAR_TRABAJADORES" />
+          <FunctionImportMapping FunctionImportName="PRC_INSERTAR_VISITA" FunctionName="SafeDjangoModel.Store.PRC_INSERTAR_VISITA" />
+          <FunctionImportMapping FunctionImportName="PRC_LISTAR_ACCIDENTES" FunctionName="SafeDjangoModel.Store.PRC_LISTAR_ACCIDENTES" />
+          <FunctionImportMapping FunctionImportName="PRC_LISTAR_ACCIDENTES_POR_ID" FunctionName="SafeDjangoModel.Store.PRC_LISTAR_ACCIDENTES_POR_ID" />
+          <FunctionImportMapping FunctionImportName="PRC_LISTAR_ASESORIAS_POR_ID_ACCIDENTE" FunctionName="SafeDjangoModel.Store.PRC_LISTAR_ASESORIAS_POR_ID_ACCIDENTE" />
+          <FunctionImportMapping FunctionImportName="PRC_LISTAR_CAPACITACIONES" FunctionName="SafeDjangoModel.Store.PRC_LISTAR_CAPACITACIONES" />
+          <FunctionImportMapping FunctionImportName="PRC_LISTAR_CLIENTES" FunctionName="SafeDjangoModel.Store.PRC_LISTAR_CLIENTES" />
+          <FunctionImportMapping FunctionImportName="PRC_LISTAR_CLIENTES_EXTENDIDOS" FunctionName="SafeDjangoModel.Store.PRC_LISTAR_CLIENTES_EXTENDIDOS" />
+          <FunctionImportMapping FunctionImportName="PRC_LISTAR_FISCALIZACIONES" FunctionName="SafeDjangoModel.Store.PRC_LISTAR_FISCALIZACIONES" />
+          <FunctionImportMapping FunctionImportName="PRC_LISTAR_MATERIAL" FunctionName="SafeDjangoModel.Store.PRC_LISTAR_MATERIAL" />
+          <FunctionImportMapping FunctionImportName="PRC_LISTAR_MATERIALES" FunctionName="SafeDjangoModel.Store.PRC_LISTAR_MATERIALES" />
+          <FunctionImportMapping FunctionImportName="PRC_LISTAR_TRABAJADORES" FunctionName="SafeDjangoModel.Store.PRC_LISTAR_TRABAJADORES" />
+          <FunctionImportMapping FunctionImportName="PRC_LISTAR_TRABAJADORES_EXTENDIDOS" FunctionName="SafeDjangoModel.Store.PRC_LISTAR_TRABAJADORES_EXTENDIDOS" />
+          <FunctionImportMapping FunctionImportName="PRC_LISTAR_VISITAS_SIN_EXTENDER" FunctionName="SafeDjangoModel.Store.PRC_LISTAR_VISITAS_SIN_EXTENDER" />
+          <FunctionImportMapping FunctionImportName="PRC_MOSTRAR_DIA_CAPACITACION" FunctionName="SafeDjangoModel.Store.PRC_MOSTRAR_DIA_CAPACITACION" />
+          <FunctionImportMapping FunctionImportName="PRC_REPORTAR_ACCIDENTE" FunctionName="SafeDjangoModel.Store.PRC_REPORTAR_ACCIDENTE" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

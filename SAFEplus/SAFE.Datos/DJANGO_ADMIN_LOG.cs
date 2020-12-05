@@ -12,14 +12,18 @@ namespace SAFE.Datos
     using System;
     using System.Collections.Generic;
     
-    public partial class MULTA
+    public partial class DJANGO_ADMIN_LOG
     {
         public long ID { get; set; }
-        public long MONTO_MULTA { get; set; }
-        public string DESCRIPCION { get; set; }
-        public System.DateTime FECHA_MULTA { get; set; }
-        public long MULTA_CLIENTE_ID { get; set; }
+        public System.DateTime ACTION_TIME { get; set; }
+        public string OBJECT_ID { get; set; }
+        public string OBJECT_REPR { get; set; }
+        public long ACTION_FLAG { get; set; }
+        public string CHANGE_MESSAGE { get; set; }
+        public Nullable<long> CONTENT_TYPE_ID { get; set; }
+        public long USER_ID { get; set; }
     
         public virtual AUTH_USER AUTH_USER { get; set; }
+        public virtual DJANGO_CONTENT_TYPE DJANGO_CONTENT_TYPE { get; set; }
     }
 }

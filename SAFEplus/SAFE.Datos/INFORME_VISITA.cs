@@ -14,7 +14,7 @@ namespace SAFE.Datos
     
     public partial class INFORME_VISITA
     {
-        public decimal ID_INFORME { get; set; }
+        public long ID { get; set; }
         public string INTRODUCCION { get; set; }
         public string RESULTADOS_EVALUACION { get; set; }
         public string AUTOEVALUACION { get; set; }
@@ -29,6 +29,7 @@ namespace SAFE.Datos
         public string CAPACITACION_EXTINTOR { get; set; }
         public string EPP_INVENTARIO { get; set; }
         public string EPP_CERTIFICADOS { get; set; }
+        public long ID_VISITA_ID { get; set; }
     
         public virtual VISITA_TERRENO VISITA_TERRENO { get; set; }
     }

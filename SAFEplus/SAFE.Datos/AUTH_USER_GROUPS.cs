@@ -12,12 +12,13 @@ namespace SAFE.Datos
     using System;
     using System.Collections.Generic;
     
-    public partial class ANTECEDENTES_ASESORIA
+    public partial class AUTH_USER_GROUPS
     {
-        public decimal ID_ANTECEDENTE { get; set; }
-        public string DESCRIPCION_DOCUMENTO { get; set; }
-        public byte[] DOCUMENTO { get; set; }
+        public long ID { get; set; }
+        public long USER_ID { get; set; }
+        public long GROUP_ID { get; set; }
     
-        public virtual ASESORIA ASESORIA { get; set; }
+        public virtual AUTH_GROUP AUTH_GROUP { get; set; }
+        public virtual AUTH_USER AUTH_USER { get; set; }
     }
 }

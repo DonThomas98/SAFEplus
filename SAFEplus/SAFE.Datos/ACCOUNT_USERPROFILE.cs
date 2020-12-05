@@ -12,13 +12,13 @@ namespace SAFE.Datos
     using System;
     using System.Collections.Generic;
     
-    public partial class MULTA
+    public partial class ACCOUNT_USERPROFILE
     {
         public long ID { get; set; }
-        public long MONTO_MULTA { get; set; }
-        public string DESCRIPCION { get; set; }
-        public System.DateTime FECHA_MULTA { get; set; }
-        public long MULTA_CLIENTE_ID { get; set; }
+        public long RUT { get; set; }
+        public long SUELDO { get; set; }
+        public long EDAD { get; set; }
+        public long USER_ID { get; set; }
     
         public virtual AUTH_USER AUTH_USER { get; set; }
     }

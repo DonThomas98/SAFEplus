@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SAFE.Presentacion"
         mc:Ignorable="d"
-        Title="Registro de Trabajadores - Safe+" Height="575" Width="800" Icon="Imagenes/Icon3.ico" ResizeMode="CanMinimize">
+        Title="Registro de Trabajadores - Safe+" Height="575" Width="800" Icon="Imagenes/Icon3.ico" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style x:Key="MyButton" TargetType="{x:Type Button}">
             <Setter Property="OverridesDefaultStyle" Value="True" />
@@ -41,41 +41,41 @@
                 <ImageBrush ImageSource="Imagenes/flecha-izquierda.png" Stretch="UniformToFill"/>
             </Button.Background>
         </Button>
-        <TextBox x:Name="txtRut" HorizontalAlignment="Left" Height="23" Margin="190,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" FontSize="16" MaxLength="8" MaxLines="1" BorderBrush="Black" TabIndex="0"/>
-        <TextBox x:Name="txtNombres" HorizontalAlignment="Left" Height="23" Margin="190,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" FontSize="16" BorderBrush="Black" TabIndex="3"/>
-        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="23" Margin="190,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" FontSize="16" BorderBrush="Black" TabIndex="5"/>
-        <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="23" Margin="514,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" FontSize="16" BorderBrush="Black" TabIndex="6"/>
-        <TextBox x:Name="txtTelefono" HorizontalAlignment="Left" Height="23" Margin="190,279,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" BorderBrush="Black" TabIndex="7" MaxLength="10"/>
-        <TextBox x:Name="txtCelular" HorizontalAlignment="Left" Height="23" Margin="514,279,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" BorderBrush="Black" TabIndex="8" MaxLength="10"/>
-        <TextBox x:Name="txtEdad" HorizontalAlignment="Left" Height="23" Margin="514,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" FontSize="16" MaxLength="3" MaxLines="1" BorderBrush="Black" TabIndex="2" TextAlignment="Center"/>
-        <TextBox x:Name="txtDv" HorizontalAlignment="Left" Height="23" Margin="298,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" FontSize="16" TextAlignment="Center" MaxLength="1" MaxLines="1" BorderBrush="Black" TabIndex="1"/>
-        <TextBox x:Name="txtApellidos" HorizontalAlignment="Left" Height="23" Margin="514,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" FontSize="16" BorderBrush="Black" TabIndex="4"/>
-        <Label Content="RUT:" HorizontalAlignment="Left" Margin="87,125,0,0" VerticalAlignment="Top" FontSize="16" Width="81"/>
-        <Label Content="Nombres:" HorizontalAlignment="Left" Margin="87,175,0,0" VerticalAlignment="Top" FontSize="16" Height="31" Width="81"/>
-        <Label Content="Correo:" HorizontalAlignment="Left" Margin="87,225,0,0" VerticalAlignment="Top" FontSize="16" Width="81"/>
-        <Label Content="Dirección:" HorizontalAlignment="Left" Margin="410,225,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="Edad:" HorizontalAlignment="Left" Margin="410,125,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="Telefono:" HorizontalAlignment="Left" Margin="87,275,0,0" VerticalAlignment="Top" FontSize="16" Width="81"/>
-        <Label Content="Celular:" HorizontalAlignment="Left" Margin="410,275,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="-" HorizontalAlignment="Left" Margin="275,125,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="Apellidos:" HorizontalAlignment="Left" Margin="410,175,0,0" VerticalAlignment="Top" FontSize="16" Width="80"/>
         <Label Content="Registro de Trabajadores" Margin="263,40,0,0" VerticalAlignment="Top" Height="40" FontSize="22" FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Width="266"/>
         <Button x:Name="btnRegistrar" Content="Registrar" Margin="347,0,0,75" BorderBrush="Black" Background="White" FontSize="16" Height="30" VerticalAlignment="Bottom" TabIndex="13" Click="btnRegistrar_Click" Cursor="Hand" Style="{DynamicResource Round}" HorizontalAlignment="Left" Width="100"/>
         <Separator Height="15" Margin="70,80,68,0" VerticalAlignment="Top"/>
 
         <StackPanel
                 Name="StackPanel1"
-                Orientation="Horizontal" Margin="580,329,0,0" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="24">
+                Orientation="Horizontal" Margin="250,380,0,0" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="24">
             <Viewbox Height="{Binding ActualHeight, ElementName=StackPanel1}">
-                <CheckBox x:Name="chkAdmin" TabIndex="11"/>
+                <CheckBox x:Name="chkAdmin" TabIndex="11" BorderBrush="Black"/>
             </Viewbox>
         </StackPanel>
-        <Label Content="¿Permisos de Admin?:" HorizontalAlignment="Left" Margin="410,325,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="Contraseña:" HorizontalAlignment="Left" Margin="87,325,0,0" VerticalAlignment="Top" FontSize="16" Width="99"/>
-        <PasswordBox x:Name="pwdPassword" HorizontalAlignment="Left" Margin="191,333,0,0" VerticalAlignment="Top" Width="175" Height="23" BorderBrush="Black" FontSize="16" TabIndex="9"/>
-        <Label Content="Confirmar:" HorizontalAlignment="Left" Margin="87,375,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <PasswordBox x:Name="pwdConfirmar" HorizontalAlignment="Left" Margin="191,379,0,0" VerticalAlignment="Top" Width="175" Height="23" BorderBrush="Black" FontSize="16" TabIndex="10"/>
-        <Label Content="Sueldo Base:" HorizontalAlignment="Left" Margin="410,375,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <TextBox x:Name="txtSueldo" HorizontalAlignment="Left" Height="23" Margin="514,379,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" BorderBrush="Black" TabIndex="12" MaxLength="10"/>
+        <Label Content="¿Permisos de Admin?:" HorizontalAlignment="Left" Margin="85,375,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Confirmar:" HorizontalAlignment="Left" Margin="400,325,0,0" VerticalAlignment="Top" FontSize="16" Width="100"/>
+        <PasswordBox x:Name="pwdConfirmar" HorizontalAlignment="Left" Margin="500,329,0,0" VerticalAlignment="Top" Width="200" Height="23" BorderBrush="Black" FontSize="16" TabIndex="10"/>
+        <Label Content="Sueldo Base:" HorizontalAlignment="Left" Margin="400,375,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="txtSueldo" HorizontalAlignment="Left" Height="23" Margin="500,379,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" BorderBrush="Black" TabIndex="12" MaxLength="10" MaxLines="1"/>
+        <TextBox x:Name="txtRut" HorizontalAlignment="Left" Height="23" Margin="185,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" FontSize="16" MaxLength="8" MaxLines="1" BorderBrush="Black" TabIndex="0" ToolTip="RUT sin puntos"/>
+        <TextBox x:Name="txtNombres" HorizontalAlignment="Left" Height="23" Margin="185,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="16" BorderBrush="Black" TabIndex="3" MaxLength="50" MaxLines="1"/>
+        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="23" Margin="185,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="16" BorderBrush="Black" TabIndex="5" MaxLines="1" MaxLength="200"/>
+        <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="23" Margin="500,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="16" BorderBrush="Black" TabIndex="6" MaxLines="1" MaxLength="100"/>
+        <TextBox x:Name="txtTelefono" HorizontalAlignment="Left" Height="23" Margin="185,279,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontSize="16" BorderBrush="Black" TabIndex="7" MaxLength="10" MaxLines="1"/>
+        <TextBox x:Name="txtCelular" HorizontalAlignment="Left" Height="23" Margin="500,279,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontSize="16" BorderBrush="Black" TabIndex="8" MaxLines="1" MaxLength="9"/>
+        <TextBox x:Name="txtEdad" HorizontalAlignment="Left" Height="23" Margin="500,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" FontSize="16" MaxLength="3" MaxLines="1" BorderBrush="Black" TabIndex="2" TextAlignment="Center"/>
+        <TextBox x:Name="txtDv" HorizontalAlignment="Left" Height="23" Margin="289,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" FontSize="16" TextAlignment="Center" MaxLength="1" MaxLines="1" BorderBrush="Black" TabIndex="1" ToolTip="Dígito verificador"/>
+        <TextBox x:Name="txtApellidos" HorizontalAlignment="Left" Height="23" Margin="500,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="16" BorderBrush="Black" TabIndex="4" MaxLines="1" MaxLength="50"/>
+        <Label Content="RUT:" HorizontalAlignment="Left" Margin="85,125,0,0" VerticalAlignment="Top" FontSize="16" Width="100"/>
+        <Label Content="Nombres:" HorizontalAlignment="Left" Margin="85,175,0,0" VerticalAlignment="Top" FontSize="16" Height="31" Width="100"/>
+        <Label Content="Correo:" HorizontalAlignment="Left" Margin="85,225,0,0" VerticalAlignment="Top" FontSize="16" Width="100"/>
+        <Label Content="Dirección:" HorizontalAlignment="Left" Margin="400,225,0,0" VerticalAlignment="Top" FontSize="16" Width="100"/>
+        <Label Content="Edad:" HorizontalAlignment="Left" Margin="400,125,0,0" VerticalAlignment="Top" FontSize="16" Width="100"/>
+        <Label Content="Telefono:" HorizontalAlignment="Left" Margin="85,275,0,0" VerticalAlignment="Top" FontSize="16" Width="100" IsTabStop="True"/>
+        <Label Content="Celular:" HorizontalAlignment="Left" Margin="400,275,0,0" VerticalAlignment="Top" FontSize="16" Width="100"/>
+        <Label Content="-" HorizontalAlignment="Left" Margin="268,125,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Apellidos:" HorizontalAlignment="Left" Margin="400,175,0,0" VerticalAlignment="Top" FontSize="16" Width="100"/>
+        <Label Content="Contraseña:" HorizontalAlignment="Left" Margin="85,325,0,0" VerticalAlignment="Top" FontSize="16" Width="100"/>
+        <PasswordBox x:Name="pwdPassword" HorizontalAlignment="Left" Margin="185,329,0,0" VerticalAlignment="Top" Width="200" Height="23" BorderBrush="Black" FontSize="16" TabIndex="9" ToolTip="Ingresar contraseña" PasswordChar="●"/>
     </Grid>
 </Window>

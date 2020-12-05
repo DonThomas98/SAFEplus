@@ -17,18 +17,18 @@ namespace SAFE.Datos
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public VISITA_TERRENO()
         {
-            this.ASESORIA = new HashSet<ASESORIA>();
             this.INFORME_VISITA = new HashSet<INFORME_VISITA>();
         }
     
-        public decimal ID_VISITA { get; set; }
+        public long ID { get; set; }
         public System.DateTime FECHA_VISITA { get; set; }
+        public string MOTIVO_VISITA { get; set; }
+        public long RUT_CLIENTE_ID { get; set; }
+        public long RUT_TRABAJADOR_ID { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ASESORIA> ASESORIA { get; set; }
-        public virtual CLIENTE CLIENTE { get; set; }
+        public virtual AUTH_USER AUTH_USER { get; set; }
+        public virtual AUTH_USER AUTH_USER1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<INFORME_VISITA> INFORME_VISITA { get; set; }
-        public virtual TRABAJADOR TRABAJADOR { get; set; }
     }
 }

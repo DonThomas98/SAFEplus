@@ -140,95 +140,113 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ACCIDENTE.cs">
-      <DependentUpon>SafePlusEDM.tt</DependentUpon>
+      <DependentUpon>SafeDjangoEDM.tt</DependentUpon>
     </Compile>
-    <Compile Include="ANTECEDENTES_ASESORIA.cs">
-      <DependentUpon>SafePlusEDM.tt</DependentUpon>
+    <Compile Include="ACCOUNT_USERPROFILE.cs">
+      <DependentUpon>SafeDjangoEDM.tt</DependentUpon>
     </Compile>
     <Compile Include="ASESORIA.cs">
-      <DependentUpon>SafePlusEDM.tt</DependentUpon>
+      <DependentUpon>SafeDjangoEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AUTH_GROUP.cs">
+      <DependentUpon>SafeDjangoEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AUTH_GROUP_PERMISSIONS.cs">
+      <DependentUpon>SafeDjangoEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AUTH_PERMISSION.cs">
+      <DependentUpon>SafeDjangoEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AUTH_USER.cs">
+      <DependentUpon>SafeDjangoEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AUTH_USER_GROUPS.cs">
+      <DependentUpon>SafeDjangoEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AUTH_USER_USER_PERMISSIONS.cs">
+      <DependentUpon>SafeDjangoEDM.tt</DependentUpon>
     </Compile>
     <Compile Include="CAPACITACION.cs">
-      <DependentUpon>SafePlusEDM.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CARGO.cs">
-      <DependentUpon>SafePlusEDM.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CLIENTE.cs">
-      <DependentUpon>SafePlusEDM.tt</DependentUpon>
+      <DependentUpon>SafeDjangoEDM.tt</DependentUpon>
     </Compile>
     <Compile Include="CONTRATO.cs">
-      <DependentUpon>SafePlusEDM.tt</DependentUpon>
+      <DependentUpon>SafeDjangoEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="COSTO_ADICIONAL.cs">
+      <DependentUpon>SafeDjangoEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DJANGO_ADMIN_LOG.cs">
+      <DependentUpon>SafeDjangoEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DJANGO_CONTENT_TYPE.cs">
+      <DependentUpon>SafeDjangoEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DJANGO_MIGRATIONS.cs">
+      <DependentUpon>SafeDjangoEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DJANGO_SESSION.cs">
+      <DependentUpon>SafeDjangoEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FISCALIZACION.cs">
+      <DependentUpon>SafeDjangoEDM.tt</DependentUpon>
     </Compile>
     <Compile Include="INFORME_VISITA.cs">
-      <DependentUpon>SafePlusEDM.tt</DependentUpon>
+      <DependentUpon>SafeDjangoEDM.tt</DependentUpon>
     </Compile>
     <Compile Include="MATERIAL_CAPACITACIONES.cs">
-      <DependentUpon>SafePlusEDM.tt</DependentUpon>
+      <DependentUpon>SafeDjangoEDM.tt</DependentUpon>
     </Compile>
     <Compile Include="MATERIAL_SOLICITADO.cs">
-      <DependentUpon>SafePlusEDM.tt</DependentUpon>
+      <DependentUpon>SafeDjangoEDM.tt</DependentUpon>
     </Compile>
     <Compile Include="MULTA.cs">
-      <DependentUpon>SafePlusEDM.tt</DependentUpon>
+      <DependentUpon>SafeDjangoEDM.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="REGISTRO_ACCIDENTADOS.cs">
-      <DependentUpon>SafePlusEDM.tt</DependentUpon>
-    </Compile>
     <Compile Include="REGISTRO_PAGOS.cs">
-      <DependentUpon>SafePlusEDM.tt</DependentUpon>
+      <DependentUpon>SafeDjangoEDM.tt</DependentUpon>
     </Compile>
-    <Compile Include="SafePlusEDM.Context.cs">
+    <Compile Include="SafeDjangoEDM.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SafePlusEDM.Context.tt</DependentUpon>
+      <DependentUpon>SafeDjangoEDM.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="SafePlusEDM.cs">
+    <Compile Include="SafeDjangoEDM.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SafePlusEDM.tt</DependentUpon>
+      <DependentUpon>SafeDjangoEDM.tt</DependentUpon>
     </Compile>
-    <Compile Include="SafePlusEDM.Designer.cs">
+    <Compile Include="SafeDjangoEDM.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SafePlusEDM.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="TIPO_ACCIDENTE.cs">
-      <DependentUpon>SafePlusEDM.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TIPO_CONTRATO.cs">
-      <DependentUpon>SafePlusEDM.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TRABAJADOR.cs">
-      <DependentUpon>SafePlusEDM.tt</DependentUpon>
+      <DependentUpon>SafeDjangoEDM.edmx</DependentUpon>
     </Compile>
     <Compile Include="VISITA_TERRENO.cs">
-      <DependentUpon>SafePlusEDM.tt</DependentUpon>
+      <DependentUpon>SafeDjangoEDM.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="BD\Scriptbd.sql" />
-    <Content Include="SafePlusEDM.Context.tt">
+    <Content Include="SafeDjangoEDM.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SafePlusEDM.edmx</DependentUpon>
-      <LastGenOutput>SafePlusEDM.Context.cs</LastGenOutput>
+      <DependentUpon>SafeDjangoEDM.edmx</DependentUpon>
+      <LastGenOutput>SafeDjangoEDM.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="SafePlusEDM.tt">
+    <Content Include="SafeDjangoEDM.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SafePlusEDM.edmx</DependentUpon>
-      <LastGenOutput>SafePlusEDM.cs</LastGenOutput>
+      <DependentUpon>SafeDjangoEDM.edmx</DependentUpon>
+      <LastGenOutput>SafeDjangoEDM.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <EntityDeploy Include="SafePlusEDM.edmx">
+    <EntityDeploy Include="SafeDjangoEDM.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SafePlusEDM.Designer.cs</LastGenOutput>
+      <LastGenOutput>SafeDjangoEDM.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="SafePlusEDM.edmx.diagram">
-      <DependentUpon>SafePlusEDM.edmx</DependentUpon>
+    <None Include="SafeDjangoEDM.edmx.diagram">
+      <DependentUpon>SafeDjangoEDM.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

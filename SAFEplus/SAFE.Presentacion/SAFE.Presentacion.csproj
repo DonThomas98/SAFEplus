@@ -169,6 +169,9 @@
     <Compile Include="RegistroTrabajador.xaml.cs">
       <DependentUpon>RegistroTrabajador.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Visitas.xaml.cs">
+      <DependentUpon>Visitas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VistaCliente.xaml.cs">
       <DependentUpon>VistaCliente.xaml</DependentUpon>
     </Compile>
@@ -208,6 +211,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RegistroTrabajador.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visitas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
