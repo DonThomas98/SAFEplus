@@ -74,5 +74,11 @@ namespace SAFE.Presentacion
             Visitas visitas = new Visitas();
             visitas.Show();
         }
+
+        private void btnCapacitaciones_Click(object sender, RoutedEventArgs e)
+        {
+            Capacitaciones capacitaciones = new Capacitaciones();
+            capacitaciones.Show();
+        }
     }
 }

@@ -27,17 +27,27 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <Image HorizontalAlignment="Right" Height="45" Margin="0,25,23,0" VerticalAlignment="Top" Width="100" Source="Imagenes/Icon2.png" OpacityMask="Black"/>
-        <Button x:Name="btnVolver" Content="" HorizontalAlignment="Left" Margin="25,25,0,0" VerticalAlignment="Top" Width="33" Height="30" BorderBrush="{x:Null}" AutomationProperties.HelpText="Volver" Click="btnVolver_Click" Foreground="{x:Null}" RenderTransformOrigin="0.5,0.5" Cursor="Hand" Style="{DynamicResource MyButton}" TabIndex="10" ToolTip="Atrás">
+        <Image Height="45" Margin="0,25,27,0" VerticalAlignment="Top" Source="Imagenes/Icon2.png" OpacityMask="Black" HorizontalAlignment="Right" Width="98"/>
+        <Button x:Name="btnVolver" Content="" Margin="25,25,0,0" VerticalAlignment="Top" Height="30" BorderBrush="{x:Null}" AutomationProperties.HelpText="Volver" Click="btnVolver_Click" Foreground="{x:Null}" RenderTransformOrigin="0.5,0.5" Cursor="Hand" Style="{DynamicResource MyButton}" TabIndex="10" ToolTip="Atrás" HorizontalAlignment="Left" Width="31">
             <Button.Background>
                 <ImageBrush ImageSource="Imagenes/flecha-izquierda.png" Stretch="UniformToFill"/>
             </Button.Background>
         </Button>
-        <Label Content="RUT Cliente:" HorizontalAlignment="Left" Margin="287,100,0,0" VerticalAlignment="Top" FontSize="16" Height="30"/>
-        <ComboBox x:Name="cboRutCliente" HorizontalAlignment="Left" Margin="387,105,0,0" VerticalAlignment="Top" Width="120" BorderBrush="Black" SelectionChanged="cboRutCliente_SelectionChanged"></ComboBox>
-        <Label Content="Contratos" Margin="341,50,341,0" VerticalAlignment="Top" Height="40" FontSize="22" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-        <Separator Height="5" Margin="51,90,51,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="dtgListaContratos" Background="White" BorderBrush="Black" Margin="51,135,51,20"/>
-
+        <Label Content="Vista de Contratos" Margin="0,50,0,0" VerticalAlignment="Top" Height="40" FontSize="22" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TabControl Margin="50,100,52,27">
+            <TabItem Header="Lista de Contratos">
+                <Grid>
+                    <DataGrid x:Name="dtgContratos" Background="White" BorderBrush="Black"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Contratos por Cliente">
+                <Grid Background="#3FFF4D00">
+                    <Label Content="RUT Cliente:" Margin="10,5,0,0" VerticalAlignment="Top" FontSize="16" Height="30" HorizontalAlignment="Left" Width="100"/>
+                    <ComboBox x:Name="cboRutCliente" Margin="110,10,0,0" VerticalAlignment="Top" BorderBrush="Black" SelectionChanged="cboRutCliente_SelectionChanged" HorizontalAlignment="Left" Width="120"/>
+                    <DataGrid x:Name="dtgListaContratosCliente" Margin="10,42,10,10" Background="White"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Separator Height="5" Margin="50,90,52,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

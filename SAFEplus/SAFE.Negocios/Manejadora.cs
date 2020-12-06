@@ -65,6 +65,33 @@ namespace SAFE.Negocios
             conn.Close();
         }
 
+        private int GetIdUsuario(string rut)
+        {
+            int id = 0;
+            OracleConnection conn = ConexionDB();
+            try
+            {
+                conn.Open();
+                string query = "SELECT A.ID FROM AUTH_USER A JOIN ACCOUNT_USERPROFILE P ON A.ID = P.USER_ID WHERE P.RUT = '" + rut + "'";
+                OracleCommand cmd = new OracleCommand(query, conn);
+                OracleDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    id = dr.GetInt32(0);
+                }
+            }
+            catch (OracleException zz)
+            {
+                throw zz;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return id;
+        }
+
         public string GetNombre(string user)
         {
             string usuario = "Admin";
@@ -72,7 +99,7 @@ namespace SAFE.Negocios
             try
             {
                 conn.Open();
-                string query = "select first_name, last_name from auth_user where email = '" + user + "'";
+                string query = "SELECT FIRST_NAME, LAST_NAME FROM AUTH_USER WHERE EMAIL = '" + user + "'";
                 OracleCommand cmd = new OracleCommand(query, conn);
                 OracleDataReader dr = cmd.ExecuteReader();
 
@@ -105,8 +132,8 @@ namespace SAFE.Negocios
             OracleConnection conn = ConexionDB();
             conn.Open();
 
-            string querty = "insert into auth_user(username,password,first_name,last_name,email,is_staff,is_superuser,is_active,date_joined) " +
-                            "values('" + username + "', '" + password + "', '" + nombre + "', '" + apellido + "', '" + correo + "',0,0,1,current_date)";
+            string querty = "INSERT INTO AUTH_USER(USERNAME, PASSWORD, FIRST_NAME, LAST_NAME, EMAIL, IS_STAFF, IS_SUPERUSER, IS_ACTIVE, DATE_JOINED) " +
+                            "VALUES('" + username + "', '" + password + "', '" + nombre + "', '" + apellido + "', '" + correo + "', 0, 0, 1, CURRENT_DATE)";
             OracleCommand cmd = new OracleCommand(querty, conn);
             //OracleDataAdapter da = new OracleDataAdapter(cmd);
             cmd.ExecuteNonQuery();
@@ -125,8 +152,8 @@ namespace SAFE.Negocios
             }
 
             //conn.Open();
-            string asdfgh = "insert into account_userprofile(rut,sueldo,edad,user_id) " +
-                            "values(" + rut + ", " + sueldo + ", " + edad + ", " + id + ")";
+            string asdfgh = "INSERT INTO ACCOUNT_USERPROFILE(RUT, SUELDO, EDAD, USER_ID) " +
+                            "VALUES(" + rut + ", " + sueldo + ", " + edad + ", " + id + ")";
             OracleCommand cmd2 = new OracleCommand(asdfgh, conn);
             //OracleDataAdapter da2 = new OracleDataAdapter(cmd);
             cmd2.ExecuteNonQuery();
@@ -179,13 +206,33 @@ namespace SAFE.Negocios
             return pagos;
         }
 
+        public DataTable GetPagos()
+        {
+            DataTable dt = new DataTable();
+            OracleConnection conn = ConexionDB();
+            string query = "SELECT P.RUT, U.EMAIL, R.MONTO_PAGO \"MONTO PAGADO\",R.FECHA_PAGO \"FECHA PAGO\", C.DESCRIPCION \"DESCRIPCION CONTRATO\", C.FECHA_CONTRATACION \"FECHA CONTRATACION\" " +
+                           "FROM REGISTRO_PAGOS R " +
+                           "JOIN CONTRATO C ON C.ID = R.ID_CONTRATO_ID " +
+                           "JOIN AUTH_USER U ON C.RUT_CLIENTE_ID = U.ID " +
+                           "JOIN ACCOUNT_USERPROFILE P ON U.ID = P.USER_ID";
+            OracleCommand cmd = new OracleCommand(query, conn);
+            conn.Open();
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+            cmd.ExecuteNonQuery();
+            da.Fill(dt);
+            conn.Close();
+            return dt;
+        }
+
         public DataTable GetPagosCliente(string rut)
         {
             DataTable dt = new DataTable();
             OracleConnection conn = ConexionDB();
-            string query = "SELECT P.RUT, A.EMAIL, R.MONTO_PAGO \"MONTO PAGADO\",R.FECHA_PAGO \"FECHA PAGO\", C.DESCRIPCION \"DESCRIPCION CONTRATO\", C.FECHA_CONTRATACION \"FECHA CONTRATACION\" " +
-                           "FROM REGISTRO_PAGOS R JOIN CONTRATO C ON R.ID_CONTRATO_ID = C.ID " +
-                           "JOIN ACCOUNT_USERPROFILE P ON P.RUT = C.RUT_CLIENTE_ID JOIN AUTH_USER A ON A.ID = P.USER_ID " +
+            string query = "SELECT P.RUT, U.EMAIL, R.MONTO_PAGO \"MONTO PAGADO\",R.FECHA_PAGO \"FECHA PAGO\", C.DESCRIPCION \"DESCRIPCION CONTRATO\", C.FECHA_CONTRATACION \"FECHA CONTRATACION\" " +
+                           "FROM REGISTRO_PAGOS R " +
+                           "JOIN CONTRATO C ON C.ID = R.ID_CONTRATO_ID " +
+                           "JOIN AUTH_USER U ON C.RUT_CLIENTE_ID = U.ID " +
+                           "JOIN ACCOUNT_USERPROFILE P ON U.ID = P.USER_ID " +
                            "WHERE P.RUT = '" + rut + "'";
             OracleCommand cmd = new OracleCommand(query, conn);
             conn.Open();
@@ -301,7 +348,22 @@ namespace SAFE.Negocios
             return dt;
         }
 
-        public DataTable GetContratos(string rut)
+        public DataTable GetContratos()
+        {
+            DataTable dt = new DataTable();
+            OracleConnection conn = ConexionDB();
+            string query = "SELECT A.FIRST_NAME || ' ' || A.LAST_NAME CLIENTE, C.DESCRIPCION, C.COSTO, C.FECHA_CONTRATACION \"FECHA CONTRATACION\" " +
+                           "FROM CONTRATO C JOIN ACCOUNT_USERPROFILE P ON C.RUT_CLIENTE_ID = P.USER_ID JOIN AUTH_USER A ON A.ID = P.USER_ID";
+            OracleCommand cmd = new OracleCommand(query, conn);
+            conn.Open();
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+            cmd.ExecuteNonQuery();
+            da.Fill(dt);
+            conn.Close();
+            return dt;
+        }
+
+        public DataTable GetContratosCliente(string rut)
         {
             DataTable dt = new DataTable();
             OracleConnection conn = ConexionDB();
@@ -317,14 +379,115 @@ namespace SAFE.Negocios
             return dt;
         }
 
+        public bool SetAsesoriaAccidente()
+        {
+            bool resultado = false;
+            /*
+            OracleConnection conn = ConexionDB();
+            conn.Open();
+
+            //INSERT Asesoria Accidente
+            string query = "INSERT INTO VISITA_TERRENO (MOTIVO_VISITA, FECHA_VISITA, RUT_CLIENTE_ID, RUT_TRABAJADOR_ID) " +
+                           "VALUES ('" + motivo + "', '" + fecha + "', '" + id_cliente + "', '" + id_trabajador + "')";
+            OracleCommand cmd = new OracleCommand(query, conn);
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+            resultado = true;
+            Commit();
+            */
+            return resultado;
+        }
+
+        public bool SetAsesoriaFiscalizacion()
+        {
+            bool resultado = false;
+            /*
+            OracleConnection conn = ConexionDB();
+            conn.Open();
+
+            //INSERT Asesoria Fiscalizacion
+            string query = "INSERT INTO VISITA_TERRENO (MOTIVO_VISITA, FECHA_VISITA, RUT_CLIENTE_ID, RUT_TRABAJADOR_ID) " +
+                           "VALUES ('" + motivo + "', '" + fecha + "', '" + id_cliente + "', '" + id_trabajador + "')";
+            OracleCommand cmd = new OracleCommand(query, conn);
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+            resultado = true;
+            Commit();
+            */
+            return resultado;
+        }
+
+        public DataTable GetAsesoriasAccidente()
+        {
+            DataTable aseacci = new DataTable();
+            OracleConnection conn = ConexionDB();
+            string query = "SELECT A.ID, U.FIRST_NAME || ' ' || U.LAST_NAME CLIENTE, P.RUT, A.EVENTO, A.PROPUESTA, A.ASESORIA_ESPECIAL \"¿ASESORIA ESPECIAL?\", " +
+                           "AC.NATURALEZA, AC.PARTES_ACCIDENTADAS \"PARTES ACCIDENTADAS\", AC.FUENTE_ACCIDENTE \"FUENTE ACCIDENTE\", AC.FECHA_ACCIDENTE \"FECHA ACCIDENTE\" " +
+                           "FROM ASESORIA A " +
+                           "JOIN ACCIDENTE AC ON A.ID_ACCIDENTE_ID = AC.ID " +
+                           "JOIN AUTH_USER U ON U.ID = AC.RUT_CLIENTE_ID " +
+                           "JOIN ACCOUNT_USERPROFILE P ON P.USER_ID = U.ID";
+            OracleCommand cmd = new OracleCommand(query, conn);
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+            da.Fill(aseacci);
+            conn.Close();
+            return aseacci;
+        }
+
+        public DataTable GetAsesoriasFiscalizacion()
+        {
+            DataTable asefisca = new DataTable();
+            OracleConnection conn = ConexionDB();
+            string query = "SELECT A.ID, U.FIRST_NAME || ' ' || U.LAST_NAME CLIENTE, P.RUT, A.EVENTO, F.DOC_REVISADOS \"DOCUMENTOS REVISADOS\", " +
+                           "F.DESCRIPCION_DOCUMENTO \"DESCRPCION DEL DOCUMENTO\", F.DOCUMENTO, " +
+                           "A.PROPUESTA, A.ASESORIA_ESPECIAL \"¿ASESORIA ESPECIAL?\", F.DOCUMENTO " +
+                           "FROM ASESORIA A " +
+                           "JOIN FISCALIZACION F ON A.ID_FISCALIZACION_ID = F.ID " +
+                           "JOIN AUTH_USER U ON U.ID = F.RUT_CLIENTE_ID " +
+                           "JOIN ACCOUNT_USERPROFILE P ON P.USER_ID = U.ID";
+            OracleCommand cmd = new OracleCommand(query, conn);
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+            da.Fill(asefisca);
+            conn.Close();
+            return asefisca;
+        }
+
+        public DataTable GetAsesoriasAccidenteFecha(string mesaño)
+        {
+            DataTable aseacci = new DataTable();
+            OracleConnection conn = ConexionDB();
+            string query = "SELECT A.ID, U.FIRST_NAME || ' ' || U.LAST_NAME CLIENTE, P.RUT, A.EVENTO, AC.NATURALEZA, A.PROPUESTA, A.ASESORIA_ESPECIAL \"¿ASESORIA ESPECIAL?\", " +
+                           "AC.PARTES_ACCIDENTADAS \"PARTES ACCIDENTADAS\", AC.FUENTE_ACCIDENTE \"FUENTE ACCIDENTE\", AC.FECHA_ACCIDENTE \"FECHA ACCIDENTE\" " +
+                           "FROM ASESORIA A " +
+                           "JOIN ACCIDENTE AC ON A.ID_ACCIDENTE_ID = AC.ID " +
+                           "JOIN AUTH_USER U ON U.ID = AC.RUT_CLIENTE_ID " +
+                           "JOIN ACCOUNT_USERPROFILE P ON P.USER_ID = U.ID " +
+                           "WHERE TO_CHAR(AC.FECHA_ACCIDENTE,'mm/yyyy') = '" + mesaño + "'";
+            OracleCommand cmd = new OracleCommand(query, conn);
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+            da.Fill(aseacci);
+            conn.Close();
+            return aseacci;
+        }
+
         public string GetAccidentabilidad(string mesaño)
         {
-            string accidentabilidad = "";
+            string accidentabilidad;
+            OracleConnection conn = ConexionDB();
+            conn.Open();
             string query = "SELECT " +
-                           "(SELECT COUNT(DISTINCT ID) ACCIDENTABILIDAD FROM ACCIDENTE WHERE TO_CHAR(FECHA_ACCIDENTE,'mm/yyyy') = '" + mesaño + "')/" +
+                           "(SELECT COUNT(DISTINCT ID) FROM ACCIDENTE WHERE TO_CHAR(FECHA_ACCIDENTE,'mm/yyyy') = '" + mesaño + "')/" +
                            "(SELECT COUNT(DISTINCT ID) FROM AUTH_USER WHERE IS_STAFF=0 AND IS_ACTIVE=1)*100 || '%' ACCIDENTABILIDAD " +
                            "FROM DUAL";
-            OracleCommand sql = new OracleCommand(query, ConexionDB());
+            OracleCommand sql = new OracleCommand(query, conn);
             OracleDataReader dr = sql.ExecuteReader();
             if (dr.Read())
             {
@@ -334,39 +497,22 @@ namespace SAFE.Negocios
             {
                 accidentabilidad = "Error";
             }
+            conn.Close();
             return accidentabilidad;
         }
 
         public bool SetVisita(string motivo, string fecha, string rutcli, string ruttra)
         {
             bool resultado = false;
-            int id_cliente = 0;
-            int id_trabajador = 0;
+            int id_cliente = GetIdUsuario(rutcli);
+            int id_trabajador = GetIdUsuario(ruttra);
             OracleConnection conn = ConexionDB();
             conn.Open();
 
-            //ID Cliente
-            string query = "SELECT A.ID FROM AUTH_USER A JOIN ACCOUNT_USERPROFILE P ON A.ID = P.USER_ID WHERE P.RUT = '" + rutcli + "'";
-            OracleCommand sql = new OracleCommand(query, conn);
-            OracleDataReader dr = sql.ExecuteReader();
-            if (dr.Read())
-            {
-                id_cliente = dr.GetInt32(0);
-            }
-
-            //ID Trabajador
-            string query2 = "SELECT A.ID FROM AUTH_USER A JOIN ACCOUNT_USERPROFILE P ON A.ID = P.USER_ID WHERE P.RUT = '" + ruttra + "'";
-            OracleCommand sql2 = new OracleCommand(query2, conn);
-            OracleDataReader dr2 = sql2.ExecuteReader();
-            if (dr2.Read())
-            {
-                id_trabajador = dr2.GetInt32(0);
-            }
-
             //Insert Visita
-            string query3 = "INSERT INTO VISITA_TERRENO (MOTIVO_VISITA, FECHA_VISITA, RUT_CLIENTE_ID, RUT_TRABAJADOR_ID) " +
+            string query = "INSERT INTO VISITA_TERRENO (MOTIVO_VISITA, FECHA_VISITA, RUT_CLIENTE_ID, RUT_TRABAJADOR_ID) " +
                             "VALUES ('" + motivo + "', '" + fecha + "', '" + id_cliente + "', '" + id_trabajador + "')";
-            OracleCommand cmd = new OracleCommand(query3, conn);
+            OracleCommand cmd = new OracleCommand(query, conn);
             cmd.ExecuteNonQuery();
 
             conn.Close();
@@ -402,6 +548,169 @@ namespace SAFE.Negocios
             da.Fill(dt);
             conn.Close();
             return dt;
+        }
+
+        public DataTable GetCapacitaciones()
+        {
+            DataTable dt = new DataTable();
+            OracleConnection conn = ConexionDB();
+            string query = "SELECT C.ID, C.FECHA_CAPACITACION \"FECHA CAPACITACION\", C.FECHA_SOLICITUD \"FECHA SOLICITUD\", C.HORA_CAPACITACION \"HORA CAPACITACION\", " +
+                "(SELECT P.RUT FROM AUTH_USER A JOIN ACCOUNT_USERPROFILE P ON A.ID = P.USER_ID WHERE A.ID = C.RUT_CLIENTE_ID) \"RUT CLIENTE\", " +
+                "(SELECT P.RUT FROM AUTH_USER A JOIN ACCOUNT_USERPROFILE P ON A.ID = P.USER_ID WHERE A.ID = C.RUT_TRABAJADOR_ID) \"RUT TRABAJADOR\" " +
+                "FROM CAPACITACION C";
+            OracleCommand cmd = new OracleCommand(query, conn);
+
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(cmd);
+                da.Fill(dt);
+                return dt;
+            }
+            catch (OracleException zz)
+            {
+                throw zz;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public DataTable GetCapacitacionesTrabajador(string rut)
+        {
+            DataTable dt = new DataTable();
+            OracleConnection conn = ConexionDB();
+            int id = GetIdUsuario(rut);
+            conn.Open();
+
+            string query = "SELECT C.ID, C.FECHA_CAPACITACION \"FECHA CAPACITACION\", C.FECHA_SOLICITUD \"FECHA SOLICITUD\", C.HORA_CAPACITACION \"HORA CAPACITACION\", " +
+                "(SELECT P.RUT FROM AUTH_USER A JOIN ACCOUNT_USERPROFILE P ON A.ID = P.USER_ID WHERE A.ID = C.RUT_CLIENTE_ID) \"RUT CLIENTE\", " +
+                "(SELECT P.RUT FROM AUTH_USER A JOIN ACCOUNT_USERPROFILE P ON A.ID = P.USER_ID WHERE A.ID = C.RUT_TRABAJADOR_ID) \"RUT TRABAJADOR\" " +
+                "FROM CAPACITACION C " +
+                "WHERE C.RUT_TRABAJADOR_ID = '" + id + "'";
+
+            OracleCommand cmd = new OracleCommand(query, conn);
+            cmd.ExecuteNonQuery();
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+            da.Fill(dt);
+            conn.Close();
+            return dt;
+        }
+
+        public List<string> GetIdCapacitaciones()
+        {
+            List<string> id = new List<string>();
+            OracleConnection conn = ConexionDB();
+            string query = "SELECT ID FROM CAPACITACION";
+            OracleCommand cmd = new OracleCommand(query, conn);
+            conn.Open();
+            OracleDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                id.Add(dr[0].ToString());
+            }
+            conn.Close();
+            return id;
+        }
+
+        public bool SetCapacitacion(string fecha, string hora, string rutcli, string ruttra)
+        {
+            bool resultado;
+            int id_cliente = GetIdUsuario(rutcli);
+            int id_trabajador = GetIdUsuario(ruttra);
+            OracleConnection conn = ConexionDB();
+            conn.Open();
+
+            string query = "INSERT INTO CAPACITACION (FECHA_SOLICITUD, FECHA_CAPACITACION, HORA_CAPACITACION, RUT_CLIENTE_ID, RUT_TRABAJADOR_ID) " +
+                            "VALUES(CURRENT_DATE, '" + fecha + "', '" + hora + "', '" + id_cliente + "', '" + id_trabajador + "')";
+            
+            OracleCommand cmd = new OracleCommand(query, conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            resultado = true;
+            Commit();
+            return resultado;
+        }
+
+        public DataTable GetMateriales()
+        {
+            DataTable materiales = new DataTable();
+            OracleConnection conn = ConexionDB();
+            string query = "SELECT MATERIAL \"Lista de Materiales\" FROM MATERIAL_CAPACITACIONES";
+            OracleCommand cmd = new OracleCommand(query, conn);
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+            da.Fill(materiales);
+            conn.Close();
+            return materiales;
+        }
+
+        public List<string> GetMateriales2()
+        {
+            List<string> id = new List<string>();
+            OracleConnection conn = ConexionDB();
+            string query = "SELECT MATERIAL FROM MATERIAL_CAPACITACIONES";
+            OracleCommand cmd = new OracleCommand(query, conn);
+            conn.Open();
+            OracleDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                id.Add(dr[0].ToString());
+            }
+            conn.Close();
+            return id;
+        }
+
+        public bool SetMaterial(string material)
+        {
+            bool resultado;
+            OracleConnection conn = ConexionDB();
+            conn.Open();
+
+            string query = "INSERT INTO MATERIAL_CAPACITACIONES (MATERIAL) " +
+                           "VALUES('" + material + "')";
+
+            OracleCommand cmd = new OracleCommand(query, conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            resultado = true;
+            Commit();
+            return resultado;
+        }
+
+        public bool SetMaterialCapacitacion(string material, int cantidad, int capacitacion)
+        {
+            bool resultado;
+            int id;
+            OracleConnection conn = ConexionDB();
+            conn.Open();
+
+            //ID Material
+            string query = "SELECT ID FROM MATERIAL_CAPACITACIONES WHERE MATERIAL = '" + material + "'";
+            OracleCommand sql = new OracleCommand(query, conn);
+            OracleDataReader dr = sql.ExecuteReader();
+            if (dr.Read())
+            {
+                id = dr.GetInt32(0);
+            }
+            else
+            {
+                resultado = false;
+                return resultado;
+            }
+
+            //INSERT Material_Solicitado
+            string query2 = "INSERT INTO MATERIAL_SOLICITADO VALUES (\"DJANGO21\".\"ISEQ$$_80333\".nextval, " + cantidad + ", " + id + ", " + capacitacion + ")";
+
+            OracleCommand cmd = new OracleCommand(query2, conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            resultado = true;
+            Commit();
+            return resultado;
         }
     }
 }

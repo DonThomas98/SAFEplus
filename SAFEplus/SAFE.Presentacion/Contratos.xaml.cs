@@ -25,6 +25,7 @@ namespace SAFE.Presentacion
         {
             InitializeComponent();
             cboRutCliente.ItemsSource = _mane.GetRutCliente();
+            dtgContratos.ItemsSource = _mane.GetContratos().DefaultView;
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)
@@ -34,7 +35,7 @@ namespace SAFE.Presentacion
 
         private void cboRutCliente_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            dtgListaContratos.ItemsSource = _mane.GetContratos(cboRutCliente.SelectedItem.ToString()).DefaultView;
+            dtgListaContratosCliente.ItemsSource = _mane.GetContratosCliente(cboRutCliente.SelectedItem.ToString()).DefaultView;
         }
     }
 }

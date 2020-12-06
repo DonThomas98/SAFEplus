@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SAFE.Presentacion"
         mc:Ignorable="d"
-        Title="Monitoreo de Actividades - Safe+" Height="450" Width="800" Icon="Imagenes/Icon3.ico" WindowStartupLocation="CenterScreen">
+        Title="Vista de Asesorías - Safe+" Height="450" Width="800" Icon="Imagenes/Icon3.ico" WindowStartupLocation="CenterScreen">
     <Window.Resources>
+        <Style TargetType="DatePickerTextBox">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <TextBox x:Name="txtFecha" IsEnabled="False" Text="{Binding Path=SelectedDate, StringFormat='MM/yyyy', RelativeSource={RelativeSource AncestorType=DatePicker}}" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
         <Style x:Key="MyButton" TargetType="{x:Type Button}">
             <Setter Property="OverridesDefaultStyle" Value="True" />
             <Setter Property="Cursor" Value="Hand" />
@@ -33,9 +42,35 @@
                 <ImageBrush ImageSource="Imagenes/flecha-izquierda.png" Stretch="UniformToFill"/>
             </Button.Background>
         </Button>
-        <Label Content="Monitoreo de Actividades" Margin="251,50,251,0" VerticalAlignment="Top" Height="40" FontSize="22" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+        <Label Content="Vista de Asesorías" Margin="271,50,271,0" VerticalAlignment="Top" Height="40" FontSize="22" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+        <TabControl Margin="50,105,50,25">
+            <TabItem Header="Asesorías por Accidentes">
+                <Grid>
+                    <DataGrid x:Name="dtgAccidentes" Background="White" BorderBrush="Black"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Asesorias por Fiscalizaciones">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dtgFiscalizaciones"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Accidentabilidad por Mes">
+                <Grid Background="#3FFF4D00">
+                    <DataGrid x:Name="dtgAccidentesCliente" Margin="10,42,10,10" Background="White"/>
+                    <Label Content="Accidentabilidad: " HorizontalAlignment="Right" Margin="0,0,75,0" VerticalAlignment="Top" FontSize="16" Height="42" Width="135" VerticalContentAlignment="Center"/>
+                    <Button x:Name="btnBuscar" Content="" HorizontalAlignment="Left" Margin="250,10,0,0" VerticalAlignment="Top" Width="25" Height="25" BorderBrush="{x:Null}" Foreground="{x:Null}" Cursor="Hand" Style="{DynamicResource MyButton}" ToolTip="Buscar" Click="btnBuscar_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Imagenes/lupa.png" Stretch="Uniform"/>
+                        </Button.Background>
+                    </Button>
+                    <Label x:Name="lbAccidentabilidad" Content="" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" FontSize="18" Height="42" Width="60" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label Content="Mes:" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" FontSize="16" Height="42" Width="50" VerticalContentAlignment="Center"/>
+                    <Label Content="Año:" HorizontalAlignment="Left" Margin="115,0,0,0" VerticalAlignment="Top" FontSize="16" Height="42" Width="50" VerticalContentAlignment="Center"/>
+                    <ComboBox x:Name="cboMes" HorizontalAlignment="Left" Margin="60,11,0,0" VerticalAlignment="Top" Width="50"/>
+                    <ComboBox x:Name="cboAño" HorizontalAlignment="Left" Margin="165,11,0,0" VerticalAlignment="Top" Width="75"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
         <Separator Height="10" Margin="50,90,50,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="dtgActividades" Margin="50,125,50,25" Background="White" BorderBrush="Black"/>
-
     </Grid>
 </Window>

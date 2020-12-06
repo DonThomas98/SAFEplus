@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\ryu66\source\repos\SAFEplus\SAFEplus\SAFE.Presentacion\obj\Debug\
+C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\obj\Debug\
 SAFE.Presentacion
 none
 false
 DEBUG;TRACE
-C:\Users\ryu66\source\repos\SAFEplus\SAFEplus\SAFE.Presentacion\App.xaml
-9574815838
+C:\Users\ryu66\source\repos\safeplus\SAFEplus\SAFE.Presentacion\App.xaml
+11-1692894629
 
-14318887663
-48-2078104952
-Ayuda.xaml;Contratos.xaml;MainWindow.xaml;Menu.xaml;MonitoreoActividades.xaml;RegistroClientes.xaml;RegistroTrabajador.xaml;VistaCliente.xaml;VistaTrabajador.xaml;
+15-1845401937
+53-816263248
+Ayuda.xaml;Capacitaciones.xaml;Contratos.xaml;MainWindow.xaml;Menu.xaml;MonitoreoActividades.xaml;RegistroClientes.xaml;RegistroTrabajador.xaml;Visitas.xaml;VistaCliente.xaml;VistaTrabajador.xaml;
 
-True
+False
 
