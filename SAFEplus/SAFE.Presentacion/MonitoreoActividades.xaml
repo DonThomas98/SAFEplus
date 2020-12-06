@@ -57,13 +57,13 @@
             <TabItem Header="Accidentabilidad por Mes">
                 <Grid Background="#3FFF4D00">
                     <DataGrid x:Name="dtgAccidentesCliente" Margin="10,42,10,10" Background="White"/>
-                    <Label Content="Accidentabilidad: " HorizontalAlignment="Right" Margin="0,0,75,0" VerticalAlignment="Top" FontSize="16" Height="42" Width="135" VerticalContentAlignment="Center"/>
+                    <Label Content="Accidentabilidad: " HorizontalAlignment="Right" Margin="0,0,100,0" VerticalAlignment="Top" FontSize="16" Height="42" Width="135" VerticalContentAlignment="Center"/>
                     <Button x:Name="btnBuscar" Content="" HorizontalAlignment="Left" Margin="250,10,0,0" VerticalAlignment="Top" Width="25" Height="25" BorderBrush="{x:Null}" Foreground="{x:Null}" Cursor="Hand" Style="{DynamicResource MyButton}" ToolTip="Buscar" Click="btnBuscar_Click">
                         <Button.Background>
                             <ImageBrush ImageSource="Imagenes/lupa.png" Stretch="Uniform"/>
                         </Button.Background>
                     </Button>
-                    <Label x:Name="lbAccidentabilidad" Content="" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" FontSize="18" Height="42" Width="60" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="lbAccidentabilidad" Content="" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" FontSize="18" Height="42" Width="90" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     <Label Content="Mes:" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" FontSize="16" Height="42" Width="50" VerticalContentAlignment="Center"/>
                     <Label Content="Año:" HorizontalAlignment="Left" Margin="115,0,0,0" VerticalAlignment="Top" FontSize="16" Height="42" Width="50" VerticalContentAlignment="Center"/>
                     <ComboBox x:Name="cboMes" HorizontalAlignment="Left" Margin="60,11,0,0" VerticalAlignment="Top" Width="50"/>

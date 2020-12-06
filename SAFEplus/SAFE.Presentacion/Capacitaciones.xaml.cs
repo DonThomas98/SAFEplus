@@ -24,6 +24,8 @@ namespace SAFE.Presentacion
         public Capacitaciones()
         {
             InitializeComponent();
+            cboRutCliente1.ItemsSource = _mane.GetRutCliente();
+            cboRutTrabajador1.ItemsSource = _mane.GetRutTrabajador();
             cboRutTrabajador.ItemsSource = _mane.GetRutTrabajador();
             dtgListaCapacitaciones.ItemsSource = _mane.GetCapacitaciones().DefaultView;
             dtgMateriales.ItemsSource = _mane.GetMateriales().DefaultView;
@@ -61,6 +63,7 @@ namespace SAFE.Presentacion
                     MessageBox.Show("Material no se añadió", "Error");
                 }
                 dtgMateriales.ItemsSource = _mane.GetMateriales().DefaultView;
+                cboMateriales.ItemsSource = _mane.GetMateriales2();
             }
         }
 
@@ -104,6 +107,7 @@ namespace SAFE.Presentacion
                 }
 
                 dtgListaCapacitaciones.ItemsSource = _mane.GetCapacitaciones().DefaultView;
+                cboCapacitacion.ItemsSource = _mane.GetIdCapacitaciones();
             }
         }
 

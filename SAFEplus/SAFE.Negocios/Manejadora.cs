@@ -484,8 +484,8 @@ namespace SAFE.Negocios
             OracleConnection conn = ConexionDB();
             conn.Open();
             string query = "SELECT " +
-                           "(SELECT COUNT(DISTINCT ID) FROM ACCIDENTE WHERE TO_CHAR(FECHA_ACCIDENTE,'mm/yyyy') = '" + mesaño + "')/" +
-                           "(SELECT COUNT(DISTINCT ID) FROM AUTH_USER WHERE IS_STAFF=0 AND IS_ACTIVE=1)*100 || '%' ACCIDENTABILIDAD " +
+                           "TRUNC(((SELECT COUNT(DISTINCT ID) FROM ACCIDENTE WHERE TO_CHAR(FECHA_ACCIDENTE,'mm/yyyy') = '" + mesaño + "')/" +
+                           "(SELECT COUNT(DISTINCT ID) FROM AUTH_USER WHERE IS_STAFF=0 AND IS_ACTIVE=1)*100), 2) || '%' ACCIDENTABILIDAD " +
                            "FROM DUAL";
             OracleCommand sql = new OracleCommand(query, conn);
             OracleDataReader dr = sql.ExecuteReader();
